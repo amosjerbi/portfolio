@@ -2504,7 +2504,7 @@ a {
     grid-column: 1;
     grid-row: 2;
     padding: 0px 0 0 0;
-    display: none;
+    display: grid;
   }
 
   .intro {
