@@ -1754,8 +1754,8 @@ p {
 
 .dec-right {
   position: absolute;
-  top: 25%;
-  right: 12px;
+  top: 18%;
+  right: 20px;
   transform: rotate(90deg) scaleX(-1);
   transform-origin: top right;
   z-index: 3;
