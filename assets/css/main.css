@@ -1425,10 +1425,22 @@ body.has-navbar-fixed-top, html.has-navbar-fixed-top {
   margin: 60px 0 0 0;
 }
 
+.grid-3-item {
+  /* grid-row: 1; */
+  /* display: grid; */
+}
+
 .boxtext {
   text-align: center;
   text-transform: uppercase;
   padding: 0.5rem 0 0.5rem 0;
+  display: grid;
+}
+
+.boxtext p {
+  text-align: center;
+  text-transform: none;
+  display: flex;
 }
 
 .iconn {
@@ -1726,7 +1738,7 @@ p {
 }
 
 .intro {
-  Padding: 0rem 0 1rem 0;
+  Padding: 0rem 0 0.4rem 0;
   text-align: left;
   color: var(--one_color);
   font-weight: 700;
@@ -2289,6 +2301,28 @@ a {
 }
 
 @media (max-width:900px) {
+  .grid-3-item {
+    display: flex;
+  }
+
+  .boxtext {
+    text-align: left;
+    text-transform: uppercase;
+    padding: 0.5rem 0 0.5rem 0;
+    display: grid;
+  }
+
+  .boxtext h4 {
+    text-align: left;
+    padding: 0.8rem 0 0 0;
+  }
+
+  .boxtext p {
+    text-align: left;
+    text-transform: none;
+    display: flex;
+  }
+
   .glide__bullet {
     background-color: transparent;
     width: 9px;
@@ -2401,7 +2435,7 @@ a {
   .grid3 {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-gap: 3rem;
+    grid-gap: 1.7rem;
   }
 
   .boxx {
@@ -2475,7 +2509,7 @@ a {
 
   .indexsection {
     display: grid;
-    grid-gap: 10px;
+    grid-gap: 0;
     padding: 0;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
@@ -2483,28 +2517,32 @@ a {
     align-content: start;
     overflow: hidden;
     min-height: calc(100vh + 1px);
-    padding: 3rem 0 0 0;
+    padding: 1rem 0 0 0;
     /* background: aquamarine; */
   }
 
   .boxx {
-    padding: 14%;
+    padding: 7%;
     background-color: var(--primary_light);
     box-shadow: 0 10px 20px 0 rgba(119, 129, 173, .1);
     border-radius: 10px;
-    margin: 10px 0 0 0;
+    margin: 30px 0 0 0;
   }
 
   .iconn {
-    max-width: 6rem;
-    padding: 4%;
+    max-width: 12rem;
+    margin: 0;
+    padding: 0 20px 0 0;
+    /* display: block; */
+    /* justify-content: center; */
   }
 
   .heroimg {
     grid-column: 1;
-    grid-row: 2;
+    grid-row: 1;
     padding: 0px 0 0 0;
     display: grid;
+    place-content: center;
   }
 
   .intro {
@@ -2527,10 +2565,10 @@ a {
 
   .indexsectiontext {
     grid-column: 1;
-    grid-row: 1;
+    grid-row: 2;
     text-align: center;
-    margin: -13rem 0 0 0;
-    padding: 14rem 30px 0 0;
+    margin: 0 0 5rem 0;
+    padding: 0rem 0 0 0;
   }
 
   .buttons {
