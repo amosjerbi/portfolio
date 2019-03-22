@@ -1441,6 +1441,8 @@ body.has-navbar-fixed-top, html.has-navbar-fixed-top {
   text-align: center;
   text-transform: none;
   display: flex;
+  width: 68%;
+  margin: 0 auto;
 }
 
 .iconn {
@@ -1453,7 +1455,7 @@ body.has-navbar-fixed-top, html.has-navbar-fixed-top {
 .grid3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 3rem
+  grid-gap: 0.3rem;
 }
 
 .projects {
@@ -2321,6 +2323,8 @@ a {
     text-align: left;
     text-transform: none;
     display: flex;
+    margin: unset;
+    width: 100%;
   }
 
   .glide__bullet {
