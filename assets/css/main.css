@@ -2559,6 +2559,9 @@ a {
     text-align: left;
     text-transform: uppercase;
     padding: 0rem 0 1.3rem 0;
+    letter-spacing: -1px;
+    word-spacing: 1.9px;
+    line-height: 1.2;
   }
 
   .herosectiontext {
