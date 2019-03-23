@@ -1559,7 +1559,7 @@ body.has-navbar-fixed-top, html.has-navbar-fixed-top {
 .indexsectiontext {
   grid-column: 1/ span 5;
   grid-row: 1;
-  padding: 0 0 0 10px;
+  padding: 5rem 0 0 10px;
 }
 
 .indexsectiontext_invert {
@@ -2149,7 +2149,7 @@ a {
 
 .paragrap {
   text-transform: none;
-  padding: 0 8rem 4rem 0;
+  padding: 0 8rem 2rem 0;
   text-align: left;
 }
 
@@ -2538,14 +2538,14 @@ a {
     justify-content: start;
     align-content: start;
     overflow: hidden;
-    min-height: calc(100vh + 1px);
+    min-height: calc(85vh);
     padding: 1rem 0 0 0;
-    /* background: aquamarine; */
   }
 
   .indexsectiontext {
     grid-column: 1;
     grid-row: 2;
+    padding: 0 10px 12px 10px;
   }
 
   .boxx {
@@ -2567,7 +2567,7 @@ a {
   .heroimg {
     grid-column: 1;
     grid-row: 1;
-    padding: 0px 0 0 0;
+    padding: 0 0 0 0;
     display: grid;
     place-content: center;
   }
