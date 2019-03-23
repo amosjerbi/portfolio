@@ -11,6 +11,13 @@
   --four_color: #868b92;
 }
 
+.herosectiontext_invert {
+  grid-column: 1 / span 4;
+  grid-row: 1;
+  text-align: left;
+  margin: 0rem 0 0 0;
+}
+
 /*Bulma*/
 .productp {
   padding: 0rem 0 1rem 0;
@@ -1544,12 +1551,17 @@ body.has-navbar-fixed-top, html.has-navbar-fixed-top {
   grid-row: 1
 }
 
-.herosectiontext {
-  grid-column: 2/ span 5;
-  grid-row: 1;
+.heroimg_invert {
+  grid-column: 6/13;
+  grid-row: 1
 }
 
 .indexsectiontext {
+  grid-column: 1/ span 5;
+  grid-row: 1;
+}
+
+.indexsectiontext_invert {
   grid-column: 1/ span 5;
   grid-row: 1;
 }
@@ -2290,6 +2302,11 @@ a {
     grid-row: 1;
   }
 
+  .heroimg_invert {
+    grid-column: 6/13;
+    grid-row: 1;
+  }
+
   .section.is-small {
     padding: 6rem 1.5rem;
   }
@@ -2499,15 +2516,15 @@ a {
 
   .herosectionteaser {
     display: grid;
-    grid-gap: 10px;
+    /* grid-gap: 10px; */
     padding: 0;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
     justify-content: start;
     align-content: start;
     overflow: hidden;
-    min-height: calc(100vh + 1px);
-    padding: 0rem 0 0 0;
+    min-height: calc(90vh);
+    padding: 2.5rem 0 0 0;
     /* background: aquamarine; */
   }
 
@@ -2523,6 +2540,11 @@ a {
     min-height: calc(100vh + 1px);
     padding: 1rem 0 0 0;
     /* background: aquamarine; */
+  }
+
+  .indexsectiontext {
+    grid-column: 1;
+    grid-row: 2;
   }
 
   .boxx {
@@ -2549,6 +2571,14 @@ a {
     place-content: center;
   }
 
+  .heroimg_invert {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 0px 0 0 0;
+    display: grid;
+    place-content: center;
+  }
+
   .intro {
     text-align: left;
     font-weight: 700;
@@ -2562,6 +2592,7 @@ a {
     letter-spacing: -1px;
     word-spacing: 1.9px;
     line-height: 1.2;
+    grid-row: 2;
   }
 
   .herosectiontext {
@@ -2571,7 +2602,7 @@ a {
     margin: 0rem 0 0 0;
   }
 
-  .indexsectiontext {
+  .indexsectiontext_invert {
     grid-column: 1;
     grid-row: 2;
     text-align: center;
