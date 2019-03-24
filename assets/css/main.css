@@ -1886,8 +1886,8 @@ p {
 .testimonial-text p {
   margin-bottom: 15%;
   color: var(--primary_light);
-  /* font-size: 1.1rem;*/
-  line-height: 28px;
+  font-size: 1.6rem;
+  line-height: 38px;
   font-family: var(--fontMono);
   text-align: left;
 }
@@ -2064,7 +2064,7 @@ a {
 }
 
 .glide * {
-  box-sizing: inherit
+  box-sizing: inherit;
 }
 
 .glide__track {
@@ -2329,6 +2329,20 @@ a {
 }
 
 @media (max-width:900px) {
+  .testimonial-text p {
+    margin-bottom: 15%;
+    color: var(--primary_light);
+    font-size: 1.4rem;
+    line-height: 33px;
+    font-family: var(--fontMono);
+    text-align: left;
+  }
+
+  .projects {
+    padding: 0 0 30px 0;
+    color: var(--primary_dark);
+  }
+
   .productintro {
     Padding: 0rem 0 0.5rem 0;
   }
@@ -2362,7 +2376,7 @@ a {
   }
 
   .glide__bullet {
-    background-color: transparent;
+    /* background-color: var(--primary_light); */
     width: 9px;
     height: 9px;
     padding: 0;
@@ -2672,7 +2686,7 @@ a {
 
   .timelinebox {
     padding: 4px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     width: auto;
   }
 
@@ -2698,7 +2712,13 @@ a {
   }
 
   .glide__bullets {
-    top: auto;
+    top: 90%;
+  }
+
+  .glide__slide--active {
+    transform: translate3d(0, 0.8%, 0) scale(1);
+    transition: all 250ms ease-out 0s;
+    opacity: 1;
   }
 
   .glide__wrapper {

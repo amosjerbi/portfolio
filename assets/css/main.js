@@ -14,7 +14,7 @@ AOS.init({
 
 var glide = new Glide('#glide', {
   type: 'carousel',
-  perView: 3,
+  perView: 2,
   loop: true,
   focusAt: 'center',
   breakpoints: {
