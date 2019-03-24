@@ -2330,7 +2330,7 @@ a {
 
 @media (max-width:900px) {
   .testimonial-text p {
-    margin-bottom: 15%;
+    margin-bottom: 8%;
     color: var(--primary_light);
     font-size: 1.4rem;
     line-height: 33px;
