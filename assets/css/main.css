@@ -2339,7 +2339,7 @@ a {
   }
 
   .projects {
-    padding: 0 0 30px 0;
+    padding: 0 0 25px 0;
     color: var(--primary_dark);
   }
 
@@ -2481,7 +2481,7 @@ a {
   }
 
   .section.is-small {
-    padding: 3.8rem 1rem 3.8rem 1rem;
+    padding: 3.6rem 1rem 3.6rem 1rem;
   }
 
   .grid3 {
@@ -2712,7 +2712,7 @@ a {
   }
 
   .glide__bullets {
-    top: 90%;
+    top: auto;
   }
 
   .glide__slide--active {
