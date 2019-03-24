@@ -20,7 +20,7 @@
 
 /*Bulma*/
 .productp {
-  padding: 0rem 0 1rem 0;
+  padding: 1rem 6rem 1rem 0;
   font-weight: 400;
 }
 
@@ -1759,6 +1759,14 @@ p {
   font-weight: 700;
 }
 
+.productintro {
+  Padding: 0rem 0 0.5rem 0;
+}
+
+.productitle {
+  Padding: 0rem 0 0.5rem 0;
+}
+
 .buttonborder {
   font-family: var(--fontSans);
   font-weight: 700;
@@ -2321,6 +2329,14 @@ a {
 }
 
 @media (max-width:900px) {
+  .productintro {
+    Padding: 0rem 0 0.5rem 0;
+  }
+
+  .productitle {
+    Padding: 0rem 0 1.5rem 0;
+  }
+
   .grid-3-item {
     display: flex;
   }
@@ -2612,7 +2628,7 @@ a {
   }
 
   .buttons {
-    justify-content: center
+    justify-content: left;
   }
 
   .footer {
