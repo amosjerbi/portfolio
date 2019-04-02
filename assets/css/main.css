@@ -1789,7 +1789,7 @@ p {
 
 .dec-right {
   position: absolute;
-  top: 18%;
+  top: 3%;
   right: 20px;
   transform: rotate(90deg) scaleX(-1);
   transform-origin: top right;
@@ -2568,7 +2568,7 @@ a {
     justify-content: start;
     align-content: start;
     overflow: hidden;
-    min-height: calc(85vh);
+    min-height: calc(75vh);
     padding: 1rem 0 0 0;
   }
 
