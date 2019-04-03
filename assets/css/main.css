@@ -2554,8 +2554,8 @@ a {
     justify-content: start;
     align-content: start;
     overflow: hidden;
-    min-height: calc(90vh);
-    padding: 2.5rem 0 0 0;
+    min-height: calc(70vh);
+    padding: 3.5rem 0 0 0;
     /* background: aquamarine; */
   }
 

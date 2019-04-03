@@ -1,3 +1,7 @@
+$('.navbar').hide(); $(window).scroll(function () { if ($(this).scrollTop() > 20) { $('.navbar').slideDown(); } else { $('.navbar').slideUp(); } });
+
+
+
 window.onscroll = () => {
   const nav = document.querySelector('#navbar');
   if (this.scrollY <= 10) nav.className = '';
