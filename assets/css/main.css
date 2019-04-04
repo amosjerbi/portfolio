@@ -1411,7 +1411,7 @@ body.has-navbar-fixed-top, html.has-navbar-fixed-top {
 }
 
 .section {
-  padding: 1rem 1.5rem
+  padding: 1rem 1.5rem;
 }
 
 .footer {
@@ -2330,6 +2330,11 @@ a {
 
 @media (max-width:900px) {
 
+  .productp {
+    padding: 1px 0rem 0.3rem 0;
+    font-weight: 400;
+    }
+
   .testimonial-text p {
     margin-bottom: 8%;
     color: var(--primary_light);
@@ -2556,7 +2561,7 @@ a {
     align-content: start;
     overflow: hidden;
     min-height: calc(70vh);
-    padding: 3.5rem 0 0 0;
+    padding: 0.5rem 0 0 0;
     /* background: aquamarine; */
   }
 
@@ -2606,7 +2611,7 @@ a {
   .heroimg_invert {
     grid-column: 1;
     grid-row: 2;
-    padding: 0px 0 0 0;
+    padding: 2.5rem 0 0 0;
     display: grid;
     place-content: center;
   }
