@@ -448,7 +448,7 @@ a:hover {
 
 img {
   height: auto;
-  max-width: 100%
+  max-width: 100%;
 }
 
 span {
@@ -1707,13 +1707,13 @@ body.has-navbar-fixed-top, html.has-navbar-fixed-top {
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--primary_dark);
-  padding: 0 0 0.8rem 0;
+  padding: 0 0 0.3rem 0;
   font-weight: 700;
   font-family: var(--fontSans);
 }
 
 h1 {
-  font-size: 1.953em;
+  font-size: 1.653em;
   line-height: 1.3;
   letter-spacing: .05rem;
 }
@@ -2329,6 +2329,7 @@ a {
 }
 
 @media (max-width:900px) {
+
   .testimonial-text p {
     margin-bottom: 8%;
     color: var(--primary_light);
@@ -2561,7 +2562,7 @@ a {
 
   .indexsection {
     display: grid;
-    grid-gap: 0;
+    grid-gap: 5px;
     padding: 0;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
@@ -2569,7 +2570,7 @@ a {
     align-content: start;
     overflow: hidden;
     min-height: calc(75vh);
-    padding: 1rem 0 0 0;
+    padding: 0 0 0 0;
   }
 
   .indexsectiontext {
@@ -2597,7 +2598,7 @@ a {
   .heroimg {
     grid-column: 1;
     grid-row: 1;
-    padding: 0 0 0 0;
+    padding: 0 0 0.8rem 0;
     display: grid;
     place-content: center;
   }
@@ -2704,7 +2705,8 @@ a {
   }
 
   .dec-right {
-    display: block
+    display: block;
+    top: -3%;
   }
 
   .glide__slides {
