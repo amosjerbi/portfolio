@@ -2488,7 +2488,7 @@ a {
   }
 
   .section.is-small {
-    padding: 3.6rem 1rem 3.6rem 1rem;
+    padding: 3rem 1rem 3rem 1rem;
   }
 
   .grid3 {
@@ -2620,13 +2620,14 @@ a {
   .intro {
     text-align: left;
     font-weight: 700;
-    color: var(--three_color);
+    color: var(--primary_dark);
+    padding: 0rem 0 0.6rem 0;
   }
 
   .herotext {
     text-align: left;
     text-transform: uppercase;
-    padding: 0rem 0 1.3rem 0;
+    padding: 0rem 0 0.4rem 0;
     letter-spacing: -1px;
     word-spacing: 1.9px;
     line-height: 1.3;
