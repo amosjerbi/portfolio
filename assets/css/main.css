@@ -1618,9 +1618,9 @@ body.has-navbar-fixed-top, html.has-navbar-fixed-top {
 }
 
 .novile-items:hover {
-  background: #d2bdff;
+  background: var(--one_color);
   fill: var(--primary_light);
-  border: 2px solid #d2bdff;
+  border: 2px solid transparent;
   transition: all .2s;
 }
 
@@ -1817,7 +1817,7 @@ p {
   transform: scaleX(-1);
   right: 10px;
   position: relative;
-  bottom: 25px;
+  bottom: 34px;
   font-weight: 600;
   color: var(--one_color);
   word-spacing: 8px;
