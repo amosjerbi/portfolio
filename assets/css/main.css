@@ -1804,7 +1804,7 @@ p {
   width: 80px;
   background: var(--four_color);
   margin: 20px 0;
-  bottom: 68px;
+  bottom: 54px;
   position: relative;
   right: 108px;
 }
@@ -1817,7 +1817,7 @@ p {
   transform: scaleX(-1);
   right: 10px;
   position: relative;
-  bottom: 34px;
+  bottom: 20px;
   font-weight: 600;
   color: var(--one_color);
   word-spacing: 8px;
@@ -2330,11 +2330,10 @@ a {
 }
 
 @media (max-width:900px) {
-
   .productp {
     padding: 1px 0rem 0.3rem 0;
     font-weight: 400;
-    }
+  }
 
   .testimonial-text p {
     margin-bottom: 8%;
