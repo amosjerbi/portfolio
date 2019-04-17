@@ -1945,15 +1945,15 @@ a {
   /* counter-increment: headings; */
   /* content: counter(headings,decimal-leading-zero); */
   font-size: 30px;
-  z-index: 0;
+
 }
 
 .divider:before {
-  z-index: -3;
+   z-index: 0;
   Font-size: 4rem;
   font-weight: 900;
   position: absolute;
-  color: rgba(0, 0, 0, .05);
+  color: rgba(70, 130, 230, 0.10);
   counter-increment: headings;
   content: counter(headings, decimal-leading-zero);
   top: -3rem;
