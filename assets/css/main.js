@@ -1,4 +1,5 @@
-$('.navbar').hide(); $(window).scroll(function () { if ($(this).scrollTop() > 20) { $('.navbar').slideDown(); } else { $('.navbar').slideUp(); } });
+// $('.navbar').hide(); $(window).scroll(function () { if ($(this).scrollTop() > 20) { $('.navbar').slideDown(); } else { $('.navbar').slideUp(); } });
+//-->
 
 
 
