@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="65px" height="65px" viewBox="0 0 65 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>phone</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="phone" fill="#000000">
+            <g id="Group-3" transform="translate(11.000000, 1.000000)">
+                <g id="Group-2">
+                    <path d="M8.06896552,6.79487179 C7.32623775,6.79487179 6.72413793,7.40330534 6.72413793,8.15384615 L6.72413793,55.8461538 C6.72413793,56.5966947 7.32623775,57.2051282 8.06896552,57.2051282 L34.9310345,57.2051282 C35.6737622,57.2051282 36.2758621,56.5966947 36.2758621,55.8461538 L36.2758621,8.15384615 C36.2758621,7.40330534 35.6737622,6.79487179 34.9310345,6.79487179 L8.06896552,6.79487179 Z M8.06896552,0 L34.9310345,0 C39.3874011,0 43,3.65060127 43,8.15384615 L43,55.8461538 C43,60.3493987 39.3874011,64 34.9310345,64 L8.06896552,64 C3.61259892,64 0,60.3493987 0,55.8461538 L0,8.15384615 C0,3.65060127 3.61259892,0 8.06896552,0 Z" id="Rectangle-12" fill-rule="nonzero"></path>
+                    <rect id="Rectangle-13" x="15" y="12" width="13" height="5" rx="2.5"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
