@@ -27,35 +27,52 @@
   <link rel="stylesheet" href="assets/css/bulma.css">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/aos.css">
-  
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NJ84D38');</script>
-<!-- End Google Tag Manager -->
-	
-	<!-- Google Analytics -->
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-136147619-1', 'auto');
-ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NJ84D38');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google Analytics -->
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-136147619-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <!-- End Google Analytics -->
 </head>
 
 <body>
-	
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJ84D38"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-	
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJ84D38" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <nav class="navbar is-fixed-top">
     <div class="container">
       <div class="navbar-brand">
@@ -66,12 +83,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="novile" aria-label="menu" aria-expanded="false">
 
-          <div class="buttons">
-            <a href="https://calendly.com/amosjerbi/30min" target="_blank" class="button is-talk">
-              Let's Talk
+          <div class="novile-items">
+            <a href="tel:+972-507205884">
+              <img src="assets/images/phone.svg" alt="">
             </a>
           </div>
 
+          <div class="novile-items">
+            <a href="mailto: amosjerbi@gmail.com?subject=Hey Amos, let's meet up!">
+              <img src="assets/images/mail.svg" alt="">
+            </a>
+          </div>
 
 
         </div>
@@ -80,11 +102,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="navbar-end">
         <div class="navbar-menu">
+
           <div class="navbar-item is-nav-link">
-            <a class="is-centered-responsive" href="index.html">Home</a>
+            <a class="is-centered-responsive" href="index.html#gofer">Gofer</a>
           </div>
+          <!-- Menu item -->
           <div class="navbar-item is-nav-link">
-            <a class="is-centered-responsive" href="index.html#projects">Projects</a>
+            <a class="is-centered-responsive" href="index.html#payback">Payback</a>
+          </div>
+          <!-- Menu item -->
+          <div class="navbar-item is-nav-link">
+            <a class="is-centered-responsive" href="index.html#mills">Mills</a>
           </div>
           <!-- Menu item -->
           <div class="navbar-item is-nav-link">
@@ -92,7 +120,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
           <div class="buttons">
-            <a href="https://calendly.com/amosjerbi/30min" target="_blank" class="button is-talk">
+            <a href="mailto: amosjerbi@gmail.com?subject=Hey Amos, let's meet up!" target="_blank" class="button is-talk">
               Let's Talk
             </a>
           </div>
@@ -208,32 +236,60 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
 
-  <footer class="section">
+  <footer id="footer" class="section">
     <div class="container">
       <div class="footer">
+        <!--
+        <div class="footerabout">
+          <img src="assets/images/profile_full.png">
+        </div>
+      -->
+
         <div class="footerabout">
           <h4>Amos Jerbi</h4>
-          <p>A self taught designer that loves his craft and can be very technical when needed, speaking of which, this website was coded by yours truly. Just inspect away.</p>
+          <p>A self taught designer that loves his craft and can be very technical when needed, speaking of which, this website was coded by yours truly.<br> Just inspect away.</p>
+        </div>
+
+        <div class="footersocial">
+          <h4>Social Links</h4>
           <a href="https://www.linkedin.com/in/amosjerbi/" target="_blank" class="contact-icon"><i class="fa fa fa-linkedin"></i></a>
           <a href="https://instagram.com/amosjerbi" target="_blank" class="contact-icon"><i class="fa fa fa-instagram"></i></a>
           <a href="https://www.facebook.com/public/Amos-Jerbi" target="_blank" class="contact-icon"><i class="fa fa-facebook"></i></a>
           <a href="https://dribbble.com/amosjerbi" target="_blank" class="contact-icon"><i class="fa fa-dribbble"></i></a>
 
         </div>
+
         <div class="footerlinks">
           <h4>Let's Talk</h4>
-          <li class="column-item"><a href="tel:+972-507205884">
-              <a href="sms:0507205884">
-                <p>+972-507-205-884</p>
-              </a>
 
-            </a></li>
-          <li class="column-item"><a href="mailto: amosjerbi@gmail.com?subject=Hey Amos, let's meet up!">
-              <p>amosjerbi@gmail.com</p>
-            </a></li>
+
+          <p class="resume">
+            <a href="tel:+972-507205884">
+              +972-507-205-884
+            </a>
+          </p>
+
+          <p class="resume">
+            <a href="mailto: amosjerbi@gmail.com?subject=Hey Amos, let's meet up!">
+              amosjerbi@gmail.com
+            </a>
+          </p>
+
+          <p class="resume">Resume
+            <a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/Amosjerbi_CV_2019.pdf">
+              English
+            </a>
+            /
+            <a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/Amosjerbi_CV_2019_heb.pdf">
+              Hebrew
+            </a>
+          </p>
+
         </div>
-
       </div>
+
+
+    </div>
     </div>
   </footer>
 
