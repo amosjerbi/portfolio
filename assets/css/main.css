@@ -2344,6 +2344,17 @@ a {
 
 /*tablet screen*/
 @media screen and (min-width:901px) {
+  .footerlinks {
+    flex-grow: 1;
+    grid-column: 7/12;
+  }
+
+  .footersocial {
+    display: inline-block;
+    grid-column: 10/ span 5;
+    grid-row: 1;
+  }
+
   .container {
     margin: 0 auto;
     position: relative;
@@ -2748,7 +2759,7 @@ a {
     /* justify-items: left; */
     /* display: grid; */
     padding: 0 0 0 0px;
-    display: grid;
+    display: none;
   }
 
   .footerlinks {
