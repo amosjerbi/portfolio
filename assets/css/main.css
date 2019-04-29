@@ -2645,7 +2645,7 @@ a {
     align-content: start;
     overflow: hidden;
     min-height: calc(70vh);
-    padding: 0.5rem 0 0 0;
+    padding: 3.5rem 0 0 0;
     /* background: aquamarine; */
   }
 
