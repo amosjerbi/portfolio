@@ -2661,7 +2661,7 @@ a {
     min-height: calc(75vh);
     padding: 0 0 0 0;
   }
-
+  
   .indexsectiontext {
     grid-column: 1;
     grid-row: 1;
@@ -2808,10 +2808,10 @@ a {
     text-transform: uppercase;
     letter-spacing: .7px
   }
-
+  
   .dec-right {
     display: block;
-    top: 40%;
+    top: 29%;
   }
 
   .glide__slides {
