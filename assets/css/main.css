@@ -1612,6 +1612,7 @@ body.has-navbar-fixed-top, html.has-navbar-fixed-top {
   position: fixed;
   right: 0;
   z-index: 30;
+  padding: 0.6em 0 0.6em 0;
   /* padding: 0.4em 0 0.4em 0; */
 }
 
@@ -2661,7 +2662,7 @@ a {
     min-height: calc(75vh);
     padding: 0 0 0 0;
   }
-  
+
   .indexsectiontext {
     grid-column: 1;
     grid-row: 1;
@@ -2808,7 +2809,7 @@ a {
     text-transform: uppercase;
     letter-spacing: .7px
   }
-  
+
   .dec-right {
     display: block;
     top: 29%;
