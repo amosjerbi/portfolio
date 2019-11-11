@@ -90,7 +90,7 @@
   transform: translate3d(0, 0, 0);
 }
 
-.global-nav-list {
+.global-nav__list {
   line-height: 50px;
   text-align: left;
   transform: translate3d(-50%, 2%, 0);
@@ -98,7 +98,7 @@
   transition: transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s, opacity 0.25s linear 0.4s;
 }
 
-ul.global-nav-list a {
+ul.global-nav__list a {
   font-size: 1.2em;
   font-family: var(--fontSans);
   line-height: 1.65;
