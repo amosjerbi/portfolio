@@ -7,7 +7,7 @@ $(document).ready(function() {
   $(".novile").click(function() {
     $('.burger').toggleClass('burger_close');
     $('.global-nav').toggleClass('js-open');
-    
+
 
   });
 });
