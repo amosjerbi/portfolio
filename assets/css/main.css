@@ -125,7 +125,7 @@ ul.global-nav__list a {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
-  transition-delay: 453.28859060402687ms;
+  transition-delay: 450ms;
 }
 
 .global-nav-item-2 {
@@ -134,7 +134,7 @@ ul.global-nav__list a {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
-  transition-delay: 578.7533498732901ms;
+  transition-delay: 570ms;
 }
 
 .global-nav-item-3 {
@@ -143,7 +143,7 @@ ul.global-nav__list a {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
-  transition-delay: 656.48322147651ms;
+  transition-delay: 650ms;
 }
 
 .global-nav-item-4 {
@@ -152,7 +152,7 @@ ul.global-nav__list a {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
-  transition-delay: 796.2973084385521ms;
+  transition-delay: 780ms;
 }
 
 .global-nav-item-5 {
@@ -161,8 +161,72 @@ ul.global-nav__list a {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
-  transition: all 88.8993ms ease-in-out 0ms, transform ease-in-out 0s;
-  transition-delay: 849.2302263571777ms;
+  transition: all 88ms ease-in-out 0ms, transform ease-in-out 0s;
+  transition-delay: 850ms;
+}
+
+.nav_line_list {
+  height: 2px;
+  width: 60px;
+  background: var(--primary_dark);
+  /* transform: scaleX(4.2); */
+  margin: 20px 0 20px 0;
+  opacity: 1;
+    animation: moveleft 0.4s;
+    animation-timing-function: ease-out;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-delay: 4s; 
+}
+@keyframes moveleft {
+  0%   {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  100% { 
+    transform: translateX(110%);
+    opacity: 1;
+  }
+}
+
+
+.social {
+1	transition: transform 0.25s ease-in-out 0.4s, opacity 0.25s linear 0.4s;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  transition: all 9ms ease-in-out 0ms, transform ease-in-out 0s;
+  transition-delay: 9ms;
+  opacity: 1;
+  transition-duration: 10ms;
+  }
+  
+.novile-items  {
+  position: relative;
+  height: 38px;
+  width: 38px;
+  background: var(--primary_light);
+  border-radius: 50%;
+  margin: 8px 8px 0 0;
+  display: -ms-flexbox;
+  display: inline-flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  z-index: 2;
+  cursor: pointer;
+  border: 3px solid var(--one_color);
+  color: var(--primary_dark);
+  padding: 6px;
+  
+  transition: transform 0.25s ease-in-out 0.4s, opacity 0.25s linear 0.4s;
+  opacity: 0;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  transition: all 500ms ease-in-out 0ms, transform ease-in-out 0s;
+  transition-delay: 1300ms;
 }
 
 /*Animations list ends*/
@@ -171,8 +235,20 @@ ul.global-nav__list a {
   color: var(--primary_dark);
   font-size: 0.7em;
   font-weight: 300;
+  opacity: 1;
+  transition-duration: 500ms;
 }
 
+.contact_me a {
+	transition: transform 0.25s ease-in-out 0.4s, opacity 0.25s linear 0.4s;
+  opacity: 0;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  transition: all 90ms ease-in-out 0ms, transform ease-in-out 0s;
+  transition-delay: 1800ms;
+	}
+	
 .resume {
   padding: 0 0 0.8rem 0;
 }
@@ -1980,15 +2056,6 @@ p {
   color: var(--one_color);
 }
 
-.nav_line_list {
-  height: 1px;
-  width: 60px;
-  background: var(--primary_dark);
-  /* transform: scaleX(4.2); */
-  margin: 20px 0 20px 0;
-  /* transform: translate3d(0, 0, 0); */
-}
-
 .divideryy {
   height: 1px;
   width: 80px;
@@ -2210,25 +2277,6 @@ a {
   color: var(--one_color)
 }
 
-.novile-items {
-  position: relative;
-  height: 38px;
-  width: 38px;
-  background: var(--primary_light);
-  border-radius: 50%;
-  margin: 8px 8px 0 0;
-  display: -ms-flexbox;
-  display: inline-flex;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-align: center;
-  align-items: center;
-  z-index: 2;
-  cursor: pointer;
-  border: 3px solid var(--one_color);
-  color: var(--primary_dark);
-  padding: 6px;
-}
 
 .contact-icon {
   position: relative;
