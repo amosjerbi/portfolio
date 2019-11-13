@@ -30,7 +30,7 @@
   border: 3px solid var(--one_color);
   color: var(--primary_dark);
   padding: 8px;
-  padding-top: 12px;
+  padding-top: 13px;
 }
 
 .burger_line {
@@ -53,7 +53,6 @@
   transition-delay: .12s;
   transition-timing-function: cubic-bezier(.215, .61, .355, 1);
   transform: rotate(180deg);
-  
   Background:var(--one_color);
 }
 
@@ -140,6 +139,7 @@ ul.global-nav__list a {
   -ms-transform: translateY(0);
   transform: translateY(0);
   transition-delay: 450ms;
+  animation: .2s both;
 }
 
 .global-nav-item-2 {
@@ -185,35 +185,25 @@ ul.global-nav__list a {
   background: var(--primary_dark);
   /* transform: scaleX(4.2); */
   margin: 20px 0 20px 0;
-  opacity: 1;
-    animation: moveleft 0.4s;
-    animation-timing-function: ease-out;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-    animation-delay: 4s; 
+  opacity: 0;
+  animation: moveleft 1s;
+  animation-timing-function: ease-out;
+  /* animation-iteration-count: infinite; */
+  animation-delay: 1.6s;
+  animation-fill-mode: forwards;
 }
 @keyframes moveleft {
   0%   {
-    transform: translateX(0%);
-    opacity: 1;
+    /* transform: translateX(0%); */
+    opacity: 0;
   }
   100% { 
-    transform: translateX(110%);
+    /* transform: translateX(110%); */
     opacity: 1;
   }
 }
 
-
-.social {
-1	transition: transform 0.25s ease-in-out 0.4s, opacity 0.25s linear 0.4s;
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0);
-  transition: all 9ms ease-in-out 0ms, transform ease-in-out 0s;
-  transition-delay: 9ms;
-  opacity: 1;
-  transition-duration: 10ms;
-  }
+.social {transition: transform 0.25s ease-in-out 0.4s, opacity 0.25s linear 0.4s;-webkit-transform: translateY(0);-ms-transform: translateY(0);transform: translateY(0);transition: all 6ms ease-in-out 0ms, transform ease-in-out 0s;transition-delay: 1ms;opacity: 1;transition-duration: 3ms;}
   
 .novile-items  {
   position: relative;
@@ -240,7 +230,7 @@ ul.global-nav__list a {
   -ms-transform: translateY(0);
   transform: translateY(0);
   transition: all 500ms ease-in-out 0ms, transform ease-in-out 0s;
-  transition-delay: 1300ms;
+  transition-delay: 1102.2448979591836ms;
 }
 
 .novile-items:hover {
@@ -258,6 +248,7 @@ ul.global-nav__list a {
   font-weight: 300;
   opacity: 1;
   transition-duration: 500ms;
+  animation-delay: 3.5s;
 }
 
 .contact_me a {
@@ -267,7 +258,7 @@ ul.global-nav__list a {
   -ms-transform: translateY(0);
   transform: translateY(0);
   transition: all 90ms ease-in-out 0ms, transform ease-in-out 0s;
-  transition-delay: 1800ms;
+  transition-delay: 1275.1020408163265ms;
 	}
 	
 .resume {
