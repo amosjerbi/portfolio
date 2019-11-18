@@ -189,7 +189,7 @@ ul.global-nav__list a {
   animation: moveleft 1s;
   animation-timing-function: ease-out;
   /* animation-iteration-count: infinite; */
-  animation-delay: 3.9s;
+  animation-delay: 3.5s;
   animation-fill-mode: forwards;
 }
 @keyframes moveleft {
