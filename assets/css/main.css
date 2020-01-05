@@ -2335,9 +2335,11 @@ a {
   padding: .7em 0 .7em 0
 }
 
+/*
 .glide__wrapper {
   height: 65%
 }
+*/
 
 .glide {
   position: relative;
@@ -2508,11 +2510,11 @@ a {
 }
 
 @media screen and (min-width:1088px) {
-  
+ /* 
    .glide__wrapper {
   height: 40vh;
 }
-
+*/
   .modal-content,
   .modal-card {
     margin: 0 auto;
@@ -2588,11 +2590,11 @@ a {
 
 /*tablet screen*/
 @media screen and (min-width:901px) {
-  
+  */
   .glide__wrapper {
     height: 80vh;
   }
-  
+  */
   .footerlinks {
     flex-grow: 1;
     grid-column: 7/12;
@@ -2636,9 +2638,11 @@ a {
 
 @media screen and (min-width:1472px) {
   
+  */
    .glide__wrapper {
   height: 45vh;
 }
+  */
   
   .container {
     max-width: 1344px;
