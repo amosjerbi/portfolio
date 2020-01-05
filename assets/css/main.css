@@ -2584,6 +2584,9 @@ a {
 
 /*tablet screen*/
 @media screen and (min-width:901px) {
+  .glide__wrapper {
+  height: 75vh;
+}
   .footerlinks {
     flex-grow: 1;
     grid-column: 7/12;
