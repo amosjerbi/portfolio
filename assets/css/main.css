@@ -2508,6 +2508,10 @@ a {
 }
 
 @media screen and (min-width:1088px) {
+  
+   .glide__wrapper {
+  height: 22vh;
+}
 
   .modal-content,
   .modal-card {
@@ -2584,9 +2588,7 @@ a {
 
 /*tablet screen*/
 @media screen and (min-width:901px) {
-  .glide__wrapper {
-  height: 75vh;
-}
+  
   .footerlinks {
     flex-grow: 1;
     grid-column: 7/12;
@@ -2629,6 +2631,11 @@ a {
 }
 
 @media screen and (min-width:1472px) {
+  
+   .glide__wrapper {
+  height: 22vh;
+}
+  
   .container {
     max-width: 1344px;
     width: 1344px
