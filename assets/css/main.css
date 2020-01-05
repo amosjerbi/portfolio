@@ -2336,7 +2336,7 @@ a {
 }
 
 .glide__wrapper {
-  height: 45%
+  height: 65%
 }
 
 .glide {
@@ -2588,6 +2588,10 @@ a {
 
 /*tablet screen*/
 @media screen and (min-width:901px) {
+  
+  .glide__wrapper {
+    height: 40vh;
+  }
   
   .footerlinks {
     flex-grow: 1;
