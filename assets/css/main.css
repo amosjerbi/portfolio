@@ -7,7 +7,7 @@
   --primary_light: #fff;
   --one_color: #550beb;
   --two_color: #fbfcff;
-  --three_color: #7736ff;
+  --three_color: #dbdbdb;
   --four_color: #868b92;
 }
 
@@ -74,7 +74,7 @@
 }
 
 .global-nav {
-  background: #fff;
+  background: var(--primary_light);
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -430,7 +430,7 @@ ul.global-nav__list a {
 .button.is-loading::after, .select.is-loading::after, .control.is-loading::after, .loader {
   -webkit-animation: spinAround 500ms infinite linear;
   animation: spinAround 500ms infinite linear;
-  border: 2px solid #dbdbdb;
+  border: 2px solid var(--three_color);
   border-radius: 290486px;
   border-right-color: transparent;
   border-top-color: transparent;
@@ -589,13 +589,13 @@ fieldset[disabled] .pagination-ellipsis {
 }
 
 .modal-card-head {
-  border-bottom: 1px solid #dbdbdb;
+  border-bottom: 1px solid var(--three_color);
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
 
 .modal-card-title {
-  color: #363636;
+  color: var(--primary_dark);
   flex-grow: 1;
   flex-shrink: 0;
   line-height: 1;
@@ -604,7 +604,7 @@ fieldset[disabled] .pagination-ellipsis {
 .modal-card-foot {
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
-  border-top: 1px solid #dbdbdb;
+  border-top: 1px solid var(--three_color);
 }
 
 .modal-card-foot .button:not(:last-child) {
@@ -1917,7 +1917,7 @@ body.has-navbar-fixed-top, html.has-navbar-fixed-top {
 }
 
 .button.is-talk:hover {
-  background-color: var(--three_color);
+  background-color: var(--one_color);
   border-color: transparent;
   color: var(--primary_light)
 }
@@ -1937,9 +1937,9 @@ body.has-navbar-fixed-top, html.has-navbar-fixed-top {
 }
 
 .button.is-primary:hover {
-  background-color: var(--three_color);
+  background-color: var(--primary_light);
   border-color: transparent;
-  color: var(--primary_light)
+  color: var(--primary_dark);
 }
 
 .button.is-primary:focus {
@@ -1948,9 +1948,9 @@ body.has-navbar-fixed-top, html.has-navbar-fixed-top {
 }
 
 .button.is-primary:active {
-  background-color: var(--one_color);
+  background-color: var(--primary_light);
   border-color: transparent;
-  color: var(--primary_dark)
+  color: var(--primary_dark);
 }
 
 .button.is-primary[disabled] {
@@ -3092,3 +3092,87 @@ a {
     height: 60%;
   }
 }
+  /* Design kit */
+  .circle_primary_dark {
+    border-radius: 99px;
+    background-color: var(--primary_dark);
+    display: inline-block;
+    height: 24px;
+    margin-right: 8px;
+    width: 24px;
+    margin: 0 0 10px 0;
+  }
+
+  .circle_primary_light {
+    border-radius: 99px;
+    background-color: var(--primary_light);
+    display: inline-block;
+    height: 24px;
+    margin-right: 8px;
+    width: 24px;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1), inset 0 0 0 1px rgba(0, 0, 0, .1);
+    margin: 0 0 10px 0;
+  }
+
+  .circle_1 {
+    border-radius: 99px;
+    background-color: var(--one_color);
+    display: inline-block;
+    height: 24px;
+    margin-right: 8px;
+    width: 24px;
+    margin: 0 0 10px 0;
+  }
+
+  .circle_2 {
+    border-radius: 99px;
+    background-color: var(--two_color);
+    display: inline-block;
+    height: 24px;
+    margin-right: 8px;
+    width: 24px;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1), inset 0 0 0 1px rgba(0, 0, 0, .1);
+    margin: 0 0 10px 0;
+  }
+
+  .circle_3 {
+    border-radius: 99px;
+    background-color: var(--three_color);
+    display: inline-block;
+    height: 24px;
+    margin-right: 8px;
+    width: 24px;
+    margin: 0 0 10px 0;
+  }
+
+  .circle_4 {
+    border-radius: 99px;
+    background-color: var(--four_color);
+    display: inline-block;
+    height: 24px;
+    margin-right: 8px;
+    width: 24px;
+    margin: 0 0 10px 0;
+  }
+
+  .p-black {
+    color: var(--primary_dark);
+  }
+
+  .nextext {
+    padding: 0 0 0 40px;
+  }
+
+  .has-background-light {
+    background-color: var(--two_color) !important;
+  }
+
+  .row {
+    margin: 30px 0 0 0;
+  }
+
+  .header {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+  }
