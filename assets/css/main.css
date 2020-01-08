@@ -1096,7 +1096,7 @@ a.box:focus, a.box:hover {
 }
 
 .buttons:not(:last-child) {
-  margin-bottom: 1rem
+  margin-bottom: 0.3rem;
 }
 
 .buttons.is-centered {
@@ -1943,14 +1943,15 @@ body.has-navbar-fixed-top, html.has-navbar-fixed-top {
 }
 
 .button.is-primary:focus {
+	background-color: var(--primary_dark);
   border-color: transparent;
   color: var(--primary_light)
 }
 
 .button.is-primary:active {
-  background-color: var(--primary_light);
+  background-color: var(--primary_dark);
   border-color: transparent;
-  color: var(--primary_dark);
+  color: var(--primary_light);
 }
 
 .button.is-primary[disabled] {
