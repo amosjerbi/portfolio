@@ -1,3 +1,4 @@
+//full credit to codepen.io/designcourse/pen/OGVZjr //-->
 var checkbox = document.querySelector('input[name=theme]');
 
         checkbox.addEventListener('change', function() {
