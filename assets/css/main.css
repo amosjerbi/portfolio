@@ -2198,11 +2198,12 @@ a.navbar-item:hover {
 .button.is-talk:hover {
   background-color: var(--one_color);
   border-color: transparent;
-  color: var(--primary_light)
+  color: var(--primary_light);
 }
 
 .button.is-primary {
-  color: var(--primary_light);
+  color: #fff;
+  /* color: var(--primary_light); */
   background-color: var(--one_color);
   opacity: 1;
   border-radius: 100px;
