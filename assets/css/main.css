@@ -183,9 +183,41 @@ html.transition *:after {
 .global-nav__list {
   line-height: 50px;
   text-align: left;
-  transform: translate3d(-50%, 2%, 0);
+  /*transform: translate3d(-50%, 2%, 0);*/
   /* opacity: 0; */
-  transition: transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s, opacity 0.25s linear 0.4s;
+  /* transition: transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s, opacity 0.25s linear 0.4s;*/
+  transform: translateX(-70px);
+}
+
+.global-nav__list li {
+  opacity: 0;
+  transform: translateX(-900px);
+}
+
+li.fade {
+  opacity: 1;
+  transform: translateX(0px);
+  transition-timing-function: ease-in-out(0.55, 0.55, 0.65, 0.55);
+}
+
+.global-nav__list li:nth-child(1) {
+  transition: all 0.5s cubic-bezier(0.68, -0.16, 0, 1.13) 0.1s;
+}
+
+.global-nav__list li:nth-child(2) {
+  transition: all 0.5s cubic-bezier(0.68, -0.16, 0, 1.13) 0.2s;
+}
+
+.global-nav__list li:nth-child(3) {
+  transition: all 0.5s cubic-bezier(0.68, -0.16, 0, 1.13) 0.4s;
+}
+
+.global-nav__list li:nth-child(4) {
+  transition: all 0.5s cubic-bezier(0.68, -0.16, 0, 1.13) 0.6s;
+}
+
+.global-nav__list li:nth-child(5) {
+  transition: all 0.5s cubic-bezier(0.68, -0.16, 0, 1.13) 0.8s;
 }
 
 ul.global-nav__list a {
@@ -3458,3 +3490,4 @@ a {
   text-align: center;
   padding: 2rem;
   margin-top: 4rem;
+  }

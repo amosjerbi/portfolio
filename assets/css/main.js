@@ -1,23 +1,25 @@
-// $('.navbar').hide(); $(window).scroll(function () { if ($(this).scrollTop() > 20) { $('.navbar').slideDown(); } else { $('.navbar').slideUp(); } });
-//-->
+// burger menu mobile //
+const novile = document.querySelector(".novile");
+const burger = document.querySelector(".burger");
+const navLinks = document.querySelector(".global-nav");
+const links = document.querySelectorAll(".global-nav__list li");
 
-$(document).ready(function() {
-
-  // Check for click events on the navbar burger icon
-  $(".novile").click(function() {
-    $('.burger').toggleClass('burger_close');
-    $('.global-nav').toggleClass('js-open');
-
-
+novile.addEventListener("click", () => {
+  burger.classList.toggle("burger_close");
+  navLinks.classList.toggle("js-open");
+  links.forEach(link => {
+    link.classList.toggle("fade");
   });
 });
 
+// navigation bar//
 window.onscroll = () => {
   const nav = document.querySelector('#navbar');
   if (this.scrollY <= 10) nav.className = '';
   else nav.className = 'navsolid';
 };
 
+// Animation on scroll//
 AOS.init({
   once: true,
   offset: 200,
@@ -26,6 +28,7 @@ AOS.init({
   delay: 100,
 });
 
+// testimonials gallery//
 var glide = new Glide('#glide', {
   type: 'carousel',
   perView: 2,
@@ -43,7 +46,7 @@ var glide = new Glide('#glide', {
 })
 glide.mount()
 
-//Anchor scroll
+//Anchor scrolls //
 $('a[href*="#"]')
   // Remove links that don't actually link to anything
   .not('[href="#"]')
