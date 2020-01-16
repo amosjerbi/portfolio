@@ -292,27 +292,10 @@ ul.global-nav__list a {
   height: 2px;
   width: 60px;
   background: var(--primary_dark);
-  /* transform: scaleX(4.2); */
   margin: 20px 0 20px 0;
-  opacity: 0;
-  animation: moveleft 1s;
-  animation-timing-function: ease-out;
-  /* animation-iteration-count: infinite; */
-  animation-delay: 2.2s;
-  animation-fill-mode: forwards;
+  opacity: 1;
 }
 
-@keyframes moveleft {
-  0% {
-    /* transform: translateX(0%); */
-    opacity: 0;
-  }
-
-  100% {
-    /* transform: translateX(110%); */
-    opacity: 1;
-  }
-}
 
 .social {
   transition: transform 0.25s ease-in-out 0.4s, opacity 0.25s linear 0.4s;
@@ -1429,7 +1412,24 @@ a.box:hover {
   display: inline-flex;
   justify-content: center;
   height: 1.5rem;
-  width: 1.5rem
+  width: 1.5rem;
+  animation: moveleft 0.45s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+}
+
+@keyframes moveleft {
+  0% {
+    transform: translateX(0px); 
+    /* opacity: 0; */
+  }
+
+  100% {
+     transform: translateX(10px); 
+    /* opacity: 1; */
+  }
 }
 
 .icon.is-small {
