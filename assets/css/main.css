@@ -137,18 +137,19 @@ html.transition *:after {
   -webkit-transform: rotate(45deg) translate(5px, 5px);
   transition: bottom .1s ease-out, transform .22s cubic-bezier(.215, .61, .355, 1) .12s;
   /* transform: rotate(-90deg); */
-  Background: var(--primary_light);
+  /* Background: var(--primary_light); */
+  Background: #fff;
 }
 
 .burger_close .burger_line:nth-child(2) {
   opacity: 0;
-  Background: var(--primary_light);
+  Background: #fff;
 }
 
 .burger_close .burger_line:nth-child(3) {
   -webkit-transform: rotate(-45deg) translate(5px, -4px);
   transform: rotate(-45deg) translate(5px, -4px);
-  Background: var(--primary_light);
+  Background: #fff;
 }
 
 .global-nav {
