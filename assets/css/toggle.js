@@ -18,7 +18,7 @@ var checkbox = document.querySelector('input[name=theme]');
             }, 1000)
         }
         
-        //Accordion //
+        //Accordion credit to https://codepen.io/MightyShaban/pen/LqrCK //
         
 (function($) {
   
