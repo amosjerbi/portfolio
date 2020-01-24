@@ -1,12 +1,15 @@
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css);
+
 @font-face {
-  font-family: 'lg';
-  src: url("../fonts/lg.eot?n1z373");
-  src: url("../fonts/lg.eot?#iefixn1z373") format("embedded-opentype"), url("../fonts/lg.woff?n1z373") format("woff"), url("../fonts/lg.ttf?n1z373") format("truetype"), url("../fonts/lg.svg?n1z373#lg") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
+  font-family: 'FontAwesome';
+  }
+  
+  @font-face { font-family: 'Material-Design-Iconic-Font'; 
+  src: url('https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css');}
+  
 .lg-icon {
-  font-family: 'lg';
+  font-family: 'Material-Design-Iconic-Font';
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -42,13 +45,13 @@
   right: 20px;
 }
 .lg-actions .lg-next:before {
-  content: "\e095";
+  content: "\f2fb";
 }
 .lg-actions .lg-prev {
   left: 20px;
 }
 .lg-actions .lg-prev:after {
-  content: "\e094";
+  content: "\f2fa";
 }
 
 @-webkit-keyframes lg-right-end {
@@ -180,10 +183,10 @@
   color: #FFF;
 }
 .lg-toolbar .lg-close:after {
-  content: "\e070";
+  content: "\f136";
 }
 .lg-toolbar .lg-download:after {
-  content: "\e0f2";
+  content: "\f220";
 }
 
 .lg-sub-html {
