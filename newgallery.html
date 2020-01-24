@@ -105,7 +105,7 @@
 
     /* Create four equal columns that sits next to each other */
     #lightgallery {
-    /*
+      /*
       column-count: 3;
       padding: 0 2rem;
       margin: 4rem auto;
@@ -115,15 +115,10 @@
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       grid-auto-rows: 0;
       */
-      -webkit-column-count: 3;
-      -moz-column-count: 3;
-      column-count: 3;
-      -webkit-column-gap: 20px;
-      -moz-column-gap: 20px;
-      column-gap: 20px;
-      -webkit-column-width: 33.33333333333333%;
-      -moz-column-width: 33.33333333333333%;
-      column-width: 33.33333333333333%;
+    
+      column-count: 4;
+      column-gap: 18px;
+      column-width: 33%;
 
     }
 
@@ -159,7 +154,7 @@
       }
 
       #lightgallery {
-
+        column-count: 2;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(6, 1fr);
 
