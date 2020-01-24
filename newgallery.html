@@ -83,152 +83,16 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJ84D38" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <style>
-    .demo-gallery>ul {
-      margin-bottom: 0;
-    }
-
-    .demo-gallery>ul>li {
-      float: left;
+    .img {
+      width: 100%;
+      height: auto;
       margin-bottom: 15px;
-      margin-right: 20px;
-      width: 200px;
-    }
-
-    .demo-gallery>ul>li a {
-      border: 3px solid #FFF;
-      border-radius: 3px;
-      display: block;
-      overflow: hidden;
-      position: relative;
-      float: left;
-    }
-
-    .demo-gallery>ul>li a>img {
-      -webkit-transition: -webkit-transform 0.15s ease 0s;
-      -moz-transition: -moz-transform 0.15s ease 0s;
-      -o-transition: -o-transform 0.15s ease 0s;
-      transition: transform 0.15s ease 0s;
-      -webkit-transform: scale3d(1, 1, 1);
-      transform: scale3d(1, 1, 1);
-      height: 100%;
-      width: 100%;
-    }
-
-    .demo-gallery>ul>li a:hover>img {
-      -webkit-transform: scale3d(1.1, 1.1, 1.1);
-      transform: scale3d(1.1, 1.1, 1.1);
-    }
-
-    .demo-gallery>ul>li a:hover .demo-gallery-poster>img {
-      opacity: 1;
-    }
-
-    .demo-gallery>ul>li a .demo-gallery-poster {
-      background-color: rgba(0, 0, 0, 0.1);
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      -webkit-transition: background-color 0.15s ease 0s;
-      -o-transition: background-color 0.15s ease 0s;
-      transition: background-color 0.15s ease 0s;
-    }
-
-    .demo-gallery>ul>li a .demo-gallery-poster>img {
-      left: 50%;
-      margin-left: -10px;
-      margin-top: -10px;
-      opacity: 0;
-      position: absolute;
-      top: 50%;
-      -webkit-transition: opacity 0.3s ease 0s;
-      -o-transition: opacity 0.3s ease 0s;
-      transition: opacity 0.3s ease 0s;
-    }
-
-    .demo-gallery>ul>li a:hover .demo-gallery-poster {
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .demo-gallery .justified-gallery>a>img {
-      -webkit-transition: -webkit-transform 0.15s ease 0s;
-      -moz-transition: -moz-transform 0.15s ease 0s;
-      -o-transition: -o-transform 0.15s ease 0s;
-      transition: transform 0.15s ease 0s;
-      -webkit-transform: scale3d(1, 1, 1);
-      transform: scale3d(1, 1, 1);
-      height: 100%;
-      width: 100%;
-    }
-
-    .demo-gallery .justified-gallery>a:hover>img {
-      -webkit-transform: scale3d(1.1, 1.1, 1.1);
-      transform: scale3d(1.1, 1.1, 1.1);
-    }
-
-    .demo-gallery .justified-gallery>a:hover .demo-gallery-poster>img {
-      opacity: 1;
-    }
-
-    .demo-gallery .justified-gallery>a .demo-gallery-poster {
-      background-color: rgba(0, 0, 0, 0.1);
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      -webkit-transition: background-color 0.15s ease 0s;
-      -o-transition: background-color 0.15s ease 0s;
-      transition: background-color 0.15s ease 0s;
-    }
-
-    .demo-gallery .justified-gallery>a .demo-gallery-poster>img {
-      left: 50%;
-      margin-left: -10px;
-      margin-top: -10px;
-      opacity: 0;
-      position: absolute;
-      top: 50%;
-      -webkit-transition: opacity 0.3s ease 0s;
-      -o-transition: opacity 0.3s ease 0s;
-      transition: opacity 0.3s ease 0s;
-    }
-
-    .demo-gallery .justified-gallery>a:hover .demo-gallery-poster {
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .demo-gallery .video .demo-gallery-poster img {
-      height: 48px;
-      margin-left: -24px;
-      margin-top: -24px;
-      opacity: 0.8;
-      width: 48px;
-    }
-
-    .demo-gallery.dark>ul>li a {
-      border: 3px solid #04070a;
-    }
-
-    .home .demo-gallery {
-      padding-bottom: 80px;
-    }
-  </style>
-  <style>
-    .modal {
-      align-items: center;
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      overflow: hidden;
-      position: fixed;
-      z-index: 40;
+      border-radius: 10px;
     }
 
     .header {
       text-align: center;
-      padding: 7rem;
+      padding: 4rem 3rem 0 3rem;
     }
 
     .row {
@@ -241,19 +105,26 @@
 
     /* Create four equal columns that sits next to each other */
     #lightgallery {
-      /*
+    /*
+      column-count: 3;
+      padding: 0 2rem;
+      margin: 4rem auto;
       display: grid;
-      grid-gap: 10px;
-      justify-content: start;
-      align-content: start;
-      padding: 0 0 0 0;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(1, 1fr);
+      grid-gap: 0.7rem;
+      grid-auto-flow: dense;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-auto-rows: 0;
       */
-      display: grid;
-      grid-gap: 10px;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      grid-auto-rows: 20px;
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+      column-count: 3;
+      -webkit-column-gap: 20px;
+      -moz-column-gap: 20px;
+      column-gap: 20px;
+      -webkit-column-width: 33.33333333333333%;
+      -moz-column-width: 33.33333333333333%;
+      column-width: 33.33333333333333%;
+
     }
 
     .flow {
@@ -261,18 +132,7 @@
       grid-column: 1/4;
       grid-row: 1;
       */
-      grid-row-end: span 14;
-    }
-
-    .column {
-      flex: 25%;
-      max-width: 25%;
-      padding: 0 4px;
-    }
-
-    .column img {
-      margin-top: 8px;
-      vertical-align: middle;
+      grid-row-end: span 30;
     }
 
     .social {
@@ -281,11 +141,6 @@
 
     /* Responsive layout - makes a two column-layout instead of four columns */
     @media (max-width: 800px) {
-      .column {
-        flex: 50%;
-        max-width: 50%;
-      }
-
       .flow {
         grid-row-end: span 14;
       }
@@ -308,11 +163,6 @@
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(6, 1fr);
 
-      }
-
-      .column {
-        flex: 50%;
-        max-width: 100%;
       }
 
       .header {
@@ -457,9 +307,9 @@
             <img class="img" src="https://github.com/amosjerbi/me/raw/master/assets/illustration/kill.jpg" />
           </div>
           <!-- item -->
-           <div class="flow" data-src="https://github.com/amosjerbi/me/raw/master/assets/illustration/kibbutz.png">
-             <img class="img" src="https://github.com/amosjerbi/me/raw/master/assets/illustration/kibbutz.png" />
-           </div>
+          <div class="flow" data-src="https://github.com/amosjerbi/me/raw/master/assets/illustration/kibbutz.png">
+            <img class="img" src="https://github.com/amosjerbi/me/raw/master/assets/illustration/kibbutz.png" />
+          </div>
           <!-- item -->
           <div class="flow" data-src="https://github.com/amosjerbi/me/raw/master/assets/illustration/joanarc.png">
             <img class="img" src="https://github.com/amosjerbi/me/raw/master/assets/illustration/joanarc.png" />
@@ -517,8 +367,8 @@
             <img class="img" src="https://raw.githubusercontent.com/amosjerbi/me/master/assets/illustration/Passover.png" />
           </div>
           <!-- item -->
-          <div class="flow" data-src="https://github.com/amosjerbi/me/raw/master/assets/illustration/noga_remote.png">
-            <img class="img" src="https://github.com/amosjerbi/me/raw/master/assets/illustration/noga_remote.png" />
+          <div class="flow" data-src="https://raw.githubusercontent.com/amosjerbi/me/master/assets/illustration/Noga_remote.png">
+            <img class="img" src="https://raw.githubusercontent.com/amosjerbi/me/master/assets/illustration/Noga_remote.png" />
           </div>
           <!-- item -->
           <div class="flow" data-src="https://raw.githubusercontent.com/amosjerbi/me/master/assets/illustration/Michali.png">
@@ -626,7 +476,6 @@
           </p>
         </div>
       </div>
-    </div>
     </div>
   </footer>
   <script src="assets/css/jquery.js"></script>
