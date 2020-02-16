@@ -115,7 +115,7 @@
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       grid-auto-rows: 0;
       */
-    
+
       column-count: 4;
       column-gap: 18px;
       column-width: 33%;
@@ -174,74 +174,61 @@
       }
     }
   </style>
-  <nav class="navbar is-fixed-top">
-    <div class="container">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="index.html">
-          <!--  <img src="assets/images/profile.png"> -->
-          <span class="brand-name"><img src="assets/images/amoslogo.svg"></span>
-        </a>
-        <div class="novile" aria-label="menu" aria-expanded="false">
-          <div class="burger">
-            <div class="burger_line"></div>
-            <div class="burger_line"></div>
-            <div class="burger_line"></div>
-          </div>
-          <nav class="global-nav">
-            <ul class="global-nav__list">
-              <li><a href="gofer.html">Gofer</a></li>
-              <li><a href="payback.html">Payback</a></li>
-              <li><a href="mills.html">Mills</a></li>
-              <li><a href="gallery.html">Illustrations</a></li>
-              <li><a href="design_kit.html">Design Kit</a></li>
-              <div class="social">
-                <a href="https://www.linkedin.com/in/amosjerbi/" target="_blank" class="novile-items"><i class="fa fa fa-linkedin"></i></a>
-                <a href="https://instagram.com/amosjerbi" target="_blank" class="novile-items"><i class="fa fa fa-instagram"></i></a>
-                <a href="https://www.facebook.com/public/Amos-Jerbi" target="_blank" class="novile-items"><i class="fa fa-facebook"></i></a>
-              </div>
-              <div class="nav_line_list"></div>
-              <div class="contact_me">
-                <a href="tel:+972-507205884">
-                  +972-507-205-884
-                </a>
-              </div>
-              <div class="contact_me">
-                <a href="mailto: amosjerbi@gmail.com?subject=Hey Amos, let's meet up!">
-                  amosjerbi@gmail.com
-                </a>
-              </div>
-            </ul>
-          </nav>
-        </div>
-      </div>
-      <!-- brand -->
-      <div class="navbar-end">
-        <div class="navbar-menu">
-          <div class="navbar-item is-nav-link">
-            <a class="is-centered-responsive" href="gofer.html">Gofer</a>
-          </div>
-          <!-- Menu item -->
-          <div class="navbar-item is-nav-link">
-            <a class="is-centered-responsive" href="payback.html">Payback</a>
-          </div>
-          <!-- Menu item -->
-          <div class="navbar-item is-nav-link">
-            <a class="is-centered-responsive" href="mills.html">Mills</a>
-          </div>
-          <!-- Menu item -->
-          <div class="navbar-item is-nav-link">
-            <a class="is-centered-responsive" href="design_kit.html">Design_Kit</a>
-          </div>
-          <div class="buttons">
-            <a href="mailto: amosjerbi@gmail.com?subject=Hey Amos, let's meet up!" target="_blank" class="button is-talk">
-              Let's Talk
-            </a>
-          </div>
-        </div>
-      </div>
-      <!--navbar-end -->
-    </div>
-  </nav>
+   <nav class="navbar is-fixed-top">
+     <div class="container">
+       <div class="navbar-brand">
+         <a class="navbar-item" href="index.html">
+           <!--  <img src="assets/images/profile.png"> -->
+           <span class="brand-name"><img src="assets/images/amoslogo.svg"></span>
+         </a>
+         <div class="novile" aria-label="menu" aria-expanded="false">
+           <div class="burger">
+             <div class="burger_line"></div>
+             <div class="burger_line"></div>
+             <div class="burger_line"></div>
+           </div>
+           <nav class="global-nav">
+             <ul class="global-nav__list" style="--length: 11">
+               <li style="--index: 0;"><a href="gofer.html">Gofer</a></li>
+               <li style="--index: 1;"><a href="payback.html">Payback</a></li>
+               <li style="--index: 2;"><a href="mills.html">Mills</a></li>
+               <li style="--index: 3;"><a href="gallery.html">Illustrations</a></li>
+               <li style="--index: 4;"><a href="design_kit.html">Design_kit</a></li>
+               <li style="--index: 5; display: inline-flex;"><a href="https://www.linkedin.com/in/amosjerbi/" target="_blank" class="novile-items"><i class="fa fa-linkedin"></i></a></li>
+               <li style="--index: 6; display: inline-flex;"><a href="https://instagram.com/amosjerbi" target="_blank" class="novile-items"><i class="fa fa-instagram"></i></a></li>
+               <li style="--index: 7; display: inline-flex;"><a href="https://www.facebook.com/public/Amos-Jerbi" target="_blank" class="novile-items"><i class="fa fa-facebook"></i></a></li>
+               <li class="nav_line_list" style="--index: 8;"></li>
+               <li class="contact_me" style="--index: 9;">
+                 <a href="tel:+972-507205884">
+                   +972-507-205-884
+                 </a>
+               </li>
+               <li class="contact_me" style="--index: 10;">
+                 <a href="mailto: amosjerbi@gmail.com?subject=Hey Amos, let's meet up!">
+                   amosjerbi@gmail.com
+                 </a>
+               </li>
+             </ul>
+           </nav>
+         </div>
+       </div>
+       <!-- brand -->
+       <div class="navbar-end">
+         <div class="navbar-menu">
+           <li class="navbar-item is-nav-link"><a href="gofer.html">Gofer</a></li>
+           <li class="navbar-item is-nav-link"><a href="payback.html">Payback</a></li>
+           <li class="navbar-item is-nav-link"><a href="mills.html">Mills</a></li>
+           <li class="navbar-item is-nav-link"><a href="design_kit.html">Design_Kit</a></li>
+           <div class="buttons">
+             <a href="mailto: amosjerbi@gmail.com?subject=Hey Amos, let's meet up!" target="_blank" class="button is-talk">
+               Let's Talk
+             </a>
+           </div>
+         </div>
+       </div>
+       <!--navbar-end -->
+     </div>
+   </nav>
   <!-- nav -->
   <section class="section">
     <div class="container">
@@ -266,22 +253,22 @@
           <div class="flow" data-src="https://raw.githubusercontent.com/amosjerbi/me/master/assets/downloads/Amos_Birthday_Freebie.png">
             <img class="img" src="https://raw.githubusercontent.com/amosjerbi/me/master/assets/downloads/Amos_Birthday_Freebie.png" />
           </div>
-           <!-- item -->
-           <div class="flow" data-src="https://github.com/amosjerbi/me/raw/master/assets/illustration/week38.png">
-             <img class="img" src="https://github.com/amosjerbi/me/raw/master/assets/illustration/week38.png" />
-           </div>
+          <!-- item -->
+          <div class="flow" data-src="https://github.com/amosjerbi/me/raw/master/assets/illustration/week38.png">
+            <img class="img" src="https://github.com/amosjerbi/me/raw/master/assets/illustration/week38.png" />
+          </div>
           <!-- item -->
           <div class="flow" data-src="https://github.com/amosjerbi/me/raw/master/assets/illustration/wedding.png">
             <img class="img" src="https://github.com/amosjerbi/me/raw/master/assets/illustration/wedding.png" />
           </div>
-           <!-- item -->
-           <div class="flow" data-src="https://raw.githubusercontent.com/amosjerbi/me/master/assets/illustration/Zeev_Dorman.jpg">
-             <img class="img" src="https://raw.githubusercontent.com/amosjerbi/me/master/assets/illustration/Zeev_Dorman.jpg" />
-           </div>
-           <!-- item -->
-           <div class="flow" data-src="https://github.com/amosjerbi/me/raw/master/assets/illustration/meetartist.png">
-             <img class="img" src="https://github.com/amosjerbi/me/raw/master/assets/illustration/meetartist.png" />
-           </div>
+          <!-- item -->
+          <div class="flow" data-src="https://raw.githubusercontent.com/amosjerbi/me/master/assets/illustration/Zeev_Dorman.jpg">
+            <img class="img" src="https://raw.githubusercontent.com/amosjerbi/me/master/assets/illustration/Zeev_Dorman.jpg" />
+          </div>
+          <!-- item -->
+          <div class="flow" data-src="https://github.com/amosjerbi/me/raw/master/assets/illustration/meetartist.png">
+            <img class="img" src="https://github.com/amosjerbi/me/raw/master/assets/illustration/meetartist.png" />
+          </div>
           <!-- item -->
           <div class="flow" data-src="https://github.com/amosjerbi/me/raw/master/assets/illustration/supermoon.png">
             <img class="img" src="https://github.com/amosjerbi/me/raw/master/assets/illustration/supermoon.png" />
@@ -395,14 +382,14 @@
             <img class="img" src="https://raw.githubusercontent.com/amosjerbi/me/master/assets/illustration/Awesome.png" />
           </div>
           <!-- item -->
-           <div class="flow" data-src="https://raw.githubusercontent.com/amosjerbi/me/master/assets/illustration/Robots.png">
-             <img class="img" src="https://raw.githubusercontent.com/amosjerbi/me/master/assets/illustration/Robots.png" />
-           </div>
-            <!-- item -->
-            <div class="flow" data-src="https://github.com/amosjerbi/me/raw/master/assets/illustration/kibbutz.png">
-              <img class="img" src="https://github.com/amosjerbi/me/raw/master/assets/illustration/kibbutz.png" />
-            </div>
-           <!-- item -->
+          <div class="flow" data-src="https://raw.githubusercontent.com/amosjerbi/me/master/assets/illustration/Robots.png">
+            <img class="img" src="https://raw.githubusercontent.com/amosjerbi/me/master/assets/illustration/Robots.png" />
+          </div>
+          <!-- item -->
+          <div class="flow" data-src="https://github.com/amosjerbi/me/raw/master/assets/illustration/kibbutz.png">
+            <img class="img" src="https://github.com/amosjerbi/me/raw/master/assets/illustration/kibbutz.png" />
+          </div>
+          <!-- item -->
           <div class="flow" data-src="https://raw.githubusercontent.com/amosjerbi/me/master/assets/illustration/Atlas.png">
             <img class="img" src="https://raw.githubusercontent.com/amosjerbi/me/master/assets/illustration/Atlas.png" />
           </div>
