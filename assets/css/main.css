@@ -224,58 +224,46 @@ html.transition *:after {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-transition: 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-  -o-transition: 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-  transition: 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-  -webkit-transform: translate3d(0, -100%, 0);
-  transform: translate3d(0, -100%, 0);
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+transition: all 800ms cubic-bezier(0.68, -0.16, 0, 1.13);
   z-index: -100;
 }
-
+/* 
 .global-nav.js-open {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+} */
+
+.global-nav.js-open {
+ -webkit-transform: translateX(0);
+ -ms-transform: translateX(0);
+ transform: translateX(0);
 }
 
 .global-nav__list {
   line-height: 50px;
   text-align: left;
-  /*transform: translate3d(-50%, 2%, 0);*/
-  /* opacity: 0; */
-  /* transition: transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s, opacity 0.25s linear 0.4s;*/
   transform: translateX(-70px);
 }
 
 .global-nav__list li {
-  opacity: 0;
-  transform: translateX(-900px);
-}
+	/* Reverse menu animation */
+ line-height: 3;
+ transition: all 800ms cubic-bezier(0.68, -0.16, 0, 1.13);
+  line-height: 3;
+    transform: translate(-900px);
+    /* This delay will take effect when _showing_ elements */
+  transition-delay: calc(0.025s * var(--index));
+ }
 
 li.fade {
   opacity: 1;
   transform: translateX(0px);
-  transition-timing-function: ease-in-out(0.55, 0.55, 0.65, 0.55);
+  /* This delay will take effect when _hiding_ elements */
+  transition-delay: calc(0.025s * (var(--length) - (var(--index) + 1)));
 }
 
-.global-nav__list li:nth-child(1) {
-  transition: all 0.5s cubic-bezier(0.68, -0.16, 0, 1.13) 0.1s;
-}
-
-.global-nav__list li:nth-child(2) {
-  transition: all 0.5s cubic-bezier(0.68, -0.16, 0, 1.13) 0.2s;
-}
-
-.global-nav__list li:nth-child(3) {
-  transition: all 0.5s cubic-bezier(0.68, -0.16, 0, 1.13) 0.4s;
-}
-
-.global-nav__list li:nth-child(4) {
-  transition: all 0.5s cubic-bezier(0.68, -0.16, 0, 1.13) 0.6s;
-}
-
-.global-nav__list li:nth-child(5) {
-  transition: all 0.5s cubic-bezier(0.68, -0.16, 0, 1.13) 0.8s;
-}
 
 ul.global-nav__list a {
   font-size: 1.2em;
@@ -283,67 +271,24 @@ ul.global-nav__list a {
   line-height: 1.65;
   color: var(--primary_dark);
   font-weight: 700;
-  opacity: 0;
-  transition-duration: 300ms;
+  opacity: 1;
+ transition-duration: .3s
+  transform: translate(0%);
+  /* This delay will take effect when _hiding_ elements */
+  transition-delay: calc(0.025s * (var(--length) + (var(--index) + 1)));
 }
 
 .global-nav.js-open a {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   opacity: 1;
-  /* transition-delay: 495.72201324264677ms; */
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0);
+  transition-delay: 90ms;
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0px);
 }
 
-/*Animations list*/
-.global-nav-item-1 {
-  transition: transform 96.1449ms ease-in-out 0.4s, opacity ease-in-out 0s;
-  opacity: 1;
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0);
-  transition-delay: 450ms;
-  animation: .2s both;
-}
 
-.global-nav-item-2 {
-  transition: transform 87.2426ms ease-in-out 0.55s, opacity ease-in-out 0s;
-  opacity: 1;
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0);
-  transition-delay: 570ms;
-}
-
-.global-nav-item-3 {
-  transition: transform 101.486ms ease-in-out 0.7s, opacity ease-in-out 0s;
-  opacity: 1;
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0);
-  transition-delay: 650ms;
-}
-
-.global-nav-item-4 {
-  transition: transform 80.1207ms ease-in-out 0.85s, opacity ease-in-out 0s;
-  opacity: 1;
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0);
-  transition-delay: 780ms;
-}
-
-.global-nav-item-5 {
-  transition: transform 0.25s ease-in-out 0.4s, opacity 0.25s linear 0.4s;
-  opacity: 1;
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0);
-  transition: all 88ms ease-in-out 0ms, transform ease-in-out 0s;
-  transition-delay: 850ms;
-}
 
 .nav_line_list {
   height: 2px;
@@ -366,31 +311,26 @@ ul.global-nav__list a {
 }
 
 .novile-items {
-  position: relative;
-  height: 38px;
-  width: 38px;
-  background: var(--primary_light);
-  border-radius: 50%;
-  margin: 8px 8px 0 0;
-  display: -ms-flexbox;
-  display: inline-flex;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-align: center;
-  align-items: center;
-  z-index: 2;
-  cursor: pointer;
-  border: 3px solid var(--one_color);
-  color: var(--primary_dark);
-  padding: 6px;
-  transition: transform 0.25s ease-in-out 0.4s, opacity 0.25s linear 0.4s;
-  opacity: 0;
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0);
-  transition: all 500ms ease-in-out 0ms, transform ease-in-out 0s;
-  transition-delay: 1102.2448979591836ms;
+ position: relative;
+ height: 50px;
+ width: 50px;
+ background: transparent;
+ border-radius: 50%;
+ margin: 8px 8px 0 0;
+ display: -ms-flexbox;
+ display: inline-flex;
+ -ms-flex-pack: center;
+ justify-content: center;
+ -ms-flex-align: center;
+ align-items: center;
+ z-index: 2;
+ cursor: pointer;
+ border: 3px solid var(--one_color);
+ color: var(--primary_dark);
+ opacity: 1;
 }
+
+
 
 .novile-items:hover {
   background: var(--one_color);
@@ -399,23 +339,20 @@ ul.global-nav__list a {
   transition: all .2s
 }
 
-/*Animations list ends*/
 .contact_me {
   font-family: var(--fontSans);
   color: var(--primary_dark);
   font-size: 0.7em;
   font-weight: 300;
   opacity: 1;
-  transition-duration: 500ms;
+  transition-duration: .5s;
   animation-delay: 3.5s;
 }
 
 .contact_me a {
   transition: transform 0.25s ease-in-out 0.4s, opacity 0.25s linear 0.4s;
   opacity: 0;
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0);
+transform: translate(100%, -0%);
   transition: all 90ms ease-in-out 0ms, transform ease-in-out 0s;
   transition-delay: 1275.1020408163265ms;
 }
@@ -491,7 +428,7 @@ ul {
 }
 
 ul {
-  list-style: none
+  list-style: none;
 }
 
 button {
