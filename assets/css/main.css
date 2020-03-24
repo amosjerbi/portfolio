@@ -408,7 +408,7 @@ footer, section {
   }
 
   .section.is-small {
-    padding: 5rem 0.5rem;
+    padding: 1rem 0.5rem;
   }
 
   .column_left_hero {
@@ -472,12 +472,11 @@ nav {
 
 .navbar {
   background-color: var(--primary_light);
-  transition: all .5s;
-
+  transition: all 0.9s;
   position: sticky;
   top: 0;
   z-index: 30;
-  padding: 1rem 0 1rem 0;
+  padding: 0.5rem 0 0.5rem 0;
 }
 
 .navbar.is-fixed-top {
@@ -490,16 +489,10 @@ nav {
 .nav-up {
   top: -7rem;
   z-index: 30;
-  padding: 1rem 0 1rem 0;
+  padding: 0.5rem 0 0.5rem 0;
   position: fixed;
 }
 
-.nav-down {
-  top: 0;
-  z-index: 30;
-  padding: 1rem 0 1rem 0;
-  position: fixed;
-}
 
 .container-nav {
   margin: auto 20rem;
