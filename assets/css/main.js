@@ -12,16 +12,28 @@ novile.addEventListener("click", () => {
   });
 });
 
-// navigation bar//
-$(document).ready(function() {
-  $(window).scroll(function() { // check if scroll event happened
-    if ($(document).scrollTop() > 20) { // check if user scrolled more than 50 from top of the browser window
-      $(".navbar").css("background-color", "var(--primary_light)"); // if yes, then change the color of class "navbar-fixed-top" to white (#0b0e2d90)
-    } else {
-      $(".navbar").css("background-color", "var(--primary_light)"); // if not, change it back to transparent
-    }
-  });
+// Hide Header on on scroll down
+var prev = 0;
+var $window = $(window);
+var nav = $('.navbar');
+
+$window.on('scroll', function(){
+  var scrollTop = $window.scrollTop();
+  nav.toggleClass('nav-up', scrollTop > prev);
+  prev = scrollTop;
 });
+
+
+// // navigation bar//
+// $(document).ready(function() {
+//   $(window).scroll(function() { // check if scroll event happened
+//     if ($(document).scrollTop() > 20) { // check if user scrolled more than 50 from top of the browser window
+//       $(".navbar").css("background-color", "var(--primary_light)"); // if yes, then change the color of class "navbar-fixed-top" to white (#0b0e2d90)
+//     } else {
+//       $(".navbar").css("background-color", "var(--primary_light)"); // if not, change it back to transparent
+//     }
+//   });
+// });
 
 // Animation on scroll//
 AOS.init({

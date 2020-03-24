@@ -28,7 +28,7 @@ body {
 }
 
 main {
-  margin: 4rem 0 0 0;
+  /* margin: 4rem 0 0 0; */
 }
 
 ul, li a {
@@ -473,6 +473,11 @@ nav {
 .navbar {
   background-color: var(--primary_light);
   transition: all .5s;
+
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  padding: 1rem 0 1rem 0;
 }
 
 .navbar.is-fixed-top {
@@ -480,6 +485,20 @@ nav {
   top: 0;
   z-index: 30;
   padding: 1rem 0 1rem 0;
+}
+
+.nav-up {
+  top: -7rem;
+  z-index: 30;
+  padding: 1rem 0 1rem 0;
+  position: fixed;
+}
+
+.nav-down {
+  top: 0;
+  z-index: 30;
+  padding: 1rem 0 1rem 0;
+  position: fixed;
 }
 
 .container-nav {
@@ -1002,100 +1021,100 @@ a.button_second {
 /* =======================================
    Features Section
  ======================================== */
- .features {
-   padding: 3rem 2rem;
-   background-color: var(--primary_light);
-   box-shadow: 0 10px 20px 0 rgba(119, 129, 173, .1);
-   border-radius: 10px;
-   /* margin: 3rem 0 0 0; */
-   text-align: center;
-   top: 2rem;
-   position: relative;
- }
+.features {
+  padding: 3rem 2rem;
+  background-color: var(--primary_light);
+  box-shadow: 0 10px 20px 0 rgba(119, 129, 173, .1);
+  border-radius: 10px;
+  /* margin: 3rem 0 0 0; */
+  text-align: center;
+  top: 2rem;
+  position: relative;
+}
 
- .grid-3-item {
-   /* grid-row: 1; */
-   /* display: grid; */
-   text-align: center;
- }
+.grid-3-item {
+  /* grid-row: 1; */
+  /* display: grid; */
+  text-align: center;
+}
 
- .feature-text {
-   text-align: center;
-   text-transform: uppercase;
-   padding: 0.5rem 0rem;
-   display: grid;
- }
+.feature-text {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0.5rem 0rem;
+  display: grid;
+}
 
- .feature-text p {
-   text-align: center;
-   text-transform: none;
-   display: flex;
-   width: 80%;
-   margin: 0 auto;
-   color: var(--four_color);
-   padding: 0.8rem 0 0 0;
- }
+.feature-text p {
+  text-align: center;
+  text-transform: none;
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  color: var(--four_color);
+  padding: 0.8rem 0 0 0;
+}
 
- .feature-icon {
-   padding: 1rem;
-   display: grid;
-   place-items: center;
-   margin: auto;
-   text-align: center;
- }
+.feature-icon {
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+  margin: auto;
+  text-align: center;
+}
 
- .grid3 {
-   display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   grid-gap: 1rem;
-   text-align: center;
- }
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  text-align: center;
+}
 
- .feature-title {
-   text-align: center;
-   color: var(--primary_dark);
-   font-weight: 700;
-   max-block-size: fit-content;
- }
+.feature-title {
+  text-align: center;
+  color: var(--primary_dark);
+  font-weight: 700;
+  max-block-size: fit-content;
+}
 
- @media screen and (max-width: 530px) {
-   .feature-title {
-     text-align: left;
-     color: var(--primary_dark);
-     font-weight: 700;
-     max-block-size: fit-content;
-   }
+@media screen and (max-width: 530px) {
+  .feature-title {
+    text-align: left;
+    color: var(--primary_dark);
+    font-weight: 700;
+    max-block-size: fit-content;
+  }
 
-   .grid3 {
-     text-align: center;
-     display: grid;
-     grid-template-columns: repeat(1, 1fr);
-     grid-gap: 1.7rem;
-   }
+  .grid3 {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1.7rem;
+  }
 
-   .features {
-     padding: 1rem;
-     top: 0.2rem;
-   }
+  .features {
+    padding: 1rem;
+    top: 0.2rem;
+  }
 
-   .grid-3-item {
-     display: flex;
-   }
+  .grid-3-item {
+    display: flex;
+  }
 
-   .feature-text {
-     text-transform: uppercase;
-     display: grid;
-   }
+  .feature-text {
+    text-transform: uppercase;
+    display: grid;
+  }
 
-   .feature-text p {
-     text-align: left;
-     text-transform: none;
-     display: flex;
-     margin: unset;
-     width: 100%;
-     color: var(--four_color);
-   }
- }
+  .feature-text p {
+    text-align: left;
+    text-transform: none;
+    display: flex;
+    margin: unset;
+    width: 100%;
+    color: var(--four_color);
+  }
+}
 
 /* =======================================
    Testimonials Section
