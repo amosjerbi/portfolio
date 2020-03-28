@@ -22,6 +22,11 @@ html[data-theme='dark'] {
   --five_color: rgba(207, 206, 230, 0.2);
 }
 
+::selection {
+	background: #8052ff;
+	color: var(--primary_light);
+	}
+	
 body {
   margin: 0;
   padding: 0;
@@ -86,7 +91,7 @@ h5 {
 }
 
 p {
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-family: var(--fontMono);
   line-height: 1.65;
   color: var(--four_color);
