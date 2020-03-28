@@ -284,7 +284,11 @@ a.has-text-info:hover {
 /* =======================================
    Grid system
  ======================================== */
-.section.is-small {
+.section.is-smallish {
+  padding: 6rem 1.5rem;
+}
+ 
+ .section.is-small {
   padding: 6rem 1.5rem;
 }
 
@@ -409,6 +413,10 @@ footer, section {
 
   .section.is-small {
     padding: 4.5rem 0.5rem;
+  }
+  
+    .section.is-smallish {
+    padding: 0.5rem 0.5rem;
   }
 
   .column_left_hero {
@@ -1607,9 +1615,9 @@ html.transition *:after {
     font-size: 0.9rem;
     font-weight: 600;
   }
-
+  
   .container {
-    margin: auto 0.3rem;
+    margin: auto 0.8rem;
   }
 
   .footer_grid {
