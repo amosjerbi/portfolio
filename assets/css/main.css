@@ -1173,7 +1173,7 @@ a.button_second {
   -webkit-box-align: start;
   -webkit-align-items: flex-start;
   text-align: left;
-  padding: 2rem 0 0 6rem;
+  padding: 2rem 0 0 0;
 }
 
 .testimonial {
@@ -1184,14 +1184,13 @@ a.button_second {
 }
 
 .testimonial-text p {
-  margin-bottom: 15%;
   color: var(--primary_light);
   font-size: 1.6rem;
   line-height: 38px;
   font-family: var(--fontMono);
   text-align: left;
   width: 455px;
-  margin: 0 auto;
+  margin: auto 0;
 }
 
 .testimonial-author-info h4 {
