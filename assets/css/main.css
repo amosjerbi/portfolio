@@ -23,10 +23,10 @@ html[data-theme='dark'] {
 }
 
 ::selection {
-	background: #8052ff;
-	color: var(--primary_light);
-	}
-	
+  background: #8052ff;
+  color: var(--primary_light);
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -40,6 +40,24 @@ ul, li a {
   list-style: none;
   text-decoration: none;
 }
+
+video::-webkit-media-controls-panel {
+     background-image: linear-gradient(transparent, transparent); !important;
+}
+
+.videobox {
+  Padding:0.5%;
+  background-color: var(--five_color);
+  
+  border-radius: 10px;
+}
+
+.videores {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
 
 /* =======================================
    Typography
@@ -226,6 +244,10 @@ a.has-text-light:hover {
   background-color: var(--one_color) !important;
 }
 
+.has-background-bit {
+  background-image: linear-gradient(180deg, rgba(57, 184, 200, 1) 0%, rgba(46, 116, 160, 1) 100%);
+}
+
 .has-background-mills {
   background-image: radial-gradient(circle, rgba(47, 50, 70, 1) 0%, rgba(47, 50, 70, 1) 100%) !important;
 }
@@ -292,8 +314,8 @@ a.has-text-info:hover {
 .section.is-smallish {
   padding: 6rem 1.5rem;
 }
- 
- .section.is-small {
+
+.section.is-small {
   padding: 6rem 1.5rem;
 }
 
@@ -350,7 +372,7 @@ footer, section {
   display: grid;
   height: fit-content;
   align-self: center;
-  justify-content: center;
+  justify-content: left;
 }
 
 .column_right {
@@ -419,8 +441,8 @@ footer, section {
   .section.is-small {
     padding: 4.5rem 0.5rem;
   }
-  
-    .section.is-smallish {
+
+  .section.is-smallish {
     padding: 0.5rem 0.5rem;
   }
 
@@ -446,7 +468,7 @@ footer, section {
     grid-column: 1;
     grid-row: 1;
     display: grid;
-    justify-content: center;
+    justify-content: left;
   }
 
   .column_right {
@@ -963,7 +985,7 @@ a.button_second {
   color: var(--five_color);
   counter-increment: headings;
   content: counter(headings, decimal-leading-zero);
-  top: -2.5rem;
+  top: -3rem;
   left: -0.2rem;
 }
 
@@ -999,6 +1021,13 @@ a.button_second {
   width: 100%;
 }
 
+.sidebyside {
+  display: grid;
+  grid-column-gap: 16px;
+  grid-template-columns: auto auto;
+  justify-self: left;
+}
+
 /* Tablet portrait and smaller */
 @media (max-width: 768px) {
   .herointro {
@@ -1020,6 +1049,19 @@ a.button_second {
     padding: 0 0 1.6rem 0;
     text-align: left;
     color: var(--four_color);
+  }
+
+  .sidebyside {
+    /* justify-self: center; */
+    grid-gap: 10px;
+  }
+
+  .gplay {
+    width: 96%;
+  }
+
+  .appstore {
+    width: 98%;
   }
 
   .button_prime {
@@ -1619,7 +1661,7 @@ html.transition *:after {
     font-size: 0.9rem;
     font-weight: 600;
   }
-  
+
   .container {
     margin: auto 0.8rem;
   }
