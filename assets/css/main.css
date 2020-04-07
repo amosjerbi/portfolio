@@ -367,7 +367,7 @@ footer, section {
 }
 
 .column_left {
-  grid-column: 1/5;
+  grid-column: 2/6;
   grid-row: 1;
   display: grid;
   height: fit-content;
@@ -376,7 +376,7 @@ footer, section {
 }
 
 .column_right {
-  grid-column: 8/12;
+  grid-column: 7/12;
   grid-row: 1;
   align-content: start;
   display: grid;
@@ -443,7 +443,7 @@ footer, section {
   }
 
   .section.is-smallish {
-    padding: 0.5rem 0.5rem;
+    padding: 2.5rem 0.5rem;
   }
 
   .column_left_hero {
