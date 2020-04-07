@@ -1709,7 +1709,7 @@ html.transition *:after {
   .footer_legals {
     grid-column: 1;
     grid-row: 5;
-    padding: 0 0 2rem 1.5rem;
+    padding: 0 0 2rem 0;
   }
 
   .row-top {
