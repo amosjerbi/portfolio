@@ -1490,31 +1490,32 @@ label {
   text-indent: -9999px;
   width: 52px;
   height: 27.5px;
-  background: var(--four_color);
+  background: black;
   float: right;
   border-radius: 100px;
   position: relative;
 }
 
 label:after {
-    content: '';
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    width: 25.5px;
-    height: 25.5px;
-    background: #fff;
-    border-radius: 100%;
-    transition: 0.2s;
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 25.5px;
+  height: 25.5px;
+  background: #fff;
+  border-radius: 100%;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 input:checked+label {
-  background: var(--one_color);
+  background: blue;
 }
 
 input:checked+label:after {
   left: calc(100% - 1px);
   transform: translateX(-100%);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 label:active:after {
@@ -1525,15 +1526,6 @@ input[type=checkbox] {
   height: 0;
   width: 0;
   visibility: hidden;
-}
-
-html.transition,
-html.transition *,
-html.transition *:before,
-html.transition *:after {
-  transition-delay: 0 !important;
-  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-  /*   transition: all 250ms !important; */
 }
 
 /* =======================================
