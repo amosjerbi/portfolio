@@ -1503,13 +1503,13 @@ label:after {
   left: 1px;
   width: 25.5px;
   height: 25.5px;
-  background: #fff;
+  background: var(--four_color);
   border-radius: 100%;
   transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 input:checked+label {
-  background: blue;
+  background: var(--one_color);
 }
 
 input:checked+label:after {
