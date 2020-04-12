@@ -42,13 +42,13 @@ ul, li a {
 }
 
 video::-webkit-media-controls-panel {
-     background-image: linear-gradient(transparent, transparent); !important;
+  background-image: linear-gradient(transparent, transparent);
+   !important;
 }
 
 .videobox {
-  Padding:0.5%;
+  Padding: 0.5%;
   background-color: var(--five_color);
-  
   border-radius: 10px;
 }
 
@@ -57,7 +57,6 @@ video::-webkit-media-controls-panel {
   height: auto;
   border-radius: 10px;
 }
-
 
 /* =======================================
    Typography
@@ -93,7 +92,7 @@ h3 {
   font-size: 1.25em;
   line-height: 1.25;
   letter-spacing: 0;
-  margin-bottom: .8rem
+  margin-bottom: .8rem;
 }
 
 h4 {
@@ -535,10 +534,10 @@ nav {
 
 .brand {
   display: grid;
-  width: 100%;
-  padding: 1rem 0 0 0rem;
+  /* width: auto; */
   cursor: pointer;
   justify-content: left;
+  align-items: center;
 }
 
 .brand img {
@@ -764,6 +763,10 @@ a.button_second {
   display: none;
 }
 
+.navbutton {
+  display: none;
+}
+
 @media (max-width: 1500px) and (min-width: 769px) {
   .container-nav {
     margin: auto 3rem;
@@ -804,6 +807,23 @@ a.button_second {
 
   .novile {
     display: grid;
+    justify-content: start;
+    /* align-content: center; */
+    grid-auto-flow: column;
+    grid-row: 1;
+  }
+
+  .brand {
+    display: grid;
+    /* width: auto; */
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.9);
+  }
+
+  .navbutton {
+    display: grid;
     justify-content: end;
     /* align-content: center; */
     grid-auto-flow: column;
@@ -819,7 +839,7 @@ a.button_second {
     transition-duration: .22s;
     Background: var(--primary_light);
     border-radius: 50%;
-    border: 3px solid var(--one_color);
+    /* border: 3px solid var(--one_color); */
     color: var(--primary_dark);
     padding: 12px 9px;
     justify-content: right;
@@ -1014,6 +1034,7 @@ a.button_second {
   text-align: left;
   color: var(--four_color);
   width: 80%;
+  font-weight: 600;
 }
 
 .hero_img {
@@ -1049,6 +1070,8 @@ a.button_second {
     padding: 0 0 1.6rem 0;
     text-align: left;
     color: var(--four_color);
+    font-weight: 600;
+    line-height: 1.5;
   }
 
   .sidebyside {
@@ -1065,10 +1088,8 @@ a.button_second {
   }
 
   .button_prime {
-    width: 80%;
-    padding: 15px 20px;
+    padding: 10px 20px;
     align-self: center;
-    margin: 0;
   }
 
   .hero_img {
@@ -1110,7 +1131,7 @@ a.button_second {
   text-align: center;
   text-transform: none;
   display: flex;
-  width: 80%;
+  width: 65%;
   margin: 0 auto;
   color: var(--four_color);
   padding: 0.8rem 0 0 0;
@@ -1532,7 +1553,7 @@ html.transition *,
 html.transition *:before,
 html.transition *:after {
   transition-delay: 0 !important;
-    transition: all 250ms !important;
+  transition: all 250ms !important;
 }
 
 /* =======================================

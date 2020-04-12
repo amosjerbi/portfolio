@@ -12,16 +12,16 @@ novile.addEventListener("click", () => {
   });
 });
 
-// Hide Header on on scroll down
-var prev = 0;
-var $window = $(window);
-var nav = $('.navbar');
-
-$window.on('scroll', function(){
-  var scrollTop = $window.scrollTop();
-  nav.toggleClass('nav-up', scrollTop > prev);
-  prev = scrollTop;
-});
+// // Hide Header on on scroll down
+// var prev = 0;
+// var $window = $(window);
+// var nav = $('.navbar');
+//
+// $window.on('scroll', function(){
+//   var scrollTop = $window.scrollTop();
+//   nav.toggleClass('nav-up', scrollTop > prev);
+//   prev = scrollTop;
+// });
 
 
 // // navigation bar//
