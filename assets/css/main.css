@@ -1497,7 +1497,7 @@ label {
 }
 
 label:after {
-content: '';
+    content: '';
     position: absolute;
     top: 1px;
     left: 1px;
@@ -1518,7 +1518,8 @@ input:checked+label:after {
 }
 
 label:active:after {
-  width: 45px;
+  /* width: 45px; */
+  animation-timing-function: ease-in-out;
 }
 
 input[type=checkbox] {
