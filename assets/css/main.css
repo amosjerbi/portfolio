@@ -1519,7 +1519,6 @@ input:checked+label:after {
 
 label:active:after {
   /* width: 45px; */
-  animation-timing-function: ease-in-out;
 }
 
 input[type=checkbox] {
