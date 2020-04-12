@@ -1490,7 +1490,7 @@ label {
   text-indent: -9999px;
   width: 52px;
   height: 27.5px;
-  background: black;
+  background: var(--four_color);
   float: right;
   border-radius: 100px;
   position: relative;
@@ -1503,7 +1503,7 @@ label:after {
   left: 1px;
   width: 25.5px;
   height: 25.5px;
-  background: var(--four_color);
+  background: #fff;
   border-radius: 100%;
   transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
