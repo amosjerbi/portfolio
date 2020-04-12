@@ -1527,6 +1527,14 @@ input[type=checkbox] {
   visibility: hidden;
 }
 
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition-delay: 0 !important;
+    transition: all 250ms !important;
+}
+
 /* =======================================
    Footer Section
  ======================================== */
