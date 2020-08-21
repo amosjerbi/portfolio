@@ -2,9 +2,7 @@
 
 @font-face {
 font-family: "FontAwesome";
-fa-font-display: swap;
-font-weight: normal;
-font-style : normal;
+display: swap;
 }
 
 :root {
