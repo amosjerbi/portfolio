@@ -1,10 +1,5 @@
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
-@font-face {
-font-family: "FontAwesome";
-display: swap;
-}
-
 :root {
   --alignment: center;
   --fontMono: 'Questrial', sans-serif;
