@@ -1039,6 +1039,7 @@ a.button_second {
   color: var(--four_color);
   width: 80%;
   font-weight: 600;
+  line-height: 1.6;
 }
 
 .hero_img {
@@ -1075,7 +1076,7 @@ a.button_second {
     text-align: left;
     color: var(--four_color);
     font-weight: 600;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .sidebyside {
