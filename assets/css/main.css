@@ -753,7 +753,7 @@ a.button_second {
   transition: all .5s;
   border-bottom: 3px solid var(--one_color);
   padding: 5px;
-  font-size: 1em;
+  font-size: 0.8rem;
 }
 
 .buttonborder:hover {
@@ -1028,7 +1028,7 @@ a.button_second {
 
 .hero_heading {
   text-transform: uppercase;
-  padding: 0rem 0.2rem 0rem 0rem; 
+  padding: 0rem 0.2rem 0rem 0rem;
   font-weight: 800;
 }
 
@@ -1069,7 +1069,7 @@ a.button_second {
     font-weight: 800;
     font-size: 2rem;
   }
-  
+
   .hero_paragraph {
     text-transform: none;
     padding: 0rem 0rem 1.5rem 0rem;
