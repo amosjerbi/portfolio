@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'fa';
-  src: url('../font/fa.eot?30543180');
-  src: url('../font/fa.eot?30543180#iefix') format('embedded-opentype'),
-       url('../font/fa.woff2?30543180') format('woff2'),
-       url('../font/fa.woff?30543180') format('woff'),
-       url('../font/fa.ttf?30543180') format('truetype'),
-       url('../font/fa.svg?30543180#fa') format('svg');
+  src: url('../font/fa.eot?24013307');
+  src: url('../font/fa.eot?24013307#iefix') format('embedded-opentype'),
+       url('../font/fa.woff2?24013307') format('woff2'),
+       url('../font/fa.woff?24013307') format('woff'),
+       url('../font/fa.ttf?24013307') format('truetype'),
+       url('../font/fa.svg?24013307#fa') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fa';
-    src: url('../font/fa.svg?30543180#fa') format('svg');
+    src: url('../font/fa.svg?24013307#fa') format('svg');
   }
 }
 */
