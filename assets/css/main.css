@@ -689,7 +689,7 @@ a.button_prime {
 
 .button_prime:hover {
   background-color: var(--one_color);
-  color: var(--primary_light);
+  color: #fff;
 }
 
 .button_white {
@@ -981,6 +981,12 @@ a.button_second {
     color: var(--primary_dark);
     opacity: 1;
   }
+  
+    .novile-items:hover {
+    	background: var(--one_color);
+  color: #fff;
+  transition: all .2s;
+    	}
 
   .nav_line_list {
     height: 2px;
@@ -1657,7 +1663,7 @@ html.transition *:after {
 
 .contact-icon:hover {
   background: var(--one_color);
-  color: var(--primary_light);
+  color: #fff;
   transition: all .2s;
 }
 
