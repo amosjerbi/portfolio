@@ -11,6 +11,7 @@
   --three_color: #dbdbdb;
   --four_color: #72767D;
   --five_color: #4682e61a;
+  --navcolor: rgb(255 255 255 / 0.78);
 }
 
 html[data-theme='dark'] {
@@ -20,6 +21,7 @@ html[data-theme='dark'] {
   --two_color: #121317;
   --three_color: #414249;
   --five_color: rgba(207, 206, 230, 0.2);
+  --navcolor: rgb(32 35 39 / 0.78);
 }
 
 ::selection {
@@ -505,14 +507,13 @@ nav {
 }
 
 .navbar {
-  background-color: var(--primary_light);
   transition: all 0.5s;
   position: sticky;
   top: 0;
   z-index: 30;
   padding: 1rem 0 1rem 0;
   backdrop-filter: blur(15px) saturate(100%);
-  background-color: rgb(255 255 255 / 0.78);
+  background-color: var(--navcolor);
 }
 
 .navbar.is-fixed-top {
@@ -782,14 +783,13 @@ a.button_second {
   }
 
   .navbar {
-    background-color: var(--primary_light);
     transition: all 0.7s;
     position: sticky;
     top: 0;
     z-index: 30;
     padding: 0.5rem 0 0.5rem 0;
     backdrop-filter: blur(15px) saturate(100%);
-    background-color: rgb(255 255 255 / 0.78);
+    background-color: var(--navcolor);
   }
 
   .nav-up {
@@ -841,7 +841,7 @@ a.button_second {
     transform: rotateY(0);
     transition-timing-function: cubic-bezier(.55, .055, .675, .19);
     transition-duration: .22s;
-    Background: var(--primary_light);
+    /* Background: var(--primary_light); */
     border-radius: 50%;
     /* border: 3px solid var(--one_color); */
     color: var(--primary_dark);
@@ -981,12 +981,12 @@ a.button_second {
     color: var(--primary_dark);
     opacity: 1;
   }
-  
-    .novile-items:hover {
-    	background: var(--one_color);
-  color: #fff;
-  transition: all .2s;
-    	}
+
+  .novile-items:hover {
+    background: var(--one_color);
+    color: #fff;
+    transition: all .2s;
+  }
 
   .nav_line_list {
     height: 2px;
