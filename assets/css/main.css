@@ -400,6 +400,10 @@ footer, section {
   justify-content: center;
 }
 
+#bm {
+  width: 80%;
+}
+
 /* Desktop and bigger */
 @media (min-width: 768px) and (max-width: 1500px) {
   .container {
