@@ -102,7 +102,14 @@
 
 					</div>
 					<div class="column_right_hero">
-						<div class="hero_img"><img src="assets/images/profile_full.png" alt="profile_full"></div>
+						<!-- <div class="hero_img"><img src="assets/images/profile_full.png" alt="profile_full"></div> -->
+
+						<!--:<lottie-player id="bm">
+	</lottie-player> -->
+
+						<div id="bm">
+						</div>
+
 					</div>
 				</div>
 
@@ -358,6 +365,16 @@
 	<script src="assets/css/glide.js"></script>
 	<script src="assets/css/aos.js"></script>
 	<script src="assets/css/main.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.js"></script>
+	<script>
+		var animation = bodymovin.loadAnimation({
+			container: document.getElementById('bm'),
+			renderer: 'svg',
+			loop: true,
+			autoplay: true,
+			path: 'https://raw.githubusercontent.com/amosjerbi/portfolio/master/assets/images/homepage.json'
+		})
+	</script>
 	<script>
 		var glide = new Glide('.glide', {
 			type: 'carousel',
