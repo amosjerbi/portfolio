@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="description" content="Interface designer that knows front coding & aims to impact your business">
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#fff">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#fff">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#fff">
+  <!-- Basic Page Needs<!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#fff">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#fff">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#fff">
+  <!-- Required meta tags always come first -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Amos Jerbi</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,600,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+  <!--CSS -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/aos.css">
+  <link rel="stylesheet" href="assets/css/lightgallery.css">
+  <link rel="stylesheet" href="assets/font/socialfont.css">
+</head>
+
+<style>
+  .img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 10px;
+  }
+
+  .header {
+    text-align: center;
+    padding: 4rem 3rem 0 3rem;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Create four equal columns that sits next to each other */
+  #lightgallery {
+    column-count: 2;
+    column-gap: 2%;
+    /* column-width: 100%; */
+  }
+
+  .flow {
+    grid-row-end: span 30;
+  }
+
+  .social {
+    padding: 1rem 1rem 1rem 1rem;
+  }
+
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media (max-width: 800px) {
+    .flow {
+      grid-row-end: span 14;
+    }
+
+    #lightgallery {
+      column-count: 3;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+    }
+
+  }
+
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media (max-width: 600px) {
+    .flow {
+      grid-row-end: span 14;
+    }
+
+    #lightgallery {
+      column-count: 1;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+
+    }
+
+    .header {
+      padding: 4rem 0 2rem 0;
+    }
+
+    .section2 {
+      padding: 3rem 0.2rem;
+    }
+
+    h1 {
+      font-size: 2.3em;
+    }
+  }
+</style>
+
+<body>
+  <nav class="navbar">
+    <div class="container-nav">
+      <div class="novile" aria-label="menu" aria-expanded="false">
+        <div class="burger">
+          <div class="burger_line"></div>
+          <div class="burger_line"></div>
+          <div class="burger_line"></div>
+        </div>
+        <div class="global-nav">
+          <ul class="global-nav__list" style="--length: 12">
+            <li style="--index: 0;"><a href="bitboarding.html">bit</a></li>
+            <li style="--index: 1;"><a href="gofer.html">Gofer</a></li>
+            <li style="--index: 2;"><a href="payback.html">Payback</a></li>
+            <li style="--index: 3;"><a href="mills.html">Mills</a></li>
+            <li style="--index: 4;"><a href="gallery.html">Illustrations</a></li>
+            <li style="--index: 5;"><a href="design_kit.html">Design_kit</a></li>
+            <li style="--index: 6; display: inline-flex;"><a href="https://www.youtube.com/amosjerbi" target="_blank" class="novile-items"><i class="fa-fa-youtube"></i></a></li>
+            <li style="--index: 7; display: inline-flex;"><a href="https://instagram.com/amosjerbi" target="_blank" rel="noopener" rel="noopener" rel="noopener" class="novile-items"><i class="fa-fa-instagram"></i></a></li>
+            <li style="--index: 8; display: inline-flex;"><a href="https://www.linkedin.com/in/amosjerbi/" target="_blank" rel="noopener" rel="noopener" rel="noopener" class="novile-items"><i class="fa-fa-linkedin"></i></a></li>
+
+            <li class="nav_line_list" style="--index: 9;"></li>
+            <li class="contact_me" style="--index: 10;">
+              <h5><a href="tel:+972-507205884">
+                  +972-507-205-884
+                </a></h5>
+            </li>
+            <li class="contact_me" style="--index: 11;">
+              <h5><a href="mailto:amosjerbi@gmail.com?subject=Hey Amos, let's meet up!">
+                  amosjerbi@gmail.com
+                </a></h5>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="brand">
+        <a href="index.html">
+          <img src="assets/images/amoslogo.svg" alt="logo">
+        </a>
+      </div>
+      <ul class="menu-end">
+        <li><a href="bitboarding.html" class="menu-item">bit</a></li>
+        <li><a href="gofer.html" class="menu-item">Gofer</a></li>
+        <li><a href="mills.html" class="menu-item">Mills</a></li>
+        <li><a href="payback.html" class="menu-item">Payback</a></li>
+        <li><a href="design_kit.html" class="menu-item">design_kit</a></li>
+        <li>
+          <a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/2020_Amosjerbi_CV.zip" target="_blank" rel="noopener" class="button_prime">
+            Get CV
+          </a>
+        </li>
+      </ul>
+      <div class="navbutton"><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/2020_Amosjerbi_CV.zip" target="_blank" rel="noopener" class="button_prime">
+          Get CV
+        </a>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <section class="section is-smallish has-background-igloo">
+      <div class="container">
+        <div class="grid12 is-small">
+          <div class="column_left_hero">
+            <h5 class="herointro is-uppercase has-text-light"><strong>Igloo Creative House - 2020</strong></h5>
+            <h2 class="hero_heading has-text-light">Be a Hawk - Commercial</h2>
+            <p class="hero_paragraph has-text-light">
+              <br>Igloo Creative Studio reached out to me to help out cracking the creative behind a new commercial for Plus500
+            </p>
+            <a href="https://www.igloocreative.co/commercials/plus500-fomo/" class="button_white">
+              Visit Igloos Creative House
+            </a>
+          </div>
+
+          <div class="column_right_hero">
+            <div class="products_img"><img src="assets/igloo_500plus/500Plus_header.gif" alt="01_bitboarding"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section is-small has-background-video">
+      <div class="container">
+        <div class="grid12">
+          <div class="column_left row-top">
+            <div class="count"></div>
+            <h4 class="is-bold">My Takeaways</h4>
+            <p>After we sorted the technical payment details I knew it'd be for the best if all the team memebers that are related to the creative would come together on one board, that's when Miro came to play. On that endless board with put all our
+              inspirations, sketches & remarks regarding our design decisions
+            </p>
+          </div>
+          <div class="column_right row-bottom">
+            <p>At first, I sketched out the backgrounds and the main character. Once those were valid leads I started to refine them on Sketch.<br>I worked closely with Dov Walles (The Art Director) and it was such a breeze working with him! I'm very
+              proud with final results and was surprised by the sheer details they added.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section has-background-video">
+      <div class="container">
+        <!-- <h1 class="header has-text-dark is-uppercase">gallery</h1> -->
+        <div id="lightgallery">
+          <!-- item -->
+          <div class="flow" data-src="assets/igloo_500plus/500Plus_01.png">
+            <img class="img" src="assets/igloo_500plus/500Plus_01.png" />
+          </div>
+          <!-- item -->
+          <div class="flow" data-src="assets/igloo_500plus/500Plus_02.png">
+            <img class="img" src="assets/igloo_500plus/500Plus_02.png" />
+          </div>
+          <!-- item -->
+          <div class="flow" data-src="assets/igloo_500plus/500Plus_03.png">
+            <img class="img" src="assets/igloo_500plus/500Plus_03.png" />
+          </div>
+          <!-- item -->
+          <div class="flow" data-src="assets/igloo_500plus/500Plus_04.png">
+            <img class="img" src="assets/igloo_500plus/500Plus_04.png" />
+          </div>
+          <!-- item -->
+          <div class="flow" data-src="assets/igloo_500plus/500Plus_05.png">
+            <img class="img" src="assets/igloo_500plus/500Plus_05.png" />
+          </div>
+          <!-- item -->
+          <div class="flow" data-src="assets/igloo_500plus/500Plus_06.png">
+            <img class="img" src="assets/igloo_500plus/500Plus_06.png" />
+          </div>
+          <!-- item -->
+          <div class="flow" data-src="assets/igloo_500plus/500Plus_07.png">
+            <img class="img" src="assets/igloo_500plus/500Plus_07.png" />
+          </div>
+          <!-- item -->
+        </div><!-- end lightgallery -->
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="videobox" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200" data-aos-easing="ease-out-sine">
+        
+        <video class="videores" loop="loop" autoplay="autoplay" width="100%" height="auto" controls>
+          <source src="assets/igloo_500plus/igloo_500plus.mp4" type="video/mp4">
+        </video>
+    </section>
+
+
+
+    </div>
+
+    <section class="section is-transparent">
+      <div class="container">
+        <div class="grid12">
+          <div class="column_left row-top">
+            <div class="count"></div>
+            <h4 class="is-bold">Thanks & Credits.</h4>
+            <p>My sincere thanks to everyone who made this thing come alive:</p>
+            <br>
+            <p>
+              Background & Characters - <b>Amos Jerbi</b><br>
+              Art Direction - <b>Dov Walles Arik Ben-Ari</b><br>
+              Animations - <b>Dov Walles Guy Ben Haim Rami Rahamim Elal Chen Samay Levy</b><br>
+              Online Animations - <b>Arik Ben-Ari</b><br>
+              Creative & Script- <b>Itsik Alfon Mor Hefets Haggiag Arik Ben-Ari</b><br>
+              Customer Plus500 - <b>Mor Hefets Haggiag Itsik Alfon</b><br>
+              Producer - <b>Ben E Vaknin</b><br>
+              Editor - <b>Arik Ben-Ari</b><br>
+              Photography & Videos - <b>EKO Creative Yarin Aharonof Gal Dryzin</b><br>
+              Actor - <b>Ofer Ruthenberg</b><br>
+            </p>
+          </div>
+          <!-- <div class="column_right row-bottom">
+            <div class="" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200" data-aos-easing="ease-out-sine"><a href="#"><img src="assets/bitboarding/08_bitboarding_thanks.png" alt="08_bitboarding_thanks"></a></div>
+          </div> -->
+
+        </div>
+      </div>
+    </section>
+
+
+    <section id="projects">
+      <div class="section is-small">
+        <div class="container">
+          <!--<div class="divider"></div>-->
+          <h4 class="projects">MORE PROJECTS</h4>
+          <div class="more_grid">
+            <a class="more" href="mills.html" style="background-image: url('https://github.com/amosjerbi/me/raw/master/assets/thumb/thumb_3.jpg');">
+              <div class="is-uppercase">mills</div>
+            </a>
+            <a class="more" href="payback.html" style="background-image: url('https://github.com/amosjerbi/me/raw/master/assets/payback/payback_thumb.jpg');">
+              <div class="is-uppercase">payback</div>
+            </a>
+            <a class="more" href="gofer.html" style="background-image: url('https://github.com/amosjerbi/me/raw/master/assets/thumb/thumb_4.jpg');">
+              <div class="is-uppercase">gofer</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer id="footer" class="section">
+    <section>
+      <div class="section">
+        <div class="container">
+          <div class="footer_grid">
+            <div class="footer_logo">
+              <img src="assets/images/amoslogo.svg" alt="logo">
+            </div>
+            <div class="footer_links_col1">
+              <h6>About</h6>
+              <p>
+                A self taught designer that loves his craft and can be very technical when needed, speaking of which, this website was coded by yours truly.
+                Just inspect away
+              </p>
+            </div>
+            <div class="footer_links_col2">
+              <h6>Downloads</h6>
+              <ul>
+                <li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/2020_Amosjerbi_CV.zip" class="menu-item">Resume CV</a></li>
+                <li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/carmelit.zip" class="menu-item">Carmelit Font</a></li>
+                <li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/noot.zip" class="menu-item">Noot Font</a></li>
+                <li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/ptil.zip" class="menu-item">Ptil Font</a></li>
+                <li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/Amos_Birthday_Freebie.sketch" class="menu-item">Freebie Illustration</a></li>
+              </ul>
+            </div>
+            <div class="footer_links_col3">
+              <h6>Reach Out</h6>
+              <ul>
+                <li><a href="tel:+972-507205884" class="menu-item">+972-507-205-884</a></li>
+                <li><a href="mailto:amosjerbi@gmail.com?subject=Hey Amos, let's meet up!" class="menu-item">amosjerbi@gmail.com</a></li>
+              </ul>
+              <div class="footer_social">
+                <a href="https://www.youtube.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon"><i class="fa-fa-youtube"></i></a>
+                <a href="https://instagram.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon"><i class="fa-fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/amosjerbi/" target="_blank" rel="noopener" class="contact-icon"><i class="fa-fa-linkedin"></i></a>
+                <a href="https://dribbble.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon"><i class="fa-fa-dribbble"></i></a>
+              </div>
+            </div>
+            <div class="footer_legals">
+              <h6 class="has-text-credit"><a href="https://ajerbi.com/" target="_blank" rel="noopener" class="has-text-credit">Website Made with ❤️ by Amos Jerbi © <script>
+                    document.write(new Date().getFullYear())
+                  </script></a></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+  <!-- JS Links -->
+  <script src="assets/css/lightgallery.js"></script>
+  <script>
+    lightGallery(document.getElementById('lightgallery'));
+  </script>
+
+  <script>
+    (function($) {
+
+      $('.accordion a').click(function(j) {
+        var dropDown = $(this).closest('li').find('p');
+
+        $(this).closest('.accordion').find('p').not(dropDown).slideUp();
+
+        if ($(this).hasClass('active')) {
+          $(this).removeClass('active');
+        } else {
+          $(this).closest('.accordion').find('a.active').removeClass('active');
+          $(this).addClass('active');
+        }
+
+        dropDown.stop(false, true).slideToggle();
+
+        j.preventDefault();
+      });
+    })(jQuery);
+  </script>
+  <script src="assets/css/analytics.js"></script>
+  <script src="assets/css/glide.js"></script>
+  <script src="assets/css/aos.js"></script>
+  <script src="assets/css/main.js"></script>
+</body>
+
+</html>
