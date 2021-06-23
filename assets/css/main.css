@@ -49,8 +49,8 @@ video::-webkit-media-controls-panel {
 }
 
 .videobox {
-  Padding: 0.5%;
-  background-color: var(--five_color);
+  Padding: 6%;
+  /* background-color: var(--five_color); */
   border-radius: 10px;
 }
 
@@ -245,8 +245,17 @@ a.has-text-light:hover {
   background-color: var(--one_color) !important;
 }
 
+.has-background-video {
+  background-color: var(--five_color);
+   !important
+}
+
 .has-background-bit {
   background-image: linear-gradient(180deg, rgba(57, 184, 200, 1) 0%, rgba(46, 116, 160, 1) 100%);
+}
+
+.has-background-igloo {
+  background: radial-gradient(circle at bottom center, rgba(100,143,215,1) 0%, rgba(27,49,91,1) 73%);
 }
 
 .has-background-mills {
