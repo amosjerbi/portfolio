@@ -196,7 +196,7 @@
         </div>
         <div class="global-nav">
           <ul class="global-nav__list" style="--length: 12">
-            <li style="--index: 0;"><a href="bitboarding.html">bit</a></li>
+            <li style="--index: 0;"><a href="bitcard.html">bit</a></li>
             <li style="--index: 1;"><a href="gofer.html">Gofer</a></li>
             <li style="--index: 2;"><a href="payback.html">Payback</a></li>
             <li style="--index: 3;"><a href="mills.html">Mills</a></li>
@@ -226,7 +226,7 @@
         </a>
       </div>
       <ul class="menu-end">
-        <li><a href="bitboarding.html" class="menu-item">bit</a></li>
+        <li><a href="bitcard.html" class="menu-item">bit</a></li>
         <li><a href="gofer.html" class="menu-item">Gofer</a></li>
         <li><a href="mills.html" class="menu-item">Mills</a></li>
         <li><a href="payback.html" class="menu-item">Payback</a></li>
@@ -484,7 +484,7 @@
             <div class="count"></div>
             <h3>Thanks &amp; Credits.</h3>
             <br>
-            <p>High fives to all who were involved &amp; hope to share with you more features as we push forward! üí</p>
+            <p>High fives to all who were involved &amp; hope to share with you more features as we push forward! ÔøΩ</p>
             <br>
             <p>
               Amos Jerbi (UI, branding &amp; Animations)<br>
@@ -499,9 +499,10 @@
               <br>
               &amp; Our incredible dev team
             </p>
+            <br>
           </div>
           <div class="column_right row-bottom">
-            <div class="aos-init aos-animate" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1100" data-aos-easing="ease-out-sine"><a href="#"><img src="assets/bitboarding/08_bitboarding_thanks.png" alt="08_bitboarding_thanks"></a></div>
+            <div id="bm"></div>
           </div>
         </div>
       </div>
@@ -567,7 +568,7 @@
               </div>
             </div>
             <div class="footer_legals">
-              <h6 class="has-text-credit"><a href="https://ajerbi.com/" target="_blank" rel="noopener" class="has-text-credit">Website Made with ‚ù§Ôè by Amos Jerbi ¬ <script>
+              <h6 class="has-text-credit"><a href="https://ajerbi.com/" target="_blank" rel="noopener" class="has-text-credit">Website Made with ‚ù§ÔøΩÔøΩ by Amos Jerbi ÔøΩ <script>
                     document.write(new Date().getFullYear())
                   </script></a></h6>
             </div>
@@ -598,6 +599,16 @@
         j.preventDefault();
       });
     })(jQuery);
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.js"></script>
+  <script>
+    var animation = bodymovin.loadAnimation({
+      container: document.getElementById('bm'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://raw.githubusercontent.com/amosjerbi/portfolio/master/assets/bitcard/thank_you.json'
+    })
   </script>
   <script src="assets/css/analytics.js"></script>
   <script src="assets/css/glide.js"></script>
