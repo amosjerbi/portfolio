@@ -1,5 +1,4 @@
 /* @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'); */
-
 :root {
   --alignment: center;
   --fontMono: 'Questrial', sans-serif;
@@ -255,7 +254,7 @@ a.has-text-light:hover {
 }
 
 .has-background-igloo {
-  background: radial-gradient(circle at bottom center, rgba(100,143,215,1) 0%, rgba(27,49,91,1) 73%);
+  background: radial-gradient(circle at bottom center, rgba(100, 143, 215, 1) 0%, rgba(27, 49, 91, 1) 73%);
 }
 
 .has-background-mills {
@@ -457,7 +456,7 @@ footer, section {
   }
 
   .section.is-smallish {
-    padding: 0.5rem 0.5rem 2.5rem 0.5rem;
+    padding: 2.5rem 1.5rem;
   }
 
   .column_left_hero {
