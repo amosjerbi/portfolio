@@ -250,7 +250,7 @@ a.has-text-light:hover {
 }
 
 .has-background-bit {
-  background-image: linear-gradient(180deg, rgba(57, 184, 200, 1) 0%, rgba(46, 116, 160, 1) 100%);
+  background-image: linear-gradient(1deg, rgba(57, 184, 200, 1) 0%, rgba(46, 116, 160, 1) 100%);
 }
 
 .has-background-igloo {
