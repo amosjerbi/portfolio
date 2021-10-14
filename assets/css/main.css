@@ -708,14 +708,14 @@ a.button_prime {
 .button_white {
   color: var(--primary_light);
   transition: all .4s;
-  background-color: transparent;
+  background-color: var(--primary_light);
   opacity: 1;
   border-radius: 100px;
-  border: 3px solid var(--primary_light);
+  /* border: 3px solid var(--primary_light); */
   font-family: var(--fontSans);
   font-weight: 700;
-  padding: 10px 30px;
-  font-size: 0.8rem;
+  padding: 14px 30px;
+  font-size: 0.88rem;
   word-spacing: 1px;
   text-align: var(--alignment);
   align-self: center;
@@ -724,12 +724,15 @@ a.button_prime {
 }
 
 a.button_white {
-  color: var(--primary_light);
+  color: var(--primary_dark);
 }
 
 .button_white:hover {
   background-color: var(--primary_light);
   color: var(--primary_dark);
+  border-radius: 34px;
+  background: #ffffff;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 30%), -5px -5px 10px rgb(242 242 242 / 20%);
 }
 
 .button_second {
