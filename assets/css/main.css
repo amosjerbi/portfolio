@@ -2148,7 +2148,7 @@ px
   }
 
   #about-me-modal:target .modal {
-    transform: translateY(14%);
+    transform: translateY(9%);
     opacity: 1;
     z-index: 1;
   }
