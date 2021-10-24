@@ -168,7 +168,7 @@ body {
 a {
   color: var(--four_color);
   cursor: pointer;
-  text-decoration: none
+  text-decoration: none;
 }
 
 a:hover {
@@ -760,6 +760,35 @@ a.button_second {
 .button_second:hover {
   background-color: var(--primary_dark);
   color: var(--primary_light);
+}
+
+.button_modal {
+  /* color: var(--primary_light); */
+  transition: all .4s;
+  /* background-color: #585754; */
+  opacity: 1;
+  border-radius: 100px;
+  font-family: var(--fontSans);
+  font-weight: 700;
+  padding: 15px 20px;
+  font-size: 0.8rem;
+  word-spacing: 1px;
+  text-align: var(--alignment);
+  align-self: center;
+  text-transform: uppercase;
+  inline-size: fit-content;
+  box-shadow: 7px 3px 0 0px #aa8ef6;
+  border: 2px solid var(--one_color);
+}
+
+a.button_modal {
+  color: var(--primary_dark);
+}
+
+.button_modal:hover {
+  background-color: var(--one_color);
+  color: var(--primary_light);
+  box-shadow: 0px 0px 0px 0px #585754;
 }
 
 .buttonborder {
@@ -1682,6 +1711,35 @@ html.transition *:after {
   transition: all .2s;
 }
 
+.icon-modal {
+  position: relative;
+  height: 40px;
+  width: 40px;
+  background: var(--primary_light);
+  border-radius: 50%;
+  margin: 0 5px 0 0;
+  display: -ms-flexbox;
+  display: inline-flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  z-index: 2;
+  cursor: pointer;
+  border: 2px solid var(--one_color);
+  color: var(--primary_dark);
+  padding: 8px;
+  box-shadow: 3px 3px 0 1px #aa8ef6;
+}
+
+.icon-modal:hover {
+  background: var(--one_color);
+  color: #fff;
+  transition: all .2s;
+  border: solid 2px var(--one_color);
+  box-shadow: 0px 0px 0px 0px var(--primary_dark);
+}
+
 .footer_legals {
   grid-column: 2 / span 4;
   grid-row: 2;
@@ -1962,5 +2020,136 @@ html.transition *:after {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-auto-flow: dense;
+  }
+}
+
+/* =======================================
+   Modals
+ ======================================== */
+* {
+  box-sizing: border-box;
+}
+
+.is-center {
+  text-align: left;
+  background: var(--primary_light);
+  border-radius: 20px;
+  padding: 6% 9%;
+  /* width: 83%; */
+  margin: 0 auto;
+}
+
+.demo-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1.2rem;
+  padding: 0.6rem;
+  background: #c18660;
+  border-radius: 50%;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  /* border: 2
+px
+ solid var(--one_color); */
+}
+
+.demo-close svg {
+  width: 24px;
+  pointer-events: none;
+  vertical-align: top;
+  fill: var(--primary_light);
+}
+
+.demo-close:hover {
+  background: var(--one_color);
+}
+
+.social-modal {
+  padding: 0 0 10px 0;
+}
+
+/* about-me Modal Container */
+#about-me-modal {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/* about-me Modal Container - when open */
+#about-me-modal:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* about-me Modal */
+#about-me-modal .modal {
+  opacity: 0;
+  transform: translateY(-1rem);
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-delay: 0.2s;
+}
+
+/* about-me Modal - when open */
+#about-me-modal:target .modal {
+  transform: translateY(4%);
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Modal Container Styles */
+.modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Background Styles */
+.modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(30 46 76 / 85%);
+  backdrop-filter: blur(15px) saturate(100%);
+}
+
+/* Modal Body Styles */
+.modal {
+  z-index: 9000;
+  background-color: var(--three_color);
+  max-width: 30%;
+  padding: 20rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 20px;
+}
+
+.circle_6 {
+  border-radius: 50%;
+  width: 22%;
+}
+
+@media (min-width: 641px) and (max-width: 1200px) {
+  .modal {
+    max-width: 90%;
+    padding: 30rem 0.3rem 0.3rem 0.3rem;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 640px) {
+  .modal {
+    max-width: 90%;
+    padding: 13rem 0.3rem 0.3rem 0.3rem;
+  }
+
+  #about-me-modal:target .modal {
+    transform: translateY(14%);
+    opacity: 1;
+    z-index: 1;
   }
 }
