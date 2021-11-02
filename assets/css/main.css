@@ -358,7 +358,7 @@ footer, section {
 }
 
 .column_left_hero {
-  grid-column: 1/6;
+  grid-column: 2/6;
   grid-row: 1;
   display: grid;
   height: fit-content;
