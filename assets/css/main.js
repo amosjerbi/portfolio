@@ -25,15 +25,15 @@ novile.addEventListener("click", () => {
 
 
 // // navigation bar//
-// $(document).ready(function() {
-//   $(window).scroll(function() { // check if scroll event happened
-//     if ($(document).scrollTop() > 20) { // check if user scrolled more than 50 from top of the browser window
-//       $(".navbar").css("background-color", "var(--primary_light)"); // if yes, then change the color of class "navbar-fixed-top" to white (#0b0e2d90)
-//     } else {
-//       $(".navbar").css("background-color", "var(--primary_light)"); // if not, change it back to transparent
-//     }
-//   });
-// });
+$(document).ready(function() {
+  $(window).scroll(function() { // check if scroll event happened
+    if ($(document).scrollTop() > 0) { // check if user scrolled more than 50 from top of the browser window
+      $("nav").css("background-color", "var(--navcolor)"); // if yes, then change the color of class "navbar-fixed-top" to white (#0b0e2d90)
+    } else {
+      $("nav").css("background-color", "transparent"); // if not, change it back to transparent
+    }
+  });
+});
 
 // Animation on scroll//
 AOS.init({
