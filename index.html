@@ -27,6 +27,8 @@
 	<link rel="stylesheet" href="assets/css/main.css">
 	<link rel="stylesheet" href="assets/css/aos.css">
 	<link rel="stylesheet" href="assets/font/socialfont.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js">
+	</script>
 </head>
 
 <body>
@@ -40,12 +42,12 @@
 				</div>
 				<div class="global-nav">
 					<ul class="global-nav__list" style="--length: 12">
-						<li style="--index: 0;"><a href="bitcard.html">bit</a></li>
-						<li style="--index: 1;"><a href="gofer.html">Gofer</a></li>
-						<li style="--index: 2;"><a href="payback.html">Payback</a></li>
-						<li style="--index: 3;"><a href="mills.html">Mills</a></li>
-						<li style="--index: 4;"><a href="gallery.html">Illustrations</a></li>
-						<li style="--index: 5;"><a href="design_kit.html">Design_kit</a></li>
+						<li style="--index: 0;"><a href="bit_website.html">bit's Website</a></li>
+						<li style="--index: 1;"><a href="bitcard.html">Wallet & bitcard</a></li>
+						<li style="--index: 2;"><a href="bitboarding.html">bit's Onboarding</a></li>
+						<li style="--index: 3;"><a href="gofer.html">Gofer App</a></li>
+						<li style="--index: 4;"><a href="igloo_500plus.html">Igloo Commerical</a></li>
+						<li style="--index: 5;"><a href="gallery.html">Illustrations</a></li>
 						<li style="--index: 6; display: inline-flex;"><a href="https://www.youtube.com/amosjerbi" target="_blank" class="novile-items"><i class="fa-fa-youtube"></i></a></li>
 						<li style="--index: 7; display: inline-flex;"><a href="https://instagram.com/amosjerbi" target="_blank" rel="noopener" rel="noopener" rel="noopener" class="novile-items"><i class="fa-fa-instagram"></i></a></li>
 						<li style="--index: 8; display: inline-flex;"><a href="https://www.linkedin.com/in/amosjerbi/" target="_blank" rel="noopener" rel="noopener" rel="noopener" class="novile-items"><i class="fa-fa-linkedin"></i></a></li>
@@ -70,10 +72,35 @@
 				</a>
 			</div>
 			<ul class="menu-end">
-				<li><a href="bitcard.html" class="menu-item">bit</a></li>
+				<li>
+					<div class="dropdown is-hoverable">
+						<div class="dropdown-trigger">
+							<button class="menu-item" aria-haspopup="true" aria-controls="dropdown-menu3">
+								bit
+								<span class="icon2 is-small">
+									<i class="fa-fa-chevron-down" aria-hidden="true"></i>
+								</span>
+							</button>
+						</div>
+						<div class="dropdown-menu" id="dropdown-menu3" role="menu">
+							<div class="dropdown-content">
+								<a href="bit_website.html" class="dropdown-item" target="_blank">
+									bit Website
+								</a>
+								<hr class="dropdown-divider">
+								<a href="bitcard.html" class="dropdown-item" target="_blank">
+									bitcard
+								</a>
+								<a href="bitboarding.html" class="dropdown-item" target="_blank">
+									Onboarding
+								</a>
+							</div>
+						</div>
+					</div>
+				</li>
 				<li><a href="gofer.html" class="menu-item">Gofer</a></li>
 				<li><a href="mills.html" class="menu-item">Mills</a></li>
-				<li><a href="payback.html" class="menu-item">Payback</a></li>
+				<!-- <li><a href="payback.html" class="menu-item">Payback</a></li> -->
 				<li><a href="design_kit.html" class="menu-item">design_kit</a></li>
 				<li>
 					<a href="#about-me-modal" rel="noopener" class="button_prime">
@@ -92,13 +119,15 @@
 			<div class="container">
 				<div class="grid12 is-small">
 					<div class="column_left_hero">
-						<h4 class="herointro is-uppercase" style="color:#c18560;"><strong>Hi, I'm a Designer</strong></h4>
-						<h1 class="hero_heading">Love my work.<br> Aim to impact.</h1>
+						<h4 class="herointro is-uppercase"><strong>Forget job titles</strong></h4>
+						<h1 class="hero_heading">Let's make your product great!</h1>
 						<div class="hero_paragraph">
-							& there's a lot of work to be done...
+							I do all sorts of sorcery such as UI, Prototyping, Illustrations & Animations.
 						</div>
-
-						<!-- <a href="https://www.youtube.com/amosjerbi" target="_blank" rel="noopener" class="button_modal"><i class="fa-fa-youtube" style="color: #FF0000; font-size: 20px; vertical-align:middle;"></i><span> let's do our best</span></a> -->
+						<div class="sidebyside">
+							<a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/2020_Amosjerbi_CV.zip" target="_blank" rel="noopener" class="button_modal">Download CV</a>
+							<!-- <a href="https://www.youtube.com/amosjerbi" target="_blank" rel="noopener" class="button_prime"><i class="fa-fa-youtube" style="color: var(primary_dark:;);"></i><span>  Youtube tutorials</span></a> -->
+						</div>
 
 					</div>
 					<div class="column_right_hero">
@@ -113,7 +142,7 @@
 					</div>
 				</div>
 
-				<div class="features">
+				<!-- <div class="features">
 					<div class="grid3">
 						<div class="grid-3-item">
 							<div class="feature-icon"><img src="assets/images/time.svg" alt="time"></div>
@@ -137,7 +166,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!--box -->
 
 			</div>
@@ -146,9 +175,26 @@
 		<section class="section is-small">
 			<div class="container">
 				<div class="grid12 is-small">
+					<div class="column_right row-top">
+						<div class="count"></div>
+						<h4 class="is-bold">bit's website</h4>
+						<p>bit needed a platform to show & tell its customers about its latest capabilities and serve as a getway to potential customers.</p>
+						<Br>
+						<div><a href="bit_website.html" class="buttonborder" target="_blank">VIEW WEBSITE</a></div>
+					</div>
+					<div class="column_left row-bottom">
+						<div class="" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200" data-aos-easing="ease-out-sine"><a href="bit_website.html"><img src="assets/images/bit_website_index.png" alt="bit_home"></a></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section is-small">
+			<div class="container">
+				<div class="grid12 is-small">
 					<div class="column_left row-top">
 						<div class="count"></div>
-						<h4 class="is-bold">bitcard 2020</h4>
+						<h4 class="is-bold">Wallet & bitcard - App </h4>
 						<p>bit emarked on new mission to launch a new credit card & digital wallet to pay with your phone</p>
 						<Br>
 						<div><a href="bitcard.html" class="buttonborder">VIEW CASESTUDY</a></div>
@@ -166,7 +212,7 @@
 				<div class="grid12 is-small">
 					<div class="column_right row-top">
 						<div class="count"></div>
-						<h4 class="is-bold">bit 2020 Intro</h4>
+						<h4 class="is-bold">bit Onboarding</h4>
 						<p>The most popular paying app in Israel with over 2 million users in Israel neeeded a new Intro.</p>
 						<Br>
 						<div><a href="bitboarding.html" class="buttonborder">VIEW CASESTUDY</a></div>
@@ -183,7 +229,7 @@
 				<div class="grid12 is-small">
 					<div class="column_left row-top">
 						<div class="count"></div>
-						<h4 class="is-bold">GOFER - APP DESIGN</h4>
+						<h4 class="is-bold">Gofer - App</h4>
 						<p>A smart gifting app that recommends you the right gift for your loved ones,
 							Get it now on Google Play store!</p>
 						<Br>
@@ -196,18 +242,35 @@
 			</div>
 		</section>
 
-		<section class="section is-small">
+		<!-- <section class="section is-small">
 			<div class="container">
 				<div class="grid12 is-small">
 					<div class="column_right row-top">
 						<div class="count"></div>
-						<h4 class="is-bold">PAYBACK LTD</h4>
+						<h4 class="is-bold">Payback LTD</h4>
 						<p>Now more than ever there are online frauds and we found the right people for the job. Just tell them your story.</p>
 						<Br>
 						<div><a href="payback.html" class="buttonborder">VIEW CASESTUDY</a></div>
 					</div>
 					<div class="column_left row-bottom">
 						<div class="" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200" data-aos-easing="ease-out-sine"><a href="payback.html"><img src="assets/payback/payback_video.png" alt="payback_video"></a></div>
+					</div>
+				</div>
+			</div>
+		</section> -->
+
+		<section class="section is-small">
+			<div class="container">
+				<div class="grid12 is-small">
+					<div class="column_right row-top">
+						<div class="count"></div>
+						<h4 class="is-bold">Mills</h4>
+						<p>We set out to develop a product that would ease the pet owner's lives.</p>
+						<Br>
+						<div><a href="mills.html" class="buttonborder">VIEW CASESTUDY</a></div>
+					</div>
+					<div class="column_left row-bottom">
+						<div class="" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200" data-aos-easing="ease-out-sine"><a href="mills.html"><img src="assets/images/mills_main.png" alt="mills_main"></a></div>
 					</div>
 				</div>
 			</div>
@@ -218,13 +281,13 @@
 				<div class="grid12 is-small">
 					<div class="column_left row-top">
 						<div class="count"></div>
-						<h4 class="is-bold">Mills</h4>
-						<p>We set out to develop a product that would ease the pet owner's lives.</p>
+						<h4 class="is-bold">Commerical for Igloo Creative</h4>
+						<p>Collaborated with the awesome people at Igloo Creative House to make a small commerical for 500Plus</p>
 						<Br>
-						<div><a href="mills.html" class="buttonborder">VIEW CASESTUDY</a></div>
+						<div><a href="igloo_500plus.html" class="buttonborder">CHECK IT OUT</a></div>
 					</div>
 					<div class="column_right row-bottom">
-						<div class="" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200" data-aos-easing="ease-out-sine"><a href="mills.html"><img src="assets/images/mills_main.png" alt="mills_main"></a></div>
+						<div class="" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200" data-aos-easing="ease-out-sine"><a href="igloo_500plus.html"><img src="assets/igloo_500plus/500Plus_header.gif" alt="igloo_500plus"></a></div>
 					</div>
 				</div>
 			</div>
@@ -249,28 +312,11 @@
 			</div>
 		</section>
 
-		<section class="section is-small">
-			<div class="container">
-				<div class="grid12 is-small">
-					<div class="column_left row-top">
-						<div class="count"></div>
-						<h4 class="is-bold">Commerical for Igloo Creative</h4>
-						<p>Collaborated with the awesome people at Igloo Creative House to make a small commerical for 500Plus</p>
-						<Br>
-						<div><a href="igloo_500plus.html" class="buttonborder">CHECK IT OUT</a></div>
-					</div>
-					<div class="column_right row-bottom">
-						<div class="" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200" data-aos-easing="ease-out-sine"><a href="igloo_500plus.html"><img src="assets/igloo_500plus/500Plus_header.gif" alt="igloo_500plus"></a></div>
-					</div>
-				</div>
-			</div>
-		</section>
-
 		<section id="testimonials">
-			<div class="section is-small has-background-purple">
+			<div class="section is-small has-background-purpl">
 				<div class="container">
 					<div class="divider is-white"></div>
-					<h4 class="is-bold has-text-light is-uppercase">What they say</h4>
+					<!-- <h4 class="is-bold has-text-light is-uppercase">What they say</h4> -->
 					<div class="glide__wrapper">
 						<div id="Glide" class="glide">
 							<div class="glide__track" data-glide-el="track">
@@ -388,7 +434,7 @@
 							</div>
 						</div>
 						<div class="footer_legals">
-							<h6 class="has-text-credit"><a href="https://ajerbi.com/" target="_blank" rel="noopener" class="has-text-credit">Website Made with ❤️ by Amos Jerbi © 2020</a></h6>
+							<h6 class="has-text-credit"><a href="https://ajerbi.com/" target="_blank" rel="noopener" class="has-text-credit">Website Made with ❤️ by Amos Jerbi © 2022</a></h6>
 						</div>
 					</div>
 				</div>
