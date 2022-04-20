@@ -1537,7 +1537,7 @@ button.dropdown-item.is-active {
 
   .testimonial-text p {
     margin-bottom: 8%;
-    color: var(--primary_light);
+    color: var(--primary_dark);
     font-size: 1.4rem;
     line-height: 33px;
     font-family: var(--fontMono);
@@ -1549,7 +1549,7 @@ button.dropdown-item.is-active {
     margin: 15px 8px;
     padding: 24px 48px;
     border-radius: 10px;
-    background-color: var(--primary_light);
+    background-color: var(--primary_dark);
   }
 
   .glide__bullet {
@@ -1558,7 +1558,7 @@ button.dropdown-item.is-active {
     height: 9px;
     padding: 0;
     border-radius: 50%;
-    border: 2px solid var(--primary_light);
+    border: 2px solid var(primary_dark;);
     transition: all .3s ease-in-out;
     cursor: pointer;
     line-height: 0;
