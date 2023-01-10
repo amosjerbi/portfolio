@@ -27,7 +27,7 @@ html[data-theme='dark'] {
 }
 
 ::selection {
-  background: #121422;
+  background: #00F2D3;
   color: var(--primary_light);
 }
 
@@ -717,7 +717,7 @@ a:hover {
 }
 
 a.button_prime {
-  color: var(--primary_dark);
+  color: var(--one_color);
   border: 3px solid var(--one_color);
 }
 
@@ -790,8 +790,8 @@ a.button_second {
   border-radius: 100px;
   font-family: var(--fontSans);
   font-weight: 700;
-  padding: 15px 20px;
-  font-size: 0.8rem;
+  padding: 20px 40px;
+  font-size: 0.9rem;
   word-spacing: 1px;
   text-align: var(--alignment);
   align-self: center;
@@ -799,16 +799,16 @@ a.button_second {
   inline-size: fit-content;
   /* box-shadow: 7px 3px 0 0px #aa8ef6; */
   /* border: 3px solid var(--one_color); */
-  background-color: var(--three_color);
+  background-color: var(--primary_light);
 }
 
 a.button_modal {
-  color: var(--primary_dark);
+  color: var(--one_color);
 }
 
 .button_modal:hover {
-  background-color: var(--primary_dark);
-  color: var(--primary_light);
+  background-color: var(--three_color);
+  color: var(--primary_dark);
   /* box-shadow: 0px 0px 0px 0px #585754; */
   border: transparent;
 }
