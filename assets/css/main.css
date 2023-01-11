@@ -848,12 +848,12 @@ a.button_modal {
     }
     .column_right_hero {
         grid-column: 6/12;
-        grid-row: 1;
-        align-content: start;
+        /* grid-row: 1; */
+        /* align-content: start; */
         display: grid;
         justify-content: center;
         align-self: self-end;
-        width: 170% !important;
+        width: 120% !important;
     }
     .column_left_hero {
         grid-column: 1/6;
