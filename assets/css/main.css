@@ -849,7 +849,7 @@ a.button_modal {
         margin: auto 4.5rem;
     }
     .column_right_hero {
-        grid-column: 4/12;
+        grid-column: 5/13;
         grid-row: 1;
         align-content: start;
         display: grid;
