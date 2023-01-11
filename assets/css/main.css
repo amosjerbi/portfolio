@@ -853,7 +853,7 @@ a.button_modal {
         display: grid;
         justify-content: center;
         align-self: self-end;
-        width: 170%;
+        width: 170% !important;
     }
     .column_left_hero {
         grid-column: 1/6;
