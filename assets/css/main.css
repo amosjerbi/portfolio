@@ -260,8 +260,7 @@ a.has-text-light:hover {
 }
 
 .has-background-video {
-    background-color: var(--five_color);
-    !important
+    background-color: var(--navcolor);
 }
 
 .has-background-bit {
