@@ -712,7 +712,7 @@ a:hover {
     background-color: var(--primary_light);
     opacity: 1;
     border-radius: 100px;
-    border: 3px solid var(--one_color);
+    /* border: 3px solid var(--one_color); */
     font-family: var(--fontSans);
     font-weight: 700;
     padding: 10px 30px;
@@ -725,7 +725,7 @@ a:hover {
 }
 
 a.button_prime {
-    color: var(--one_color);
+    color: var(--primary_dark);
     border: 3px solid var(--one_color);
 }
 
@@ -806,7 +806,7 @@ a.button_second {
     text-transform: uppercase;
     inline-size: fit-content;
     /* box-shadow: 7px 3px 0 0px #aa8ef6; */
-    /* border: 3px solid var(--one_color); */
+    border: 3px solid var(--one_color);
     background-color: var(--primary_light);
 }
 
@@ -849,7 +849,7 @@ a.button_modal {
         margin: auto 4.5rem;
     }
     .column_right_hero {
-        grid-column: 5/12;
+        grid-column: 4/12;
         grid-row: 1;
         align-content: start;
         display: grid;
@@ -2180,7 +2180,7 @@ html.transition *:after {
     right: 0;
     margin: 1.2rem;
     padding: 0.6rem;
-    background: #1c1d1e;
+    background: var(--three_color);
     border-radius: 50%;
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     /* border: 2
@@ -2192,7 +2192,7 @@ px
     width: 24px;
     pointer-events: none;
     vertical-align: top;
-    fill: var(--primary_light);
+    fill: var(--primary_dark);
 }
 
 .demo-close:hover {
