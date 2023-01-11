@@ -72,7 +72,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--primary_light);
+    color: var(--primary_dark);
     padding: 0 0 0.3rem 0;
     font-weight: 700;
     font-family: var(--fontSans);
@@ -252,13 +252,11 @@ a.has-text-light:hover {
 }
 
 .has-background-light {
-    background-color: var(--two_color);
-    !important
+    background-color: var(--primary_light) !important;
 }
 
-.has-background-purple {
-    background-color: var(--two_color) !important;
-    /* background-color: #b5bbca; */
+.has-background-blue {
+    background-color: var(--one_color) !important;
 }
 
 .has-background-video {
@@ -280,10 +278,6 @@ a.has-text-light:hover {
 
 .has-background-gofer {
     background-image: radial-gradient(circle, rgba(36, 217, 230, 1) 0%, rgba(0, 155, 240, 1) 100%) !important;
-}
-
-.has-background-payback {
-    background-image: radial-gradient(circle, rgba(37, 47, 97, 1) 0%, rgba(30, 38, 80, 1) 100%) !important;
 }
 
 a.has-text-dark:focus,
@@ -2091,8 +2085,8 @@ html.transition *:after {
 }
 
 .has-background-light {
-    background-color: var(--one_color) !important;
-    /* background-color: var(--primary_light); */
+    /* background-color: var(--one_color) !important; */
+    background-color: var(--primary_light);
 }
 
 .row {
