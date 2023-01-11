@@ -854,6 +854,7 @@ a.button_modal {
         justify-content: center;
         align-self: self-end;
         width: 120% !important;
+        transform: scaleY(1.5);
     }
     .column_left_hero {
         grid-column: 1/6;
