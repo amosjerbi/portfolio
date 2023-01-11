@@ -1841,11 +1841,11 @@ html.transition *:after {
 
 .icon-modal {
     position: relative;
-    height: 40px;
-    width: 40px;
+    height: 54px;
+    width: 54px;
     background: var(--primary_light);
     border-radius: 50%;
-    margin: 0 5px 0 0;
+    margin: 0 10px 0 0;
     display: -ms-flexbox;
     display: inline-flex;
     -ms-flex-pack: center;
@@ -1858,14 +1858,15 @@ html.transition *:after {
     color: var(--primary_dark);
     padding: 8px;
     /* box-shadow: 3px 3px 0 1px #aa8ef6; */
+    font-size: 20px;
 }
 
 .icon-modal:hover {
     background: var(--one_color);
-    color: #fff;
+    color: var(--primary_light);
     transition: all .2s;
     border: solid 2px var(--one_color);
-    box-shadow: 0px 0px 0px 0px var(--primary_dark);
+    /* box-shadow: 0px 0px 0px 0px var(--primary_dark); */
 }
 
 .footer_legals {
@@ -2163,7 +2164,7 @@ html.transition *:after {
     text-align: left;
     background: var(--primary_light);
     border-radius: 20px;
-    padding: 6% 9%;
+    padding: 11% 9%;
     /* width: 83%; */
     margin: 0 auto;
 }
@@ -2174,7 +2175,7 @@ html.transition *:after {
     right: 0;
     margin: 1.2rem;
     padding: 0.6rem;
-    background: var(--three_color);
+    background: var(--primary_light);
     border-radius: 50%;
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     /* border: 2
@@ -2190,7 +2191,7 @@ px
 }
 
 .demo-close:hover {
-    background: var(--one_color);
+    background: var(--three_color);
 }
 
 .social-modal {
@@ -2231,6 +2232,7 @@ px
     transform: translateY(4%);
     opacity: 1;
     z-index: 1;
+    background-repeat: no-repeat;
 }
 
 
@@ -2265,9 +2267,9 @@ px
 
 .modal {
     z-index: 9000;
-    background-color: var(--three_color);
+    background-color: var(--one_color);
     max-width: 30%;
-    padding: 20rem 0.5rem 0.5rem 0.5rem;
+    padding: 15rem 0.5rem 0.5rem 0.5rem;
     border-radius: 20px;
 }
 
@@ -2279,7 +2281,7 @@ px
 @media (min-width: 641px) and (max-width: 1200px) {
     .modal {
         max-width: 90%;
-        padding: 30rem 0.3rem 0.3rem 0.3rem;
+        padding: 18rem 0.3rem 0.3rem 0.3rem;
         background-size: cover;
     }
 }
