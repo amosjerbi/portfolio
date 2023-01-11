@@ -847,14 +847,13 @@ a.button_modal {
         margin: auto 4.5rem;
     }
     .column_right_hero {
-        grid-column: 6/12;
+        grid-column: 5/12;
         /* grid-row: 1; */
         /* align-content: start; */
         display: grid;
         justify-content: center;
         align-self: self-end;
-        width: 120% !important;
-        transform: scaleY(1.5);
+        width: 120%;
     }
     .column_left_hero {
         grid-column: 1/6;
