@@ -441,6 +441,11 @@ section {
     .container {
         margin: auto 1rem;
     }
+    .modal {
+        max-width: 90%;
+        padding: 18rem 0.3rem 0.3rem 0.3rem;
+        background-size: cover;
+    }
 }
 
 
@@ -614,7 +619,7 @@ li .menu-item {
     position: relative;
     text-transform: capitalize;
     font-weight: 600;
-    padding: 0rem 1.3rem 0rem 0;
+    padding: 0.6rem 1.3rem 0rem 0;
     font-size: 0.85rem;
     /* line-height: 2; */
 }
@@ -882,6 +887,7 @@ a.button_modal {
     .section.is-smallish {
         padding: 4rem 1rem 0rem 1rem;
     }
+
 }
 
 
@@ -2175,7 +2181,7 @@ html.transition *:after {
     right: 0;
     margin: 1.2rem;
     padding: 0.6rem;
-    background: var(--primary_light);
+    background: var(--three_color);
     border-radius: 50%;
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     /* border: 2
@@ -2191,7 +2197,7 @@ px
 }
 
 .demo-close:hover {
-    background: var(--three_color);
+    background: var(--primary_light);
 }
 
 .social-modal {
@@ -2281,8 +2287,8 @@ px
 @media (min-width: 641px) and (max-width: 1200px) {
     .modal {
         max-width: 90%;
-        padding: 18rem 0.3rem 0.3rem 0.3rem;
-        background-size: cover;
+        padding: 28rem 0.3rem 0.3rem 0.3rem;
+        background-size: contain;
     }
 }
 
