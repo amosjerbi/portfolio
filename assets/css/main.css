@@ -619,9 +619,10 @@ li .menu-item {
     position: relative;
     text-transform: capitalize;
     font-weight: 600;
-    padding: 0.6rem 1.3rem 0rem 0;
+    padding: 0.2rem 1.3rem 0rem 0rem;
     font-size: 0.85rem;
     /* line-height: 2; */
+    font-family: var(--fontSans);
 }
 
 li .menu-item:last-child {
@@ -853,7 +854,7 @@ a.button_modal {
         display: grid;
         justify-content: center;
         align-self: self-end;
-        width: 120%;
+        width: 108%;
     }
     .column_left_hero {
         grid-column: 1/6;
@@ -1131,9 +1132,9 @@ a.button_modal {
     background-color: white;
     border-radius: 4px;
     /* box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02); */
-    border-radius: 1.2rem;
     box-shadow: 0 0 2rem rgb(0 0 0 / 10%);
     padding: 0.8rem 0rem;
+    border-radius: 10px;
 }
 
 .dropdown-item {
