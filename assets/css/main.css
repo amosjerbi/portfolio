@@ -12,6 +12,7 @@
     --four_color: #92BAFF;
     --five_color: #6E747C;
     --navcolor: rgb(255 255 255 / 0.9);
+    --border-radius: 10px;
 }
 
 html[data-theme='dark'] {
@@ -1134,7 +1135,7 @@ a.button_modal {
     /* box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02); */
     box-shadow: 0 0 2rem rgb(0 0 0 / 10%);
     padding: 0.8rem 0rem;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
 }
 
 .dropdown-item {
@@ -1296,7 +1297,7 @@ button.dropdown-item.is-active {
     padding: 3rem 2rem;
     background-color: var(--primary_light);
     box-shadow: 0 10px 20px 0 rgba(119, 129, 173, .1);
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     /* margin: 3rem 0 0 0; */
     text-align: center;
     /* top: 2rem; */
@@ -2292,7 +2293,7 @@ html.transition *:after {
     background-color: var(--primary_light);
     max-width: 30%;
     padding: 3rem 0.5rem 0rem 0.5rem;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
 }
 
 .circle_6 {
