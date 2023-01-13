@@ -1901,6 +1901,10 @@ html.transition *:after {
 /* Tablet portrait and smaller */
 
 @media (max-width: 768px) {
+  .modal-img{
+    max-width:100%!important;
+    right: 0.3rem!important;
+  }
     li .menu-item {
         font-size: 0.9rem;
         font-weight: 600;
