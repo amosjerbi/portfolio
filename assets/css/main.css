@@ -2311,8 +2311,8 @@ html.transition *:after {
 
 @media (min-width: 641px) and (max-width: 1200px) {
     .modal {
-        max-width: 90%;
-        padding: 5rem 0.3rem 0.3rem 0.3rem;
+        max-width: 60%;
+        padding: 3rem 0.3rem 0.3rem 0.3rem;
         /* background-size: contain; */
     }
 }
@@ -2323,7 +2323,7 @@ html.transition *:after {
         padding: 1rem 0.3rem 0rem 0.3rem;
     }
     #about-me-modal:target .modal {
-        transform: translateY(5%);
+        transform: translateY(14%);
         opacity: 1;
         z-index: 1;
     }
