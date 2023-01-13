@@ -2315,6 +2315,9 @@ html.transition *:after {
         padding: 3rem 0.3rem 0.3rem 0.3rem;
         /* background-size: contain; */
     }
+    #about-me-modal:target .modal {
+    transform: translateY(11%);
+    }
 }
 
 @media (max-width: 640px) {
