@@ -2318,6 +2318,10 @@ html.transition *:after {
     #about-me-modal:target .modal {
     transform: translateY(11%);
     }
+
+    .column_right_hero{
+        width: 110%;
+    }
 }
 
 @media (max-width: 640px) {
