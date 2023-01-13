@@ -2169,11 +2169,27 @@ html.transition *:after {
 
 .is-center {
     text-align: left;
-    background: var(--primary_light);
+    /* background: var(--primary_light); */
     border-radius: 20px;
     padding: 11% 9%;
     /* width: 83%; */
-    margin: 0 auto;
+    /* margin: 0 auto; */
+}
+
+.is-center2 {
+    text-align: left;
+    /* background: var(--primary_light); */
+    border-radius: 20px;
+    padding: 10% 5% 0% 5%;
+    /* width: 83%; */
+    /* margin: 0 auto; */
+}
+
+.modal-img{
+  max-width: 130%;
+  position: relative;
+  right: 3.4rem;
+  top: 0.3rem;
 }
 
 .demo-close {
@@ -2182,23 +2198,22 @@ html.transition *:after {
     right: 0;
     margin: 1.2rem;
     padding: 0.6rem;
-    background: var(--three_color);
+    background: var(--one_color);
     border-radius: 50%;
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    /* border: 2
-px
- solid var(--one_color); */
+    /* border: 3px solid var(--one_color); */
+    cursor: pointer;
 }
 
 .demo-close svg {
     width: 24px;
     pointer-events: none;
     vertical-align: top;
-    fill: var(--primary_dark);
+    fill: var(--primary_light);
 }
 
 .demo-close:hover {
-    background: var(--primary_light);
+    background: var(--three_color);
 }
 
 .social-modal {
@@ -2274,10 +2289,10 @@ px
 
 .modal {
     z-index: 9000;
-    background-color: var(--one_color);
+    background-color: var(--primary_light);
     max-width: 30%;
-    padding: 15rem 0.5rem 0.5rem 0.5rem;
-    border-radius: 20px;
+    padding: 3rem 0.5rem 0rem 0.5rem;
+    border-radius: 10px;
 }
 
 .circle_6 {
@@ -2288,18 +2303,18 @@ px
 @media (min-width: 641px) and (max-width: 1200px) {
     .modal {
         max-width: 90%;
-        padding: 28rem 0.3rem 0.3rem 0.3rem;
-        background-size: contain;
+        padding: 5rem 0.3rem 0.3rem 0.3rem;
+        /* background-size: contain; */
     }
 }
 
 @media (max-width: 640px) {
     .modal {
         max-width: 90%;
-        padding: 13rem 0.3rem 0.3rem 0.3rem;
+        padding: 1rem 0.3rem 0rem 0.3rem;
     }
     #about-me-modal:target .modal {
-        transform: translateY(9%);
+        transform: translateY(5%);
         opacity: 1;
         z-index: 1;
     }
