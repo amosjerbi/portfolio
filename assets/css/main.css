@@ -436,6 +436,10 @@ section {
     .container-nav {
         margin: auto 3rem;
     }
+    .modal-img{
+      max-width:100%!important;
+      right: 0.3rem!important;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 900px) {
