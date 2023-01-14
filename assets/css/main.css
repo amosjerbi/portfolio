@@ -436,9 +436,9 @@ section {
     .container-nav {
         margin: auto 3rem;
     }
-    .modal-img{
-      max-width:100%!important;
-      right: 0.3rem!important;
+    .modal-img {
+        max-width: 100%!important;
+        right: 0.3rem!important;
     }
 }
 
@@ -893,7 +893,6 @@ a.button_modal {
     .section.is-smallish {
         padding: 4rem 1rem 0rem 1rem;
     }
-
 }
 
 
@@ -1249,6 +1248,9 @@ button.dropdown-item.is-active {
 /* Tablet portrait and smaller */
 
 @media (max-width: 768px) {
+    .global-nav-items {
+        padding: 0rem 0rem 3rem 0rem;
+    }
     .herointro {
         Padding: 1rem 0 0.4rem 0;
         text-align: left;
@@ -1905,10 +1907,10 @@ html.transition *:after {
 /* Tablet portrait and smaller */
 
 @media (max-width: 768px) {
-  .modal-img{
-    max-width:100%!important;
-    right: 0.3rem!important;
-  }
+    .modal-img {
+        max-width: 100%!important;
+        right: 0.3rem!important;
+    }
     li .menu-item {
         font-size: 0.9rem;
         font-weight: 600;
@@ -2194,11 +2196,11 @@ html.transition *:after {
     /* margin: 0 auto; */
 }
 
-.modal-img{
-  max-width: 130%;
-  position: relative;
-  right: 3.4rem;
-  top: 0.3rem;
+.modal-img {
+    max-width: 130%;
+    position: relative;
+    right: 3.4rem;
+    top: 0.3rem;
 }
 
 .demo-close {
@@ -2316,10 +2318,9 @@ html.transition *:after {
         /* background-size: contain; */
     }
     #about-me-modal:target .modal {
-    transform: translateY(11%);
+        transform: translateY(11%);
     }
-
-    .column_right_hero{
+    .column_right_hero {
         width: 110%;
     }
 }
