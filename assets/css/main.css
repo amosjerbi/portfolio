@@ -18,12 +18,13 @@
 html[data-theme='dark'] {
     --primary_dark: #fff;
     --primary_light: #15191d;
-    --one_color: #296ad7;
+    --one_color: #396cc3;
     --two_color: #121317;
     --three_color: #414249;
     --four_color: #92baff;
     --five_color: #7B7A7D;
-    --navcolor: rgb(32 35 39 / 0.78);
+    --navcolor:
+    rgb(32 35 39 / 0.78);
 }
 
 ::selection {
@@ -811,12 +812,12 @@ a.button_second {
     text-transform: uppercase;
     inline-size: fit-content;
     /* box-shadow: 7px 3px 0 0px #aa8ef6; */
-    border: 3px solid var(--one_color);
+    /* border: 3px solid var(--one_color); */
     background-color: var(--primary_light);
 }
 
 a.button_modal {
-    color: var(--one_color);
+    color: var(--primary_dark);
 }
 
 .button_modal:hover {
@@ -1702,10 +1703,10 @@ a.active:after {
 
 label {
     cursor: pointer;
-    text-indent: -9999px;
+    text-indent: -137px;
     width: 52px;
     height: 27.5px;
-    background: var(--four_color);
+    background: var(--five_color);
     float: right;
     border-radius: 100px;
     position: relative;
