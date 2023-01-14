@@ -518,7 +518,7 @@ section {
     }
     .grid12 {
         display: grid;
-        grid-gap: 30px;
+        grid-gap: 10px;
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(1, 1fr);
     }
@@ -1259,11 +1259,11 @@ button.dropdown-item.is-active {
         text-transform: uppercase;
         padding: 0rem 0rem 0.2rem 0;
         font-weight: 800;
-        font-size: 1.9rem;
+        font-size: 2.1rem;
     }
     .hero_paragraph {
         text-transform: none;
-        padding: 0rem 0rem 1.5rem 0rem;
+        padding: 0rem 0rem 1.2rem 0rem;
         text-align: left;
         color: var(--four_color);
         font-weight: 600;
