@@ -18,10 +18,11 @@
 html[data-theme='dark'] {
     --primary_dark: #fff;
     --primary_light: #15191d;
-    --one_color: #8052ff;
+    --one_color: #296ad7;
     --two_color: #121317;
     --three_color: #414249;
-    --five_color: rgba(207, 206, 230, 0.2);
+    --four_color: #92baff;
+    --five_color: #7B7A7D;
     --navcolor: rgb(32 35 39 / 0.78);
 }
 
@@ -117,7 +118,7 @@ p {
     font-size: 1.4em;
     font-family: var(--fontMono);
     line-height: 1.65;
-    color: var(--fiv_color);
+    color: var(--five_color);
 }
 
 body,
