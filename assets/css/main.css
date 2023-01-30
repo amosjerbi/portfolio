@@ -2,16 +2,19 @@
 
 :root {
     --alignment: center;
-    --fontMono: 'Questrial', sans-serif;
-    --fontSans: 'Montserrat', sans-serif;
-    --primary_dark: #1c1d1e;
+    --fontMono:
+    'Questrial', sans-serif;
+    --fontSans:
+    'Montserrat', sans-serif;
+    --primary_dark: #07234d;
     --primary_light: #fff;
     --one_color: #0250D3;
-    --two_color: #e6e9f2;
+    --two_color: #EEF6FF;
     --three_color: #00F2D3;
     --four_color: #92BAFF;
-    --five_color: #6E747C;
-    --navcolor: rgb(255 255 255 / 0.9);
+    --five_color: #6a7e9f;
+    --navcolor:
+    rgb(255 255 255 / 0.9);
     --border-radius: 10px;
 }
 
@@ -837,7 +840,7 @@ a.button_modal {
     font-weight: 700;
     color: var(--primary_dark);
     transition: all .5s;
-    border-bottom: 3px solid var(--one_color);
+    border-bottom: 3px solid var(--three_color);
     padding: 5px;
     font-size: 0.8rem;
 }
@@ -1951,7 +1954,7 @@ html.transition *:after {
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(5, 1fr);
         grid-template-rows: fit-content(40%);
-        padding: 2rem 0 2rem 0.8rem;
+        padding: 3rem 0 3rem 0.8rem;
     }
     .footer_logo {
         grid-column: 1;
