@@ -635,7 +635,7 @@ li .menu-item {
     text-transform: capitalize;
     font-weight: 600;
     padding: 0.2rem 1.3rem 0rem 0rem;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     line-height: 1.6;
     font-family: var(--fontSans);
 }
@@ -655,7 +655,7 @@ li .menu-item:after {
 
 li .menu-item:hover:after {
     width: 100%;
-    background: var(--one_color);
+    background: var(--three_color);
     padding: 0 0 4px 0;
     border-radius: 100px;
 }
@@ -1146,11 +1146,12 @@ a.button_modal {
 
 .dropdown-content {
     background-color: white;
-    border-radius: 4px;
     /* box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02); */
-    box-shadow: 0 0 2rem rgb(0 0 0 / 10%);
+    /* box-shadow: 0 0 2rem rgb(0 0 0 / 10%); */
     padding: 0.8rem 0rem;
     border-radius: var(--border-radius);
+    border: solid 1px var(--three_color);
+    box-shadow: -4px 5px 0 0px var(--three_color);
 }
 
 .dropdown-item {
@@ -1173,7 +1174,7 @@ button.dropdown-item {
 
 a.dropdown-item:hover,
 button.dropdown-item:hover {
-    background-color: var(--four_color);
+    background-color: var(--three_color);
     color: var(--primary_dark);
 }
 
@@ -1668,11 +1669,11 @@ button.dropdown-item.is-active {
 .accordion {
     max-width: 560px;
     margin: 0 auto 100px;
-    border-top: 1px solid var(--three_color);
+    border-top: 1px solid var(--four_color);
 }
 
 .accordion li {
-    border-bottom: 1px solid var(--three_color);
+    border-bottom: 1px solid var(--four_color);
     position: relative;
 }
 
@@ -2030,7 +2031,7 @@ html.transition *:after {
 }
 
 .box {
-    background-color: var(--five_color);
+    background-color: var(--two_color);
     color: var(--primary_dark);
     width: auto;
     height: 150px;
