@@ -831,7 +831,7 @@ a.button_modal {
 .button_modal:hover {
     background-color: var(--primary_light);
     color: var(--primary_dark);
-    box-shadow: 0px 0px 0px 0px #585754;
+    box-shadow: 0px 0px 0px 0px var(--primary_light);
     /* border: transparent; */
     transform: translate3d(-0.55rem,0.25rem,0);
     transition: 0.5s;
