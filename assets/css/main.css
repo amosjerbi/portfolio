@@ -819,7 +819,7 @@ a.button_second {
     align-self: center;
     text-transform: uppercase;
     inline-size: fit-content;
-    /* box-shadow: 7px 3px 0 0px #aa8ef6; */
+    box-shadow: -4px 5px 0 0px var(--three_color);
     /* border: 3px solid var(--one_color); */
     background-color: var(--primary_light);
 }
@@ -829,10 +829,12 @@ a.button_modal {
 }
 
 .button_modal:hover {
-    background-color: var(--three_color);
+    background-color: var(--primary_light);
     color: var(--primary_dark);
-    /* box-shadow: 0px 0px 0px 0px #585754; */
-    border: transparent;
+    box-shadow: 0px 0px 0px 0px #585754;
+    /* border: transparent; */
+    transform: translate3d(-0.55rem,0.25rem,0);
+    transition: 0.5s;
 }
 
 .buttonborder {
@@ -1230,6 +1232,20 @@ button.dropdown-item.is-active {
     text-transform: uppercase;
     padding: 0rem 0.2rem 0rem 0rem;
     font-weight: 800;
+    transform: none;
+}
+
+.hero_heading div span{
+  transform: none;
+  transition-delay:1.4s;
+}
+
+.hero_heading div > span {
+  transition-duration: 1.2s;
+  margin: 0.1em 0;
+  transform: translateY(120%);
+  transition-delay: 0.2s;
+  transition-property: none;
 }
 
 .hero_paragraph {
