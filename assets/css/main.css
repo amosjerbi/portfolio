@@ -692,6 +692,20 @@ a:hover {
     }
 }
 
+@keyframes fadedown {
+    0% {
+        transform: scaleY(0%);
+        opacity: 0;
+    }
+    50%{
+      transform: scaleY(110%);
+    }
+    100% {
+        transform: scaleY(100%);
+        opacity: 1;
+    }
+}
+
 .icon2 {
     align-items: center;
     display: inline-flex;
@@ -1142,6 +1156,8 @@ a.button_modal {
     position: absolute;
     top: 100%;
     z-index: 20;
+    animation: fadedown 0.45s;
+    transform-origin: top left;
 }
 
 .dropdown-content {
