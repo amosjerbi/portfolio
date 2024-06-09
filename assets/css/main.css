@@ -219,6 +219,14 @@ ul {
 	padding: 0;
 	counter-reset: headings;
 }
+li{
+	font-size: 20px;
+    line-height: 155%;
+    letter-spacing: .00464286em;
+	color: var(--five_color);
+	font-family: var(--fontMono);
+	font-weight:400;
+}
 
 
 /* =======================================
