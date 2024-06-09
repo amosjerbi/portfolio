@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="description" content="passionate product designer with 10 years of experience in UI/UX">
+	<meta property="og:title" content="AmosJerbi" />
+	<meta property="og:type" content="portfolio" />
+	<meta property="og:url" content="https://ajerbi.com" />
+	<meta property="og:image" content="https://raw.githubusercontent.com/amosjerbi/portfolio/master/assets/images/ogimage.png" />
+	<meta property="og:image" content="assets/images/ogimage.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#fff">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#fff">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#fff">
+	<!-- Basic Page Needs<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#fff">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#fff">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#fff">
+	<!-- Required meta tags always come first -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Amos Jerbi</title>
+	<link rel="icon" type="image/png" href="assets/images/favicon.png" />
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,600,800" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+	<!--CSS -->
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/aos.css">
+	<link rel="stylesheet" href="assets/css/lightgallery.css">
+	<link rel="stylesheet" href="assets/font/socialfont.css">
+</head>
+<style>
+	/* ::selection {
+    background: #E6E8E4;
+    color: #999C94;
+  } */
+
+	.count:before {
+		color: #E2E8ED;
+	}
+
+	p {
+		font-size: 20px;
+		line-height: 155%;
+		letter-spacing: .00464286em;
+	}
+
+	/* h4,
+  h1 {
+    color: #F3AD9D;
+  } */
+
+	.icon_vert {
+		animation: moveup 2s;
+		animation-iteration-count: infinite;
+		animation-fill-mode: both;
+		animation-timing-function: linear;
+		animation-direction: alternate;
+	}
+
+	.icon_vert2 {
+		animation: movedown 2s;
+		animation-iteration-count: infinite;
+		animation-fill-mode: both;
+		animation-timing-function: linear;
+		animation-direction: alternate;
+	}
+
+	.layer1 {
+		position: relative;
+		right: 2%;
+		width: 65%;
+	}
+
+	.layer2 {
+		position: relative;
+		right: -26%;
+		width: 70%;
+	}
+
+	.layer1,
+	.layer2 {
+		grid-column: 1;
+		grid-row: 1;
+	}
+
+	@keyframes movedown {
+		0% {
+			transform: translateY(10px);
+			/* opacity: 0; */
+		}
+
+		100% {
+			transform: translateY(0px);
+			/* opacity: 1; */
+		}
+	}
+
+	@keyframes moveup {
+		0% {
+			transform: translateY(0px);
+			/* opacity: 0; */
+		}
+
+		100% {
+			transform: translateY(10px);
+			/* opacity: 1; */
+		}
+	}
+
+	.img {
+		width: 100%;
+		height: auto;
+		/* margin-bottom: 15px; */
+		/* border-radius: 10px; */
+	}
+
+	.header {
+		text-align: center;
+		padding: 4rem 3rem 1rem 3rem;
+	}
+
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0 4px;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	/* Create four equal columns that sits next to each other */
+
+	#lightgallery {
+		column-count: 3;
+		column-gap: 1%;
+		/* column-width: 100%; */
+	}
+
+	.flow {
+		grid-row-end: span 30;
+	}
+
+	.social {
+		padding: 1rem 1rem 1rem 1rem;
+	}
+
+	/* Responsive layout - makes a two column-layout instead of four columns */
+
+	@media (max-width: 800px) {
+		.flow {
+			grid-row-end: span 14;
+		}
+
+		#lightgallery {
+			column-count: 2;
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: repeat(6, 1fr);
+		}
+	}
+
+	/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+
+	@media (max-width: 600px) {
+		.flow {
+			grid-row-end: span 14;
+		}
+
+		#lightgallery {
+			column-count: 1;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(6, 1fr);
+		}
+
+		.header {
+			padding: 4rem 0 2rem 0;
+		}
+
+		.section2 {
+			padding: 3rem 0.2rem;
+		}
+
+		h1 {
+			font-size: 2.3em;
+		}
+	}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js">
+</script>
+
+<body>
+	<nav class="navbar">
+		<div class="container-nav">
+			<div class="novile" aria-label="menu" aria-expanded="false">
+				<div class="burger">
+					<div class="burger_line"></div>
+					<div class="burger_line"></div>
+					<div class="burger_line"></div>
+				</div>
+				<div class="global-nav">
+					<ul class="global-nav__list" style="--length: 12">
+						<!-- <li style="index: 0;"><a href="https://bitpay.co.il/">bit - Website</a></li> -->
+						<div class="global-nav-items">
+							<li style="--index: 1;"><a href="bitboarding.html">Onboarding</a></li>
+							<li style="--index: 2;"><a href="biterminal.html">Terminal</a></li>
+							<li style="--index: 3;"><a href="bit_regulation.html">Regulation</a></li>
+							<li style="--index: 4;"><a href="bitcard.html">bitcard</a></li>
+							<li style="--index: 5;"><a href="gallery.html">Illustrations</a></li>
+						</div>
+						<li style="--index: 6; display: inline-flex;"><a href="https://www.youtube.com/amosjerbi" target="_blank" class="novile-items"><i class="fa-fa-youtube"></i></a></li>
+						<li style="--index: 7; display: inline-flex;"><a href="https://instagram.com/amosjerbi" target="_blank" rel="noopener" rel="noopener" rel="noopener" class="novile-items"><i class="fa-fa-instagram"></i></a></li>
+						<li style="--index: 8; display: inline-flex;"><a href="https://www.linkedin.com/in/amosjerbi/" target="_blank" rel="noopener" rel="noopener" rel="noopener" class="novile-items"><i class="fa-fa-linkedin"></i></a></li>
+						<li class="nav_line_list" style="--index: 9;"></li>
+						<li class="contact_me" style="--index: 10;">
+							<h5><a href="tel:+972-507205884">
+									+972-507-205-884
+								</a></h5>
+						</li>
+						<li class="contact_me" style="--index: 11;">
+							<h5><a href="mailto:amosjerbi@gmail.com?subject=Hey Amos, let's meet up!">
+									amosjerbi@gmail.com
+								</a></h5>
+						</li>
+						<br>
+						<li>
+							<input type="checkbox" id="switch" name="theme">
+							<label for="switch">
+								<h4>Dark Theme</h4>
+							</label>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="brand">
+				<a href="index.html"> <img src="assets/images/amoslogo.svg" alt="logo"> </a>
+			</div>
+			<ul class="menu-end">
+				<li>
+					<div class="dropdown is-hoverable">
+						<div class="dropdown-trigger">
+							<button class="menu-item" aria-haspopup="true" aria-controls="dropdown-menu3"> bit <span class="icon2 is-small">
+									<i class="fa-fa-chevron-down" aria-hidden="true"></i>
+								</span> </button>
+						</div>
+						<div class="dropdown-menu" id="dropdown-menu3" role="menu">
+							<div class="dropdown-content">
+								<a href="bitboarding.html" class="dropdown-item" target="_blank">
+									Onboarding
+								</a>
+								<a href="biterminal.html" class="dropdown-item" target="_blank">
+									Terminal
+								</a>
+								<a href="bit_regulation.html" class="dropdown-item" target="_blank">
+									regulation
+								</a>
+								<a href="bitcard.html" class="dropdown-item" target="_blank">bitcard</a>
+								<hr class="dropdown-divider">
+								<a href="https://bitpay.co.il/" class="dropdown-item" target="_blank">
+									bit Website
+								</a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li><a href="gofer.html" class="menu-item">Gofer</a></li>
+				<li><a href="mills.html" class="menu-item">Mills</a></li>
+				<li><a href="design_kit.html" class="menu-item">design_kit</a></li>
+				<li><a href="gallery.html" class="menu-item">Illustrations</a></li>
+				<li><a href="#about-me-modal" rel="noopener" class="button_prime">
+						About
+					</a> </li>
+			</ul>
+			<div class="navbutton"><a href="#about-me-modal" rel="noopener" class="button_prime">
+					About
+				</a> </div>
+		</div>
+	</nav>
+	<main>
+		<section class="section is-smallish has-background-bit">
+			<div class="container">
+				<div class="grid12 is-small">
+					<div class="column_left_hero">
+						<h5 class="herointro is-uppercase has-text-light"><strong>BANK HAPOALIM - 2023</strong></h5>
+						<h2 class="hero_heading has-text-light">bit Terminal</h2>
+						<p class="hero_paragraph has-text-light">Now you can order your cash just before your flight at Terminal 1 & 3🎉</p>
+					</div>
+					<div class="column_right_hero">
+						<div class="layer1 icon_vert"><img src="assets/biterminal/hero_back.png" alt="Header_onboarding"></div>
+						<div class="layer2 icon_vert2"><img src="assets/biterminal/hero_front.png" alt="Header_onboarding"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="section is-small">
+			<div class="container">
+				<div class="grid12">
+					<div class="column_left row-top">
+						<div class="count"></div>
+						<h3 class="is-bold">Questions</h3>
+						<br>
+						<p>While I designed the flow I had questions in mind to our users, stakeholders & developer teams:</p>
+						<br>
+						<h4 class="is-bold">Stakeholders:</h3>
+							<ol>
+								<li>Does Time to Market plays a role in developing the app?</li>
+								<li>What key performance indicators (KPIs) will be used to measure the app's success?</li>
+								<li>How does this app fit into our long-term vision and strategic goals for the company?</li>
+								<li>Will it open up new market segments or strengthen our presence in existing ones?</li>
+								<li>Could we form partnerships with other companies to integrate our technology into their products?</li>
+							</ol>
+							<!-- <br>
+								<h4 class="is-bold">Development Team:</h3>
+									<ol>
+										<li>What are the estimated timelines for developing and launching?</li>
+										<li>Are there any resource constraints or dependencies that could affect development?</li>
+										<li>What is the plan for ongoing maintenance and updates post-launch?</li>
+										<li>How will we handle user feedback and bug reports to ensure continuous improvement?</li>
+										<li>Which platforms are we going to develop this app (Android, iOS, Desktop apps etc)?</li>
+									</ol> -->
+					</div>
+					<div class="column_right row-bottom">
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<h4 class="is-bold">Users:</h3>
+							<ol>
+								<li>What do you usually look for when seeking foreign currency?</li>
+								<li>How important is it for you to select specific bill denominations?</li>
+								<li>What do you find most frustrating about ordering foreign currency at the terminal?</li>
+								<li>Do you prefer to order via an app or desktop?</li>
+								<li>Which features are most important to you when ordering currency for your vacation?</li>
+							</ol>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="section is-small">
+			<div class="container">
+				<div class="grid12">
+					<div class="column_left row-top">
+						<div class="count"></div>
+						<h3 class="is-bold">Existing Solutions</h3>
+						<br>
+						<p>Bank Hapoalim wanted to add a currency transfer feature to their app, bit, so my first step was to review existing market solutions.
+
+							Among the many options, I focused on these apps:</p>
+						<p>
+							<br>
+							- Israelpost (Manually through their desktop)<br>
+							- FlyMoney<br>
+							- Max<br>
+						</p>
+						<br>
+						<p>
+							Each had their strengths and weaknesses, but they all thing in common: <br><br> You couldn't pick which bills you'd want for your vacation.
+						</p>
+					</div>
+					<div class="column_right row-bottom">
+						<img src="assets/biterminal/competition.png" class="img">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section is-small">
+			<div class="container">
+				<div class="grid12">
+					<div class="column_right row-bottom">
+						<img src="assets/biterminal/UX.png" class="img">
+					</div>
+					<div class="column_left row-top">
+						<div class="count"></div>
+						<h3 class="is-bold">Challenges</h3>
+						<br>
+						<p>The majority of our testing groups encountered difficulty when selecting the bills they desired for their vacation.<br><br>
+							To address this, I proposed two variations for selecting the bills to order. Initially, I assumed that most of our testing group would prefer a list format, but it turned out that the majority favored the layout with rectangles.<br><br>
+							The rectangled layout helped them complete the task more quickly than the list layout.
+							Our target group consisted of individuals aged 20 to 65 with mixed gender</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section is-small">
+			<div class="container">
+				<h1 class="header is-bold">Building mini design system</h1>
+				<div class="grid12">
+					<div class="column_left row-top" style="width:85%;">
+						<br>
+						<p>In order to be consistent we devised set of rules and component states that would act as an anatomy for our dev team.<br><br> The same was applied to illustrations & animations across the board.</p>
+					</div>
+					<div class="column_right row-bottom" style="width:85%;">
+						<br>
+						<p>This foundation will help us set in motion bigger changes we'd like to make down the road.<br><br>It also lowered development costs because we could use same components over & over.</p>
+					</div>
+				</div>
+			</div>
+			<br>
+			<br>
+		</section>
+
+		<section class="section">
+			<div class="container">
+				<div class="grid12">
+					<div class="column_left row-top">
+						<div>
+							<a href="assets/regulation/reg_02d.png"><img src="assets/regulation/reg_02d.png" class="img"></a>
+						</div>
+					</div>
+					<div class="column_right row-bottom">
+						<div>
+							<a href="assets/regulation/reg_02c.png"><img src="assets/regulation/reg_02c.png" class="img"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section is-small has-background-dark">
+			<div class="container">
+				<div class="header">
+					<h1 class="is-bold has-text-light has-text-centered">User Flow</h1>
+					<p class="has-text-light has-text-centered">use swipe \ arrow keys to see more</p>
+				</div>
+				<div class="glide__wrapper">
+					<div id="Glide" class="glide">
+						<div class="glide__track" data-glide-el="track">
+							<ul class="glide__slides">
+								<li class="glide__slide">
+									<div class="timelinebox"> <a href="assets/biterminal/biterminal_01.mp4" target="_blank">
+											<video preload="metadata" playsinline autoplay muted loop class="img" src="assets/biterminal/biterminal_01.mp4" /> </a> </div>
+								</li>
+								<li class="glide__slide">
+									<div class="timelinebox"> <img src="assets/biterminal/biterminal_02.png" class="img"> </div>
+								</li>
+								<li class="glide__slide">
+									<div class="timelinebox"> <img src="assets/biterminal/biterminal_03.png" class="img"> </div>
+								</li>
+								<li class="glide__slide"> <img src="assets/biterminal/biterminal_04.png" class="img"> </li>
+								<li class="glide__slide"> <img src="assets/biterminal/biterminal_05.png" class="img"> </li>
+								<li class="glide__slide"> <img src="assets/biterminal/biterminal_06.png" class="img"> </li>
+								<li class="glide__slide"> <img src="assets/biterminal/biterminal_07.png" class="img"> </li>
+							</ul>
+							<div class="glide__bullets" data-glide-el="controls[nav]">
+								<div class="glide__bullet" data-glide-dir="=0"></div>
+								<div class="glide__bullet" data-glide-dir="=1"></div>
+								<div class="glide__bullet" data-glide-dir="=2"></div>
+								<div class="glide__bullet" data-glide-dir="=3"></div>
+								<div class="glide__bullet" data-glide-dir="=4"></div>
+								<div class="glide__bullet" data-glide-dir="=5"></div>
+								<div class="glide__bullet" data-glide-dir="=6"></div>
+								<div class="glide__bullet" data-glide-dir="=7"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="section is-small">
+			<div class="container">
+				<h1 class="header is-bold">There's an ad for it</h1>
+				<div class="grid12">
+					<div class="column_left row-top" style="width:85%;">
+						<br>
+						<p>Alright so we went all out with this new service by broadcasting it everywhere here's the bit <a href="https://www.youtube.com/watch?v=QHMfKJhSB1g" target="_blank" class="buttonborder">Available on Youtube</a>but you can also</p>
+
+					</div>
+					<div class="column_right row-bottom" style="width:85%;">
+						<br>
+						<p>Needless to say it went viral & picked people's interest, it was quite a success in terms of sales (can't share the numbers, sorry).</p>
+					</div>
+				</div>
+			</div>
+			<br>
+			<br>
+
+
+			<div class="header">
+				<a href="assets/biterminal/biterminal_ad.mp4" target="_blank">
+					<video preload="metadata" playsinline controls class="img" poster="assets/biterminal/preview.png" src="assets/biterminal/biterminal_ad.mp4" /> </a>
+				<!-- <iframe style="border-radius:12px;" width="95%" height="420px" src="https://www.youtube.com/embed/QHMfKJhSB1g?si=J92l30ohprcVytHE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+			</div>
+
+
+
+		</section>
+
+		<section class="section">
+			<div class="container">
+				<div class="grid12">
+					<div class="column_left row-top">
+						<div>
+							<a href="assets/biterminal/whatsnew_strip_01.mp4" target="_blank">
+								<video preload="metadata" playsinline autoplay muted loop class="img" src="assets/biterminal/whatsnew_strip_01.mp4" /> </a>
+						</div>
+					</div>
+
+					<div class="column_right row-top">
+						<div>
+							<a href="assets/biterminal/whatsnew_strip_02.mp4" target="_blank">
+								<video preload="metadata" playsinline autoplay muted loop class="img" src="assets/biterminal/whatsnew_strip_02.mp4" /> </a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<section class="section is-small has-background-dark">
+			<div class="container">
+				<div class="header">
+					<h1 class="is-bold has-text-light has-text-centered">Impact gauge</h1>
+					<p class="has-text-light has-text-centered">Results after launch</p>
+				</div>
+				<div class="more_grid">
+					<div class="slots">
+						<h1 class="is-bold has-text-green has-text-centered">02:<spann data-init="30" data-max="58"></spann>
+						</h1>
+						<p class="is-bold has-text-light has-text-centered">Average Completion Time</p>
+					</div>
+					<div class="slots">
+						<h1 class="is-bold has-text-green has-text-centered"><span>High</span></h1>
+						<p class="is-bold has-text-light has-text-centered">Engagement Rate</p>
+					</div>
+					<div class="slots">
+						<h1 class="is-bold has-text-green has-text-centered">
+							<spann data-init="0" data-max="3"></spann>+
+						</h1>
+						<p class="is-bold has-text-light has-text-centered">Million customers</p>
+					</div>
+				</div>
+		</section>
+		<!-- <section class="img">
+			<a href="assets/regulation/reg_final1.mp4" target="_blank">
+				<video preload="metadata" playsinline autoplay muted loop class="img" src="assets/regulation/reg_final1.mp4" /> </a>
+		</section> -->
+		<section class="section is-small">
+			<div class="container">
+				<div class="grid12 is-small">
+					<div class="column_left row-top">
+						<div class="count"></div>
+						<h3 class="is-bold">Round of applause</h3>
+						<br>
+						<br>
+						<p> Amos Jerbi (UI, Illustrations &amp; Animations)
+							<br>Jonathan Bar (UX Lead)
+							<br>
+							<br>+ Our dev team, Chapter Leaders, QA </p>
+						<br>
+					</div>
+					<div class="column_right row-bottom">
+						<div id="bm"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="projects">
+			<div class="section is-small">
+				<div class="container">
+					<!--<div class="divider"></div>-->
+					<h4 class="projects is-bold">MORE PROJECTS</h4>
+					<div class="more_grid">
+						<a class="more" href="bitcard.html">
+							<div class="is-uppercase">bitcard</div>
+						</a>
+						<a class="more" href="mills.html">
+							<div class="is-uppercase">mills</div>
+						</a>
+						<a class="more" href="gofer.html">
+							<div class="is-uppercase">gofer</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer id="footer" class="section has-background-denim">
+		<section>
+			<div class="section">
+				<div class="container">
+					<div class="footer_grid">
+						<div class="footer_links_col1">
+							<div class="footer_logo"> <img src="assets/images/amoslogo.svg" alt="logo"></div>
+							<h6>© 2023 Amos Jerbi. All rights reserved.</h6>
+						</div>
+						<div class="footer_links_col2">
+							<h5>Bio; TLDR</h5>
+							<p>a passionate product designer with 10 years of experience love tech & embrace new challenges whenever they come</p>
+							<br>
+						</div>
+						<div class="footer_links_col3">
+							<h5>Freebies</h5>
+							<ul>
+								<li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/Amosjerbi_CV.zip" class="menu-item">Download CV</a></li>
+								<li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/carmelit.zip" class="menu-item">Carmelit Font</a></li>
+								<li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/noot.zip" class="menu-item">Noot Font</a></li>
+								<li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/ptil.zip" class="menu-item">Ptil Font</a></li>
+							</ul>
+						</div>
+						<div class="footer_links_col4">
+							<h5>Let's Talk</h5>
+							<div class="footer_social">
+								<a href="https://www.linkedin.com/in/amosjerbi/" target="_blank" rel="noopener" class="contact-icon">
+									<div class="fa-fa-linkedin"></div>
+								</a>
+								<a href="https://instagram.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon">
+									<div class="fa-fa-instagram"></div>
+								</a>
+								<a href="https://www.youtube.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon">
+									<div class="fa-fa-youtube"></div>
+								</a>
+								<a href="tel:+972-507205884" target="_blank" rel="noopener" class="contact-icon">
+									<div class="fa-phone"></div>
+								</a>
+								<a href="mailto:amosjerbi@gmail.com?subject=Hey Amos, let's meet up!" target="_blank" rel="noopener" class="contact-icon">
+									<div class="fa-fa-mail"></div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</footer>
+	<!-- Modal container -->
+	<div class="modal-container" id="about-me-modal">
+		<!-- Modal  -->
+		<div class="modal">
+			<!-- modal close button -->
+			<a href="#" class="modal__close demo-close">
+				<svg class="" viewBox="0 0 24 24">
+					<path d="M6.41900105,6.41900105 L17.5809989,17.5809989 M6.41900105,17.5809989 L17.5809989,6.41900105" stroke="#fff" stroke-width="3.60000014" stroke-linecap="round"></path>
+				</svg>
+			</a>
+			<div class="is-center2">
+				<h2 class="is-bold">Product Designer</h2>
+				<h5 class="is-bold">BASED IN TEL AVIV</h5>
+				<br>
+				<br>
+				<p>Hi, I'm Amos a father of two lovely children, passionate towards tech & embrace new challenges whenever they come.</p>
+				<br>
+				<p>I also have a <a href="https://www.youtube.com/amosjerbi" class="buttonborder">Youtube channel.</a></p>
+				<br>
+				<br> <img src="assets/images/about_dialog.png" class="modal-img">
+			</div>
+		</div>
+		<!-- Background, click to close -->
+		<a href="#" class="modal-bg"></a>
+	</div>
+	<!-- End of Modal -->
+	<!-- JS Links -->
+	<script>
+		(function($) {
+			$('.accordion a').click(function(j) {
+				var dropDown = $(this).closest('li').find('p');
+				$(this).closest('.accordion').find('p').not(dropDown).slideUp();
+				if ($(this).hasClass('active')) {
+					$(this).removeClass('active');
+				} else {
+					$(this).closest('.accordion').find('a.active').removeClass('active');
+					$(this).addClass('active');
+				}
+				dropDown.stop(false, true).slideToggle();
+				j.preventDefault();
+			});
+		})(jQuery);
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.js"></script>
+	<script>
+		var animation = bodymovin.loadAnimation({
+			container: document.getElementById('bm'),
+			renderer: 'svg',
+			loop: true,
+			autoplay: true,
+			path: 'https://raw.githubusercontent.com/amosjerbi/portfolio/master/assets/regulation/reg_our_goals.json'
+		})
+	</script>
+	<script src="assets/css/toggle.js"></script>
+	<script src="assets/css/analytics.js"></script>
+	<script src="assets/css/glide.js"></script>
+	<script src="assets/css/aos.js"></script>
+	<script src="assets/css/main.js"></script>
+	<script>
+		var glide = new Glide('.glide', {
+			type: 'carousel',
+			perView: 2
+				// , autoplay: 2500
+				,
+			loop: true,
+			focusAt: 'center',
+			breakpoints: {
+				800: {
+					perView: 2
+				},
+				480: {
+					perView: 1
+				},
+			}
+		})
+		glide.mount()
+	</script>
+	<script>
+		//		https://codepen.io/gp1234/pen/eLxXvw
+		const spans = document.querySelectorAll('spann');
+		const spanArr = Array.from(spans);
+
+		function rollUp(object, number, max, delay) {
+			number = parseInt(number, 10) + 1;
+			if (number > max) {
+				return
+			} else {
+				object.innerHTML = number;
+				setTimeout(() => {
+					rollUp(object, number, max, delay)
+				}, delay);
+			}
+		}
+		spanArr.forEach((span) => {
+			rollUp(span, span.dataset.init, span.dataset.max, 50)
+		});
+	</script>
+</body>
+
+</html>
