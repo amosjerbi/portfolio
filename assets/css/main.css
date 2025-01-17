@@ -1,4 +1,4 @@
-/* @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'); */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
 
 :root {
 	--alignment: center;
@@ -179,7 +179,7 @@ button {
 
 body {
 	background-color: var(--primary_light);
-	font-family: var(--fontSans);
+	font-family: var(--fontMono);
 }
 
 a {
