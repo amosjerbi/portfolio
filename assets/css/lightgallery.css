@@ -1,6 +1,6 @@
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css);
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@100..900&display=swap');
 @font-face {
   font-family: 'FontAwesome';
   }
@@ -209,7 +209,7 @@
 .lg-sub-html {
   background-color: rgba(0, 0, 0, 0.45);
   bottom: 0;
-  color: #EEE;
+  color: var(--two_color);
   font-size: 16px;
   left: 0;
   padding: 10px 40px;
@@ -222,19 +222,21 @@
   margin: 0;
   font-size: 13px;
   font-weight: bold;
+  font-family: var(--fontAssistant);
 }
 .lg-sub-html p {
-  font-size: 12px;
+  font-size: 14px;
   margin: 5px 0 0;
+  color: var(--four_color);
 }
 
 #lg-counter {
-  color: var(--primary_light);
-  font-family: var(--fontMono);
+  color: var(--primary_dark);
+  font-family: var(--fontAssistant);
   display: inline-block;
-  font-size: 18px;
-  padding-left: 20px;
-  padding-top: 12px;
+  font-size: 16px;
+  padding-left: 10px;
+  /* padding-top: 42px; */
   vertical-align: middle;
 }
 
@@ -921,6 +923,8 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   -webkit-transition: opacity 0.15s ease 0s;
   -o-transition: opacity 0.15s ease 0s;
   transition: opacity 0.15s ease 0s;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
 }
 .lg-backdrop.in {
   opacity: 1;
@@ -1020,7 +1024,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
       column-count: 4;
       column-gap: 18px;
       column-width: 33%;
-
+      font-family: var(--fontAssistant);
     }
 
     .flow {
@@ -1041,6 +1045,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
         column-count: 3;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(6, 1fr);
+        font-family: var(--fontAssistant);
       }
 
     }
@@ -1055,7 +1060,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
         column-count: 2;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(6, 1fr);
-
+        font-family: var(--fontAssistant);
       }
       }
     /* end Gallery */
