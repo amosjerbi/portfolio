@@ -4,7 +4,8 @@
 	--alignment: center;
 	--fontMono: 'Questrial', sans-serif;
 	--fontSans: 'Montserrat', sans-serif;
-	--fontAssistant: 'Noto Sans Hebrew', sans-serif;
+	--fontNoto: 'Noto Sans Hebrew', sans-serif;
+	--fontAwesome: 'Font Awesome 6 Free';
 	--primary_dark: #001c48;
 	--primary_light: #fff;
 	--one_color: #0250D3;
@@ -222,8 +223,8 @@ ul {
 }
 li{
 	font-size: 20px;
-    line-height: 155%;
-    letter-spacing: .00464286em;
+	line-height: 155%;
+	letter-spacing: .00464286em;
 	color: var(--five_color);
 	font-family: var(--fontMono);
 	font-weight:400;
@@ -1927,7 +1928,8 @@ html.transition *:after {
 	grid-column: 4;
 	grid-row: 1;
 	line-height: 4;
-	/* display: list-item; */
+	position: relative;
+	z-index: 0;
 }
 
 .footer_links a {
@@ -2256,7 +2258,7 @@ html.transition *:after {
 .header {
 	text-align: center;
 	padding: 0;
-	margin-top: 0rem;
+	margin: 2rem 0rem;
 }
 
 
@@ -2383,6 +2385,12 @@ html.transition *:after {
 
 .demo-close:hover {
 	background: var(--three_color);
+}
+
+.social{
+	position:relative;
+	z-index:0;
+	margin: 1rem;
 }
 
 .social-modal {
