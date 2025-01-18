@@ -248,6 +248,9 @@
 
 
     <script>
+        let currentPostIndex = 0;
+        let posts = [];
+        
         function formatDate(timestamp) {
             const date = new Date(timestamp);
             return date.toLocaleDateString('en-US', {
@@ -257,7 +260,35 @@
             });
         }
         
+        function showPost(index) {
+            if (index >= 0 && index < posts.length) {
+                currentPostIndex = index;
+                const post = posts[index];
+                const modalImg = document.getElementById('modalImage');
+                const modalCaption = document.getElementById('modalCaption');
+                const modalLink = document.getElementById('modalLink');
+                
+                modalImg.src = post.media_url;
+                modalCaption.textContent = post.caption || '';
+                modalLink.href = post.permalink;
+                
+                // Update navigation buttons visibility
+                document.querySelector('.prev-btn').style.display = index === 0 ? 'none' : 'block';
+                document.querySelector('.next-btn').style.display = index === posts.length - 1 ? 'none' : 'block';
+            }
+        }
         
+        function nextPost() {
+            if (currentPostIndex < posts.length - 1) {
+                showPost(currentPostIndex + 1);
+            }
+        }
+        
+        function prevPost() {
+            if (currentPostIndex > 0) {
+                showPost(currentPostIndex - 1);
+            }
+        }
         
         const instagramToken = 'IGAANOMSEaVZCVBZAE5jQ25aQ2kxUC1mcUwtbGRkWFBaUVFTZAm9aZA1Raa3M2MWt1WUMycU95N2c1V0ZA0dTBpcDFJNkFjZAEJzU1N5Rk5VNHBqWXktWTlaOUI2UHlqOUJJS3U3ZAjcta1IwaG1WamNzc2dWb0JibTlqc0M4bmdsdmw1YwZDZD';
         const postCount = 390;
@@ -276,55 +307,92 @@
                 }
                 
                 const data = await response.json();
-                gallery.innerHTML = ''; // Clear loading message
-        
+                gallery.innerHTML = '';
+                
                 if (!data.data || data.data.length === 0) {
                     gallery.innerHTML = '<div class="error">No posts found</div>';
                     return;
                 }
-        
-                data.data.forEach(post => {
-                    if (post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM') {
-                        const div = document.createElement('div');
-                        div.className = 'flow';
-                        
-                        const img = document.createElement('img');
-                        img.className = 'img';
-                        img.src = post.media_url;
-                        img.alt = post.caption || 'Instagram post';
-                        img.loading = 'lazy';
-                        
-                        // Add click event to open modal
-                        div.addEventListener('click', () => {
-                            const modal = document.getElementById('modal');
-                            const modalImg = document.getElementById('modalImage');
-                            const modalCaption = document.getElementById('modalCaption');
-                            const modalLink = document.getElementById('modalLink');
-                            
-                            modalImg.src = post.media_url;
-                            modalCaption.textContent = post.caption || '';
-                            modalLink.href = post.permalink;
-                            modal.style.display = 'block';
-                        });
-
-                        div.appendChild(img);
-                        gallery.appendChild(div);
+                
+                posts = data.data.filter(post => 
+                    post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM'
+                );
+                
+                posts.forEach((post, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'flow';
+                    
+                    const img = document.createElement('img');
+                    img.className = 'img';
+                    img.src = post.media_url;
+                    img.alt = post.caption || 'Instagram post';
+                    img.loading = 'lazy';
+                    
+                    div.addEventListener('click', () => {
+                        const modal = document.getElementById('modal');
+                        modal.style.display = 'block';
+                        showPost(index);
+                    });
+                    
+                    div.appendChild(img);
+                    gallery.appendChild(div);
+                });
+                
+                // Add navigation event listeners
+                document.querySelector('.prev-btn').addEventListener('click', prevPost);
+                document.querySelector('.next-btn').addEventListener('click', nextPost);
+                
+                // Add keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (document.getElementById('modal').style.display === 'block') {
+                        if (e.key === 'ArrowLeft') prevPost();
+                        if (e.key === 'ArrowRight') nextPost();
+                        if (e.key === 'Escape') document.getElementById('modal').style.display = 'none';
                     }
                 });
+                
+                // Add touch swipe support
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                const modal = document.getElementById('modal');
+                
+                modal.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+                
+                modal.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                });
+                
+                function handleSwipe() {
+                    const swipeThreshold = 50; // minimum distance for swipe
+                    const swipeDistance = touchEndX - touchStartX;
+                    
+                    if (Math.abs(swipeDistance) > swipeThreshold) {
+                        if (swipeDistance > 0) {
+                            prevPost(); // Swipe right
+                        } else {
+                            nextPost(); // Swipe left
+                        }
+                    }
+                }
+                
             } catch (error) {
                 console.error('Error loading Instagram posts:', error);
                 gallery.innerHTML = '<div class="error">Error loading posts. Please try again later.</div>';
             }
         }
-
+        
         // Call the function when the page loads
         document.addEventListener('DOMContentLoaded', loadInstagramPosts);
-
+        
         // Modal close button functionality
         document.querySelector('.close').addEventListener('click', () => {
             document.getElementById('modal').style.display = 'none';
         });
-
+        
         // Close modal when clicking outside
         window.addEventListener('click', (event) => {
             const modal = document.getElementById('modal');
