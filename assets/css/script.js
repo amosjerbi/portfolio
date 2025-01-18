@@ -1,4 +1,4 @@
-const instagramToken = config.INSTAGRAM_ACCESS_TOKEN;
+const instagramToken = config.instagramToken;
 const galleryElement = document.getElementById('gallery');
 const modalElement = document.getElementById('modal');
 const modalImage = document.getElementById('modalImage');
