@@ -2,683 +2,192 @@
 <html lang="en">
 
 <head>
-  <meta name="description" content="passionate product designer with 10 years of experience in UI/UX">
-	<meta property="og:title" content="AmosJerbi" />
-	<meta property="og:type" content="portfolio" />
-	<meta property="og:url" content="https://ajerbi.com" />
-	<meta property="og:image" content="https://raw.githubusercontent.com/amosjerbi/portfolio/master/assets/images/ogimage.png" />
-	<meta property="og:image" content="assets/images/ogimage.png">
-    <!-- Chrome, Firefox OS and Opera -->
-    <meta name="theme-color" content="#fff">
-    <!-- Windows Phone -->
-    <meta name="msapplication-navbutton-color" content="#fff">
-    <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#fff">
-    <!-- Basic Page Needs<!-- Chrome, Firefox OS and Opera -->
-    <meta name="theme-color" content="#fff">
-    <!-- Windows Phone -->
-    <meta name="msapplication-navbutton-color" content="#fff">
-    <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#fff">
-    <!-- Required meta tags always come first -->
+    <!-- Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="passionate product designer with 10 years of experience in UI/UX">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="AmosJerbi" />
+    <meta property="og:type" content="portfolio" />
+    <meta property="og:url" content="https://ajerbi.com" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/amosjerbi/portfolio/master/assets/images/ogimage.png" />
+    <meta property="og:image" content="assets/images/ogimage.png">
+    
+    <!-- Theme Colors -->
+    <meta name="theme-color" content="#fff">
+    <meta name="msapplication-navbutton-color" content="#fff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#fff">
+    
     <title>Amos Jerbi</title>
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,600,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:300,600" rel="stylesheet">
-    <!--CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@100..900&display=swap" rel="stylesheet">
+    
+    <!-- Backup Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/gallery.css">
     <link rel="stylesheet" href="assets/css/aos.css">
-    <link rel="stylesheet" href="assets/css/lightgallery.css">
     <link rel="stylesheet" href="assets/font/socialfont.css">
-    <!-- Google Tag Manager -->
-    <script>
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime()
-                , event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0]
-                , j = d.createElement(s)
-                , dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-NJ84D38');
-    </script>
-    <!-- End Google Tag Manager -->
-    <!-- Google Analytics -->
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-        ga('create', 'UA-136147619-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <!-- End Google Analytics -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js">
-    </script>
-    <style>
-        /* Swipe-related styles */
-        .lg-swipe-mode .lg-inner {
-            touch-action: pan-y pinch-zoom;
-        }
-
-        .lg-swipe-mode .lg-item {
-            will-change: transform;
-            transition: transform 0.5s ease;
-        }
-
-        .lg-swipe-mode .lg-item.lg-current {
-            pointer-events: auto;
-            transform-origin: center;
-        }
-
-        .lg-swipe-mode .lg-item.lg-next-slide,
-        .lg-swipe-mode .lg-item.lg-prev-slide {
-            opacity: 0;
-            transition: transform 0.5s ease, opacity 0.5s ease;
-        }
-
-        .lg-swipe-mode.lg-slide .lg-item.lg-current,
-        .lg-swipe-mode.lg-slide .lg-item.lg-next-slide,
-        .lg-swipe-mode.lg-slide .lg-item.lg-prev-slide {
-            transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
-        }
-
-        @media (max-width: 768px) {
-            .lg-swipe-mode .lg-item {
-                padding: 0;
-                overscroll-behavior: contain;
-            }
-            
-            .lg-swipe-mode.lg-slide .lg-item {
-                transition: transform 0.3s ease;
-            }
-            
-            .lg-swipe-mode .lg-item.lg-current {
-                transform: translateX(0);
-            }
-            
-            .lg-swipe-mode .lg-item.lg-next-slide {
-                transform: translateX(100%);
-            }
-            
-            .lg-swipe-mode .lg-item.lg-prev-slide {
-                transform: translateX(-100%);
-            }
-            
-            .lg-swipe-mode .lg-outer {
-                touch-action: pan-y pinch-zoom;
-            }
-        }
-
-        .lg-swipe-mode .lg-outer {
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            -webkit-perspective: 1000;
-            perspective: 1000;
-        }
-
-        .lg-swipe-mode .lg-outer.lg-pull-closing {
-            transform: scale(0.95);
-            opacity: 0.8;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-    </style>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<style>
-    .img {
-        width: 100%;
-        height: auto;
-        margin-bottom: 15px;
-        border-radius: var(--border-radius);
-        transition: transform 0.3s ease;
-    }
-
-    .img:hover {
-        transform: scale(1.02);
-    }
-
-    .header {
-        text-align: center;
-        padding: 4rem 3rem 0 3rem;
-    }
-
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        padding: 0 4px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    /* Create four equal columns that sits next to each other */
-
-    #lightgallery {
-        column-count: 4;
-        column-gap: 18px;
-        column-width: 33%;
-    }
-
-    .flow {
-        grid-row-end: span 30;
-    }
-
-    .social {
-        padding: 1rem 1rem 1rem 1rem;
-    }
-    /* Responsive layout - makes a two column-layout instead of four columns */
-
-    @media (max-width: 800px) {
-        .flow {
-            grid-row-end: span 14;
-        }
-        #lightgallery {
-            column-count: 3;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(6, 1fr);
-        }
-    }
-    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-
-    @media (max-width: 600px) {
-        .flow {
-            grid-row-end: span 14;
-        }
-        #lightgallery {
-            column-count: 2;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(6, 1fr);
-        }
-        .header {
-            padding: 4rem 0 2rem 0;
-        }
-        .section2 {
-            padding: 3rem 0.2rem;
-        }
-        h1 {
-            font-size: 2.3em;
-        }
-    }
-
-    .loading, .error {
-        text-align: center;
-        padding: 2rem;
-        color: var(--text-color);
-    }
-
-    .error {
-        color: #ff4444;
-    }
-
-    /* Add these new styles for lightGallery captions */
-    .lightGallery-captions {
-        font-family: var(--fontAssistant);
-        font-weight: 300;
-        line-height: 1.5;
-        font-weight: 400;
-    }
-
-    .lightGallery-meta {
-        font-family: var(--fontAssistant);
-        font-weight: 600;
-        margin-bottom: 8px;
-        background: var(--primary_light);
-        inline-size: fit-content;
-        padding: 12px 20px;
-        border-radius: 10px;
-    }
-
-    .lightGallery-content {
-        padding: 55px;
-    }
-
-    /* Add two-column layout styles */
-    .lg-sub-html {
-        width: 100%;
-        height: 100vh;
-        margin: 0 auto;
-        padding: 0;
-        background: var(--primary_light);
-    }
-
-    .lightGallery-content {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        background: var(--primary_light);
-        height: 100vh;
-        overflow: hidden;
-    }
-
-    .lightGallery-image {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        /* background: var(--primary_light); */
-        padding: 20px;
-    }
-
-    .lightGallery-image-container {
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        /* background: var(--primary_light); */
-        padding: 40px;
-        padding-right: 0;
-    }
-
-    .lightGallery-details {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    overflow-y: auto;
-    height: max-content;
-    background: var(--primary_light);
-    border-left: 1px solid var(--two_color);
-    background: var(--two_color);
-    border-radius: 16px;
-    text-align: right;
-    margin: 5rem 0px 0px 0px;
-    }
-
-    /* Style scrollbar for the details section */
-    .lightGallery-details::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    .lightGallery-details::-webkit-scrollbar-track {
-        background: var(--primary_light);
-    }
-
-    .lightGallery-details::-webkit-scrollbar-thumb {
-        background: var(--five_color);
-        border-radius: 4px;
-    }
-
-    .lightGallery-date {
-        color: var(--five_color);
-        font-family: var(--fontAssistant);
-        font-size: 14px;
-        font-weight: 600;
-    }
-
-    .lightGallery-captions {
-        font-family: var(--fontAssistant);
-        line-height: 1.6;
-        color: var(--primary_dark);
-        font-size: 16px;
-        font-weight: 400;
-    }
-
-    .lg-toolbar .lg-icon {
-        color: var(--primary_dark);
-    }
-
-    .lg-toolbar .lg-icon:hover {
-    color: var(--primary_dark);
-}
-
-
-    .lightGallery-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 2px;
-        color: var(--primary_dark);
-        text-decoration: none;
-        font-family: var(--fontAssistant);
-        transition: opacity 0.3s ease;
-        padding: 12px 24px;
-        background: var(--primary_light);
-        border-radius: var(--border-radius);
-        margin-left: auto;
-        direction: ltr;
-        font-weight: 600;
-        border: 2px solid var(--four_color);
-    }
-
-    .lightGallery-link:hover {
-        opacity: 0.8;
-        background: var(--one_color);
-        color: var(--primary_light);
-        transition: all 0.8s;
-    }
-
-    .lightGallery-link svg {
-        margin-right: 8px;
-    }
-
-    @media (max-width: 1024px) {
-        .lightGallery-details {
-            padding: 30px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .lightGallery-content {
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr auto;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-
-        .lightGallery-image-container {
-            padding: 10px;
-            height: 75vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: var(--primary_light);
-            z-index: 1;
-        }
-
-        .lightGallery-image {
-            height: 100%;
-            object-fit: contain;
-            width: 100%;
-        }
-
-        .lightGallery-details {
-            padding: 15px 20px;
-            height: 25vh;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--two_color);
-            border-radius: 20px;
-            z-index: 2;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            margin: 1rem;
-        }
-
-        /* Ensure content within details is properly spaced */
-        .lightGallery-date {
-            margin-bottom: 8px;
-        }
-
-        .lightGallery-captions {
-            margin-bottom: 8px;
-            flex: 1;
-            overflow-y: auto;
-        }
-
-        .lightGallery-link {
-            padding: 10px 20px;
-            margin-top: auto;
-            position: sticky;
-            bottom: 0;
-            background: var(--primary_light);
-        }
-    }
-
-    @media (max-width: 480px) {
-        .lightGallery-details {
-            padding: 15px;
-        }
-
-        .lightGallery-captions {
-            font-size: 14px;
-        }
-    }
-
-    /* Hide download button set to none ok? */
-    .lg-toolbar .lg-download {
-        display:flex !important;
-    }
-
-    /* Position close button to the left */
-    .lg-toolbar {
-        display: flex;
-        flex-direction: row;
-        /* justify-content: revert; */
-        gap: 10px;
-        padding-left: 15px !important;
-        align-items: flex-end;
-    }
-
-    .lg-toolbar .lg-close {
-        order: 1;
-    }
-
-    .lg-counter {
-        color: var(--primary_dark);
-        order: 2;
-        position: static !important;
-        line-height: 40px !important;
-        padding: 0;
-        font-family: var(--fontAssistant);
-    }
-
-    .lg-toolbar .lg-icon {
-        background: var(--primary_light);
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        line-height: 24px;
-        text-align: center;
-        transition: all 0.3s;
-    }
-
-    .lg-toolbar .lg-icon:hover {
-        background: var(--two_color);
-        color: var(--primary_dark);
-    }
-
-    .lightGallery-content {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-    }
-</style>
 
 <body>
-  <nav class="navbar">
-      <div class="container-nav">
-          <div class="novile" aria-label="menu" aria-expanded="false">
-              <div class="burger">
-                  <div class="burger_line"></div>
-                  <div class="burger_line"></div>
-                  <div class="burger_line"></div>
-              </div>
-              <div class="global-nav">
-                  <ul class="global-nav__list" style="--length: 12">
-                      <!-- <li style="index: 0;"><a href="https://bitpay.co.il/">bit - Website</a></li> -->
-                      <div class="global-nav-items">
-                          <li style="--index: 1;"><a href="bitboarding.html">Onboarding</a></li>
-                          <li style="--index: 2;"><a href="biterminal.html">Terminal</a></li>
-                          <li style="--index: 3;"><a href="bit_regulation.html">Regulation</a></li>
-                          <li style="--index: 4;"><a href="bitcard.html">bitcard</a></li>
-                          <li style="--index: 5;"><a href="gallery.html">Illustrations</a></li>
-                      </div>
-                      <li style="--index: 6; display: inline-flex;"><a href="https://www.youtube.com/amosjerbi" target="_blank" class="novile-items"><i class="fa-fa-youtube"></i></a></li>
-                      <li style="--index: 7; display: inline-flex;"><a href="https://instagram.com/amosjerbi" target="_blank" rel="noopener" rel="noopener" rel="noopener" class="novile-items"><i class="fa-fa-instagram"></i></a></li>
-                      <li style="--index: 8; display: inline-flex;"><a href="https://www.linkedin.com/in/amosjerbi/" target="_blank" rel="noopener" rel="noopener" rel="noopener" class="novile-items"><i class="fa-fa-linkedin"></i></a></li>
-                      <li class="nav_line_list" style="--index: 9;"></li>
-                      <li class="contact_me" style="--index: 10;">
-                          <h5><a href="tel:+972-507205884">
-                +972-507-205-884
-              </a></h5> </li>
-                      <li class="contact_me" style="--index: 11;">
-                          <h5><a href="mailto:amosjerbi@gmail.com?subject=Hey Amos, let's meet up!">
-                amosjerbi@gmail.com
-              </a></h5></li>
-                      <br>
-                      <li>
-                          <input type="checkbox" id="switch" name="theme">
-                          <label for="switch">
-                              <h4>Dark Theme</h4></label>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-          <div class="brand">
-              <a href="index.html"> <img src="assets/images/amoslogo.svg" alt="logo"> </a>
-          </div>
-          <ul class="menu-end">
-              <li>
-                  <div class="dropdown is-hoverable">
-                      <div class="dropdown-trigger">
-                          <button class="menu-item" aria-haspopup="true" aria-controls="dropdown-menu3"> bit <span class="icon2 is-small">
-                <i class="fa-fa-chevron-down" aria-hidden="true"></i>
-              </span> </button>
-                      </div>
-                      <div class="dropdown-menu" id="dropdown-menu3" role="menu">
-                          <div class="dropdown-content">
-                            <a href="bitboarding.html" class="dropdown-item" target="_blank">
-                              Onboarding
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container-nav">
+            <!-- Mobile Menu -->
+            <div class="novile" aria-label="menu" aria-expanded="false">
+                <div class="burger">
+                    <div class="burger_line"></div>
+                    <div class="burger_line"></div>
+                    <div class="burger_line"></div>
+                </div>
+                <div class="global-nav">
+                    <ul class="global-nav__list" style="--length: 12">
+                        <div class="global-nav-items">
+                            <li style="--index: 1;"><a href="bitboarding.html">Onboarding</a></li>
+                            <li style="--index: 2;"><a href="biterminal.html">Terminal</a></li>
+                            <li style="--index: 3;"><a href="bit_regulation.html">Regulation</a></li>
+                            <li style="--index: 4;"><a href="bitcard.html">bitcard</a></li>
+                            <li style="--index: 5;"><a href="gallery.html">Illustrations</a></li>
+                        </div>
+                        <!-- Social Links -->
+                        <li style="--index: 6; display: inline-flex;">
+                            <a href="https://www.youtube.com/amosjerbi" target="_blank" class="novile-items">
+                                <i class="fab fa-youtube"></i>
                             </a>
-                            <a href="biterminal.html" class="dropdown-item" target="_blank">
-                              Terminal
+                        </li>
+                        <li style="--index: 7; display: inline-flex;">
+                            <a href="https://instagram.com/amosjerbi" target="_blank" rel="noopener" class="novile-items">
+                                <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="bit_regulation.html" class="dropdown-item" target="_blank">
-                regulation
-              </a>
-              <a href="bitcard.html" class="dropdown-item" target="_blank">bitcard</a>
-                              <hr class="dropdown-divider">
-                              <a href="https://bitpay.co.il/" class="dropdown-item" target="_blank">
-                              bit Website
-                              </a>
-                               </div>
-                      </div>
-                  </div>
-              </li>
-              <li><a href="gofer.html" class="menu-item">Gofer</a></li>
-              <li><a href="mills.html" class="menu-item">Mills</a></li>
-              <li><a href="design_kit.html" class="menu-item">design_kit</a></li>
-              <li><a href="gallery.html" class="menu-item">Illustrations</a></li>
-              <li><a href="#about-me-modal" rel="noopener" class="button_prime">
-          About
-        </a> </li>
-          </ul>
-          <div class="navbutton"><a href="#about-me-modal" rel="noopener" class="button_prime">
-        About
-      </a> </div>
-      </div>
-  </nav>
-    <section class="section">
-        <div class="container">
-            <div class="header">
-                <h1 class="is-uppercase" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1200" data-aos-easing="ease-out-quart"><strong>Illustrations</strong></h1>
-                <p class="" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="800" data-aos-easing="ease-out-quart"> Enjoy your stay & follow me on </p>
-                <div class="social"> <a href="https://www.linkedin.com/in/amosjerbi/" target="_blank" rel="noopener" class="contact-icon" data-aos="fade-up" data-aos-delay="1700" data-aos-duration="500" data-aos-easing="ease-out-sine"><i class="fa-fa-linkedin"></i></a> <a href="https://instagram.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon" data-aos="fade-up" data-aos-delay="1900" data-aos-duration="500" data-aos-easing="ease-out-sine"><i class="fa-fa-instagram"></i></a> <a href="https://www.facebook.com/public/Amos-Jerbi" target="_blank" rel="noopener" class="contact-icon" data-aos="fade-up" data-aos-delay="2100" data-aos-duration="500" data-aos-easing="ease-out-sine"><i class="fa-fa-facebook"></i></a> <a href="https://dribbble.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon" data-aos="fade-up" data-aos-delay="2300" data-aos-duration="500" data-aos-easing="ease-out-sine"><i class="fa-fa-dribbble"></i></a> </div>
-            </div>
-        </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <div class="row">
-                <div id="lightgallery">
-                    <!-- Loading state will be shown here -->
-                    <div class="loading">Loading Instagram posts...</div>
+                        </li>
+                        <li style="--index: 8; display: inline-flex;">
+                            <a href="https://www.linkedin.com/in/amosjerbi/" target="_blank" rel="noopener" class="novile-items">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                        <li class="nav_line_list" style="--index: 9;"></li>
+                        <!-- Contact Info -->
+                        <li class="contact_me" style="--index: 10;">
+                            <h5><a href="tel:+972-507205884">+972-507-205-884</a></h5>
+                        </li>
+                        <li class="contact_me" style="--index: 11;">
+                            <h5><a href="mailto:amosjerbi@gmail.com?subject=Hey Amos, let's meet up!">amosjerbi@gmail.com</a></h5>
+                        </li>
+                        <br>
+                        <li>
+                            <input type="checkbox" id="switch" name="theme">
+                            <label for="switch"><h4>Dark Theme</h4></label>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
-    <footer id="footer" class="section has-background-denim">
-        <section>
-            <div class="section">
-                <div class="container">
-                    <div class="footer_grid">
-                        <div class="footer_links_col1">
-                            <div class="footer_logo"> <img src="assets/images/amoslogo.svg" alt="logo"></div>
-                            <h6>© 2023 Amos Jerbi. All rights reserved.</h6> </div>
-                        <div class="footer_links_col2">
-                            <h5>Bio; TLDR</h5>
-                            <p>a passionate product designer with 10 years of experience love tech & embrace new challenges whenever they come</p>
-                            <br> </div>
-                        <div class="footer_links_col3">
-                            <h5>Freebies</h5>
-                            <ul>
-                                <li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/Amosjerbi_CV.zip" class="menu-item">Download CV</a></li>
-                                <li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/carmelit.zip" class="menu-item">Carmelit Font</a></li>
-                                <li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/noot.zip" class="menu-item">Noot Font</a></li>
-                                <li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/ptil.zip" class="menu-item">Ptil Font</a></li>
-                            </ul>
+            
+            <!-- Brand Logo -->
+            <div class="brand">
+                <a href="index.html"><img src="assets/images/amoslogo.svg" alt="logo"></a>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <ul class="menu-end">
+                <li>
+                    <div class="dropdown is-hoverable">
+                        <div class="dropdown-trigger">
+                            <button class="menu-item" aria-haspopup="true" aria-controls="dropdown-menu3">
+                                bit <span class="icon2 is-small">
+                                    <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
                         </div>
-                        <div class="footer_links_col4">
-                            <h5>Let's Talk</h5>
-                            <div class="footer_social">
-                                <a href="https://www.linkedin.com/in/amosjerbi/" target="_blank" rel="noopener" class="contact-icon">
-                                    <div class="fa-fa-linkedin"></div>
-                                </a>
-                                <a href="https://instagram.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon">
-                                    <div class="fa-fa-instagram"></div>
-                                </a>
-                                <a href="https://www.youtube.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon">
-                                    <div class="fa-fa-youtube"></div>
-                                </a>
-                                <a href="tel:+972-507205884" target="_blank" rel="noopener" class="contact-icon">
-                                    <div class="fa-phone"></div>
-                                </a>
-                                <a href="mailto:amosjerbi@gmail.com?subject=Hey Amos, let's meet up!" target="_blank" rel="noopener" class="contact-icon">
-                                    <div class="fa-fa-mail"></div>
-                                </a>
+                        <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                            <div class="dropdown-content">
+                                <a href="bitboarding.html" class="dropdown-item" target="_blank">Onboarding</a>
+                                <a href="biterminal.html" class="dropdown-item" target="_blank">Terminal</a>
+                                <a href="bit_regulation.html" class="dropdown-item" target="_blank">regulation</a>
+                                <a href="bitcard.html" class="dropdown-item" target="_blank">bitcard</a>
+                                <hr class="dropdown-divider">
+                                <a href="https://bitpay.co.il/" class="dropdown-item" target="_blank">bit Website</a>
                             </div>
                         </div>
+                    </div>
+                </li>
+                <li><a href="gofer.html" class="menu-item">Gofer</a></li>
+                <li><a href="mills.html" class="menu-item">Mills</a></li>
+                <li><a href="design_kit.html" class="menu-item">design_kit</a></li>
+                <li><a href="gallery.html" class="menu-item">Illustrations</a></li>
+                <li><a href="#about-me-modal" rel="noopener" class="button_prime">About</a></li>
+            </ul>
+            <div class="navbutton">
+                <a href="#about-me-modal" rel="noopener" class="button_prime">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="header">
+                    <h1 class="is-uppercase" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1200" data-aos-easing="ease-out-quart">
+                        <strong>Illustrations</strong>
+                    </h1>
+                    <p class="" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="800" data-aos-easing="ease-out-quart">
+                        Enjoy your stay & follow me on
+                    </p>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/amosjerbi/" target="_blank" rel="noopener" class="contact-icon" data-aos="fade-up" data-aos-delay="1700" data-aos-duration="500" data-aos-easing="ease-out-sine">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://instagram.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon" data-aos="fade-up" data-aos-delay="1900" data-aos-duration="500" data-aos-easing="ease-out-sine">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/public/Amos-Jerbi" target="_blank" rel="noopener" class="contact-icon" data-aos="fade-up" data-aos-delay="2100" data-aos-duration="500" data-aos-easing="ease-out-sine">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://dribbble.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon" data-aos="fade-up" data-aos-delay="2300" data-aos-duration="500" data-aos-easing="ease-out-sine">
+                            <i class="fab fa-dribbble"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
-    </footer>
-    <!-- Modal container -->
-    <div class="modal-container" id="about-me-modal">
-        <!-- Modal  -->
-        <div class="modal">
-            <!-- modal close button -->
-            <a href="#" class="modal__close demo-close">
-                <svg class="" viewBox="0 0 24 24">
-                    <path d="M6.41900105,6.41900105 L17.5809989,17.5809989 M6.41900105,17.5809989 L17.5809989,6.41900105" stroke="#fff" stroke-width="3.60000014" stroke-linecap="round"></path>
-                </svg>
-            </a>
-            <div class="is-center2">
-                <h2 class="is-bold">Product Designer</h2>
-                <h5 class="is-bold">BASED IN TEL AVIV</h5>
-                <br>
-                <br>
-                <p>Hi, I'm Amos a father of two lovely children, passionate towards tech & embrace new challenges whenever they come.</p>
-                <br>
-                <p>I also have a <a href="https://www.youtube.com/amosjerbi" class="buttonborder">Youtube channel.</a></p>
-                <br>
-                <br> <img src="assets/images/about_dialog.png" class="modal-img"> </div>
+        
+        <!-- Gallery Grid -->
+        <div id="gallery" class="gallery"></div>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modallic">
+        <div class="modallic-content">
+            <span class="close"><i class="fas fa-times"></i></span>
+            <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            <div class="modallic-image-container">
+                <img id="modalImage" src="/placeholder.svg" alt="Instagram post">
+            </div>
+            <div class="modallic-details">
+                <p id="modalCaption"></p>
+                <a id="modalLink" href="" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-heart fa-beat"></i> Like
+                </a>
+            </div>
         </div>
-        <!-- Background, click to close -->
-        <a href="#" class="modal-bg"></a>
     </div>
-    <!-- End of Modal -->
-    <!-- JS Links -->
-    <script src="assets/css/toggle.js"></script>
-    <script src="assets/css/analytics.js"></script>
-    <script src="assets/css/glide.js"></script>
-    <script src="assets/css/aos.js"></script>
-    <script src="assets/css/main.js"></script>
-    <script src="assets/css/lightgallery.js"></script>
-    <script>
-        lightGallery(document.getElementById('lightgallery'));
-    </script>
-    <script>
+
+	<script>
 function formatDate(timestamp) {
     const date = new Date(timestamp);
     return date.toLocaleDateString('en-US', {
@@ -694,7 +203,7 @@ const instagramToken = 'IGAANOMSEaVZCVBZAE5jQ25aQ2kxUC1mcUwtbGRkWFBaUVFTZAm9aZA1
 const postCount = 390;
 
 async function loadInstagramPosts() {
-    const gallery = document.getElementById('lightgallery');
+    const gallery = document.getElementById('modal');
     
     try {
         const response = await fetch(
@@ -835,10 +344,109 @@ async function loadInstagramPosts() {
 // Load posts when page loads
 document.addEventListener('DOMContentLoaded', loadInstagramPosts);
     </script>
-    <!-- Add these before your other scripts -->
-    <script src="path/to/plugins/lg-zoom.min.js"></script>
-    <script src="path/to/plugins/lg-thumbnail.min.js"></script>
-    <script src="path/to/plugins/lg-fullscreen.min.js"></script>
-</body>
 
+    <!-- Footer -->
+    <footer id="footer" class="section has-background-denim">
+        <section>
+            <div class="section">
+                <div class="container">
+                    <div class="footer_grid">
+                        <div class="footer_links_col1">
+                            <div class="footer_logo">
+                                <img src="assets/images/amoslogo.svg" alt="logo">
+                            </div>
+                            <h6>© 2023 Amos Jerbi. All rights reserved.</h6>
+                        </div>
+                        <div class="footer_links_col2">
+                            <h5>Bio; TLDR</h5>
+                            <p>a passionate product designer with 10 years of experience love tech & embrace new challenges whenever they come</p>
+                            <br>
+                        </div>
+                        <div class="footer_links_col3">
+                            <h5>Freebies</h5>
+                            <ul>
+                                <li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/Amosjerbi_CV.zip" class="menu-item">Download CV</a></li>
+                                <li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/carmelit.zip" class="menu-item">Carmelit Font</a></li>
+                                <li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/noot.zip" class="menu-item">Noot Font</a></li>
+                                <li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/ptil.zip" class="menu-item">Ptil Font</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer_links_col4">
+                            <h5>Let's Talk</h5>
+                            <div class="footer_social">
+                                <a href="https://www.linkedin.com/in/amosjerbi/" target="_blank" rel="noopener" class="contact-icon">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://instagram.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.youtube.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="tel:+972-507205884" target="_blank" rel="noopener" class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </a>
+                                <a href="mailto:amosjerbi@gmail.com?subject=Hey Amos, let's meet up!" target="_blank" rel="noopener" class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <!-- About Modal -->
+    <div class="modal-container" id="about-me-modal">
+        <div class="modal">
+            <a href="#" class="modal__close demo-close">
+                <svg class="" viewBox="0 0 24 24">
+                    <path d="M6.41900105,6.41900105 L17.5809989,17.5809989 M6.41900105,17.5809989 L17.5809989,6.41900105" stroke="#fff" stroke-width="3.60000014" stroke-linecap="round"></path>
+                </svg>
+            </a>
+            <div class="is-center2">
+                <h2 class="is-bold">Product Designer</h2>
+                <h5 class="is-bold">BASED IN TEL AVIV</h5>
+                <br>
+                <br>
+                <p>Hi, I'm Amos a father of two lovely children, passionate towards tech & embrace new challenges whenever they come.</p>
+                <br>
+                <p>I also have a <a href="https://www.youtube.com/amosjerbi" class="buttonborder">Youtube channel.</a></p>
+                <br>
+                <br>
+                <img src="assets/images/about_dialog.png" class="modal-img">
+            </div>
+        </div>
+        <a href="#" class="modal-bg"></a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/css/analytics.js"></script>
+    <script src="assets/css/aos.js"></script>
+    <script src="assets/css/main.js"></script>
+    <script src="assets/css/config.js"></script>
+    <script src="assets/css/script.js"></script>
+    <script src="assets/css/server.js"></script>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NJ84D38');
+    </script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-136147619-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
 </html>
+
