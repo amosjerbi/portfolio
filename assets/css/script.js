@@ -1,4 +1,5 @@
-const instagramToken = ${{ secrets.INSTAGRAM_ACCESS_TOKEN }};
+const instagramToken = process.env.INSTAGRAM_ACCESS_TOKEN;
+console.log(`Instagram Token: ${instagramToken}`);  // For debugging only
 const galleryElement = document.getElementById('gallery');
 const modalElement = document.getElementById('modal');
 const modalImage = document.getElementById('modalImage');
