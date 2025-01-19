@@ -3,6 +3,6 @@ const express = require('express');
 const app = express();
 
 app.get('/api/instagram', async (req, res) => {
-    const token = ${{ secrets.INSTAGRAM_ACCESS_TOKEN }};
+    const instagramToken = process.env.INSTAGRAM_ACCESS_TOKEN;
     // Make Instagram API calls here
 }); 
