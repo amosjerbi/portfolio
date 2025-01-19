@@ -299,8 +299,9 @@
             
             try {
                 const response = await fetch(
-                    `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,timestamp&access_token=${secrets.INSTAGRAM_ACCESS_TOKEN}&limit=${postCount}`
+                    `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,timestamp&access_token=${INSTAGRAM_ACCESS_TOKEN}&limit=${postCount}`
                 );
+                
                 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
