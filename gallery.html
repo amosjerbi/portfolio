@@ -290,7 +290,7 @@
             }
         }
         
-        const instagramToken = 'ENV TOKEN';
+        const instagramToken = process.env.INSTAGRAM_ACCESS_TOKEN;
         const postCount = 390;
         
         async function loadInstagramPosts() {

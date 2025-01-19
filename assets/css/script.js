@@ -1,4 +1,4 @@
-const instagramToken = config.instagramToken;
+const instagramToken = process.env.INSTAGRAM_ACCESS_TOKEN;
 const galleryElement = document.getElementById('gallery');
 const modalElement = document.getElementById('modal');
 const modalImage = document.getElementById('modalImage');
@@ -138,4 +138,3 @@ document.getElementById('gallery').addEventListener('click', (e) => {
 });
 
 initGallery();
-
