@@ -37,3 +37,6 @@ yarn-error.log*
 coverage/
 .next/
 .nuxt/ 
+
+# Ignore generated config
+src/config.js
