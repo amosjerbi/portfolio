@@ -1,5 +1,3 @@
-const instagramToken = process.env.INSTAGRAM_ACCESS_TOKEN;
-console.log(`Instagram Token: ${instagramToken}`);  // For debugging only
 const galleryElement = document.getElementById('gallery');
 const modalElement = document.getElementById('modal');
 const modalImage = document.getElementById('modalImage');
@@ -15,29 +13,16 @@ async function fetchImages() {
     // Handle the response
 }
 
-async function fetchInstagramPosts(token) {
+async function fetchInstagramPosts() {
     try {
-        console.log('Fetching posts with token:', token);
-        const response = await fetch(
-            `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url&access_token=${token}&limit=80`
-        );
-        const data = await response.json();
-        console.log('API Response:', data);
-        
-        if (data.error) {
-            throw new Error(data.error.message);
+        const response = await fetch('/api/instagram');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
-        const validPosts = data.data.filter(post => {
-            const hasMediaUrl = !!post.media_url;
-            const validMediaType = ['IMAGE', 'VIDEO', 'CAROUSEL_ALBUM'].includes(post.media_type);
-            return hasMediaUrl && validMediaType;
-        });
-
-        console.log('Valid posts:', validPosts.length);
-        return validPosts;
+        const data = await response.json();
+        return data;
     } catch (error) {
-        console.error('Error in fetchInstagramPosts:', error);
+        console.error('Error fetching Instagram posts:', error);
         throw error;
     }
 }
@@ -83,7 +68,7 @@ window.onclick = function(event) {
 async function initGallery() {
     try {
         console.log('Initializing gallery...');
-        const posts = await fetchInstagramPosts(instagramToken);
+        const posts = await fetchInstagramPosts();
         
         if (!posts || posts.length === 0) {
             throw new Error('No posts received from Instagram API');
