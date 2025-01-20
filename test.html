@@ -13,9 +13,26 @@
 <body>
     <h1>Instagram Gallery</h1>
     <div class="gallery" id="gallery"></div>
-
+ <script src="fetchInstagram.js"></script>
+     <script src="fetchInstagram.js"></script>
     <script>
         fetch('instagramMedia.json')
+            .then(response => response.json())
+            .then(data => {
+                const gallery = document.getElementById('gallery');
+                data.data.forEach(media => {
+                    if (media.media_type === 'IMAGE' || media.media_type === 'CAROUSEL_ALBUM') {
+                        const img = document.createElement('img');
+                        img.src = media.media_url;
+                        img.alt = media.caption || 'Instagram image';
+                        gallery.appendChild(img);
+                    }
+                });
+            })
+            .catch(error => console.error('Error loading media:', error));
+    </script>
+    <script>
+        fetch('package.json')
             .then(response => response.json())
             .then(data => {
                 const gallery = document.getElementById('gallery');
