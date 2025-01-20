@@ -1,5 +1,5 @@
 // Instagram API configuration
-const accessToken = window.INSTAGRAM_ACCESS_TOKEN;
+const accessToken = ${{ secrets.INSTAGRAM_ACCESS_TOKEN; }}
 if (!accessToken) {
     throw new Error('Instagram access token not found. Please make sure config.js is loaded and contains the token.');
 }
