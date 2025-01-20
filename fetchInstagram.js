@@ -1,5 +1,8 @@
 // Instagram API configuration
-const accessToken = ${{'secrets.INSTAGRAM_ACCESS_TOKEN'}}; // You should store this securely
+const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN || window.INSTAGRAM_ACCESS_TOKEN;
+if (!accessToken) {
+    throw new Error('Instagram access token not found. Make sure it is properly configured.');
+}
 const apiUrl = `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,timestamp&access_token=${accessToken}`;
 
 async function fetchInstagramMedia() {
