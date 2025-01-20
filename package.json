@@ -1,13 +1,14 @@
-
 {
   "name": "instagram-gallery",
   "version": "1.0.0",
   "description": "Instagram gallery using GitHub secrets and API",
   "main": "fetchInstagram.js",
   "scripts": {
-    "start": "node fetchInstagram.js"
+    "generate-config": "node scripts/generate-config.js",
+    "start": "npm run generate-config && node fetchInstagram.js"
   },
   "dependencies": {
+    "dotenv": "^16.3.1",
     "node-fetch": "^2.6.1"
   }
 }
