@@ -1,0 +1,13 @@
+
+{
+  "name": "instagram-gallery",
+  "version": "1.0.0",
+  "description": "Instagram gallery using GitHub secrets and API",
+  "main": "fetchInstagram.js",
+  "scripts": {
+    "start": "node fetchInstagram.js"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
