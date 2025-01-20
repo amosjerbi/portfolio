@@ -13,12 +13,14 @@
 <body>
     <h1>Instagram Gallery</h1>
     <div class="gallery" id="gallery"></div>
-     <script src="fetchInstagram.js"></script>
-    <script>
-        fetch('instagramMedia.json')
-            .then(response => response.json())
-            .then(data => {
+    <script type="module">
+        import { fetchInstagramMedia } from './fetchInstagram.js';
+
+        async function displayGallery() {
+            try {
+                const data = await fetchInstagramMedia();
                 const gallery = document.getElementById('gallery');
+                
                 data.data.forEach(media => {
                     if (media.media_type === 'IMAGE' || media.media_type === 'CAROUSEL_ALBUM') {
                         const img = document.createElement('img');
@@ -27,24 +29,14 @@
                         gallery.appendChild(img);
                     }
                 });
-            })
-            .catch(error => console.error('Error loading media:', error));
-    </script>
-    <script>
-        fetch('package.json')
-            .then(response => response.json())
-            .then(data => {
+            } catch (error) {
+                console.error('Error displaying gallery:', error);
                 const gallery = document.getElementById('gallery');
-                data.data.forEach(media => {
-                    if (media.media_type === 'IMAGE' || media.media_type === 'CAROUSEL_ALBUM') {
-                        const img = document.createElement('img');
-                        img.src = media.media_url;
-                        img.alt = media.caption || 'Instagram image';
-                        gallery.appendChild(img);
-                    }
-                });
-            })
-            .catch(error => console.error('Error loading media:', error));
+                gallery.innerHTML = '<p>Error loading Instagram images. Please try again later.</p>';
+            }
+        }
+
+        displayGallery();
     </script>
 </body>
 </html>
