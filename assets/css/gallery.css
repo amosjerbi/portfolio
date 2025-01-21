@@ -440,3 +440,36 @@ h1 {
         font-size: 2.3em;
     }
 }
+
+/* Load More Button */
+.load-more-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.load-more-btn {
+    background-color: #e1306c;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.load-more-btn:hover {
+    background-color: #c13584;
+    transform: translateY(-2px);
+}
+
+.load-more-btn .fa-plus {
+    font-size: 14px;
+}
+
+.load-more-btn:active {
+    transform: translateY(0);
+}

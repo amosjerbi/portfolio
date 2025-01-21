@@ -151,6 +151,11 @@
         
         <!-- Gallery Grid -->
         <div id="gallery" class="gallery"></div>
+        <div class="load-more-container">
+            <button id="loadMoreBtn" class="load-more-btn">
+                <i class="fas fa-plus"></i> Load More
+            </button>
+        </div>
     </main>
 
     <!-- Modal -->
@@ -248,16 +253,43 @@
     </div>
 
     <script>
-        let currentPostIndex = 0;
         let posts = []; // Global variable to store posts
+        let currentPostIndex = 0;
+        let postsPerPage = 30; // Number of posts to load at once
+        let currentPage = 1;
         
-        function formatDate(timestamp) {
-            const date = new Date(timestamp);
-            return date.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
+        function showMorePosts() {
+            const startIndex = (currentPage - 1) * postsPerPage;
+            const endIndex = startIndex + postsPerPage;
+            const postsToShow = posts.slice(startIndex, endIndex);
+            
+            postsToShow.forEach((post, index) => {
+                const div = document.createElement('div');
+                div.className = 'flow';
+
+                const img = document.createElement('img');
+                img.className = 'img';
+                img.src = post.media_url;
+                img.alt = post.caption || 'Instagram post';
+                img.loading = 'lazy';
+                
+                // Add click event listener to show the modal
+                div.addEventListener('click', () => {
+                    showPost(startIndex + index);
+                    document.getElementById('modal').style.display = 'flex';
+                });
+
+                div.appendChild(img);
+                document.getElementById('gallery').appendChild(div);
             });
+            
+            // Show/hide load more button
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            if (endIndex >= posts.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'block';
+            }
         }
         
         function showPost(index) {
@@ -290,8 +322,6 @@
             }
         }
         
-        const postCount = 390;
-        
         async function loadInstagramPosts() {
             const gallery = document.getElementById('gallery');
             gallery.innerHTML = '<div class="loading">Loading posts...</div>';
@@ -316,25 +346,17 @@
                     post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM'
                 );
 
-                posts.forEach((post, index) => {
-                    const div = document.createElement('div');
-                    div.className = 'flow';
+                // Create load more button
+                const loadMoreContainer = document.querySelector('.load-more-container');
 
-                    const img = document.createElement('img');
-                    img.className = 'img';
-                    img.src = post.media_url;
-                    img.alt = post.caption || 'Instagram post';
-                    img.loading = 'lazy';
-                    
-                    // Add click event listener to show the modal
-                    div.addEventListener('click', () => {
-                        showPost(index);
-                        document.getElementById('modal').style.display = 'flex';
-                    });
-
-                    div.appendChild(img);
-                    gallery.appendChild(div);
+                // Add click event for load more
+                document.getElementById('loadMoreBtn').addEventListener('click', () => {
+                    currentPage++;
+                    showMorePosts();
                 });
+
+                // Load initial posts
+                showMorePosts();
 
                 // Add modal close functionality
                 const modal = document.getElementById('modal');

@@ -20,10 +20,44 @@ jobs:
         run: |
           # Create the directory if it doesn't exist
           mkdir -p assets/data
-
-          # Fetch Instagram posts and save them as a JSON file
-          curl -s -o assets/data/instagram-posts.json \
-            "https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,timestamp&access_token=$INSTAGRAM_ACCESS_TOKEN"
+          
+          # Create a temporary file for storing all posts
+          echo '{"data":[]}' > assets/data/temp-posts.json
+          
+          # Initialize variables
+          NEXT_URL="https://graph.instagram.com/me/media?limit=50&fields=id,caption,media_type,media_url,permalink,timestamp&access_token=$INSTAGRAM_ACCESS_TOKEN"
+          POSTS_COUNT=0
+          MAX_POSTS=120
+          
+          # Function to merge new posts with existing ones
+          merge_posts() {
+            local temp_file="$1"
+            local new_posts="$2"
+            jq -s '.[0].data + .[1].data | {data: .}' "$temp_file" "$new_posts"
+          }
+          
+          while [ -n "$NEXT_URL" ] && [ $POSTS_COUNT -lt $MAX_POSTS ]; do
+            # Fetch posts
+            curl -s "$NEXT_URL" > assets/data/current-batch.json
+            
+            # Get next page URL
+            NEXT_URL=$(jq -r '.paging.next // empty' assets/data/current-batch.json)
+            
+            # Merge with existing posts
+            merge_posts assets/data/temp-posts.json assets/data/current-batch.json > assets/data/merged.json
+            mv assets/data/merged.json assets/data/temp-posts.json
+            
+            # Update count
+            POSTS_COUNT=$(jq '.data | length' assets/data/temp-posts.json)
+            
+            echo "Fetched $POSTS_COUNT posts so far..."
+          done
+          
+          # Move final result to instagram-posts.json
+          mv assets/data/temp-posts.json assets/data/instagram-posts.json
+          
+          # Clean up temporary files
+          rm -f assets/data/current-batch.json assets/data/merged.json
 
       - name: Commit and push changes
         run: |
