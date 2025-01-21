@@ -520,22 +520,28 @@ h1 {
 }
 
 .load-more-btn {
-    background-color: #e1306c;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 25px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    display: inline-block;
+    background-color: var(--primary_light);
+    color: #001c48;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    border: 2px solid var(--two_color);
+    font-weight: 600;
+    font-family: var(--fontNoto);
+    border-radius: 12px;
 }
 
 .load-more-btn:hover {
-    background-color: #c13584;
-    transform: translateY(-2px);
+    background-color: var(--one_color);
+    color: white;
 }
 
 .load-more-btn .fa-plus {
