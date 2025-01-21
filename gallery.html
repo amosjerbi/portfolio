@@ -389,6 +389,11 @@
                 const modal = document.getElementById('modal');
                 const closeBtn = document.querySelector('.close');
                 closeBtn.onclick = () => modal.style.display = 'none';
+                
+                // Add navigation button functionality
+                document.querySelector('.prev-btn').addEventListener('click', prevPost);
+                document.querySelector('.next-btn').addEventListener('click', nextPost);
+                
                 window.onclick = (event) => {
                     if (event.target === modal) {
                         modal.style.display = 'none';
