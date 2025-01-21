@@ -1,0 +1,22 @@
+name: Instagram API Example
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow on push to the main branch
+
+jobs:
+  use-instagram-token:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Use Instagram Access Token
+        env:
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}  # Access the secret
+        run: |
+          echo "The Instagram access token is set."
+          # Use the token in your script or application
+          # Example: curl -X GET "https://graph.instagram.com/me/media?access_token=$INSTAGRAM_ACCESS_TOKEN"
