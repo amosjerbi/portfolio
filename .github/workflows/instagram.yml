@@ -3,8 +3,8 @@ name: Fetch Instagram Posts
 on:
   push:
     branches:
-      - main  # Trigger on push to the main branch
-  workflow_dispatch:  # Allow manual triggering
+      - main
+  workflow_dispatch:
 
 jobs:
   fetch-instagram:
@@ -16,8 +16,11 @@ jobs:
 
       - name: Fetch Instagram posts
         env:
-          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}  # Use the secret
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
         run: |
+          # Create the directory if it doesn't exist
+          mkdir -p assets/data
+
           # Fetch Instagram posts and save them as a JSON file
           curl -s -o assets/data/instagram-posts.json \
             "https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,timestamp&access_token=$INSTAGRAM_ACCESS_TOKEN"
@@ -27,5 +30,5 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add assets/data/instagram-posts.json
-          git commit -m "Update Instagram posts"
+          git commit -m "Update Instagram posts" || echo "No changes to commit"
           git push
