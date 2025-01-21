@@ -42,6 +42,9 @@
     
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Hammer.js for touch gestures -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
 </head>
 
 <body>
@@ -258,6 +261,27 @@
         let postsPerPage = 30; // Number of posts to load at once
         let currentPage = 1;
         
+        function initTouchGestures() {
+            const modal = document.getElementById('modal');
+            const modalContent = document.querySelector('.modallic-content');
+            const hammer = new Hammer(modalContent);
+            
+            // Configure horizontal swipe
+            hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+            
+            hammer.on('swipeleft', function() {
+                if (currentPostIndex < posts.length - 1) {
+                    nextPost();
+                }
+            });
+            
+            hammer.on('swiperight', function() {
+                if (currentPostIndex > 0) {
+                    prevPost();
+                }
+            });
+        }
+        
         function showMorePosts() {
             const startIndex = (currentPage - 1) * postsPerPage;
             const endIndex = startIndex + postsPerPage;
@@ -357,6 +381,9 @@
 
                 // Load initial posts
                 showMorePosts();
+
+                // Initialize touch gestures
+                initTouchGestures();
 
                 // Add modal close functionality
                 const modal = document.getElementById('modal');
