@@ -249,7 +249,7 @@
 
     <script>
         let currentPostIndex = 0;
-        let posts = [];
+        let posts = []; // Global variable to store posts
         
         function formatDate(timestamp) {
             const date = new Date(timestamp);
@@ -311,8 +311,8 @@
                     return;
                 }
 
-                // Process and display posts
-                const posts = data.data.filter(post =>
+                // Store posts globally and filter media types
+                posts = data.data.filter(post =>
                     post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM'
                 );
 
@@ -325,9 +325,34 @@
                     img.src = post.media_url;
                     img.alt = post.caption || 'Instagram post';
                     img.loading = 'lazy';
+                    
+                    // Add click event listener to show the modal
+                    div.addEventListener('click', () => {
+                        showPost(index);
+                        document.getElementById('modal').style.display = 'flex';
+                    });
 
                     div.appendChild(img);
                     gallery.appendChild(div);
+                });
+
+                // Add modal close functionality
+                const modal = document.getElementById('modal');
+                const closeBtn = document.querySelector('.close');
+                closeBtn.onclick = () => modal.style.display = 'none';
+                window.onclick = (event) => {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                };
+
+                // Add keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (modal.style.display === 'flex') {
+                        if (e.key === 'ArrowLeft') prevPost();
+                        if (e.key === 'ArrowRight') nextPost();
+                        if (e.key === 'Escape') modal.style.display = 'none';
+                    }
                 });
             } catch (error) {
                 console.error('Error loading Instagram posts:', error);
@@ -337,19 +362,6 @@
         
         // Call the function when the page loads
         document.addEventListener('DOMContentLoaded', loadInstagramPosts);
-        
-        // Modal close button functionality
-        document.querySelector('.close').addEventListener('click', () => {
-            document.getElementById('modal').style.display = 'none';
-        });
-        
-        // Close modal when clicking outside
-        window.addEventListener('click', (event) => {
-            const modal = document.getElementById('modal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
     </script>
 
     <!-- Scripts -->
