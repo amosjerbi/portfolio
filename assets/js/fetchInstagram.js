@@ -91,6 +91,11 @@ function prevPost() {
 
 async function loadInstagramPosts() {
     const gallery = document.getElementById('gallery');
+    if (!gallery) {
+        console.error('Gallery element not found!');
+        return;
+    }
+    
     gallery.innerHTML = '<div class="loading">Loading posts...</div>';
     
     try {
@@ -109,49 +114,92 @@ async function loadInstagramPosts() {
         }
 
         // Store posts globally and filter media types
-        posts = data.data.filter(post =>
-            config.allowedMediaTypes.includes(post.media_type)
+        posts = data.data.filter(post => 
+            post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM'
         );
 
-        // Add click event for load more
-        document.getElementById('loadMoreBtn').addEventListener('click', () => {
-            currentPage++;
-            showMorePosts();
+        // Create post elements with error handling for onclick
+        posts.forEach((post, index) => {
+            const postElement = document.createElement('div');
+            postElement.className = 'post';
+            postElement.innerHTML = `
+                <img src="${post.media_url}" alt="Instagram post" loading="lazy">
+            `;
+            
+            // Safely add onclick event
+            try {
+                postElement.onclick = () => {
+                    currentPostIndex = index;
+                    openModal(post);
+                };
+            } catch (clickError) {
+                console.error('Error setting onclick for post:', clickError);
+            }
+            
+            gallery.appendChild(postElement);
         });
 
-        // Load initial posts
-        showMorePosts();
-
-        // Initialize touch gestures
-        initTouchGestures();
-
-        // Add modal close functionality
-        const modal = document.getElementById('modal');
-        const closeBtn = document.querySelector('.close');
-        closeBtn.onclick = () => modal.style.display = 'none';
-        
-        // Add navigation button functionality
-        document.querySelector('.prev-btn').addEventListener('click', prevPost);
-        document.querySelector('.next-btn').addEventListener('click', nextPost);
-        
-        window.onclick = (event) => {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        };
-
-        // Add keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (modal.style.display === 'flex') {
-                if (e.key === 'ArrowLeft') prevPost();
-                if (e.key === 'ArrowRight') nextPost();
-                if (e.key === 'Escape') modal.style.display = 'none';
-            }
-        });
+        // Initialize first post if exists
+        if (posts.length > 0) {
+            showPost(0);
+        }
     } catch (error) {
         console.error('Error loading Instagram posts:', error);
-        gallery.innerHTML = '<div class="error">Error loading posts. Please try again later.</div>';
+        gallery.innerHTML = `<div class="error">Error loading posts: ${error.message}</div>`;
     }
+}
+
+function openModal(post) {
+    const modal = document.getElementById('postModal');
+    const modalContent = document.getElementById('modalContent');
+    
+    if (!modal || !modalContent) {
+        console.error('Modal elements not found!');
+        return;
+    }
+    
+    // Clear previous content
+    modalContent.innerHTML = '';
+    
+    // Create modal content
+    const modalImage = document.createElement('img');
+    modalImage.src = post.media_url;
+    modalImage.alt = 'Instagram post';
+    modalImage.className = 'modal-image';
+    
+    const modalCaption = document.createElement('p');
+    modalCaption.textContent = post.caption || '';
+    
+    // Add navigation buttons with fallback
+    const prevButton = document.createElement('button');
+    prevButton.innerHTML = '&lt;'; // Fallback left arrow
+    prevButton.onclick = prevPost;
+    
+    const nextButton = document.createElement('button');
+    nextButton.innerHTML = '&gt;'; // Fallback right arrow
+    nextButton.onclick = nextPost;
+    
+    // Try to add Ionic icons if available
+    try {
+        const ionPrevIcon = document.createElement('ion-icon');
+        ionPrevIcon.setAttribute('name', 'arrow-back');
+        prevButton.innerHTML = '';
+        prevButton.appendChild(ionPrevIcon);
+        
+        const ionNextIcon = document.createElement('ion-icon');
+        ionNextIcon.setAttribute('name', 'arrow-forward');
+        nextButton.innerHTML = '';
+        nextButton.appendChild(ionNextIcon);
+    } catch (iconError) {
+        console.warn('Could not add Ionic icons:', iconError);
+    }
+    
+    modalContent.appendChild(modalImage);
+    modalContent.appendChild(modalCaption);
+    modalContent.appendChild(prevButton);
+    modalContent.appendChild(nextButton);
+    
+    modal.style.display = 'block';
 }
 
 // Initialize when DOM is ready
