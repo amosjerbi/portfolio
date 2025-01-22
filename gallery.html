@@ -26,9 +26,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Amos Jerbi</title>
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,600,800" rel="stylesheet">
+     <!-- Font Awesome 6 -->
+    <script src="https://kit.fontawesome.com/d8f0c855f9.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,600,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 	<!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/gallery.css">
@@ -179,16 +180,16 @@
 <!-- Modal -->
 <div id="modal" class="modallic">
     <div class="modallic-content">
-        <span class="iconic"><i class="lg-close lg-icon"></i></span>
-        <button class="iconic nav-btn prev-btn"><i class="lg-prev lg-icon"></i></button>
-        <button class="iconic nav-btn next-btn"><i class="lg-next lg-icon"></i></button>
+        <span class="close"><i class="fas fa-times"></i></span>
+        <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+        <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
         <div class="modallic-image-container">
             <img id="modalImage" src="/placeholder.svg" alt="Instagram post">
         </div>
         <div class="modallic-details">
             <p id="modalCaption"></p>
-            <a id="modalLink" class="iconic" href="" target="_blank" rel="noopener noreferrer">
-                <i class="zmdi zmdi-favorite"></i> Like
+            <a id="modalLink" href="" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-heart fa-beat"></i> Like
             </a>
         </div>
     </div>
