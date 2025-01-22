@@ -161,13 +161,13 @@ h1 {
 
 .close {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 30px;
+    right: 91%;
     color: #fff;
     font-size: 24px;
     cursor: pointer;
     z-index: 1010;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: white;
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -180,9 +180,9 @@ h1 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.8);
+    /* background-color: rgba(0, 0, 0, 0.8); */
     color: #333;
-    border: none;
+    border: 2px solid var(--primary_dark);
     padding: 16px;
     cursor: pointer;
     z-index: 1010;
@@ -209,8 +209,10 @@ h1 {
 }
 
 .nav-btn:hover {
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: var(--four_color);
+    color: white;
     transform: translateY(-50%) scale(1.1);
+    border: none;
 }
 
 .nav-btn:active {
@@ -255,7 +257,7 @@ h1 {
 }
 
 .close {
-    color: #aaa;
+    color: var(--primary_dark);
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -267,6 +269,7 @@ h1 {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .modallic-image-container {
@@ -413,6 +416,9 @@ h1 {
         width: 44px;
         height: 44px;
         font-size: 28px;
+        position: absolute;
+        top: 14px;
+        right: 89%;
     }
     
     #modalLink {
@@ -477,6 +483,7 @@ h1 {
 
 .flow {
     grid-row-end: span 30;
+    cursor: pointer;
 }
 
 .social {
