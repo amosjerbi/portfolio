@@ -19,6 +19,7 @@ INSTAGRAM_ACCESS_TOKEN: $ {{ secrets.INSTAGRAM_ACCESS_TOKEN }}
 ```
 
 Make sure to:
-1. Create a `.gitignore` file in the root directory
-2. Add your Instagram access token as mentioned above
-3. Never commit hard coded tokens like in the example gallery_Local_Token.html
+1. Create a `.gitignore` file in the root directory  (click add new file and paste relevant text)
+2. Create a '.github/workflows/instagram.yml' (click add new file and paste relevant text)
+3. Add your Instagram access token as mentioned above
+4. Never commit hard coded tokens like in the example gallery_Local_Token.html
