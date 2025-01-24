@@ -68,7 +68,7 @@ function showPost(index) {
         const modalLink = document.getElementById('modalLink');
         
         modalImg.src = post.media_url;
-        modalCaption.textContent = post.caption || '';
+        modalCaption.textContent = ''; 
         modalLink.href = post.permalink;
         
         // Update navigation buttons visibility
