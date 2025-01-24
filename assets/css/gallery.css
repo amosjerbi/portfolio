@@ -283,12 +283,12 @@ h1 {
     color: var(--primary_dark);
     padding: 12px 20px;
     text-decoration: none;
-    border-radius: 50px;
+    border-radius: 100px;
     transition: background-color 0.3s;
     /* border: 2px solid #92BAFF; */
     font-family: var(--fontNoto);
     font-weight: 600;
-    font-size: 40px;
+    font-size: 50px;
 }
 
 #modalLink:hover {
@@ -365,10 +365,10 @@ h1 {
 /* Optional: Add mobile adjustments */
 @media screen and (max-width: 768px) {
     .nav-btn {
-        width: 46px;
-        height: 46px;
-        font-size: 24px;
-        padding: 6px 10px;
+        width: 66px;
+        height: 66px;
+        font-size: 26px;!;!i;!im;!imp;!impo;!impor;!import;!importa;!importan;!importan;!importa;!import;!impor;!impo;!imp;!im;!i;!;
+        padding: 14px 19px;
     }
 }
 
@@ -435,7 +435,7 @@ h1 {
     }
     
     #modalLink {
-        padding: 12px 24px;
+        padding: 20px 30px;
         /* margin: 15px 0; */
         display: block;
         text-align: center;
