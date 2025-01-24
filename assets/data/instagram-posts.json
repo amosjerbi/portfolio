@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "id": "18123456789012345",
+            "caption": "Beautiful sunset at the beach",
+            "media_type": "IMAGE",
+            "media_url": "https://example.com/sunset.jpg",
+            "permalink": "https://www.instagram.com/p/example-post-1/",
+            "timestamp": "2024-01-24T12:00:00+00:00"
+        },
+        {
+            "id": "18234567890123456",
+            "caption": "Exploring mountain trails",
+            "media_type": "IMAGE",
+            "media_url": "https://example.com/mountains.jpg",
+            "permalink": "https://www.instagram.com/p/example-post-2/",
+            "timestamp": "2024-01-23T15:30:00+00:00"
+        },
+        {
+            "id": "18345678901234567",
+            "caption": "City lights at night",
+            "media_type": "CAROUSEL_ALBUM",
+            "media_url": "https://example.com/city-night.jpg",
+            "permalink": "https://www.instagram.com/p/example-post-3/",
+            "timestamp": "2024-01-22T20:45:00+00:00"
+        }
+    ]
+}
