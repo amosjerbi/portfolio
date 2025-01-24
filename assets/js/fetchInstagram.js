@@ -43,7 +43,7 @@ function showMorePosts() {
         // Add click event listener to show the modal
         div.addEventListener('click', () => {
             showPost(startIndex + index);
-            document.getElementById('modal').style.display = 'flex';
+            document.getElementById('modal').style.display = 'block';
         });
 
         div.appendChild(img);
@@ -142,7 +142,7 @@ async function loadInstagramPosts() {
 
         // Add keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (modal.style.display === 'flex') {
+            if (modal.style.display === 'block') {
                 if (e.key === 'ArrowLeft') prevPost();
                 if (e.key === 'ArrowRight') nextPost();
                 if (e.key === 'Escape') modal.style.display = 'none';

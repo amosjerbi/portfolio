@@ -119,7 +119,7 @@ document.getElementById('gallery').addEventListener('click', (e) => {
         const index = Array.from(posts).indexOf(galleryItem);
         currentImageIndex = index;
         showImage(index);
-        modal.style.display = 'block';
+        modalElement.style.display = 'block';
     }
 });
 
