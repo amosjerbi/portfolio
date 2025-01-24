@@ -1,4 +1,4 @@
-Portfolio
+For the gallery:
 
 ## Environment Variables
 
