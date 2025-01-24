@@ -1,0 +1,17 @@
+{
+  "name": "instagram-gallery",
+  "version": "1.0.0",
+  "description": "Instagram gallery using GitHub secrets and API",
+  "main": "assets/js/fetchInstagram.js",
+  "type": "module",
+  "scripts": {
+    "generate-config": "node assets/js/config.js",
+    "start": "npm run generate-config && node assets/js/fetchInstagram.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "node-fetch": "^2.6.1",
+    "hammerjs": "^2.0.8",
+    "jquery": "^3.6.0"
+  }
+}

@@ -1,0 +1,68 @@
+name: Fetch Instagram Posts
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  fetch-instagram:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Fetch Instagram posts
+        env:
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+        run: |
+          # Create the directory if it doesn't exist
+          mkdir -p assets/data
+          
+          # Create a temporary file for storing all posts
+          echo '{"data":[]}' > assets/data/temp-posts.json
+          
+          # Initialize variables
+          NEXT_URL="https://graph.instagram.com/me/media?limit=50&fields=id,caption,media_type,media_url,permalink,timestamp&access_token=$INSTAGRAM_ACCESS_TOKEN"
+          POSTS_COUNT=0
+          MAX_POSTS=120
+          
+          # Function to merge new posts with existing ones
+          merge_posts() {
+            local temp_file="$1"
+            local new_posts="$2"
+            jq -s '.[0].data + .[1].data | {data: .}' "$temp_file" "$new_posts"
+          }
+          
+          while [ -n "$NEXT_URL" ] && [ $POSTS_COUNT -lt $MAX_POSTS ]; do
+            # Fetch posts
+            curl -s "$NEXT_URL" > assets/data/current-batch.json
+            
+            # Get next page URL
+            NEXT_URL=$(jq -r '.paging.next // empty' assets/data/current-batch.json)
+            
+            # Merge with existing posts
+            merge_posts assets/data/temp-posts.json assets/data/current-batch.json > assets/data/merged.json
+            mv assets/data/merged.json assets/data/temp-posts.json
+            
+            # Update count
+            POSTS_COUNT=$(jq '.data | length' assets/data/temp-posts.json)
+            
+            echo "Fetched $POSTS_COUNT posts so far..."
+          done
+          
+          # Move final result to instagram-posts.json
+          mv assets/data/temp-posts.json assets/data/instagram-posts.json
+          
+          # Clean up temporary files
+          rm -f assets/data/current-batch.json assets/data/merged.json
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add assets/data/instagram-posts.json
+          git commit -m "Update Instagram posts" || echo "No changes to commit"
+          git push
