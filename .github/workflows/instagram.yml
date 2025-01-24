@@ -54,6 +54,11 @@ jobs:
                       response = requests.get(next_url)
                       data = response.json()
                       
+                      # Detailed error logging
+                      if 'error' in data:
+                          print(f"Instagram API Error: {data['error']}")
+                          break
+                      
                       # Filter and process posts
                       for post in data.get('data', []):
                           # Skip videos and keep only images and carousel albums
@@ -110,12 +115,23 @@ jobs:
           # Ensure data directory exists
           os.makedirs('assets/data', exist_ok=True)
           
-          # Write to JSON file
-          with open('assets/data/instagram-posts.json', 'w', encoding='utf-8') as f:
-              json.dump(output, f, ensure_ascii=False, indent=2)
+          # Write to JSON file with explicit error handling
+          try:
+              with open('assets/data/instagram-posts.json', 'w', encoding='utf-8') as f:
+                  json.dump(output, f, ensure_ascii=False, indent=2)
+              print(f"Successfully saved {len(posts)} Instagram posts")
+          except Exception as e:
+              print(f"Error writing JSON file: {e}")
           
-          print(f"Fetched and saved {len(posts)} Instagram posts")
+          # Additional logging
+          print("Current working directory:", os.getcwd())
+          print("Contents of assets/data:", os.listdir('assets/data') if os.path.exists('assets/data') else "Directory not found")
           EOF
+
+      - name: Debug File Creation
+        run: |
+          ls -l assets/data
+          cat assets/data/instagram-posts.json || echo "File not found"
 
       - name: Commit and push changes
         run: |
