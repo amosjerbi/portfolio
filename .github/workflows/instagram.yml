@@ -5,9 +5,11 @@ on:
     branches:
       - main
   workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'  # Run every 6 hours
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -19,83 +21,112 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Fetch Instagram posts
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests python-dateutil
+
+      - name: Fetch Instagram Posts
         env:
           INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
         run: |
-          # Create the directory if it doesn't exist
-          mkdir -p assets/data
-          mkdir -p assets/images/instagram
+          python3 - << EOF
+          import os
+          import json
+          import requests
+          from datetime import datetime
+          from dateutil.parser import parse
+
+          def fetch_instagram_posts(access_token, max_posts=120):
+              base_url = "https://graph.instagram.com/me/media"
+              fields = "id,caption,media_type,media_url,permalink,timestamp"
+              
+              all_posts = []
+              next_url = f"{base_url}?fields={fields}&access_token={access_token}&limit=50"
+              
+              while next_url and len(all_posts) < max_posts:
+                  try:
+                      response = requests.get(next_url)
+                      data = response.json()
+                      
+                      # Filter and process posts
+                      for post in data.get('data', []):
+                          # Skip videos and keep only images and carousel albums
+                          if post['media_type'] not in ['IMAGE', 'CAROUSEL_ALBUM']:
+                              continue
+                          
+                          # Parse timestamp and convert to ISO format
+                          try:
+                              timestamp = parse(post['timestamp']).isoformat()
+                          except Exception:
+                              timestamp = post['timestamp']
+                          
+                          # Truncate caption if too long
+                          caption = post.get('caption', '')
+                          if len(caption) > 500:
+                              caption = caption[:500] + '...'
+                          
+                          processed_post = {
+                              'id': post['id'],
+                              'caption': caption,
+                              'media_type': post['media_type'],
+                              'media_url': post['media_url'],
+                              'permalink': post['permalink'],
+                              'timestamp': timestamp
+                          }
+                          
+                          all_posts.append(processed_post)
+                      
+                      # Get next page URL
+                      next_url = data.get('paging', {}).get('next')
+                  
+                  except Exception as e:
+                      print(f"Error fetching posts: {e}")
+                      break
+              
+              return all_posts
+
+          # Fetch posts
+          access_token = os.environ['INSTAGRAM_ACCESS_TOKEN']
+          posts = fetch_instagram_posts(access_token)
           
-          # Create a temporary file for storing all posts
-          echo '{"data":[]}' > assets/data/temp-posts.json
+          # Sort posts by timestamp, most recent first
+          posts.sort(key=lambda x: x['timestamp'], reverse=True)
           
-          # Initialize variables
-          NEXT_URL="https://graph.instagram.com/me/media?limit=50&fields=id,caption,media_type,media_url,permalink,timestamp&access_token=$INSTAGRAM_ACCESS_TOKEN"
-          POSTS_COUNT=0
-          MAX_POSTS=120
-          
-          # Function to merge new posts with existing ones
-          merge_posts() {
-            local temp_file="$1"
-            local new_posts="$2"
-            jq -s '.[0].data + .[1].data | {data: .}' "$temp_file" "$new_posts"
+          # Prepare output
+          output = {
+              'data': posts,
+              'metadata': {
+                  'total_posts': len(posts),
+                  'fetched_at': datetime.utcnow().isoformat()
+              }
           }
           
-          while [ -n "$NEXT_URL" ] && [ $POSTS_COUNT -lt $MAX_POSTS ]; do
-            # Fetch posts
-            curl -s "$NEXT_URL" > assets/data/current-batch.json
-            
-            # Get next page URL
-            NEXT_URL=$(jq -r '.paging.next // empty' assets/data/current-batch.json)
-            
-            # Merge with existing posts
-            merge_posts assets/data/temp-posts.json assets/data/current-batch.json > assets/data/merged.json
-            mv assets/data/merged.json assets/data/temp-posts.json
-            
-            # Update count
-            POSTS_COUNT=$(jq '.data | length' assets/data/temp-posts.json)
-            
-            echo "Fetched $POSTS_COUNT posts so far..."
-          done
+          # Ensure data directory exists
+          os.makedirs('assets/data', exist_ok=True)
           
-          # Process and download images
-          jq -c '.data[]' assets/data/temp-posts.json | while read -r post; do
-            id=$(echo "$post" | jq -r '.id')
-            media_url=$(echo "$post" | jq -r '.media_url')
-            media_type=$(echo "$post" | jq -r '.media_type')
-            
-            # Only download for allowed media types
-            if [[ "$media_type" == "IMAGE" || "$media_type" == "CAROUSEL_ALBUM" ]]; then
-              # Extract file extension
-              ext=$(echo "$media_url" | grep -oP '\.[^.]+$' || echo ".jpg")
-              
-              # Download image with access token
-              curl -s -H "Authorization: Bearer $INSTAGRAM_ACCESS_TOKEN" "$media_url" > "assets/images/instagram/${id}${ext}"
-            fi
-          done
+          # Write to JSON file
+          with open('assets/data/instagram-posts.json', 'w', encoding='utf-8') as f:
+              json.dump(output, f, ensure_ascii=False, indent=2)
           
-          # Update JSON with local image paths
-          jq '
-            .data |= map(
-              if .media_type == "IMAGE" or .media_type == "CAROUSEL_ALBUM" then
-                .media_url = "assets/images/instagram/\(.id)\(.media_url | match("\\.[^.]+$").string)"
-              else . end
-            ) | {data: .}
-          ' assets/data/temp-posts.json > assets/data/instagram-posts.json
-          
-          # Clean up temporary files
-          rm -f assets/data/current-batch.json assets/data/merged.json assets/data/temp-posts.json
+          print(f"Fetched and saved {len(posts)} Instagram posts")
+          EOF
 
       - name: Commit and push changes
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add assets/data/instagram-posts.json assets/images/instagram/
-          git commit -m "Update Instagram posts" || echo "No changes to commit"
+          git add assets/data/instagram-posts.json
+          git commit -m "Update Instagram posts via GitHub Actions" || echo "No changes to commit"
           git push
 
   deploy:
+    needs: fetch-instagram
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
