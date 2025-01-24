@@ -213,7 +213,7 @@ h1 {
 }
 
 .modallic {
-    display: none; /* Hide modal by default */
+    display: none; /* Completely hide modal by default */
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -224,6 +224,10 @@ h1 {
     background-color: rgba(0,0,0,0.8);
     align-items: center;
     justify-content: center;
+}
+
+.modallic[style*="display: flex"] {
+    display: flex !important;
 }
 
 .modallic-content {
