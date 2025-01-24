@@ -87,41 +87,37 @@ h1 {
     opacity: 0.8;
 }
 
-.modallic {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-}
-
 .modallic-content {
-    position: relative;
-    max-width: 98%;
-    max-height: 99%;
-    margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 95%;
+    max-height: 85%;
     background-color: #fff;
     border-radius: 8px;
-    overflow: hidden;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
 }
 
 .modallic-image-container {
-    /* position: relative; */
+    position: relative;
     width: 100%;
     height: 100%;
-    display: flex;
+    display: flex;           
+    justify-content: center; 
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 #modalImage {
-    max-width: 100%;
-    max-height: 90vh;
-    object-fit: contain; /* image inside modal */
-    background: var(--primary_light);
+    max-width: 78%;
+    /* max-height: 70vh; */
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }
 
 #modalCaption {
@@ -158,7 +154,7 @@ h1 {
     background-color: var(--primary_light);
     color: #333;
     border: 2px solid var(--four_color);
-    padding: 8px 0 0 8px;
+    padding: 9px 0 0 9px;
     transition: 0.3s;
 }
 
@@ -217,7 +213,7 @@ h1 {
 }
 
 .modallic {
-    display: none;
+    display: block;
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -229,16 +225,18 @@ h1 {
 }
 
 .modallic-content {
-    margin: 5% auto;
     border: 1px solid #888;
-    width: 97%;
+    width: 48%;
     border-radius: 20px;
-    position: relative;
-    display: flex;
-    flex-direction: row;
+    /* position: relative; */
+    /* flex-direction: row; */
     background-color: white;
-    padding: 14px;
+    padding: 40px;
     overflow: hidden;
+    display: flex;           /* Enables Flexbox */
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+    max-height: 100%;
 }
 
 .close:hover,
@@ -250,7 +248,7 @@ h1 {
 }
 
 .modallic-image-container img {
-    width: 100%;
+    /* width: 100%; */
     height: auto;
     border-radius: 20px;
 }
@@ -263,7 +261,7 @@ h1 {
 
 #modalLink {
     display: inline-block;
-    /* background-color: white; */
+    background-color: var(--two_color);
     color: #001c48;
     padding: 12px 46px;
     text-decoration: none;
@@ -282,22 +280,34 @@ h1 {
 
 .modallic-controls {
     display: flex;
-    column-gap: 12px;
-    float: right;
-    background-color: var(--two_color);
-    color: #333;
-    /* border: 2px solid var(--four_color); */
-    padding: 6px 6px;
-    cursor: pointer;
-    border-radius: 56px;
-    transition: all 0.3s ease;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    margin: 20px 0px 20px 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+    /* background: var(--two_color); */
+    border-radius: 50px;
 }
 
 /* Mobile layout adjustments */
 @media screen and (max-width: 768px) {
+
+
+.modallic-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    /* background: var(--two_color); */
+    border-radius: 50px;
+}
+    
     .modallic-content {
         flex-direction: column;
         max-height: 94vh;
@@ -348,9 +358,9 @@ h1 {
 /* Mobile Swipe Styles */
 @media (max-width: 768px) {
     .modallic-content {
-        max-width: 100%;
-        height: 100vh;
-        /* margin: 0; */
+        width: 90%;
+        /* height: 85%; */
+        margin: 0;
         border-radius: 20px;
         position: relative;
         overflow-y: auto;
@@ -361,6 +371,7 @@ h1 {
         max-height: 70vh;
         width: 100%;
         object-fit: contain;
+        border-radius: 20px;
     }
     
     .modallic-details {
@@ -500,7 +511,7 @@ h1 {
         grid-template-rows: repeat(6, 1fr);
     }
     .header {
-        padding: 4rem 0 2rem 0;
+        padding: 0.5rem 0 0.5rem 0;
     }
     .section2 {
         padding: 3rem 0.2rem;
