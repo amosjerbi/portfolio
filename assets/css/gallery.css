@@ -87,55 +87,68 @@ h1 {
     opacity: 0.8;
 }
 
-.modallic-content {
+.modallic {
+    display: none; /* Completely hide modal by default */
     position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modallic[style*="display: flex"] {
+    display: flex !important;
+}
+
+.modallic-content {
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 95%;
-    max-height: 85%;
-    background-color: #fff;
+    max-width: 90%;
+    max-height: 85vh;
+    width: 48%;
+    background-color: white;
     border-radius: 8px;
-    z-index: 1000;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 20px;
 }
 
 .modallic-image-container {
-    position: relative;
     width: 100%;
-    height: 100%;
-    display: flex;           
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
 }
 
 #modalImage {
-    max-width: 78%;
-    /* max-height: 70vh; */
+    max-width: 100%;
+    max-height: 70vh;
     object-fit: contain;
     display: block;
-    margin: 0 auto;
 }
 
-#modalCaption {
-    margin: 0;
-    padding: 4rem 0;
-    color: #333;
-    font-size: 14px;
-    line-height: 1.6;
-    direction: rtl; /* For Hebrew text */
-    font-family: var(--fontNoto);
-    font-weight: 400;
-    text-align: right;
-    font-size: 16px;
-}
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .modallic-content {
+        width: 95%;
+        max-height: 90vh;
+        padding: 10px;
+    }
 
-#modalLink:hover {
-    background-color: #0250D3;
-    color: white;
+    #modalImage {
+        max-height: 60vh;
+    }
 }
 
 .close {
@@ -299,20 +312,18 @@ h1 {
 
 /* Mobile layout adjustments */
 @media screen and (max-width: 768px) {
-
-
-.modallic-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 10px;
-    margin-top: 20px;
-    padding: 0 20px;
-    box-sizing: border-box;
-    /* background: var(--two_color); */
-    border-radius: 50px;
-}
+    .modallic-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+        margin-top: 20px;
+        padding: 0 20px;
+        box-sizing: border-box;
+        /* background: var(--two_color); */
+        border-radius: 50px;
+    }
     
     .modallic-content {
         flex-direction: column;
