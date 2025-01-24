@@ -250,7 +250,7 @@ h1 {
     /* position: relative; */
     /* flex-direction: row; */
     background-color: white;
-    padding: 40px;
+    padding: 4px;
     overflow: hidden;
     display: flex;           /* Enables Flexbox */
     justify-content: center; /* Centers horizontally */
