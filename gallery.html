@@ -27,6 +27,7 @@
     <title>Amos Jerbi</title>
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
      <!-- Fonts -->
+    <script src="https://kit.fontawesome.com/d8f0c855f9.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,600,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@100..900&display=swap" rel="stylesheet">
@@ -172,7 +173,7 @@
     <div id="gallery" class="gallery"></div>
     <div class="load-more-container">
         <button id="loadMoreBtn" class="load-more-btn">
-            <i class="ion-icon name="add-outline"></i> Load More
+            <i class="fas fa-plus"></i> Load More
         </button>
     </div>
 </main>
@@ -183,9 +184,7 @@
         <div class="modallic-image-container">
             <img id="modalImage" src="/placeholder.svg" alt="Instagram post">
         </div>
-        <span class="close"><svg class="" viewBox="0 0 24 24">
-            <path d="M6.41900105,6.41900105 L17.5809989,17.5809989 M6.41900105,17.5809989 L17.5809989,6.41900105" stroke="#c6ece0" stroke-width="3.60000014" stroke-linecap="round"></path>
-        </svg></span>
+        <span class="close"><ion-icon name="close-outline"></ion-icon></span>
         <div class="modallic-controls">    
             <button class="nav-btn prev-btn"><ion-icon name="chevron-back-outline"></ion-icon></button>
             <a id="modalLink" href="" target="_blank" rel="noopener noreferrer">
@@ -193,7 +192,7 @@
             </a>
             <button class="nav-btn next-btn"><ion-icon name="chevron-forward-outline"></ion-icon></button>
         </div>
-        
+        <p id="modalCaption">Use arrow keyboard or swipe to navigate</p>
     </div>
 </div>
     
@@ -222,19 +221,19 @@
                             <h5>Let's Talk</h5>
                             <div class="footer_social">
                                 <a href="https://www.linkedin.com/in/amosjerbi/" target="_blank" rel="noopener" class="contact-icon">
-                                    <ion-icon name="logo-linkedin"></ion-icon>
+                                    <div class="fa-fa-linkedin"></div>
                                 </a>
                                 <a href="https://instagram.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon">
-                                    <ion-icon name="logo-instagram"></ion-icon>
+                                    <div class="fa-fa-instagram"></div>
                                 </a>
                                 <a href="https://www.youtube.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon">
-                                    <ion-icon name="logo-youtube"></ion-icon>
+                                    <div class="fa-fa-youtube"></div>
                                 </a>
                                 <a href="tel:+972-507205884" target="_blank" rel="noopener" class="contact-icon">
-                                    <ion-icon name="call"></ion-icon>
+                                    <div class="fa-phone"></div>
                                 </a>
                                 <a href="mailto:amosjerbi@gmail.com?subject=Hey Amos, let's meet up!" target="_blank" rel="noopener" class="contact-icon">
-                                    <ion-icon name="mail"></ion-icon>
+                                    <div class="fa-fa-mail"></div>
                                 </a>
                             </div>
                         </div>
@@ -286,160 +285,5 @@
 <script src="assets/js/fetchInstagram.js" type="module"></script>
 <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
 </body>
-</html>
 
-<!-- Following this script will make gallery work locally, just input your own Instagram token -->
-<!-- <script>
-    let currentPostIndex = 0;
-    let posts = [];
-    
-    function formatDate(timestamp) {
-        const date = new Date(timestamp);
-        return date.toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
-    }
-    
-    function showPost(index) {
-        if (index >= 0 && index < posts.length) {
-            currentPostIndex = index;
-            const post = posts[index];
-            const modalImg = document.getElementById('modalImage');
-            const modalCaption = document.getElementById('modalCaption');
-            const modalLink = document.getElementById('modalLink');
-            
-            modalImg.src = post.media_url;
-            modalCaption.textContent = post.caption || '';
-            modalLink.href = post.permalink;
-            
-            // Update navigation buttons visibility
-            document.querySelector('.prev-btn').style.display = index === 0 ? 'none' : 'block';
-            document.querySelector('.next-btn').style.display = index === posts.length - 1 ? 'none' : 'block';
-        }
-    }
-    
-    function nextPost() {
-        if (currentPostIndex < posts.length - 1) {
-            showPost(currentPostIndex + 1);
-        }
-    }
-    
-    function prevPost() {
-        if (currentPostIndex > 0) {
-            showPost(currentPostIndex - 1);
-        }
-    }
-    
-    const instagramToken = 'YOUR_INSTAGRAM_ACCESS_TOKEN';
-    const postCount = 390;
-    
-    async function loadInstagramPosts() {
-        const gallery = document.getElementById('gallery');
-        gallery.innerHTML = '<div class="loading">Loading posts...</div>';
-        
-        try {
-            const response = await fetch(
-                `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,timestamp&access_token=${instagramToken}&limit=${postCount}`
-            );
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            
-            const data = await response.json();
-            gallery.innerHTML = '';
-            
-            if (!data.data || data.data.length === 0) {
-                gallery.innerHTML = '<div class="error">No posts found</div>';
-                return;
-            }
-            
-            posts = data.data.filter(post => 
-                post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM'
-            );
-            
-            posts.forEach((post, index) => {
-                const div = document.createElement('div');
-                div.className = 'flow';
-                
-                const img = document.createElement('img');
-                img.className = 'img';
-                img.src = post.media_url;
-                img.alt = post.caption || 'Instagram post';
-                img.loading = 'lazy';
-                
-                div.addEventListener('click', () => {
-                    const modal = document.getElementById('modal');
-                    modal.style.display = 'block';
-                    showPost(index);
-                });
-                
-                div.appendChild(img);
-                gallery.appendChild(div);
-            });
-            
-            // Add navigation event listeners
-            document.querySelector('.prev-btn').addEventListener('click', prevPost);
-            document.querySelector('.next-btn').addEventListener('click', nextPost);
-            
-            // Add keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (document.getElementById('modal').style.display === 'block') {
-                    if (e.key === 'ArrowLeft') prevPost();
-                    if (e.key === 'ArrowRight') nextPost();
-                    if (e.key === 'Escape') document.getElementById('modal').style.display = 'none';
-                }
-            });
-            
-            // Add touch swipe support
-            let touchStartX = 0;
-            let touchEndX = 0;
-            
-            const modal = document.getElementById('modal');
-            
-            modal.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            });
-            
-            modal.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            });
-            
-            function handleSwipe() {
-                const swipeThreshold = 50; // minimum distance for swipe
-                const swipeDistance = touchEndX - touchStartX;
-                
-                if (Math.abs(swipeDistance) > swipeThreshold) {
-                    if (swipeDistance > 0) {
-                        prevPost(); // Swipe right
-                    } else {
-                        nextPost(); // Swipe left
-                    }
-                }
-            }
-            
-        } catch (error) {
-            console.error('Error loading Instagram posts:', error);
-            gallery.innerHTML = '<div class="error">YOUR_INSTAGRAM_TOKEN_HERE in the code to load your posts</div>';
-        }
-    }
-    
-    // Call the function when the page loads
-    document.addEventListener('DOMContentLoaded', loadInstagramPosts);
-    
-    // Modal close button functionality
-    document.querySelector('.close').addEventListener('click', () => {
-        document.getElementById('modal').style.display = 'none';
-    });
-    
-    // Close modal when clicking outside
-    window.addEventListener('click', (event) => {
-        const modal = document.getElementById('modal');
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
-</script> -->
+</html>
