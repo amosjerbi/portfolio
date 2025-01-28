@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Gallery</title>
+    <link rel="stylesheet" href="assets/css/tinder.css">
+    <link rel="stylesheet" href="assets/css/gallery.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="card-container"></div>
+        <div class="buttons">
+            <button id="dislike"><ion-icon name="close-outline" size="large"></ion-icon></button>
+            <button id="like"><ion-icon name="heart" size="large"></ion-icon></button>
+        </div>
+        <div class="counters">
+            <div class="dislike-counter">Dislikes: <span id="dislikes-count">0</span></div>
+            <div class="like-counter">Likes: <span id="likes-count">0</span></div>
+        </div>
+    </div>
+
+    <script>
+        const instagramToken = 'YOUR_INSTAGRAM_ACCESS_TOKEN';
+        const postCount = 5;
+        let posts = [];
+        
+        // Likes and dislikes tracking
+        let likesCount = 0;
+        let dislikesCount = 0;
+        
+        function formatDate(timestamp) {
+            const date = new Date(timestamp);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+        
+        function initializeHammerSwipe() {
+            const cardContainer = document.getElementById('card-container');
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                const hammer = new Hammer(card);
+                
+                hammer.on('pan', function(ev) {
+                    card.style.transition = 'none';
+                    const rotation = ev.deltaX * 0.1;
+                    card.style.transform = `translate(${ev.deltaX}px, ${ev.deltaY}px) rotate(${rotation}deg)`;
+                });
+                
+                hammer.on('panend', function(ev) {
+                    card.style.transition = 'transform 0.5s ease';
+                    
+                    // Determine swipe direction and distance
+                    if (Math.abs(ev.deltaX) > 150) {
+                        // Swipe out
+                        const direction = ev.deltaX > 0 ? 1 : -1;
+                        card.style.transform = `translate(${direction * 500}px, ${ev.deltaY}px) rotate(${direction * 30}deg)`;
+                        
+                        setTimeout(() => {
+                            card.remove();
+                            updateCardStack();
+                            if (direction === 1) {
+                                likesCount++;
+                                updateLikesCounter();
+                            } else {
+                                dislikesCount++;
+                                updateDislikesCounter();
+                            }
+                        }, 500);
+                    } else {
+                        // Snap back
+                        card.style.transform = 'translate(0, 0) rotate(0)';
+                    }
+                });
+            });
+        }
+        
+        async function loadInstagramPosts() {
+            const cardContainer = document.getElementById('card-container');
+            cardContainer.innerHTML = '<div class="loading">Loading posts...</div>';
+            
+            try {
+                const response = await fetch(
+                    `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,timestamp&access_token=${instagramToken}&limit=${postCount}`
+                );
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                cardContainer.innerHTML = '';
+                
+                if (!data.data || data.data.length === 0) {
+                    cardContainer.innerHTML = '<div class="error">No posts found</div>';
+                    return;
+                }
+                
+                posts = data.data.filter(post => 
+                    post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM'
+                );
+                
+                posts.forEach((post, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.dataset.index = index;
+                    
+                    const imgContainer = document.createElement('div');
+                    imgContainer.className = 'card-image';
+                    
+                    const img = document.createElement('img');
+                    img.src = post.media_url;
+                    img.alt = post.caption || 'Instagram post';
+                    
+                    const cardDetails = document.createElement('div');
+                    cardDetails.className = 'card-details';
+                    
+                    const caption = document.createElement('p');
+                    caption.textContent = post.caption || 'No caption';
+                    
+                    const timestamp = document.createElement('small');
+                    timestamp.textContent = formatDate(post.timestamp);
+                    
+                    const link = document.createElement('a');
+                    link.href = post.permalink;
+                    link.target = '_blank';
+                    link.textContent = 'View on Instagram';
+                    
+                    imgContainer.appendChild(img);
+                    cardDetails.appendChild(caption);
+                    cardDetails.appendChild(timestamp);
+                    cardDetails.appendChild(link);
+                    
+                    card.appendChild(imgContainer);
+                    card.appendChild(cardDetails);
+                    
+                    cardContainer.appendChild(card);
+                });
+                
+                // Initialize Hammer.js swipe functionality
+                initializeHammerSwipe();
+                
+                // Automatically swipe the last card after a short delay
+                setTimeout(() => {
+                    const lastCard = document.querySelector('.card:last-child');
+                    if (lastCard) {
+                        lastCard.style.transition = 'transform 0.5s ease';
+                        lastCard.style.transform = 'translate(500px, 0) rotate(20deg)';
+                        
+                        setTimeout(() => {
+                            lastCard.remove();
+                            updateCardStack();
+                            likesCount++;
+                            updateLikesCounter();
+                        }, 500);
+                    }
+                }, 1500);
+            } catch (error) {
+                console.error('Error loading Instagram posts:', error);
+                cardContainer.innerHTML = '<div class="error">Error loading posts. Check your Instagram token.</div>';
+            }
+        }
+        
+        function updateLikesCounter() {
+            document.getElementById('likes-count').textContent = likesCount;
+        }
+        
+        function updateDislikesCounter() {
+            document.getElementById('dislikes-count').textContent = dislikesCount;
+        }
+        
+        function updateCardStack() {
+            const cardContainer = document.getElementById('card-container');
+            const cards = document.querySelectorAll('.card');
+            
+            if (cards.length === 0) {
+                // Check if dislikes are more than likes
+                if (dislikesCount > likesCount) {
+                    cardContainer.innerHTML = `
+                        <div class="no-more-cards">
+                            <p>Jealous much aren't we? 😏</p>
+                            <a href="#" class="follow-btn" onclick="loadInstagramPosts(); return false;">Refresh Posts</a>
+                        </div>
+                    `;
+                } else {
+                    cardContainer.innerHTML = `
+                        <div class="no-more-cards">
+                            <p>Liked what you saw? There are more to come on Instagram 😊</p>
+                            <a href="https://www.instagram.com/amosjerbi/" target="_blank" class="follow-btn">Give a follow</a>
+                        </div>
+                    `;
+                }
+                
+                // Disable like and dislike buttons
+                document.getElementById('like').disabled = true;
+                document.getElementById('dislike').disabled = true;
+            } else {
+                // Reinitialize swipe for remaining cards
+                initializeHammerSwipe();
+            }
+        }
+        
+        // Like and Dislike buttons
+        document.getElementById('like').addEventListener('click', () => {
+            const card = document.querySelector('.card:last-child');
+            if (card) {
+                card.style.transition = 'transform 0.5s ease';
+                card.style.transform = 'translate(500px, 0) rotate(20deg)';
+                
+                setTimeout(() => {
+                    card.remove();
+                    updateCardStack();
+                    likesCount++;
+                    updateLikesCounter();
+                }, 500);
+            }
+        });
+        
+        document.getElementById('dislike').addEventListener('click', () => {
+            const card = document.querySelector('.card:last-child');
+            if (card) {
+                card.style.transition = 'transform 0.5s ease';
+                card.style.transform = 'translate(-500px, 0) rotate(-20deg)';
+                
+                setTimeout(() => {
+                    card.remove();
+                    updateCardStack();
+                    dislikesCount++;
+                    updateDislikesCounter();
+                }, 500);
+            }
+        });
+        
+        // Keyboard and mobile swiping support
+        function swipeCard(direction) {
+            const card = document.querySelector('.card:last-child');
+            if (card) {
+                card.style.transition = 'transform 0.5s ease';
+                
+                if (direction === 'right') {
+                    card.style.transform = 'translate(500px, 0) rotate(20deg)';
+                    setTimeout(() => {
+                        card.remove();
+                        updateCardStack();
+                        likesCount++;
+                        updateLikesCounter();
+                    }, 500);
+                } else if (direction === 'left') {
+                    card.style.transform = 'translate(-500px, 0) rotate(-20deg)';
+                    setTimeout(() => {
+                        card.remove();
+                        updateCardStack();
+                        dislikesCount++;
+                        updateDislikesCounter();
+                    }, 500);
+                }
+            }
+        }
+        
+        // Keyboard event listeners
+        document.addEventListener('keydown', (event) => {
+            switch(event.key) {
+                case 'ArrowRight':
+                case 'd':
+                    swipeCard('right');
+                    break;
+                case 'ArrowLeft':
+                case 'a':
+                    swipeCard('left');
+                    break;
+            }
+        });
+        
+        // Mobile touch support
+        const cardContainer = document.getElementById('card-container');
+        const hammer = new Hammer(cardContainer);
+        
+        hammer.on('swiperight', () => {
+            swipeCard('right');
+        });
+        
+        hammer.on('swipeleft', () => {
+            swipeCard('left');
+        });
+        
+        // Call the function when the page loads
+        document.addEventListener('DOMContentLoaded', loadInstagramPosts);
+    </script>
+</body>
+</html>
