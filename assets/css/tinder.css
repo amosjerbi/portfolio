@@ -228,45 +228,24 @@ button:active {
   max-width: 80%;
   margin-bottom: 20px;
 }
-.instagram-follow-btn {
-  display: inline-block;
-  background-color: #E1306C;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  max-width: 200px;
-  text-align: center;
-}
-.instagram-follow-btn:hover {
-  background-color: #C13584;
-}
-
-:root {
-    --primary_light: #f0f4f8;
-    --one_color: #001c48;
-    --two_color: #3a6ea5;
-    --fontNoto: 'Noto Sans', sans-serif;
-}
 
 .follow-btn {
     color: var(--primary_dark);
-	transition: all .4s;
-	background-color: var(--primary_light);
-	opacity: 1;
-	border-radius: 100px;
-	/* border: 3px solid var(--one_color); */
-	font-family: var(--fontSans);
-	font-weight: 700;
-	padding: 10px 30px;
-	font-size: 0.8rem;
-	word-spacing: 1px;
-	text-align: var(--alignment);
-	align-self: center;
-	text-transform: uppercase;
-	inline-size: fit-content;
+    transition: all .4s;
+    /* background-color: var(--primary_light); */
+    opacity: 1;
+    border-radius: 100px;
+    border: 3px solid var(--one_color);
+    font-family: var(--fontSans);
+    font-weight: 700;
+    padding: 10px 30px;
+    font-size: 0.8rem;
+    word-spacing: 1px;
+    text-align: var(--alignment);
+    align-self: center;
+    text-transform: uppercase;
+    inline-size: fit-content;
+    text-decoration-line: none;
 }
 
 .follow-btn:hover {
