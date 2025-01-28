@@ -153,11 +153,11 @@ body {
 }
 
 #dislike ion-icon {
-  color: red;
+  color: var(--primary_light);
 }
 
 #like ion-icon {
-  color: green;
+  color: var(--primary_light);
 }
 
 button {
