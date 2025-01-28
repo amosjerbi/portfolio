@@ -131,7 +131,7 @@ body {
   transform: scale(1) translateY(0);
 }
 
-.buttonstinder {
+.buttons {
   display: flex;
   justify-content: space-around;
   padding: 15px;
@@ -139,7 +139,7 @@ body {
   border-top: 1px solid #f0f0f0;
 }
 
-.buttonstinder button {
+.buttons button {
   background: none;
   border: none;
   cursor: pointer;
@@ -148,7 +148,7 @@ body {
   transition: transform 0.2s;
 }
 
-.buttonstinder button:hover {
+.buttons button:hover {
   transform: scale(1.1);
 }
 
