@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tinderlla</title>
     <link rel="stylesheet" href="assets/css/tinder.css">
-    <link rel="stylesheet" href="assets/css/gallery.css">
+    <link rel="stylesheet" href="assets/css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-    <h1>Tinderlla</h1>
     <div class="container">
         <div id="card-container"></div>
         <div class="buttons">
@@ -199,14 +198,14 @@
                     cardContainer.innerHTML = `
                         <div class="no-more-cards">
                             <p>Jealous much aren't we? 😏</p>
-                            <a href="#" class="follow-btn" onclick="loadInstagramPosts(); return false;">Refresh Posts</a>
+                            <a href="#" class="button_prime" onclick="loadInstagramPosts(); return false;">Refresh Posts</a>
                         </div>
                     `;
                 } else {
                     cardContainer.innerHTML = `
                         <div class="no-more-cards">
                             <p>Liked what you saw? There are more to come on Instagram 😊</p>
-                            <a href="https://www.instagram.com/amosjerbi/" target="_blank" class="follow-btn">Give a follow</a>
+                            <a href="https://www.instagram.com/amosjerbi/" target="_blank" class="button_prime">Give a follow</a>
                         </div>
                     `;
                 }
