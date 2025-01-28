@@ -82,6 +82,15 @@
             });
         }
         
+        // Function to shuffle array randomly
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
         async function loadInstagramPosts() {
             const cardContainer = document.getElementById('card-container');
             cardContainer.innerHTML = '<div class="loading">Loading posts...</div>';
@@ -103,13 +112,12 @@
                     return;
                 }
                 
-                // Sort posts by timestamp in descending order (newest first)
-                posts = data.data
-                    .filter(post => 
+                // Filter, shuffle, and slice posts
+                posts = shuffleArray(
+                    data.data.filter(post => 
                         post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM'
                     )
-                    .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
-                    .slice(0, postCount);
+                ).slice(0, postCount);
                 
                 posts.forEach((post, index) => {
                     const card = document.createElement('div');
