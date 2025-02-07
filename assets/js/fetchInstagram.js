@@ -110,7 +110,16 @@ function prevPost() {
 
 async function loadInstagramPosts() {
     const gallery = document.getElementById('gallery');
-    gallery.innerHTML = '<div class="loading">Loading posts...</div>';
+    if (!gallery) {
+        console.error('Gallery element not found');
+        return;
+    }
+
+    // Create a loading container
+    const loadingContainer = document.createElement('div');
+    loadingContainer.className = 'loading';
+    loadingContainer.textContent = 'Loading posts...';
+    gallery.appendChild(loadingContainer);
     
     try {
         console.log('Fetching Instagram posts...');
@@ -123,11 +132,14 @@ async function loadInstagramPosts() {
 
         const data = await response.json();
         console.log('Received data:', data);
-        gallery.innerHTML = '';
+        gallery.innerHTML = ''; // Only clear the gallery div
 
         if (!data.data || data.data.length === 0) {
             console.error('No posts found in the response');
-            gallery.innerHTML = '<div class="error">No posts found</div>';
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error';
+            errorDiv.textContent = 'No posts found';
+            gallery.appendChild(errorDiv);
             return;
         }
 
@@ -139,7 +151,10 @@ async function loadInstagramPosts() {
 
         if (posts.length === 0) {
             console.error('No posts match the allowed media types:', config.allowedMediaTypes);
-            gallery.innerHTML = '<div class="error">No compatible posts found</div>';
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error';
+            errorDiv.textContent = 'No compatible posts found';
+            gallery.appendChild(errorDiv);
             return;
         }
 
@@ -193,8 +208,11 @@ async function loadInstagramPosts() {
         });
 
     } catch (error) {
-        console.error('Error loading Instagram posts:', error);
-        gallery.innerHTML = `<div class="error">Error loading posts: ${error.message}</div>`;
+        console.error('Error loading posts:', error);
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error';
+        errorDiv.textContent = 'Error loading posts. Please try again later.';
+        gallery.appendChild(errorDiv);
     }
 }
 
