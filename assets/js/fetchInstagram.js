@@ -5,23 +5,29 @@ let currentPostIndex = 0;
 let currentPage = 1;
 
 function initTouchGestures() {
-    const modal = document.getElementById('modal');
     const modalContent = document.querySelector('.modallic-content');
+    if (!modalContent || !window.Hammer) {
+        console.error('Modal content or Hammer.js not found');
+        return;
+    }
+
     const hammer = new Hammer(modalContent);
     
     // Configure horizontal swipe
-    hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
-    
-    hammer.on('swipeleft', function() {
-        if (currentPostIndex < posts.length - 1) {
-            nextPost();
-        }
+    hammer.get('swipe').set({ 
+        direction: Hammer.DIRECTION_HORIZONTAL,
+        threshold: 5,
+        velocity: 0.1
     });
     
-    hammer.on('swiperight', function() {
-        if (currentPostIndex > 0) {
-            prevPost();
-        }
+    hammer.on('swipeleft', () => {
+        console.log('Swipe left detected');
+        nextPost();
+    });
+    
+    hammer.on('swiperight', () => {
+        console.log('Swipe right detected');
+        prevPost();
     });
 }
 
@@ -75,24 +81,30 @@ function showPost(index) {
         const modalImg = document.getElementById('modalImage');
         const modalCaption = document.getElementById('modalCaption');
         const modalLink = document.getElementById('modalLink');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
         
-        modalImg.src = post.media_url;
-        modalCaption.textContent = ''; 
-        modalLink.href = post.permalink;
-        
-        // Update navigation buttons visibility
-        document.querySelector('.prev-btn').style.display = index === 0 ? 'none' : 'block';
-        document.querySelector('.next-btn').style.display = index === posts.length - 1 ? 'none' : 'block';
+        if (modalImg && modalCaption && modalLink) {
+            modalImg.src = post.media_url;
+            modalCaption.textContent = post.caption || '';
+            modalLink.href = post.permalink;
+            
+            // Update navigation buttons visibility
+            if (prevBtn) prevBtn.style.display = index === 0 ? 'none' : 'block';
+            if (nextBtn) nextBtn.style.display = index === posts.length - 1 ? 'none' : 'block';
+        }
     }
 }
 
 function nextPost() {
+    console.log('Next post called, current index:', currentPostIndex);
     if (currentPostIndex < posts.length - 1) {
         showPost(currentPostIndex + 1);
     }
 }
 
 function prevPost() {
+    console.log('Previous post called, current index:', currentPostIndex);
     if (currentPostIndex > 0) {
         showPost(currentPostIndex - 1);
     }
@@ -144,6 +156,44 @@ async function loadInstagramPosts() {
 
         // Show initial posts
         showMorePosts();
+
+        // Initialize touch gestures
+        initTouchGestures();
+
+        // Add modal close functionality
+        const modal = document.getElementById('modal');
+        const closeBtn = document.querySelector('.close');
+        if (closeBtn) {
+            closeBtn.onclick = () => modal.style.display = 'none';
+        }
+        
+        // Add navigation button functionality
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', prevPost);
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', nextPost);
+        }
+        
+        // Add click outside modal to close
+        window.onclick = (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (modal.style.display === 'block') {
+                if (e.key === 'ArrowLeft') prevPost();
+                if (e.key === 'ArrowRight') nextPost();
+                if (e.key === 'Escape') modal.style.display = 'none';
+            }
+        });
+
     } catch (error) {
         console.error('Error loading Instagram posts:', error);
         gallery.innerHTML = `<div class="error">Error loading posts: ${error.message}</div>`;
