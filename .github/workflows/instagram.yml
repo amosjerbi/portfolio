@@ -5,6 +5,8 @@ on:
     branches:
       - master
   workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'  # Run at midnight UTC every day
 
 jobs:
   fetch-instagram:
@@ -14,12 +16,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests pillow
+
       - name: Fetch Instagram posts
         env:
           INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
         run: |
-          # Create the directory if it doesn't exist
-          mkdir -p assets/data
+          # Create directories if they don't exist
+          mkdir -p assets/data/instagram
+          mkdir -p assets/data/instagram/images
           
           # Create a temporary file for storing all posts
           echo '{"data":[]}' > assets/data/temp-posts.json
@@ -29,7 +42,47 @@ jobs:
           POSTS_COUNT=0
           MAX_POSTS=120
           
-          # Function to merge new posts with existing ones
+          # Create Python script to download and process media
+          cat > download_media.py << 'EOF'
+          import json
+          import os
+          import requests
+          from PIL import Image
+          from io import BytesIO
+          
+          def download_media(url, post_id):
+              try:
+                  response = requests.get(url)
+                  response.raise_for_status()
+                  
+                  # Save original image
+                  img = Image.open(BytesIO(response.content))
+                  img_path = f'assets/data/instagram/images/{post_id}.jpg'
+                  img.save(img_path, 'JPEG', quality=85)
+                  
+                  return f'/assets/data/instagram/images/{post_id}.jpg'
+              except Exception as e:
+                  print(f"Error downloading media for post {post_id}: {e}")
+                  return None
+          
+          def process_posts(posts_file):
+              with open(posts_file, 'r') as f:
+                  data = json.load(f)
+              
+              for post in data['data']:
+                  if post['media_type'] in ['IMAGE', 'CAROUSEL_ALBUM']:
+                      local_url = download_media(post['media_url'], post['id'])
+                      if local_url:
+                          post['media_url'] = local_url
+              
+              with open(posts_file, 'w') as f:
+                  json.dump(data, f, indent=2)
+          
+          if __name__ == '__main__':
+              process_posts('assets/data/temp-posts.json')
+          EOF
+          
+          # Function to merge posts
           merge_posts() {
             local temp_file="$1"
             local new_posts="$2"
@@ -49,20 +102,21 @@ jobs:
             
             # Update count
             POSTS_COUNT=$(jq '.data | length' assets/data/temp-posts.json)
-            
-            echo "Fetched $POSTS_COUNT posts so far..."
           done
           
-          # Move final result to instagram-posts.json
+          # Download and process media files
+          python download_media.py
+          
+          # Move final file to destination
           mv assets/data/temp-posts.json assets/data/instagram-posts.json
           
           # Clean up temporary files
-          rm -f assets/data/current-batch.json assets/data/merged.json
+          rm -f assets/data/current-batch.json download_media.py
 
-      - name: Commit and push changes
+      - name: Commit and push if there are changes
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add assets/data/instagram-posts.json
-          git commit -m "Update Instagram posts" || echo "No changes to commit"
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add assets/data/instagram-posts.json assets/data/instagram/images/
+          git commit -m "Update Instagram posts" || exit 0
           git push
