@@ -79,14 +79,12 @@ function showPost(index) {
         currentPostIndex = index;
         const post = posts[index];
         const modalImg = document.getElementById('modalImage');
-        const modalCaption = document.getElementById('modalCaption');
         const modalLink = document.getElementById('modalLink');
         const prevBtn = document.querySelector('.prev-btn');
         const nextBtn = document.querySelector('.next-btn');
         
-        if (modalImg && modalCaption && modalLink) {
+        if (modalImg && modalLink) {
             modalImg.src = post.media_url;
-            modalCaption.textContent = post.caption || '';
             modalLink.href = post.permalink;
             
             // Update navigation buttons visibility
