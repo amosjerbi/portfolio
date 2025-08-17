@@ -354,10 +354,6 @@
             margin-top: 20px;
         }
 
-        .export-btn {
-            background: linear-gradient(135deg, #20bf6b 0%, #26de81 100%);
-        }
-
         .filter-section {
             background: #f8f9fa;
             padding: 20px;
@@ -513,9 +509,6 @@
                 <button class="btn" onclick="reanalyzeImages()" id="reanalyzeBtn" style="display: none; background: linear-gradient(135deg, #20bf6b 0%, #26de81 100%);">
                     🔄 Reanalyze
                 </button>
-                <button class="btn export-btn" onclick="exportFeedPalette()" id="exportBtn" style="display: none;">
-                    📊 Export Analysis
-                </button>
                 <button class="btn" onclick="clearAllResults()" id="clearBtn" style="display: none; background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);">
                     🗑️ Clear All
                 </button>
@@ -543,6 +536,20 @@
                         <option value="list">List</option>
                         <option value="compact">Compact</option>
                     </select>
+                </div>
+                
+                <div class="option-group">
+                    <label for="showPercentages">
+                        <input type="checkbox" id="showPercentages" checked onchange="togglePercentages()" style="margin-right: 5px;">
+                        Show Percentages
+                    </label>
+                </div>
+                
+                <div class="option-group">
+                    <label for="showLabels">
+                        <input type="checkbox" id="showLabels" checked onchange="toggleLabels()" style="margin-right: 5px;">
+                        Show Color Labels
+                    </label>
                 </div>
             </div>
         </div>
@@ -594,6 +601,8 @@
         let overallColors = [];
         let currentFilter = 'all';
         let uploadedFiles = [];
+        let showPercentages = true;
+        let showLabels = true;
         
         // Store last parameters for reanalysis
         let lastParams = {
@@ -647,7 +656,6 @@
                 displayFeedAnalysis();
                 
                 // Show control buttons
-                document.getElementById('exportBtn').style.display = 'inline-block';
                 document.getElementById('reanalyzeBtn').style.display = 'inline-block';
                 document.getElementById('clearBtn').style.display = 'inline-block';
                 
@@ -686,7 +694,6 @@
             currentFilter = 'all';
             
             document.getElementById('feedOverview').classList.remove('active');
-            document.getElementById('exportBtn').style.display = 'none';
             document.getElementById('reanalyzeBtn').style.display = 'none';
             document.getElementById('clearBtn').style.display = 'none';
             document.getElementById('batchUpload').value = '';
@@ -956,8 +963,8 @@
                 colorDiv.className = 'main-color';
                 colorDiv.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
                 colorDiv.innerHTML = `
-                    <div class="main-color-percentage">${color.avgPercentage}%</div>
-                    <div class="color-label">
+                    <div class="main-color-percentage" ${!showPercentages ? 'style="display: none;"' : ''}>${color.avgPercentage}%</div>
+                    <div class="color-label" ${!showLabels ? 'style="display: none;"' : ''}>
                         ${hex}<br>
                         <small>${color.frequency}% of images</small>
                     </div>
@@ -996,8 +1003,8 @@
                 const hex = rgbToHex(r, g, b);
                 return `
                     <div class="post-color" style="background: rgb(${r}, ${g}, ${b});" onclick="copyColor('${hex}')">
-                        <div class="percentage-badge">${color.percentage}%</div>
-                        <div class="color-tooltip">${hex}</div>
+                        <div class="percentage-badge" ${!showPercentages ? 'style="display: none;"' : ''}>${color.percentage}%</div>
+                        <div class="color-tooltip" ${showLabels ? '' : 'style="opacity: 0 !important;"'}>${hex}</div>
                     </div>
                 `;
             }).join('');
@@ -1099,39 +1106,6 @@
             document.getElementById('detailModal').classList.remove('active');
         }
 
-        // Export feed palette
-        function exportFeedPalette() {
-            const exportData = {
-                timestamp: new Date().toISOString(),
-                totalPosts: analyzedPosts.length,
-                overallPalette: overallColors.map(color => ({
-                    hex: rgbToHex(...color.rgb),
-                    rgb: color.rgb,
-                    frequency: color.frequency,
-                    avgPercentage: color.avgPercentage
-                })),
-                posts: analyzedPosts.map(post => ({
-                    id: post.id,
-                    colors: post.colors.map(color => ({
-                        hex: rgbToHex(...color.rgb),
-                        rgb: color.rgb,
-                        percentage: color.percentage
-                    }))
-                }))
-            };
-            
-            const json = JSON.stringify(exportData, null, 2);
-            const blob = new Blob([json], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `instagram-palette-${Date.now()}.json`;
-            a.click();
-            
-            URL.revokeObjectURL(url);
-        }
-
         // Utility functions
         function rgbToHex(r, g, b) {
             return '#' + [r, g, b].map(x => {
@@ -1224,6 +1198,40 @@
             }
         }
 
+        // Toggle percentage display
+        function togglePercentages() {
+            showPercentages = document.getElementById('showPercentages').checked;
+            
+            // Toggle all percentage badges
+            document.querySelectorAll('.percentage-badge').forEach(badge => {
+                badge.style.display = showPercentages ? 'block' : 'none';
+            });
+            
+            // Toggle main color percentages
+            document.querySelectorAll('.main-color-percentage').forEach(badge => {
+                badge.style.display = showPercentages ? 'block' : 'none';
+            });
+        }
+        
+        // Toggle label display
+        function toggleLabels() {
+            showLabels = document.getElementById('showLabels').checked;
+            
+            // Toggle all color labels
+            document.querySelectorAll('.color-label').forEach(label => {
+                label.style.display = showLabels ? 'block' : 'none';
+            });
+            
+            // Toggle color tooltips (hex codes on hover)
+            document.querySelectorAll('.color-tooltip').forEach(tooltip => {
+                if (showLabels) {
+                    tooltip.style.removeProperty('opacity');
+                } else {
+                    tooltip.style.setProperty('opacity', '0', 'important');
+                }
+            });
+        }
+        
         // Close modal on outside click
         document.getElementById('detailModal').addEventListener('click', function(e) {
             if (e.target === this) {
