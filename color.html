@@ -8,6 +8,70 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* Light mode colors */
+            --bg-color: #ffffff;
+            --bg-gradient-1: rgba(147, 197, 253, 0.3);
+            --bg-gradient-2: rgba(165, 180, 252, 0.3);
+            --text-primary: #1F2937;
+            --text-secondary: #4B5563;
+            --text-muted: #6B7280;
+            --card-bg: rgba(255,255,255,0.8);
+            --card-border: rgba(255,255,255,0.5);
+            --card-shadow: 0 10px 25px rgba(0,0,0,0.04), 0 4px 10px rgba(0,0,0,0.02);
+            --input-bg: rgba(255,255,255,0.7);
+            --input-border: rgba(209, 213, 219, 0.5);
+            --input-focus: #3B82F6;
+            --button-bg: #1F2937;
+            --button-hover: #111827;
+            --button-outline-bg: #ffffff;
+            --button-outline-color: #111827;
+            --button-outline-border: rgba(17,24,39,0.2);
+            --modal-bg: rgba(255,255,255,0.95);
+            --filter-bg: rgba(248, 250, 252, 0.6);
+            --filter-border: rgba(229, 231, 235, 0.5);
+            --chip-bg: rgba(255,255,255,0.7);
+            --chip-border: rgba(147, 197, 253, 0.3);
+            --chip-hover-bg: rgba(255,255,255,0.9);
+            --chip-hover-border: rgba(147, 197, 253, 0.5);
+            --chip-active-bg: #1F2937;
+            --chip-active-color: #ffffff;
+            --error-bg: #fee;
+            --error-color: #c33;
+        }
+
+        [data-theme="dark"] {
+            /* Dark mode colors */
+            --bg-color: #0F1419;
+            --bg-gradient-1: rgba(99, 102, 241, 0.15);
+            --bg-gradient-2: rgba(139, 92, 246, 0.15);
+            --text-primary: #F9FAFB;
+            --text-secondary: #D1D5DB;
+            --text-muted: #9CA3AF;
+            --card-bg: rgba(31, 41, 55, 0.8);
+            --card-border: rgba(75, 85, 99, 0.3);
+            --card-shadow: 0 10px 25px rgba(0,0,0,0.3), 0 4px 10px rgba(0,0,0,0.2);
+            --input-bg: rgba(31, 41, 55, 0.7);
+            --input-border: rgba(75, 85, 99, 0.5);
+            --input-focus: #60A5FA;
+            --button-bg: #374151;
+            --button-hover: #4B5563;
+            --button-outline-bg: rgba(31, 41, 55, 0.8);
+            --button-outline-color: #D1D5DB;
+            --button-outline-border: rgba(75, 85, 99, 0.3);
+            --modal-bg: rgba(31, 41, 55, 0.95);
+            --filter-bg: rgba(31, 41, 55, 0.6);
+            --filter-border: rgba(75, 85, 99, 0.3);
+            --chip-bg: rgba(31, 41, 55, 0.7);
+            --chip-border: rgba(99, 102, 241, 0.3);
+            --chip-hover-bg: rgba(31, 41, 55, 0.9);
+            --chip-hover-border: rgba(99, 102, 241, 0.5);
+            --chip-active-bg: #4F46E5;
+            --chip-active-color: #ffffff;
+            --error-bg: rgba(239, 68, 68, 0.1);
+            --error-color: #EF4444;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -17,11 +81,14 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             min-height: 100vh;
-            padding: 32px;
+            padding: 28px;
             position: relative;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         body::before {
@@ -31,9 +98,10 @@
             right: -20%;
             width: 60%;
             height: 60%;
-            background: radial-gradient(circle, rgba(147, 197, 253, 0.3) 0%, transparent 60%);
+            background: radial-gradient(circle, var(--bg-gradient-1) 0%, transparent 60%);
             filter: blur(60px);
             pointer-events: none;
+            transition: background 0.3s ease;
         }
         
         body::after {
@@ -43,9 +111,10 @@
             left: -20%;
             width: 60%;
             height: 60%;
-            background: radial-gradient(circle, rgba(165, 180, 252, 0.3) 0%, transparent 60%);
+            background: radial-gradient(circle, var(--bg-gradient-2) 0%, transparent 60%);
             filter: blur(60px);
             pointer-events: none;
+            transition: background 0.3s ease;
         }
         
 
@@ -78,15 +147,15 @@
             animation: fadeInDown 0.8s ease;
             position: relative;
             z-index: 1;
-            padding: 96px 24px;
+            padding: 58px 12px;
             border-radius: 24px;
             overflow: hidden;
         }
 
         h1 {
-            font-size: 2.8em;
+            font-size: 3.2em;
             margin-bottom: 15px;
-            color: #1F2937;
+            color: var(--text-primary);
             font-weight: 700;
             letter-spacing: -0.02em;
             line-height: 1.1;
@@ -95,7 +164,7 @@
         .subtitle {
             font-size: 1.15em;
             font-weight: 400;
-            color: #4B5563;
+            color: var(--text-secondary);
             line-height: 1.6;
             max-width: 600px;
             margin: 0;
@@ -121,7 +190,6 @@
         }
 
         .cta:hover {
-            transform: translateY(-2px);
             background: #000000;
             box-shadow: 0 12px 28px rgba(0,0,0,0.16);
         }
@@ -150,15 +218,16 @@
         }
 
         .input-section {
-            background: rgba(255,255,255,0.8);
+            background: var(--card-bg);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 40px;
+            padding: 12px 12px;
             margin-bottom: 48px;
             animation: fadeInUp 0.8s ease;
-            border: 1px solid rgba(255,255,255,0.5);
+            border: 1px solid var(--card-border);
             position: relative;
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .instagram-input-group {
@@ -196,7 +265,7 @@
 
         .btn {
             padding: 14px 28px;
-            background: #1F2937;
+            background: var(--button-bg);
             color: white;
             border: none;
             border-radius: 50px;
@@ -212,7 +281,7 @@
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 16px rgba(0,0,0,0.12);
-            background: #111827;
+            background: var(--button-hover);
         }
         
         .btn:active {
@@ -221,14 +290,14 @@
 
         /* Light outline variant for Clear All */
         .btn-outline-dark {
-            background: #ffffff !important;
-            color: #111827 !important;
-            border: 1px solid rgba(17,24,39,0.2) !important;
+            background: var(--button-outline-bg) !important;
+            color: var(--button-outline-color) !important;
+            border: 1px solid var(--button-outline-border) !important;
             box-shadow: 0 4px 6px rgba(0,0,0,0.06);
         }
         .btn-outline-dark:hover {
-            background: #ffffff !important;
-            color: #111827 !important;
+            background: var(--button-outline-bg) !important;
+            color: var(--button-outline-color) !important;
             transform: translateY(-2px);
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         }
@@ -254,39 +323,254 @@
 
         label {
             font-weight: 500;
-            color: #4B5563;
+            color: var(--text-secondary);
             font-size: 14px;
         }
 
-        select, input[type="number"] {
-            padding: 10px 14px;
-            border: 1px solid rgba(209, 213, 219, 0.5);
+                 select, input[type="number"] {
+             padding: 10px 14px;
+             border: 1px solid var(--input-border);
+             border-radius: 8px;
+             font-size: 14px;
+             transition: all 0.2s ease;
+             background: #ffffff;
+             color: var(--text-primary);
+         }
+         
+         select {
+             padding-right: 32px;
+             appearance: none;
+             -webkit-appearance: none;
+             -moz-appearance: none;
+             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+             background-repeat: no-repeat;
+             background-position: right 10px center;
+             background-size: 16px;
+         }
+         
+         select:hover, input[type="number"]:hover {
+             border-color: #3B82F6;
+             background: #ffffff;
+         }
+         
+         select:hover {
+             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+             background-repeat: no-repeat;
+             background-position: right 10px center;
+             background-size: 16px;
+         }
+         
+         select:focus, input[type="number"]:focus {
+             outline: none;
+             border-color: #3B82F6;
+             background: #ffffff;
+             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+         }
+         
+         select:focus {
+             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+             background-repeat: no-repeat;
+             background-position: right 10px center;
+             background-size: 16px;
+         }
+         
+         select option {
+             background: #ffffff;
+             color: var(--text-primary);
+         }
+         
+         select option:hover {
+             background: #EBF4FF;
+         }
+
+        /* Dark Mode Button */
+        .theme-button {
+            width: 40px;
+            height: 40px;
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
             border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .theme-button:hover {
+            border-color: var(--chip-hover-border);
+            background: var(--chip-hover-bg);
+            transform: translateY(-1px);
+            background: var(--chip-hover-border);
+        }
+
+        .theme-button:active {
+            transform: translateY(0);
+        }
+
+        .theme-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--text-primary);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .theme-button:hover .theme-icon {
+            transform: scale(1.1);
+        }
+
+        .theme-button:active .theme-icon {
+            transform: scale(0.95);
+        }
+
+        .theme-button-container {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 32px;
+            padding: 0 10px;
+            padding-top: 16px;
+        }
+
+        .results-placeholder {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--card-shadow);
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .results-placeholder:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15), 0 6px 12px rgba(0,0,0,0.08);
+            border-color: var(--chip-hover-border);
+            background: var(--chip-hover-bg);
+        }
+
+        [data-theme="dark"] .results-placeholder:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4), 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        .results-placeholder:active {
+            transform: translateY(0);
+        }
+
+        .results-placeholder h3 {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .upload-hint {
+            margin-top: 20px;
             font-size: 14px;
-            transition: all 0.2s ease;
-            background: rgba(255,255,255,0.7);
+            color: var(--input-focus);
+            font-weight: 500;
+            opacity: 0.8;
         }
-        
-        select:hover, input[type="number"]:hover {
-            border-color: rgba(147, 197, 253, 0.5);
+
+        .results-placeholder:hover .upload-hint {
+            opacity: 1;
         }
-        
-        select:focus, input[type="number"]:focus {
-            outline: none;
-            border-color: #3B82F6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+
+        /* Modal Color Detail Boxes */
+        .color-detail-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: var(--filter-bg);
+            border: 1px solid var(--filter-border);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .color-detail-box:hover {
+            background: var(--chip-hover-bg);
+            border-color: var(--chip-hover-border);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] .color-detail-box:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .color-swatch {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            border: 1px solid var(--card-border);
+        }
+
+        .color-info {
+            flex: 1;
+        }
+
+        .color-hex {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-size: 16px;
+        }
+
+        .color-values {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .color-copy-btn {
+            padding: 8px 16px !important;
+            font-size: 14px !important;
+            min-width: auto !important;
+        }
+
+        /* Modal Content Styling */
+        .modal-title {
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .modal-subtitle {
+            color: var(--text-primary);
+            margin: 30px 0 20px 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .modal-image {
+            width: 100%;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] .modal-image {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
 
         .loading {
             display: none;
             text-align: center;
             padding: 40px;
-            background: rgba(255,255,255,0.8);
+            background: var(--card-bg);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             margin: 32px 0;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.04), 0 4px 10px rgba(0,0,0,0.02);
-            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--card-border);
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .loading.active {
@@ -304,16 +588,17 @@
         }
 
         .feed-overview {
-            background: rgba(255,255,255,0.8);
+            background: var(--card-bg);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 40px;
+            padding: 0px;
             margin-bottom: 60px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.04), 0 4px 10px rgba(0,0,0,0.02);
+            /* box-shadow: var(--card-shadow); */
             display: none;
-            border: 1px solid rgba(255,255,255,0.5);
+            border: 1px solid var(--card-border);
             position: relative;
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .feed-overview.active {
@@ -337,14 +622,14 @@
         }
 
         .profile-info h2 {
-            color: #333;
+            color: var(--text-primary);
             margin-bottom: 5px;
         }
 
         .profile-stats {
             display: flex;
             gap: 20px;
-            color: #666;
+            color: var(--text-secondary);
             font-size: 14px;
         }
 
@@ -353,7 +638,7 @@
         }
 
         .overall-palette h3 {
-            color: #1F2937;
+            color: var(--text-primary);
             margin-bottom: 24px;
             font-size: 18px;
             font-weight: 600;
@@ -386,26 +671,28 @@
             bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(255,255,255,0.9);
+            background: var(--card-bg);
             padding: 6px 12px;
             border-radius: 8px;
             font-size: 12px;
             font-weight: 600;
-            color: #374151;
+            color: var(--text-primary);
             box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            border: 1px solid var(--card-border);
         }
         
         .main-color-percentage {
             position: absolute;
             top: 8px;
             right: 8px;
-            background: rgba(255,255,255,0.9);
-            color: #374151;
+            background: var(--card-bg);
+            color: var(--text-primary);
             padding: 4px 8px;
             border-radius: 6px;
             font-size: 11px;
             font-weight: 600;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 1px solid var(--card-border);
         }
 
         .posts-grid {
@@ -416,14 +703,14 @@
         }
 
         .post-card {
-            background: rgba(255,255,255,0.9);
+            background: var(--card-bg);
             backdrop-filter: blur(8px);
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.02);
+            box-shadow: var(--card-shadow);
             transition: all 0.3s ease;
             animation: slideUp 0.5s ease;
-            border: 1px solid rgba(255,255,255,0.6);
+            border: 1px solid var(--card-border);
             position: relative;
         }
 
@@ -449,7 +736,7 @@
             align-items: center;
             margin-bottom: 10px;
             font-size: 12px;
-            color: #6B7280;
+            color: var(--text-muted);
         }
 
         .post-colors {
@@ -476,13 +763,14 @@
             position: absolute;
             top: 3px;
             right: 3px;
-            background: rgba(255,255,255,0.9);
-            color: #374151;
+            background: var(--card-bg);
+            color: var(--text-primary);
             padding: 2px 5px;
             border-radius: 4px;
             font-size: 9px;
             font-weight: 600;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid var(--card-border);
         }
 
         .color-tooltip {
@@ -512,11 +800,12 @@
         }
 
         .filter-section {
-            background: rgba(248, 250, 252, 0.6);
+            background: var(--filter-bg);
             padding: 24px;
             border-radius: 16px;
             margin-bottom: 28px;
-            border: 1px solid rgba(229, 231, 235, 0.5);
+            border: 1px solid var(--filter-border);
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         .filter-chips {
@@ -528,36 +817,37 @@
 
         .filter-chip {
             padding: 8px 16px;
-            background: rgba(255,255,255,0.7);
-            border: 1px solid rgba(147, 197, 253, 0.3);
+            background: var(--chip-bg);
+            border: 1px solid var(--chip-border);
             border-radius: 20px;
             cursor: pointer;
             transition: all 0.2s ease;
             font-size: 14px;
             font-weight: 500;
-            color: #4B5563;
+            color: var(--text-secondary);
         }
         
         .filter-chip:hover {
-            background: rgba(255,255,255,0.9);
-            border-color: rgba(147, 197, 253, 0.5);
+            background: var(--chip-hover-bg);
+            border-color: var(--chip-hover-border);
             transform: translateY(-1px);
         }
 
         .filter-chip.active {
-            background: #1F2937;
-            color: white;
-            border-color: #1F2937;
+            background: var(--chip-active-bg);
+            color: var(--chip-active-color);
+            border-color: var(--chip-active-bg);
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .error-message {
-            background: #fee;
-            color: #c33;
+            background: var(--error-bg);
+            color: var(--error-color);
             padding: 15px;
             border-radius: 10px;
             margin: 20px 0;
             display: none;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         .error-message.active {
@@ -582,7 +872,7 @@
         }
 
         .modal-content {
-            background: rgba(255,255,255,0.95);
+            background: var(--modal-bg);
             backdrop-filter: blur(12px);
             border-radius: 20px;
             padding: 32px;
@@ -591,9 +881,10 @@
             max-height: 80vh;
             overflow-y: auto;
             position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 1px solid var(--card-border);
             animation: modalSlideIn 0.3s ease;
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
         
         @keyframes modalSlideIn {
@@ -615,11 +906,12 @@
             border: none;
             font-size: 24px;
             cursor: pointer;
-            color: #666;
+            color: var(--text-muted);
+            transition: color 0.2s ease;
         }
 
         .close-modal:hover {
-            color: #333;
+            color: var(--text-primary);
         }
 
         @keyframes fadeInDown {
@@ -660,23 +952,57 @@
             100% { transform: rotate(360deg); }
         }
 
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .left-column {
-                flex: none;
-                position: static;
-                max-height: none;
-                overflow-y: visible;
-            }
+                 @media (max-width: 768px) {
+             .container {
+                 flex-direction: column;
+                 gap: 20px;
+             }
+             
+             .left-column {
+                 flex: none;
+                 position: static;
+                 max-height: none;
+                 overflow-y: visible;
+             }
+             
+             .theme-button-container {
+                 justify-content: flex-start;
+                 margin-bottom: 20px;
+                 padding: 8px 0;
+             }
             
             .right-column {
                 flex: none;
             }
             
+            header {
+                padding: 30px 0px;
+            }
+            
+                        .input-section {
+                padding: 0;
+            }
+            
+            .option-group[style*="display: flex; gap: 24px; flex-wrap: wrap;"] {
+                flex-wrap: nowrap !important;
+                gap: 12px !important;
+            }
+            
+            .feed-overview {
+                display: flex !important;
+                flex-direction: column;
+            }
+            
+            .overall-palette {
+                order: 2;
+            }
+            
+            .posts-grid {
+                order: 1;
+                margin-top: 0 !important;
+                margin-bottom: 40px;
+            }
+              
             h1 {
                 font-size: 2em;
             }
@@ -694,6 +1020,16 @@
 <body>
     <div class="container">
         <div class="left-column">
+            <div class="theme-button-container">
+                <button class="theme-button" onclick="toggleDarkMode()" id="themeButton">
+                    <svg class="theme-icon" id="themeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <!-- Sun icon (default) -->
+                        <circle cx="12" cy="12" r="4" fill="currentColor"/>
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 6.34L4.93 4.93M19.07 19.07l-1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+
             <header>
                 <h1>Image Color Analyzer</h1>
                 <p class="subtitle">Extract and analyze color palettes from multiple images with advanced algorithms</p>
@@ -717,7 +1053,7 @@
                 <div class="options-section">
                     <div class="option-group">
                         <label for="colorCount">Colors per image:</label>
-                        <input type="number" id="colorCount" min="3" max="8" value="5">
+                        <input type="number" id="colorCount" min="3" max="8" value="6">
                     </div>
                     
                     <div class="option-group" style="display: flex; gap: 24px; flex-wrap: wrap;">
@@ -761,18 +1097,10 @@
         </div>
 
         <div class="right-column">
-            <div class="results-placeholder" id="resultsPlaceholder" style="
-                background: rgba(255,255,255,0.8);
-                backdrop-filter: blur(10px);
-                border-radius: 20px;
-                padding: 60px 40px;
-                text-align: center;
-                border: 1px solid rgba(255,255,255,0.5);
-                box-shadow: 0 10px 25px rgba(0,0,0,0.04);
-                color: #6B7280;
-            ">
-                <h3 style="color: #1F2937; margin-bottom: 15px; font-weight: 600;">Upload images to see results</h3>
-                <p>Color analysis and extracted palettes will appear here once you upload multiple images using the button on the left.</p>
+            <div class="results-placeholder" id="resultsPlaceholder" onclick="document.getElementById('batchUpload').click()">
+                <h3>Upload images to see results</h3>
+                <p>Color analysis and extracted palettes will appear here once you upload multiple images.</p>
+                <p class="upload-hint">Click here to upload images</p>
             </div>
             
             <div class="feed-overview" id="feedOverview">
@@ -781,7 +1109,7 @@
                 </div>
 
                 <div class="overall-palette" id="overallPalette">
-                    <h3>📊 Overall Feed Color Profile</h3>
+                    <h3>Overall Feed Color Profile</h3>
                     <div class="main-colors" id="mainColors">
                         <!-- Main colors will be inserted here -->
                     </div>
@@ -812,6 +1140,53 @@
     </div>
 
     <script>
+        // Dark mode functionality
+        let isDarkMode = localStorage.getItem('darkMode') === 'true';
+        
+        function updateThemeIcon(isDark) {
+            const themeIcon = document.getElementById('themeIcon');
+            if (!themeIcon) return;
+            
+            if (isDark) {
+                // Moon icon - crescent moon similar to the provided image
+                themeIcon.innerHTML = `
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>
+                `;
+            } else {
+                // Sun icon with rays
+                themeIcon.innerHTML = `
+                    <circle cx="12" cy="12" r="4" fill="currentColor"/>
+                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 6.34L4.93 4.93M19.07 19.07l-1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                `;
+            }
+        }
+        
+        function initializeTheme() {
+            if (isDarkMode) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+            updateThemeIcon(isDarkMode);
+        }
+        
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            if (isDarkMode) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+            updateThemeIcon(isDarkMode);
+        }
+        
+        // Initialize theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTheme();
+        });
+
         let analyzedPosts = [];
         let overallColors = [];
         let currentFilter = 'all';
@@ -821,7 +1196,7 @@
         
         // Store last parameters for reanalysis
         let lastParams = {
-            colorCount: 5,
+            colorCount: 6,
             method: 'dominant'
         };
 
@@ -1296,25 +1671,25 @@
                 const hsl = rgbToHsl(r, g, b);
                 
                 return `
-                    <div style="display: flex; align-items: center; gap: 15px; padding: 10px; background: #f8f9fa; border-radius: 8px; margin-bottom: 10px;">
-                        <div style="width: 60px; height: 60px; background: rgb(${r}, ${g}, ${b}); border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></div>
-                        <div style="flex: 1;">
-                            <div style="font-weight: bold; margin-bottom: 5px;">${hex}</div>
-                            <div style="font-size: 12px; color: #666;">
+                    <div class="color-detail-box">
+                        <div class="color-swatch" style="background: rgb(${r}, ${g}, ${b});"></div>
+                        <div class="color-info">
+                            <div class="color-hex">${hex}</div>
+                            <div class="color-values">
                                 RGB(${r}, ${g}, ${b})<br>
                                 HSL(${hsl.h}°, ${hsl.s}%, ${hsl.l}%)<br>
                                 Usage: ${color.percentage}%
                             </div>
                         </div>
-                        <button class="btn" style="padding: 8px 15px; font-size: 14px;" onclick="copyColor('${hex}')">Copy</button>
+                        <button class="btn color-copy-btn" onclick="copyColor('${hex}')">Copy</button>
                     </div>
                 `;
             }).join('');
             
             modalContent.innerHTML = `
-                <h2>Post #${postId + 1} Color Analysis</h2>
-                <img src="${post.imageUrl}" style="width: 100%; border-radius: 10px; margin: 20px 0;">
-                <h3>Extracted Colors</h3>
+                <h2 class="modal-title">Post #${postId + 1} Color Analysis</h2>
+                <img src="${post.imageUrl}" class="modal-image">
+                <h3 class="modal-subtitle">Extracted Colors</h3>
                 ${colorsHtml}
             `;
             
