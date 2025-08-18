@@ -218,7 +218,7 @@
         }
 
         .input-section {
-            background: var(--card-bg);
+            /* background: var(--card-bg); */
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -333,7 +333,7 @@
              border-radius: 8px;
              font-size: 14px;
              transition: all 0.2s ease;
-             background: #ffffff;
+             background: var(--input-bg);
              color: var(--text-primary);
          }
          
@@ -342,45 +342,81 @@
              appearance: none;
              -webkit-appearance: none;
              -moz-appearance: none;
-             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+         }
+         
+         /* Light mode chevron */
+         :root select {
+             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23374151' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+             background-repeat: no-repeat;
+             background-position: right 10px center;
+             background-size: 16px;
+         }
+         
+         /* Dark mode chevron */
+         [data-theme="dark"] select {
+             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D1D5DB' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
              background-repeat: no-repeat;
              background-position: right 10px center;
              background-size: 16px;
          }
          
          select:hover, input[type="number"]:hover {
-             border-color: #3B82F6;
-             background: #ffffff;
+             border-color: var(--input-focus);
+             background: var(--input-bg);
          }
          
          select:hover {
-             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
              background-repeat: no-repeat;
              background-position: right 10px center;
              background-size: 16px;
+         }
+         
+         :root select:hover {
+             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23374151' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+         }
+         
+         [data-theme="dark"] select:hover {
+             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D1D5DB' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
          }
          
          select:focus, input[type="number"]:focus {
              outline: none;
-             border-color: #3B82F6;
-             background: #ffffff;
+             border-color: var(--input-focus);
+             background: var(--input-bg);
              box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
          }
          
          select:focus {
-             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
              background-repeat: no-repeat;
              background-position: right 10px center;
              background-size: 16px;
          }
          
+         :root select:focus {
+             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23374151' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+         }
+         
+         [data-theme="dark"] select:focus {
+             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D1D5DB' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+         }
+         
          select option {
-             background: #ffffff;
+             background: var(--input-bg);
              color: var(--text-primary);
          }
          
          select option:hover {
-             background: #EBF4FF;
+             background: var(--chip-hover-bg);
+         }
+         
+         /* Dark mode option styles */
+         [data-theme="dark"] select option {
+             background: var(--input-bg);
+             color: var(--text-primary);
+         }
+         
+         [data-theme="dark"] select option:hover {
+             background: var(--chip-hover-bg);
          }
 
         /* Dark Mode Button */
@@ -634,7 +670,8 @@
         }
 
         .overall-palette {
-            margin-bottom: 40px;
+            margin-bottom: 0px;
+            padding: 18px;
         }
 
         .overall-palette h3 {
@@ -727,7 +764,7 @@
         }
 
         .post-palette {
-            padding: 20px;
+            padding: 0px;
         }
 
         .post-info {
@@ -742,7 +779,7 @@
         .post-colors {
             display: flex;
             gap: 5px;
-            height: 40px;
+            height: 60px;
         }
 
         .post-color {
@@ -767,7 +804,7 @@
             color: var(--text-primary);
             padding: 2px 5px;
             border-radius: 4px;
-            font-size: 9px;
+            font-size: 11px;
             font-weight: 600;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             border: 1px solid var(--card-border);
@@ -976,11 +1013,11 @@
             }
             
             header {
-                padding: 30px 0px;
+                padding: 30px 4px;
             }
             
                         .input-section {
-                padding: 0;
+                padding: 12px 12px;
             }
             
             .option-group[style*="display: flex; gap: 24px; flex-wrap: wrap;"] {
@@ -995,12 +1032,22 @@
             
             .overall-palette {
                 order: 2;
+                display: none !important;
             }
             
             .posts-grid {
                 order: 1;
                 margin-top: 0 !important;
-                margin-bottom: 40px;
+                margin-bottom: 0px;
+            }
+            
+            .feed-overview {
+                display: none !important;
+            }
+            
+            .feed-overview.has-results {
+                display: flex !important;
+                padding: 20px 12px !important;
             }
               
             h1 {
@@ -1104,9 +1151,9 @@
             </div>
             
             <div class="feed-overview" id="feedOverview">
-                <div class="feed-header" id="feedHeader">
-                    <!-- Profile info will be inserted here -->
-                </div>
+                <!-- <div class="feed-header" id="feedHeader">
+                     Profile info will be inserted here 
+                </div> -->
 
                 <div class="overall-palette" id="overallPalette">
                     <h3>Overall Feed Color Profile</h3>
@@ -1283,7 +1330,7 @@
             uploadedFiles = [];
             currentFilter = 'all';
             
-            document.getElementById('feedOverview').classList.remove('active');
+            document.getElementById('feedOverview').classList.remove('active', 'has-results');
             document.getElementById('resultsPlaceholder').style.display = 'block';
             document.getElementById('reanalyzeBtn').style.display = 'none';
             document.getElementById('clearBtn').style.display = 'none';
@@ -1544,6 +1591,9 @@
             
             // Hide placeholder and show results
             placeholder.style.display = 'none';
+            
+            // Add has-results class for mobile display
+            feedOverview.classList.add('has-results');
             
             // Clear previous content
             mainColors.innerHTML = '';
