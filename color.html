@@ -51,12 +51,28 @@
 
 
         .container {
-            max-width: 1100px;
+            max-width: 1400px;
             margin: 0 auto;
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+        }
+
+        .left-column {
+            flex: 0 0 500px;
+            position: sticky;
+            top: 32px;
+            max-height: calc(100vh - 64px);
+            overflow-y: auto;
+        }
+
+        .right-column {
+            flex: 1;
+            min-width: 0;
         }
 
         header {
-            text-align: center;
+            text-align: left;
             color: white;
             /* margin-bottom: 80px; */
             animation: fadeInDown 0.8s ease;
@@ -82,7 +98,7 @@
             color: #4B5563;
             line-height: 1.6;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0;
         }
 
         /* AskSia-like CTA with animated stroke */
@@ -119,6 +135,7 @@
             background: conic-gradient(#6366F1, #60A5FA, #34D399, #6366F1);
             -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
             -webkit-mask-composite: xor; /* Safari */
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
             mask-composite: exclude;      /* Others */
             /* animation: spin 6s linear infinite; */
             pointer-events: none;
@@ -138,7 +155,6 @@
             -webkit-backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 40px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.04), 0 4px 10px rgba(0,0,0,0.02);
             margin-bottom: 48px;
             animation: fadeInUp 0.8s ease;
             border: 1px solid rgba(255,255,255,0.5);
@@ -645,6 +661,22 @@
         }
 
         @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .left-column {
+                flex: none;
+                position: static;
+                max-height: none;
+                overflow-y: visible;
+            }
+            
+            .right-column {
+                flex: none;
+            }
+            
             h1 {
                 font-size: 2em;
             }
@@ -661,94 +693,110 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Image Color Analyzer</h1>
-            <p class="subtitle">Extract and analyze color palettes from multiple images with advanced algorithms</p>
-            <label for="batchUpload" class="cta">
-                <span>Upload Multiple Images</span>
-                <span class="arrow">↗</span>
-                <input type="file" id="batchUpload" accept="image/*" multiple style="display: none;" onchange="handleBatchUpload(event)">
-            </label>
-        </header>
+        <div class="left-column">
+            <header>
+                <h1>Image Color Analyzer</h1>
+                <p class="subtitle">Extract and analyze color palettes from multiple images with advanced algorithms</p>
+                <label for="batchUpload" class="cta">
+                    <span>Upload Multiple Images</span>
+                    <span class="arrow">↗</span>
+                    <input type="file" id="batchUpload" accept="image/*" multiple style="display: none;" onchange="handleBatchUpload(event)">
+                </label>
+            </header>
 
-        <div class="input-section">
-            <div class="batch-actions" style="margin-bottom: 20px; justify-content: center;">
-                <button class="btn" onclick="reanalyzeImages()" id="reanalyzeBtn" style="display: none; background: #0B0B0C;">
-                    Reanalyze
-                </button>
-                <button class="btn btn-outline-dark" onclick="clearAllResults()" id="clearBtn" style="display: none;">
-                    Clear All
-                </button>
-            </div>
+            <div class="input-section">
+                <div class="batch-actions" style="margin-bottom: 20px; justify-content: flex-start;">
+                    <button class="btn" onclick="reanalyzeImages()" id="reanalyzeBtn" style="display: none; background: #0B0B0C;">
+                        Reanalyze
+                    </button>
+                    <button class="btn btn-outline-dark" onclick="clearAllResults()" id="clearBtn" style="display: none;">
+                        Clear All
+                    </button>
+                </div>
 
-            <div class="options-section">
-                <div class="option-group">
-                    <label for="colorCount">Colors per image:</label>
-                    <input type="number" id="colorCount" min="3" max="8" value="5">
-                </div>
-                
-                <div class="option-group">
-                    <label for="extractMethod">Method:</label>
-                    <select id="extractMethod">
-                        <option value="vibrant">Vibrant</option>
-                        <option value="dominant" selected>Dominant</option>
-                        <option value="quantize">Quantize</option>
-                    </select>
-                </div>
-                
-                <div class="option-group">
-                    <label for="gridView">View:</label>
-                    <select id="gridView" onchange="changeGridView()">
-                        <option value="grid">Grid</option>
-                        <option value="list">List</option>
-                        <option value="compact">Compact</option>
-                    </select>
-                </div>
-                
-                <div class="option-group">
-                    <label for="showPercentages">
-                        <input type="checkbox" id="showPercentages" checked onchange="togglePercentages()" style="margin-right: 5px;">
-                        Show Percentages
-                    </label>
-                </div>
-                
-                <div class="option-group">
-                    <label for="showLabels">
-                        <input type="checkbox" id="showLabels" checked onchange="toggleLabels()" style="margin-right: 5px;">
-                        Show Color Labels
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="loading" id="loading">
-            <div class="spinner"></div>
-            <p id="loadingText">Analyzing images...</p>
-        </div>
-
-        <div class="error-message" id="errorMessage"></div>
-
-        <div class="feed-overview" id="feedOverview">
-            <div class="feed-header" id="feedHeader">
-                <!-- Profile info will be inserted here -->
-            </div>
-
-            <div class="overall-palette" id="overallPalette">
-                <h3>📊 Overall Feed Color Profile</h3>
-                <div class="main-colors" id="mainColors">
-                    <!-- Main colors will be inserted here -->
-                </div>
-                <div class="filter-section">
-                    <label>Filter by dominant color:</label>
-                    <div class="filter-chips" id="filterChips">
-                        <div class="filter-chip active" onclick="filterByColor('all')">All</div>
-                        <!-- Color filters will be added dynamically -->
+                <div class="options-section">
+                    <div class="option-group">
+                        <label for="colorCount">Colors per image:</label>
+                        <input type="number" id="colorCount" min="3" max="8" value="5">
+                    </div>
+                    
+                    <div class="option-group" style="display: flex; gap: 24px; flex-wrap: wrap;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <label for="extractMethod">Method:</label>
+                            <select id="extractMethod">
+                                <option value="vibrant">Vibrant</option>
+                                <option value="dominant" selected>Dominant</option>
+                                <option value="quantize">Quantize</option>
+                            </select>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <label for="gridView">View:</label>
+                            <select id="gridView" onchange="changeGridView()">
+                                <option value="grid">Grid</option>
+                                <option value="list">List</option>
+                                <option value="compact">Compact</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="option-group" style="display: flex; gap: 24px; flex-wrap: wrap;">
+                        <label for="showPercentages">
+                            <input type="checkbox" id="showPercentages" checked onchange="togglePercentages()" style="margin-right: 5px;">
+                            Show Percentages
+                        </label>
+                        <label for="showLabels">
+                            <input type="checkbox" id="showLabels" onchange="toggleLabels()" style="margin-right: 5px;">
+                            Show Color Labels
+                        </label>
                     </div>
                 </div>
             </div>
 
-            <div class="posts-grid" id="postsGrid">
-                <!-- Individual post analyses will be inserted here -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p id="loadingText">Analyzing images...</p>
+            </div>
+
+            <div class="error-message" id="errorMessage"></div>
+        </div>
+
+        <div class="right-column">
+            <div class="results-placeholder" id="resultsPlaceholder" style="
+                background: rgba(255,255,255,0.8);
+                backdrop-filter: blur(10px);
+                border-radius: 20px;
+                padding: 60px 40px;
+                text-align: center;
+                border: 1px solid rgba(255,255,255,0.5);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+                color: #6B7280;
+            ">
+                <h3 style="color: #1F2937; margin-bottom: 15px; font-weight: 600;">Upload images to see results</h3>
+                <p>Color analysis and extracted palettes will appear here once you upload multiple images using the button on the left.</p>
+            </div>
+            
+            <div class="feed-overview" id="feedOverview">
+                <div class="feed-header" id="feedHeader">
+                    <!-- Profile info will be inserted here -->
+                </div>
+
+                <div class="overall-palette" id="overallPalette">
+                    <h3>📊 Overall Feed Color Profile</h3>
+                    <div class="main-colors" id="mainColors">
+                        <!-- Main colors will be inserted here -->
+                    </div>
+                    <div class="filter-section">
+                        <label>Filter by dominant color:</label>
+                        <div class="filter-chips" id="filterChips">
+                            <div class="filter-chip active" onclick="filterByColor('all')">All</div>
+                            <!-- Color filters will be added dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="posts-grid" id="postsGrid">
+                    <!-- Individual post analyses will be inserted here -->
+                </div>
             </div>
         </div>
     </div>
@@ -769,7 +817,7 @@
         let currentFilter = 'all';
         let uploadedFiles = [];
         let showPercentages = true;
-        let showLabels = true;
+        let showLabels = false;
         
         // Store last parameters for reanalysis
         let lastParams = {
@@ -861,6 +909,7 @@
             currentFilter = 'all';
             
             document.getElementById('feedOverview').classList.remove('active');
+            document.getElementById('resultsPlaceholder').style.display = 'block';
             document.getElementById('reanalyzeBtn').style.display = 'none';
             document.getElementById('clearBtn').style.display = 'none';
             document.getElementById('batchUpload').value = '';
@@ -1116,6 +1165,10 @@
             const mainColors = document.getElementById('mainColors');
             const filterChips = document.getElementById('filterChips');
             const postsGrid = document.getElementById('postsGrid');
+            const placeholder = document.getElementById('resultsPlaceholder');
+            
+            // Hide placeholder and show results
+            placeholder.style.display = 'none';
             
             // Clear previous content
             mainColors.innerHTML = '';
