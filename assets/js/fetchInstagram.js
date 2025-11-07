@@ -45,12 +45,22 @@ function showMorePosts() {
         img.src = post.media_url;
         img.alt = post.caption || 'Instagram post';
         img.loading = 'lazy';
-        
+
         // Add error handling for images
         img.onerror = () => {
-            console.error('Failed to load image:', post.media_url);
-            img.src = 'assets/images/placeholder.jpg'; // Add a placeholder image
+            // Use a simple gray placeholder SVG as data URL
+            const placeholderSVG = `
+                <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="400" height="400" fill="#E8E8E8"/>
+                    <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#999" font-family="Arial" font-size="20">
+                        Image Unavailable
+                    </text>
+                </svg>
+            `;
+            img.src = 'data:image/svg+xml;base64,' + btoa(placeholderSVG);
             div.classList.add('error');
+            // Suppress repetitive error logging
+            img.onerror = null;
         };
         
         // Add click event listener to show the modal
