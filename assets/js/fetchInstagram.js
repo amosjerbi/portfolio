@@ -32,9 +32,13 @@ function initTouchGestures() {
 }
 
 function showMorePosts() {
+    console.log('Current page:', currentPage);
+    console.log('Posts per page:', config.postsPerPage);
     const startIndex = (currentPage - 1) * config.postsPerPage;
     const endIndex = startIndex + config.postsPerPage;
+    console.log('Showing posts from index', startIndex, 'to', endIndex);
     const postsToShow = posts.slice(startIndex, endIndex);
+    console.log('Number of posts to show:', postsToShow.length);
     
     postsToShow.forEach((post, index) => {
         const div = document.createElement('div');
