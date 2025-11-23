@@ -178,6 +178,11 @@
             display: flex;
         }
         
+        /* Hide delete button on quick color palette */
+        #quick-color-palette .color-swatch .delete-color {
+            display: none !important;
+        }
+        
         .color-swatch:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
@@ -314,7 +319,10 @@
         }
         
         .menu-bar button {
-            padding: 8px 16px;
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+            padding-top: 8px !important;
+            padding-bottom: 8px !important;
             font-size: 14px;
             font-weight: 600;
             border-radius: 6px;
@@ -329,9 +337,25 @@
             border-color: var(--border-primary);
         }
         
+        /* Better button visibility in dark mode */
+        body.dark .menu-bar button,
+        body.dark .menu-bar-btn {
+            border-color: var(--border-primary);
+            color: #f1f5f9 !important;
+        }
+        
+        body.dark .menu-bar button:hover,
+        body.dark .menu-bar-btn:hover {
+            background: var(--border-secondary);
+            color: #ffffff !important;
+        }
+        
         @media (max-width: 768px) {
             .menu-bar button {
-                padding: 6px 12px;
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+                padding-top: 6px !important;
+                padding-bottom: 6px !important;
                 font-size: 12px;
             }
         }
@@ -407,15 +431,44 @@
         <span id="theme-icon" style="font-size: 24px;">🌙</span>
     </button>
 
-    <!-- Menu Bar -->
+    <!-- Brick Shape Toolbar (moved to top) -->
     <div class="menu-bar">
         <div class="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <div class="flex flex-wrap items-center gap-2 justify-between">
+            <div class="flex items-center gap-4 flex-wrap">
                 <div class="flex items-center gap-2">
                     <span class="text-2xl">🧱</span>
                     <h1 class="text-xl font-bold text-primary">BRICKZ Simulator</h1>
+                </div>
+                <div class="flex items-center gap-2">
+                    <h2 class="text-sm font-bold text-primary whitespace-nowrap"></h2>
+                    <div class="flex gap-2 flex-wrap" id="shape-palette">
+                        <!-- Shapes will be generated here -->
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <h2 class="text-sm font-bold text-primary whitespace-nowrap"></h2>
+                    <div class="flex gap-2" id="quick-color-palette">
+                        <!-- Quick colors will be generated here -->
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button class="tool-button menu-bar-btn text-white active px-4 py-2 rounded-lg text-sm font-semibold" data-tool="place">
+                        ➕ Place
+                    </button>
+                    <button class="tool-button menu-bar-btn text-white px-4 py-2 rounded-lg text-sm font-semibold" data-tool="erase">
+                        ❌ Erase
+                    </button>
+                </div>
+                <p class="text-xs text-tertiary ml-auto whitespace-nowrap">⌨️ Shortcuts: 1-9, 0, P, E</p>
+            </div>
         </div>
-                <div class="flex flex-wrap gap-2">
+    </div>
+
+    <!-- Menu Bar (moved to second position) -->
+    <div class="panel border-b border-t-0" style="border-radius: 0;">
+        <div class="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div class="flex flex-wrap items-center gap-3 justify-between">
+                <div class="flex flex-wrap gap-3">
                     <button id="clear-btn" class="menu-bar-btn">
                         🗑️ Clear
                     </button>
@@ -448,28 +501,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Brick Shape Toolbar -->
-    <div class="panel border-b border-t-0" style="border-radius: 0;">
-        <div class="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <div class="flex items-center gap-4 flex-wrap">
-                <h2 class="text-sm font-bold text-primary whitespace-nowrap">🔷 Shape:</h2>
-                <div class="flex gap-2 flex-wrap" id="shape-palette">
-                    <!-- Shapes will be generated here -->
-                </div>
-                <div class="flex items-center gap-2 ml-4">
-                    <span class="text-sm font-bold text-primary whitespace-nowrap">🛠️ Tool:</span>
-                    <button class="tool-button bg-blue-500 text-white active px-4 py-2 rounded-lg text-sm font-semibold" data-tool="place">
-                            ➕ Place
-                        </button>
-                    <button class="tool-button bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-semibold" data-tool="erase">
-                            ❌ Erase
-                        </button>
-                </div>
-                <p class="text-xs text-tertiary ml-auto whitespace-nowrap">⌨️ Shortcuts: 1-9, 0, P, E</p>
-            </div>
-                    </div>
-                </div>
 
     <div class="w-full max-w-full mx-auto" style="max-width: calc(100vw - 32px);">
     
@@ -557,7 +588,7 @@
 
     <script>
         // Color palette - Vibrant brickz DOTS colors
-        let COLORS = [
+        const DEFAULT_COLORS = [
             { name: 'Hot Pink', class: '', hex: '#ec4899' },
             { name: 'Rose', class: '', hex: '#fb7185' },
             { name: 'Red', class: '', hex: '#ef4444' },
@@ -575,6 +606,8 @@
             { name: 'White', class: '', hex: '#ffffff' },
             { name: 'Gray', class: '', hex: '#6b7280' }
         ];
+        
+        let COLORS = [...DEFAULT_COLORS];
 
         const SHAPES = [
             { name: 'Full', class: 'brick-full', id: 1 },
@@ -601,45 +634,62 @@
         // Elements
         const canvas = document.getElementById('canvas');
         const colorPalette = document.getElementById('color-palette');
+        const quickColorPalette = document.getElementById('quick-color-palette');
         const shapePalette = document.getElementById('shape-palette');
         const widthSlider = document.getElementById('width-slider');
         const heightSlider = document.getElementById('height-slider');
         const widthValue = document.getElementById('width-value');
         const heightValue = document.getElementById('height-value');
 
+        // Load colors from localStorage
+        function loadColors() {
+            const saved = localStorage.getItem('customColors');
+            if (saved) {
+                COLORS = JSON.parse(saved);
+                currentColor = COLORS[0];
+            }
+        }
+
+        // Load saved colors BEFORE rendering palettes
+        loadColors();
+
         // Render color palette
         function renderColorPalette() {
             colorPalette.innerHTML = '';
         COLORS.forEach((color, index) => {
             const swatch = document.createElement('div');
-                swatch.className = `color-swatch ${color === currentColor ? 'selected' : ''}`;
+                swatch.className = `color-swatch ${color.hex === currentColor.hex ? 'selected' : ''}`;
                 swatch.style.backgroundColor = color.hex;
             swatch.title = color.name;
                 swatch.onclick = (e) => {
                     if (!e.target.classList.contains('delete-color')) {
-                        selectColor(color, swatch);
+                        selectColor(color);
                     }
                 };
                 
-                // Add delete button for custom colors
-                const deleteBtn = document.createElement('div');
-                deleteBtn.className = 'delete-color';
-                deleteBtn.innerHTML = '✕';
-                deleteBtn.onclick = (e) => {
-                    e.stopPropagation();
-                    if (COLORS.length > 1) {
-                        const colorIndex = COLORS.indexOf(color);
-                        COLORS.splice(colorIndex, 1);
-                        if (currentColor === color) {
-                            currentColor = COLORS[0];
+                // Only add delete button for custom colors (not in default palette)
+                const isDefaultColor = DEFAULT_COLORS.some(dc => dc.hex === color.hex);
+                if (!isDefaultColor) {
+                    const deleteBtn = document.createElement('div');
+                    deleteBtn.className = 'delete-color';
+                    deleteBtn.innerHTML = '✕';
+                    deleteBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        if (COLORS.length > 1) {
+                            const colorIndex = COLORS.indexOf(color);
+                            COLORS.splice(colorIndex, 1);
+                            if (currentColor === color) {
+                                currentColor = COLORS[0];
+                            }
+                            renderColorPalette();
+                            renderQuickColorPalette();
+                            saveColors();
+                        } else {
+                            alert('You need at least one color!');
                         }
-                        renderColorPalette();
-                        saveColors();
-                    } else {
-                        alert('You need at least one color!');
-                    }
-                };
-                swatch.appendChild(deleteBtn);
+                    };
+                    swatch.appendChild(deleteBtn);
+                }
                 
             colorPalette.appendChild(swatch);
         });
@@ -647,6 +697,33 @@
 
         // Initialize color palette
         renderColorPalette();
+
+        // Render quick color palette (4 colors in top bar)
+        function renderQuickColorPalette() {
+            quickColorPalette.innerHTML = '';
+            // Show first 4 colors
+            const quickColors = COLORS.slice(0, 4);
+            quickColors.forEach((color) => {
+                const swatch = document.createElement('div');
+                swatch.className = `color-swatch ${color.hex === currentColor.hex ? 'selected' : ''}`;
+                swatch.style.backgroundColor = color.hex;
+                swatch.title = color.name;
+                swatch.onclick = (e) => {
+                    // Don't process if clicking on delete button
+                    if (!e.target.classList.contains('delete-color')) {
+                        selectColor(color);
+                    }
+                };
+                
+                // Don't add delete button to quick palette
+                // (but we need to handle if CSS shows it)
+                
+                quickColorPalette.appendChild(swatch);
+            });
+        }
+
+        // Initialize quick color palette
+        renderQuickColorPalette();
 
         // Initialize shape palette
         SHAPES.forEach((shape, index) => {
@@ -667,23 +744,15 @@
         });
 
         // Color selection
-        function selectColor(color, element) {
+        function selectColor(color) {
             currentColor = color;
             renderColorPalette();
+            renderQuickColorPalette();
         }
 
         // Save colors to localStorage
         function saveColors() {
             localStorage.setItem('customColors', JSON.stringify(COLORS));
-        }
-
-        // Load colors from localStorage
-        function loadColors() {
-            const saved = localStorage.getItem('customColors');
-            if (saved) {
-                COLORS = JSON.parse(saved);
-                currentColor = COLORS[0];
-            }
         }
 
         // Add custom color
@@ -700,6 +769,7 @@
                 if (name) {
                     COLORS.push({ name, hex, class: '' });
                     renderColorPalette();
+                    renderQuickColorPalette();
                     saveColors();
                 }
                 document.body.removeChild(colorInput);
@@ -707,9 +777,6 @@
             
             colorInput.click();
         });
-
-        // Load saved colors on startup
-        loadColors();
 
         // Shape selection
         function selectShape(shape, element) {
@@ -1154,6 +1221,7 @@
                     });
                     
                     renderColorPalette();
+                    renderQuickColorPalette();
                     saveColors();
                     updateStats();
                     alert('Design imported successfully!');
