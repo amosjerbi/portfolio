@@ -183,6 +183,14 @@
             display: none !important;
         }
         
+        /* Selected stamp highlight */
+        .stamp-selected {
+            border-color: var(--accent-blue) !important;
+            border-width: 3px !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 0 0 3px var(--accent-blue-light), var(--shadow-md) !important;
+        }
+        
         .color-swatch:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
@@ -469,6 +477,12 @@
         <div class="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div class="flex flex-wrap items-center gap-3 justify-between">
                 <div class="flex flex-wrap gap-3">
+                    <button id="undo-btn" class="menu-bar-btn" title="Undo (Ctrl+Z)">
+                        ↶ Undo
+                    </button>
+                    <button id="redo-btn" class="menu-bar-btn" title="Redo (Ctrl+Y)">
+                        ↷ Redo
+                    </button>
                     <button id="clear-btn" class="menu-bar-btn">
                         🗑️ Clear
                     </button>
@@ -481,12 +495,6 @@
                     <button id="fill-empty-btn" class="menu-bar-btn">
                         ✨ Fill Empty
                     </button>
-                    <button id="export-btn" class="menu-bar-btn">
-                        📥 Export
-                    </button>
-                    <button id="import-btn" class="menu-bar-btn">
-                        📤 Import
-                    </button>
                     <button id="import-image-btn" class="menu-bar-btn">
                         🖼️ Image
                     </button>
@@ -496,6 +504,14 @@
                     <button id="shadow-color-btn" class="menu-bar-btn flex items-center gap-2">
                         <div id="shadow-color-preview" style="width: 16px; height: 16px; border-radius: 3px; background: #000000; border: 1px solid #ccc;"></div>
                         <span>Shadow Color</span>
+                    </button>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <button id="export-btn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-sm">
+                        📥 Export
+                    </button>
+                    <button id="import-btn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-sm">
+                        📤 Import
                     </button>
                 </div>
             </div>
@@ -523,9 +539,35 @@
                     <div class="grid grid-cols-4 gap-3" id="color-palette">
                         <!-- Colors will be generated here -->
                     </div>
-                    <button id="add-color-btn" class="w-full mt-4 bg-purple-500 hover:bg-purple-600 text-white py-2 rounded-lg font-semibold text-sm">
+                    <button id="add-color-btn" class="w-full mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm">
                         ➕ Add Custom Color
                             </button>
+                </div>
+
+                <!-- Stamp Inventory -->
+                <div class="panel rounded-xl shadow-sm p-6">
+                    <h2 class="text-xl font-bold text-primary mb-4">📦 Stamp Inventory</h2>
+                    <div class="grid grid-cols-4 gap-3" id="shape-inventory">
+                        <!-- Custom stamps will be generated here -->
+                    </div>
+                    <div class="flex gap-2 mt-4">
+                        <button id="save-template-btn" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm">
+                            💾 Save Stamp
+                        </button>
+                    </div>
+                    <div class="flex gap-2 mt-2">
+                        <button id="import-shapes-btn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm">
+                            📤 Import
+                        </button>
+                        <button id="export-shapes-btn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm">
+                            📥 Export
+                        </button>
+                    </div>
+                    <div class="flex gap-2 mt-2">
+                        <button id="clear-stamps-btn" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm">
+                            🗑️ Clear All Stamps
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Grid Size -->
@@ -540,7 +582,7 @@
                             <label class="block text-sm font-semibold mb-2 text-primary">Height: <span id="height-value">12</span></label>
                             <input type="range" id="height-slider" min="8" max="90" value="12" class="w-full">
                         </div>
-                        <button id="apply-size-btn" class="w-full bg-purple-500 hover:bg-purple-600 text-white py-2 rounded-lg font-semibold">
+                        <button id="apply-size-btn" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold">
                             Apply Size
                         </button>
                     </div>
@@ -576,7 +618,8 @@
                 <div><span class="font-semibold text-primary">P</span> - Place mode</div>
                 <div><span class="font-semibold text-primary">E</span> - Erase mode</div>
                 <div><span class="font-semibold text-primary">C</span> - Clear canvas (with confirmation)</div>
-                <div><span class="font-semibold text-primary">R</span> - Toggle RTL mode</div>
+                <div><span class="font-semibold text-primary">Ctrl+Z</span> - Undo</div>
+                <div><span class="font-semibold text-primary">Ctrl+Y</span> - Redo</div>
                 <div><span class="font-semibold text-primary">D</span> - Toggle dark mode</div>
             </div>
         </div>
@@ -585,6 +628,7 @@
     <!-- Hidden file inputs for import -->
     <input type="file" id="file-input" accept=".json" style="display: none;">
     <input type="file" id="image-input" accept="image/*" style="display: none;">
+    <input type="file" id="shapes-input" accept=".json" multiple style="display: none;">
 
     <script>
         // Color palette - Vibrant brickz DOTS colors
@@ -609,7 +653,7 @@
         
         let COLORS = [...DEFAULT_COLORS];
 
-        const SHAPES = [
+        const DEFAULT_SHAPES = [
             { name: 'Full', class: 'brick-full', id: 1 },
             { name: 'Circle', class: 'brick-circle', id: 6 },
             { name: 'Top-Left', class: 'brick-tl', id: 2 },
@@ -622,12 +666,23 @@
             { name: 'Right', class: 'brick-r', id: 10 }
         ];
 
+        let SHAPES = [...DEFAULT_SHAPES];
+
+        // Custom stamps (saved patterns)
+        let customTemplates = [];
+
+        // Undo/Redo history
+        let history = [];
+        let historyIndex = -1;
+        const MAX_HISTORY = 50;
+
         // State
         let gridWidth = 50;
         let gridHeight = 12;
         let currentColor = COLORS[0];
         let currentShape = SHAPES[0];
         let currentTool = 'place';
+        let currentTemplate = null;  // Currently selected stamp
         let grid = [];
         let isMouseDown = false;
 
@@ -636,6 +691,7 @@
         const colorPalette = document.getElementById('color-palette');
         const quickColorPalette = document.getElementById('quick-color-palette');
         const shapePalette = document.getElementById('shape-palette');
+        const shapeInventory = document.getElementById('shape-inventory');
         const widthSlider = document.getElementById('width-slider');
         const heightSlider = document.getElementById('height-slider');
         const widthValue = document.getElementById('width-value');
@@ -652,6 +708,38 @@
 
         // Load saved colors BEFORE rendering palettes
         loadColors();
+
+        // Load shapes from localStorage
+        function loadShapes() {
+            const saved = localStorage.getItem('customShapes');
+            if (saved) {
+                SHAPES = JSON.parse(saved);
+            }
+        }
+
+        // Save shapes to localStorage
+        function saveShapes() {
+            localStorage.setItem('customShapes', JSON.stringify(SHAPES));
+        }
+
+        // Load saved shapes
+        loadShapes();
+
+        // Load stamps from localStorage
+        function loadTemplates() {
+            const saved = localStorage.getItem('customStamps');
+            if (saved) {
+                customTemplates = JSON.parse(saved);
+            }
+        }
+
+        // Save stamps to localStorage
+        function saveTemplates() {
+            localStorage.setItem('customStamps', JSON.stringify(customTemplates));
+        }
+
+        // Load saved stamps
+        loadTemplates();
 
         // Render color palette
         function renderColorPalette() {
@@ -725,14 +813,101 @@
         // Initialize quick color palette
         renderQuickColorPalette();
 
-        // Initialize shape palette
-        SHAPES.forEach((shape, index) => {
-            const swatch = document.createElement('div');
-            swatch.className = `shape-swatch ${shape.class} ${index === 0 ? 'selected' : ''}`;
-            swatch.title = shape.name;
-            swatch.onclick = () => selectShape(shape, swatch);
-            shapePalette.appendChild(swatch);
-        });
+        // Render stamp inventory (only custom templates)
+        function renderShapeInventory() {
+            shapeInventory.innerHTML = '';
+            
+            // Only show custom stamps (templates)
+            if (customTemplates.length === 0) {
+                const emptyMsg = document.createElement('div');
+                emptyMsg.className = 'col-span-4 text-center py-8 text-secondary';
+                emptyMsg.style.fontSize = '14px';
+                emptyMsg.innerHTML = '📦<br/>No stamps yet.<br/>Save your designs as stamps!';
+                shapeInventory.appendChild(emptyMsg);
+                return;
+            }
+            
+            customTemplates.forEach((template, index) => {
+                const templateSwatch = document.createElement('div');
+                templateSwatch.className = 'shape-swatch stamp-swatch';
+                templateSwatch.title = template.name;
+                templateSwatch.style.position = 'relative';
+                // Use saved color or default to solid blue
+                templateSwatch.style.background = template.color || '#667eea';
+                templateSwatch.style.display = 'flex';
+                templateSwatch.style.alignItems = 'center';
+                templateSwatch.style.justifyContent = 'center';
+                templateSwatch.style.width = '80px';
+                templateSwatch.style.height = '60px';
+                templateSwatch.style.minWidth = '80px';
+                templateSwatch.style.fontSize = '14px';
+                templateSwatch.style.fontWeight = '700';
+                templateSwatch.style.color = 'white';
+                templateSwatch.style.padding = '12px';
+                templateSwatch.style.textAlign = 'center';
+                templateSwatch.style.overflow = 'hidden';
+                templateSwatch.style.whiteSpace = 'nowrap';
+                templateSwatch.style.borderRadius = '12px';
+                templateSwatch.style.textOverflow = 'ellipsis';
+                templateSwatch.style.lineHeight = '1.2';
+                templateSwatch.style.textShadow = '1px 1px 2px rgba(0,0,0,0.5)';
+                templateSwatch.textContent = template.name;
+                
+                // Add selected class if this is the current template
+                if (currentTemplate === template) {
+                    templateSwatch.classList.add('stamp-selected');
+                }
+                
+                templateSwatch.onclick = (e) => {
+                    if (!e.target.classList.contains('delete-shape')) {
+                        currentTemplate = template;
+                        currentTool = 'place';
+                        // Update tool buttons
+                        document.querySelectorAll('.tool-button').forEach(b => b.classList.remove('active'));
+                        document.querySelector('[data-tool="place"]').classList.add('active');
+                        // Re-render to update selection highlight
+                        renderShapeInventory();
+                    }
+                };
+                
+                // Add delete button for stamps
+                const deleteBtn = document.createElement('div');
+                deleteBtn.className = 'delete-color delete-shape';
+                deleteBtn.innerHTML = '✕';
+                deleteBtn.style.top = '-8px';
+                deleteBtn.style.right = '-8px';
+                deleteBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    if (confirm(`Delete stamp "${template.name}"?`)) {
+                        customTemplates.splice(index, 1);
+                        if (currentTemplate === template) {
+                            currentTemplate = null;
+                        }
+                        renderShapeInventory();
+                        saveTemplates();
+                    }
+                };
+                templateSwatch.appendChild(deleteBtn);
+                
+                shapeInventory.appendChild(templateSwatch);
+            });
+        }
+
+        // Render shape palette (top bar)
+        function renderShapePalette() {
+            shapePalette.innerHTML = '';
+            SHAPES.forEach((shape, index) => {
+                const swatch = document.createElement('div');
+                swatch.className = `shape-swatch ${shape.class} ${shape.class === currentShape.class ? 'selected' : ''}`;
+                swatch.title = shape.name;
+                swatch.onclick = () => selectShape(shape, swatch);
+                shapePalette.appendChild(swatch);
+            });
+        }
+
+        // Initialize shape palettes
+        renderShapeInventory();
+        renderShapePalette();
 
         // Tool buttons
         document.querySelectorAll('.tool-button').forEach(btn => {
@@ -740,6 +915,8 @@
                 document.querySelectorAll('.tool-button').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 currentTool = btn.dataset.tool;
+                currentTemplate = null;  // Clear stamp selection when switching tools
+                renderShapeInventory();  // Update stamp highlights
             });
         });
 
@@ -778,11 +955,12 @@
             colorInput.click();
         });
 
-        // Shape selection
-        function selectShape(shape, element) {
+        // Shape selection (deselects stamp)
+        function selectShape(shape) {
             currentShape = shape;
-            document.querySelectorAll('.shape-swatch').forEach(s => s.classList.remove('selected'));
-            element.classList.add('selected');
+            currentTemplate = null;  // Deselect stamp
+            renderShapePalette();
+            renderShapeInventory();  // Update stamp highlights
         }
 
         // Initialize grid
@@ -824,8 +1002,100 @@
             updateStats();
         }
 
+        // Save current state to history
+        function saveState() {
+            // Remove any states after current index (when making new changes after undo)
+            history = history.slice(0, historyIndex + 1);
+            
+            // Deep clone the grid
+            const state = JSON.parse(JSON.stringify(grid));
+            history.push(state);
+            
+            // Limit history size
+            if (history.length > MAX_HISTORY) {
+                history.shift();
+            } else {
+                historyIndex++;
+            }
+            
+            updateUndoRedoButtons();
+        }
+
+        // Restore grid from state
+        function restoreState(state) {
+            grid = JSON.parse(JSON.stringify(state));
+            
+            // Update UI
+            for (let i = 0; i < grid.length; i++) {
+                const brick = canvas.children[i];
+                const cell = grid[i];
+                
+                if (cell.color && cell.shape) {
+                    brick.className = `brick ${cell.shape.class}`;
+                    brick.style.backgroundColor = cell.color.hex;
+                    if (cell.isShadow) {
+                        brick.classList.add('shadow-brick');
+                    }
+                } else {
+                    brick.className = 'brick empty';
+                    brick.style.backgroundColor = '';
+                }
+            }
+            
+            updateStats();
+        }
+
+        // Undo
+        function undo() {
+            if (historyIndex > 0) {
+                historyIndex--;
+                restoreState(history[historyIndex]);
+                updateUndoRedoButtons();
+            }
+        }
+
+        // Redo
+        function redo() {
+            if (historyIndex < history.length - 1) {
+                historyIndex++;
+                restoreState(history[historyIndex]);
+                updateUndoRedoButtons();
+            }
+        }
+
+        // Update undo/redo button states
+        function updateUndoRedoButtons() {
+            const undoBtn = document.getElementById('undo-btn');
+            const redoBtn = document.getElementById('redo-btn');
+            
+            if (undoBtn) {
+                undoBtn.disabled = historyIndex <= 0;
+                undoBtn.style.opacity = historyIndex <= 0 ? '0.5' : '1';
+                undoBtn.style.cursor = historyIndex <= 0 ? 'not-allowed' : 'pointer';
+            }
+            
+            if (redoBtn) {
+                redoBtn.disabled = historyIndex >= history.length - 1;
+                redoBtn.style.opacity = historyIndex >= history.length - 1 ? '0.5' : '1';
+                redoBtn.style.cursor = historyIndex >= history.length - 1 ? 'not-allowed' : 'pointer';
+            }
+        }
+
+        // Undo/Redo button listeners
+        document.getElementById('undo-btn').addEventListener('click', undo);
+        document.getElementById('redo-btn').addEventListener('click', redo);
+
+        let wasDrawing = false;
+        document.addEventListener('mousedown', () => {
+            wasDrawing = false;
+        });
+        
         document.addEventListener('mouseup', () => {
+            if (isMouseDown && wasDrawing) {
+                saveState();
+            }
             isMouseDown = false;
+            wasDrawing = false;
         });
 
         // Dark mode functionality
@@ -860,31 +1130,33 @@
                 const shapeIndex = parseInt(key) - 1;
                 if (shapeIndex < SHAPES.length) {
                     const shape = SHAPES[shapeIndex];
-                    const swatch = shapePalette.children[shapeIndex];
-                    selectShape(shape, swatch);
+                    selectShape(shape);
                     e.preventDefault();
                 }
             } else if (key === '0') {
                 // 0 key for the 10th shape (Right)
                 if (SHAPES.length >= 10) {
                     const shape = SHAPES[9];
-                    const swatch = shapePalette.children[9];
-                    selectShape(shape, swatch);
+                    selectShape(shape);
                     e.preventDefault();
                 }
             }
             // P for Place mode
             else if (key === 'p') {
                 currentTool = 'place';
+                currentTemplate = null;  // Clear stamp
                 document.querySelectorAll('.tool-button').forEach(b => b.classList.remove('active'));
                 document.querySelector('[data-tool="place"]').classList.add('active');
+                renderShapeInventory();  // Update stamp highlights
                 e.preventDefault();
             }
             // E for Erase mode
             else if (key === 'e') {
                 currentTool = 'erase';
+                currentTemplate = null;  // Clear stamp
                 document.querySelectorAll('.tool-button').forEach(b => b.classList.remove('active'));
                 document.querySelector('[data-tool="erase"]').classList.add('active');
+                renderShapeInventory();  // Update stamp highlights
                 e.preventDefault();
             }
             // C for Clear (with confirmation)
@@ -899,10 +1171,21 @@
                 toggleDarkMode();
                 e.preventDefault();
             }
+            // Ctrl+Z for Undo
+            else if ((e.ctrlKey || e.metaKey) && key === 'z' && !e.shiftKey) {
+                undo();
+                e.preventDefault();
+            }
+            // Ctrl+Y or Ctrl+Shift+Z for Redo
+            else if ((e.ctrlKey || e.metaKey) && (key === 'y' || (key === 'z' && e.shiftKey))) {
+                redo();
+                e.preventDefault();
+            }
         });
 
         // Handle brick click
         function handleBrickClick(index, remove = false) {
+            wasDrawing = true;
             const brick = canvas.children[index];
             
             if (remove || currentTool === 'erase') {
@@ -911,8 +1194,11 @@
                 brick.style.backgroundColor = '';
                 brick.classList.remove('shadow-brick');
                 grid[index] = { color: null, shape: null, isShadow: false };
+            } else if (currentTemplate) {
+                // Place stamp
+                placeTemplate(index);
             } else {
-                // Place brick
+                // Place single brick
                 brick.className = `brick ${currentShape.class}`;
                 brick.style.backgroundColor = currentColor.hex;
                 brick.classList.remove('shadow-brick');
@@ -926,7 +1212,38 @@
             updateStats();
         }
 
-        // Place shadow bricks around all placed bricks
+        // Place stamp at position
+        function placeTemplate(startIndex) {
+            if (!currentTemplate || !currentTemplate.pattern) return;
+            
+            const startRow = Math.floor(startIndex / gridWidth);
+            const startCol = startIndex % gridWidth;
+            
+            currentTemplate.pattern.forEach(brick => {
+                const targetRow = startRow + brick.row;
+                const targetCol = startCol + brick.col;
+                
+                if (targetRow >= 0 && targetRow < gridHeight && targetCol >= 0 && targetCol < gridWidth) {
+                    const targetIndex = targetRow * gridWidth + targetCol;
+                    const targetBrick = canvas.children[targetIndex];
+                    
+                    if (brick.color && brick.shape) {
+                        targetBrick.className = `brick ${brick.shape.class}`;
+                        // Use currently selected color instead of stamp's saved color
+                        targetBrick.style.backgroundColor = currentColor.hex;
+                        grid[targetIndex] = {
+                            color: currentColor,  // Use current color
+                            shape: brick.shape,
+                            isShadow: false
+                        };
+                    }
+                }
+            });
+            
+            updateStats();
+        }
+
+        // Add shadows to all bricks
         function addShadowsToAllBricks() {
             // First, remove any existing shadow bricks
             for (let i = 0; i < grid.length; i++) {
@@ -1090,12 +1407,14 @@
             }
             
             updateStats();
+            saveState();
         });
 
         // Clear canvas
         document.getElementById('clear-btn').addEventListener('click', () => {
             if (confirm('Are you sure you want to clear the canvas?')) {
                 initGrid();
+                saveState();
             }
         });
 
@@ -1111,6 +1430,7 @@
                 };
             }
             updateStats();
+            saveState();
         });
 
         // Recolor all placed bricks
@@ -1129,6 +1449,7 @@
             updateStats();
             if (recoloredCount > 0) {
                 console.log(`Recolored ${recoloredCount} bricks to ${currentColor.name}`);
+                saveState();
             }
         });
 
@@ -1150,6 +1471,7 @@
             updateStats();
             if (filledCount > 0) {
                 console.log(`Filled ${filledCount} empty slots with ${currentColor.name}`);
+                saveState();
             }
         });
 
@@ -1224,6 +1546,7 @@
                     renderQuickColorPalette();
                     saveColors();
                     updateStats();
+                    saveState();
                     alert('Design imported successfully!');
                 } catch (error) {
                     alert('Error importing design: ' + error.message);
@@ -1304,6 +1627,7 @@
             }
             
             updateStats();
+            saveState();
             alert('Image imported! Adjust grid size before importing if you want different dimensions.');
         }
 
@@ -1334,6 +1658,69 @@
             return closestColor;
         }
 
+        // Export stamps
+        document.getElementById('export-shapes-btn').addEventListener('click', () => {
+            const shapesData = {
+                stamps: customTemplates
+            };
+            
+            const blob = new Blob([JSON.stringify(shapesData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'brickz-stamps.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+
+        // Import stamps
+        document.getElementById('import-shapes-btn').addEventListener('click', () => {
+            document.getElementById('shapes-input').click();
+        });
+
+        document.getElementById('shapes-input').addEventListener('change', async (e) => {
+            const files = Array.from(e.target.files);
+            if (files.length === 0) return;
+            
+            let totalImported = 0;
+            let errorFiles = [];
+            
+            // Process all files
+            for (const file of files) {
+                try {
+                    const text = await file.text();
+                    const shapesData = JSON.parse(text);
+                    
+                    // Support both "stamps" and "templates" for backwards compatibility
+                    const stamps = shapesData.stamps || shapesData.templates;
+                    
+                    if (stamps && Array.isArray(stamps)) {
+                        customTemplates = [...customTemplates, ...stamps];
+                        totalImported += stamps.length;
+                    } else {
+                        errorFiles.push(file.name);
+                    }
+                } catch (error) {
+                    errorFiles.push(file.name);
+                }
+            }
+            
+            // Update UI
+            renderShapeInventory();
+            saveTemplates();
+            
+            // Show results
+            let message = `✅ Imported ${totalImported} stamp(s) from ${files.length} file(s)!`;
+            if (errorFiles.length > 0) {
+                message += `\n\n⚠️ Failed to import: ${errorFiles.join(', ')}`;
+            }
+            alert(message);
+            
+            // Reset input
+            e.target.value = '';
+        });
+
+
         // Handle window resize for responsive grid
         let resizeTimer;
         window.addEventListener('resize', () => {
@@ -1352,6 +1739,7 @@
         // Add shadows button
         document.getElementById('add-shadows-btn').addEventListener('click', () => {
             addShadowsToAllBricks();
+            saveState();
         });
         
         // Shadow color picker
@@ -1386,8 +1774,74 @@
             colorInput.click();
         });
 
+        // Clear all stamps
+        document.getElementById('clear-stamps-btn').addEventListener('click', () => {
+            if (customTemplates.length === 0) {
+                alert('No stamps to clear!');
+                return;
+            }
+            
+            if (confirm(`Are you sure you want to delete all ${customTemplates.length} stamp(s)? This cannot be undone.`)) {
+                customTemplates = [];
+                currentTemplate = null;
+                saveTemplates();
+                renderShapeInventory();
+                alert('All stamps cleared!');
+            }
+        });
+
+        // Save current canvas as stamp
+        document.getElementById('save-template-btn').addEventListener('click', () => {
+            const name = prompt('Enter a name for this stamp:');
+            if (!name) return;
+            
+            // Get all non-empty bricks
+            const pattern = [];
+            for (let i = 0; i < grid.length; i++) {
+                if (grid[i].color !== null && !grid[i].isShadow) {
+                    const row = Math.floor(i / gridWidth);
+                    const col = i % gridWidth;
+                    pattern.push({
+                        row,
+                        col,
+                        color: grid[i].color,
+                        shape: grid[i].shape
+                    });
+                }
+            }
+            
+            if (pattern.length === 0) {
+                alert('Canvas is empty! Add some bricks first.');
+                return;
+            }
+            
+            // Normalize pattern to start at 0,0
+            const minRow = Math.min(...pattern.map(p => p.row));
+            const minCol = Math.min(...pattern.map(p => p.col));
+            const normalizedPattern = pattern.map(p => ({
+                row: p.row - minRow,
+                col: p.col - minCol,
+                color: p.color,
+                shape: p.shape
+            }));
+            
+            customTemplates.push({
+                name,
+                pattern: normalizedPattern,
+                width: Math.max(...normalizedPattern.map(p => p.col)) + 1,
+                height: Math.max(...normalizedPattern.map(p => p.row)) + 1,
+                color: currentColor.hex  // Save the current color
+            });
+            
+            saveTemplates();
+            renderShapeInventory();
+            alert(`Stamp "${name}" saved! Click it in the inventory to place it on canvas.`);
+        });
+
         // Initialize
         initGrid();
+        saveState();
+        updateUndoRedoButtons();
     </script>
 </body>
 </html>
