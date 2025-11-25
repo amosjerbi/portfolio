@@ -832,8 +832,8 @@
                 templateSwatch.className = 'shape-swatch stamp-swatch';
                 templateSwatch.title = template.name;
                 templateSwatch.style.position = 'relative';
-                // Use saved color or default to solid blue
-                templateSwatch.style.background = template.color || '#667eea';
+                // Always use solid blue background
+                templateSwatch.style.background = '#667eea';
                 templateSwatch.style.display = 'flex';
                 templateSwatch.style.alignItems = 'center';
                 templateSwatch.style.justifyContent = 'center';
@@ -1829,8 +1829,7 @@
                 name,
                 pattern: normalizedPattern,
                 width: Math.max(...normalizedPattern.map(p => p.col)) + 1,
-                height: Math.max(...normalizedPattern.map(p => p.row)) + 1,
-                color: currentColor.hex  // Save the current color
+                height: Math.max(...normalizedPattern.map(p => p.row)) + 1
             });
             
             saveTemplates();
