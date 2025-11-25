@@ -436,7 +436,7 @@
 <body class="min-h-screen p-4 sm:p-6 lg:p-8">
     <!-- Dark Mode Toggle -->
     <button id="dark-mode-toggle" class="dark-mode-toggle" title="Toggle dark mode">
-        <span id="theme-icon" style="font-size: 24px;">🌙</span>
+        <span id="theme-icon" style="font-size: 24px;">◑</span>
     </button>
 
     <!-- Brick Shape Toolbar (moved to top) -->
@@ -444,7 +444,6 @@
         <div class="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div class="flex items-center gap-4 flex-wrap">
                 <div class="flex items-center gap-2">
-                    <span class="text-2xl">🧱</span>
                     <h1 class="text-xl font-bold text-primary">BRICKZ Simulator</h1>
                 </div>
                 <div class="flex items-center gap-2">
@@ -461,13 +460,13 @@
                 </div>
                 <div class="flex items-center gap-2">
                     <button class="tool-button menu-bar-btn text-white active px-4 py-2 rounded-lg text-sm font-semibold" data-tool="place">
-                        ➕ Place
+                        Place
                     </button>
                     <button class="tool-button menu-bar-btn text-white px-4 py-2 rounded-lg text-sm font-semibold" data-tool="erase">
-                        ❌ Erase
+                        Erase
                     </button>
                 </div>
-                <p class="text-xs text-tertiary ml-auto whitespace-nowrap">⌨️ Shortcuts: 1-9, 0, P, E</p>
+                <p class="text-xs text-tertiary ml-auto whitespace-nowrap">Shortcuts: 1-9, 0, P, E</p>
             </div>
         </div>
     </div>
@@ -478,40 +477,44 @@
             <div class="flex flex-wrap items-center gap-3 justify-between">
                 <div class="flex flex-wrap gap-3">
                     <button id="undo-btn" class="menu-bar-btn" title="Undo (Ctrl+Z)">
-                        ↶ Undo
+                        Undo
                     </button>
                     <button id="redo-btn" class="menu-bar-btn" title="Redo (Ctrl+Y)">
-                        ↷ Redo
+                        Redo
                     </button>
                     <button id="clear-btn" class="menu-bar-btn">
-                        🗑️ Clear
+                        Clear
                     </button>
                     <button id="fill-btn" class="menu-bar-btn">
-                        🎨 Fill All
+                        Fill All
                     </button>
                     <button id="recolor-btn" class="menu-bar-btn">
-                        🌈 Recolor
+                        Recolor
                     </button>
                     <button id="fill-empty-btn" class="menu-bar-btn">
-                        ✨ Fill Empty
+                        Fill Empty
                     </button>
                     <button id="import-image-btn" class="menu-bar-btn">
-                        🖼️ Image
+                        Image
                     </button>
                     <button id="add-shadows-btn" class="menu-bar-btn">
-                        👻 Add Shadows
+                        Add Shadows
                     </button>
                     <button id="shadow-color-btn" class="menu-bar-btn flex items-center gap-2">
                         <div id="shadow-color-preview" style="width: 16px; height: 16px; border-radius: 3px; background: #000000; border: 1px solid #ccc;"></div>
                         <span>Shadow Color</span>
                     </button>
+                    <button id="baseplate-color-btn" class="menu-bar-btn flex items-center gap-2">
+                        <div id="baseplate-color-preview" style="width: 16px; height: 16px; border-radius: 3px; border: 1px solid #ccc;"></div>
+                        <span>Baseplate Color</span>
+                    </button>
                 </div>
                 <div class="flex flex-wrap gap-3">
                     <button id="export-btn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-sm">
-                        📥 Export
+                        Export
                     </button>
                     <button id="import-btn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-sm">
-                        📤 Import
+                        Import
                     </button>
                 </div>
             </div>
@@ -532,47 +535,47 @@
             </div>
 
             <!-- Sidebar Tools -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Color Palette -->
                 <div class="panel rounded-xl shadow-sm p-6">
-                    <h2 class="text-xl font-bold text-primary mb-4">🎨 Color Palette</h2>
+                    <h2 class="text-xl font-bold text-primary mb-4">Color Palette</h2>
                     <div class="grid grid-cols-4 gap-3" id="color-palette">
                         <!-- Colors will be generated here -->
                     </div>
                     <button id="add-color-btn" class="w-full mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm">
-                        ➕ Add Custom Color
+                        Add Custom Color
                             </button>
                 </div>
 
                 <!-- Stamp Inventory -->
                 <div class="panel rounded-xl shadow-sm p-6">
-                    <h2 class="text-xl font-bold text-primary mb-4">📦 Stamp Inventory</h2>
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-bold text-primary">Stamp Inventory</h2>
+                        <button id="save-template-btn" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1.5 rounded-lg font-semibold text-sm">
+                            Save Stamp
+                        </button>
+                    </div>
                     <div class="grid grid-cols-4 gap-3" id="shape-inventory">
                         <!-- Custom stamps will be generated here -->
                     </div>
                     <div class="flex gap-2 mt-4">
-                        <button id="save-template-btn" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm">
-                            💾 Save Stamp
-                        </button>
-                    </div>
-                    <div class="flex gap-2 mt-2">
                         <button id="import-shapes-btn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm">
-                            📤 Import
+                            Import
                         </button>
                         <button id="export-shapes-btn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm">
-                            📥 Export
+                            Export
                         </button>
                     </div>
                     <div class="flex gap-2 mt-2">
                         <button id="clear-stamps-btn" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm">
-                            🗑️ Clear All Stamps
+                            Clear All Stamps
                         </button>
                     </div>
                 </div>
 
                 <!-- Grid Size -->
                 <div class="panel rounded-xl shadow-sm p-6">
-                    <h2 class="text-xl font-bold text-primary mb-4">📏 Grid Size</h2>
+                    <h2 class="text-xl font-bold text-primary mb-4">Grid Size</h2>
                     <div class="space-y-4">
                         <div>
                             <label class="block text-sm font-semibold mb-2 text-primary">Width: <span id="width-value">50</span></label>
@@ -588,9 +591,30 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+
+        <!-- Footer Info -->
+        <div class="mt-8 panel rounded-xl shadow-sm p-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Keyboard Shortcuts -->
+                <div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Keyboard Shortcuts</h3>
+                    <div class="grid grid-cols-1 gap-2 text-sm text-secondary">
+                        <div><span class="font-semibold text-primary">1-9</span> - Select brick shape (Full, Circle, TL, TR, BR, BL, Top, Bottom, Left)</div>
+                        <div><span class="font-semibold text-primary">0</span> - Select Right shape</div>
+                        <div><span class="font-semibold text-primary">P</span> - Place mode</div>
+                        <div><span class="font-semibold text-primary">E</span> - Erase mode</div>
+                        <div><span class="font-semibold text-primary">C</span> - Clear canvas (with confirmation)</div>
+                        <div><span class="font-semibold text-primary">Ctrl+Z</span> - Undo</div>
+                        <div><span class="font-semibold text-primary">Ctrl+Y</span> - Redo</div>
+                        <div><span class="font-semibold text-primary">D</span> - Toggle dark mode</div>
+                    </div>
+                </div>
+                
                 <!-- Stats -->
-                <div class="panel rounded-xl shadow-sm p-6">
-                    <h2 class="text-xl font-bold text-primary mb-4">📊 Stats</h2>
+                <div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Stats</h3>
                     <div class="space-y-2 text-sm text-primary">
                         <div class="flex justify-between">
                             <span class="font-semibold">Total Bricks:</span>
@@ -608,21 +632,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Footer Info -->
-        <div class="mt-8 panel rounded-xl shadow-sm p-6">
-            <h3 class="text-xl font-bold text-primary mb-3">⌨️ Keyboard Shortcuts</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-secondary">
-                <div><span class="font-semibold text-primary">1-9</span> - Select brick shape (Full, Circle, TL, TR, BR, BL, Top, Bottom, Left)</div>
-                <div><span class="font-semibold text-primary">0</span> - Select Right shape</div>
-                <div><span class="font-semibold text-primary">P</span> - Place mode</div>
-                <div><span class="font-semibold text-primary">E</span> - Erase mode</div>
-                <div><span class="font-semibold text-primary">C</span> - Clear canvas (with confirmation)</div>
-                <div><span class="font-semibold text-primary">Ctrl+Z</span> - Undo</div>
-                <div><span class="font-semibold text-primary">Ctrl+Y</span> - Redo</div>
-                <div><span class="font-semibold text-primary">D</span> - Toggle dark mode</div>
-            </div>
-        </div>
     </div>
 
     <!-- Hidden file inputs for import -->
@@ -631,24 +640,13 @@
     <input type="file" id="shapes-input" accept=".json" multiple style="display: none;">
 
     <script>
-        // Color palette - Vibrant brickz DOTS colors
+        // Color palette - LEGO inspired colors
         const DEFAULT_COLORS = [
-            { name: 'Hot Pink', class: '', hex: '#ec4899' },
-            { name: 'Rose', class: '', hex: '#fb7185' },
-            { name: 'Red', class: '', hex: '#ef4444' },
-            { name: 'Orange', class: '', hex: '#f97316' },
-            { name: 'Yellow', class: '', hex: '#facc15' },
-            { name: 'Lime', class: '', hex: '#a3e635' },
-            { name: 'Green', class: '', hex: '#22c55e' },
-            { name: 'Emerald', class: '', hex: '#34d399' },
-            { name: 'Cyan', class: '', hex: '#22d3ee' },
-            { name: 'Sky Blue', class: '', hex: '#38bdf8' },
-            { name: 'Blue', class: '', hex: '#3b82f6' },
-            { name: 'Indigo', class: '', hex: '#6366f1' },
-            { name: 'Purple', class: '', hex: '#a855f7' },
-            { name: 'Fuchsia', class: '', hex: '#d946ef' },
-            { name: 'White', class: '', hex: '#ffffff' },
-            { name: 'Gray', class: '', hex: '#6b7280' }
+            { name: 'Royal Blue', class: '', hex: '#2563eb' },
+            { name: 'Lavender', class: '', hex: '#b4a7d6' },
+            { name: 'Red', class: '', hex: '#dc2626' },
+            { name: 'Yellow', class: '', hex: '#fbbf24' },
+            { name: 'Pink', class: '', hex: '#f8b4d9' }
         ];
         
         let COLORS = [...DEFAULT_COLORS];
@@ -741,6 +739,34 @@
         // Load saved stamps
         loadTemplates();
 
+        // Recent colors tracking
+        let recentColors = [];
+        
+        // Load recent colors from localStorage
+        function loadRecentColors() {
+            const saved = localStorage.getItem('recentColors');
+            if (saved) {
+                const savedHexes = JSON.parse(saved);
+                // Convert hex values back to color objects
+                recentColors = savedHexes.map(hex => 
+                    COLORS.find(c => c.hex === hex) || { name: 'Custom', hex, class: '' }
+                ).filter(c => c); // Remove any null values
+            }
+            // If no recent colors, use first 4 from palette
+            if (recentColors.length === 0) {
+                recentColors = COLORS.slice(0, 4);
+            }
+        }
+        
+        // Save recent colors to localStorage
+        function saveRecentColors() {
+            const hexes = recentColors.map(c => c.hex);
+            localStorage.setItem('recentColors', JSON.stringify(hexes));
+        }
+        
+        // Load recent colors
+        loadRecentColors();
+
         // Render color palette
         function renderColorPalette() {
             colorPalette.innerHTML = '';
@@ -786,11 +812,11 @@
         // Initialize color palette
         renderColorPalette();
 
-        // Render quick color palette (4 colors in top bar)
+        // Render quick color palette (4 most recent colors in top bar)
         function renderQuickColorPalette() {
             quickColorPalette.innerHTML = '';
-            // Show first 4 colors
-            const quickColors = COLORS.slice(0, 4);
+            // Show most recent 4 colors
+            const quickColors = recentColors.slice(0, 4);
             quickColors.forEach((color) => {
                 const swatch = document.createElement('div');
                 swatch.className = `color-swatch ${color.hex === currentColor.hex ? 'selected' : ''}`;
@@ -822,7 +848,7 @@
                 const emptyMsg = document.createElement('div');
                 emptyMsg.className = 'col-span-4 text-center py-8 text-secondary';
                 emptyMsg.style.fontSize = '14px';
-                emptyMsg.innerHTML = '📦<br/>No stamps yet.<br/>Save your designs as stamps!';
+                emptyMsg.innerHTML = 'No stamps yet.<br/>Save your designs as stamps!';
                 shapeInventory.appendChild(emptyMsg);
                 return;
             }
@@ -923,6 +949,17 @@
         // Color selection
         function selectColor(color) {
             currentColor = color;
+            
+            // Update recent colors
+            // Remove color if it already exists
+            recentColors = recentColors.filter(c => c.hex !== color.hex);
+            // Add to front
+            recentColors.unshift(color);
+            // Keep only last 4
+            recentColors = recentColors.slice(0, 4);
+            // Save to localStorage
+            saveRecentColors();
+            
             renderColorPalette();
             renderQuickColorPalette();
         }
@@ -977,6 +1014,12 @@
                 const brick = document.createElement('div');
                 brick.className = 'brick empty';
                 brick.dataset.index = i;
+                
+                // Apply custom empty brick colors if set
+                if (window.emptyBrickColor) {
+                    brick.style.backgroundColor = window.emptyBrickColor;
+                    brick.style.borderColor = window.emptyBrickBorder;
+                }
                 
                 brick.addEventListener('mousedown', (e) => {
                     e.preventDefault();
@@ -1039,6 +1082,12 @@
                 } else {
                     brick.className = 'brick empty';
                     brick.style.backgroundColor = '';
+                    brick.style.borderColor = '';
+                    // Apply custom empty brick colors if set
+                    if (window.emptyBrickColor) {
+                        brick.style.backgroundColor = window.emptyBrickColor;
+                        brick.style.borderColor = window.emptyBrickBorder;
+                    }
                 }
             }
             
@@ -1106,13 +1155,13 @@
         const currentTheme = localStorage.getItem('theme') || 'light';
         if (currentTheme === 'dark') {
             document.body.classList.add('dark');
-            themeIcon.textContent = '☀️';
+            themeIcon.textContent = '◐';
         }
         
         function toggleDarkMode() {
             document.body.classList.toggle('dark');
             const isDark = document.body.classList.contains('dark');
-            themeIcon.textContent = isDark ? '☀️' : '🌙';
+            themeIcon.textContent = isDark ? '◐' : '◑';
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         }
         
@@ -1192,6 +1241,12 @@
                 // Remove brick
                 brick.className = 'brick empty';
                 brick.style.backgroundColor = '';
+                brick.style.borderColor = '';
+                // Apply custom empty brick colors if set
+                if (window.emptyBrickColor) {
+                    brick.style.backgroundColor = window.emptyBrickColor;
+                    brick.style.borderColor = window.emptyBrickBorder;
+                }
                 brick.classList.remove('shadow-brick');
                 grid[index] = { color: null, shape: null, isShadow: false };
             } else if (currentTemplate) {
@@ -1251,6 +1306,12 @@
                     const brick = canvas.children[i];
                     brick.className = 'brick empty';
                     brick.style.backgroundColor = '';
+                    brick.style.borderColor = '';
+                    // Apply custom empty brick colors if set
+                    if (window.emptyBrickColor) {
+                        brick.style.backgroundColor = window.emptyBrickColor;
+                        brick.style.borderColor = window.emptyBrickBorder;
+                    }
                     brick.classList.remove('shadow-brick');
                     grid[i] = { color: null, shape: null, isShadow: false };
                 }
@@ -1368,6 +1429,12 @@
                 const brick = document.createElement('div');
                 brick.className = 'brick empty';
                 brick.dataset.index = i;
+                
+                // Apply custom empty brick colors if set
+                if (window.emptyBrickColor) {
+                    brick.style.backgroundColor = window.emptyBrickColor;
+                    brick.style.borderColor = window.emptyBrickBorder;
+                }
                 
                 brick.addEventListener('mousedown', (e) => {
                     e.preventDefault();
@@ -1710,9 +1777,9 @@
             saveTemplates();
             
             // Show results
-            let message = `✅ Imported ${totalImported} stamp(s) from ${files.length} file(s)!`;
+            let message = `Imported ${totalImported} stamp(s) from ${files.length} file(s)!`;
             if (errorFiles.length > 0) {
-                message += `\n\n⚠️ Failed to import: ${errorFiles.join(', ')}`;
+                message += `\n\nFailed to import: ${errorFiles.join(', ')}`;
             }
             alert(message);
             
@@ -1769,6 +1836,85 @@
             
             colorInput.addEventListener('blur', () => {
                 document.body.removeChild(colorInput);
+            });
+            
+            colorInput.click();
+        });
+
+        // Function to lighten a color
+        function lightenColor(hex, percent = 30) {
+            // Convert hex to RGB
+            const num = parseInt(hex.replace('#', ''), 16);
+            const r = (num >> 16);
+            const g = (num >> 8) & 0x00FF;
+            const b = num & 0x0000FF;
+            
+            // Lighten by moving towards white
+            const newR = Math.min(255, Math.floor(r + (255 - r) * (percent / 100)));
+            const newG = Math.min(255, Math.floor(g + (255 - g) * (percent / 100)));
+            const newB = Math.min(255, Math.floor(b + (255 - b) * (percent / 100)));
+            
+            // Convert back to hex
+            return '#' + ((newR << 16) | (newG << 8) | newB).toString(16).padStart(6, '0');
+        }
+        
+        // Function to update empty brick colors based on baseplate color
+        function updateEmptyBrickColors(baseColor) {
+            const lighterColor = lightenColor(baseColor, 30);
+            const borderColor = lightenColor(baseColor, 20);
+            
+            // Update all empty bricks
+            const emptyBricks = document.querySelectorAll('.brick.empty');
+            emptyBricks.forEach(brick => {
+                brick.style.backgroundColor = lighterColor;
+                brick.style.borderColor = borderColor;
+            });
+            
+            // Store colors for new bricks
+            window.emptyBrickColor = lighterColor;
+            window.emptyBrickBorder = borderColor;
+        }
+        
+        // Baseplate color functionality
+        let baseplateColor = localStorage.getItem('baseplateColor') || null;
+        const gridContainer = document.querySelector('.grid-container');
+        
+        // Apply saved baseplate color on load
+        if (baseplateColor) {
+            gridContainer.style.background = baseplateColor;
+            document.getElementById('baseplate-color-preview').style.background = baseplateColor;
+            updateEmptyBrickColors(baseplateColor);
+        } else {
+            // Set preview to current CSS variable color
+            const computedStyle = getComputedStyle(document.documentElement);
+            const defaultColor = computedStyle.getPropertyValue('--bg-tertiary').trim();
+            document.getElementById('baseplate-color-preview').style.background = defaultColor;
+        }
+        
+        // Baseplate color picker
+        document.getElementById('baseplate-color-btn').addEventListener('click', () => {
+            const colorInput = document.createElement('input');
+            colorInput.type = 'color';
+            colorInput.value = baseplateColor || '#f1f5f9';
+            colorInput.style.display = 'none';
+            document.body.appendChild(colorInput);
+            
+            colorInput.addEventListener('change', (e) => {
+                baseplateColor = e.target.value;
+                gridContainer.style.background = baseplateColor;
+                document.getElementById('baseplate-color-preview').style.background = baseplateColor;
+                localStorage.setItem('baseplateColor', baseplateColor);
+                
+                // Update empty brick colors
+                updateEmptyBrickColors(baseplateColor);
+                
+                document.body.removeChild(colorInput);
+            });
+            
+            colorInput.addEventListener('blur', () => {
+                if (document.body.contains(colorInput)) {
+                    document.body.removeChild(colorInput);
+                }
             });
             
             colorInput.click();
