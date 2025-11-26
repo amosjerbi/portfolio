@@ -137,7 +137,7 @@
         
         .grid-container {
             display: grid;
-            gap: 3px;
+            gap: 1px;
             background: var(--bg-tertiary);
             padding: 8px;
             border-radius: 12px;
@@ -152,7 +152,7 @@
             cursor: pointer;
             border: 2px solid var(--border-primary);
             transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-sm), inset 0 0 0 1px rgba(0, 0, 0, 0.1);
             position: relative;
         }
         
@@ -181,6 +181,16 @@
         /* Hide delete button on quick color palette */
         #quick-color-palette .color-swatch .delete-color {
             display: none !important;
+        }
+        
+        /* Enhanced visibility for quick color palette swatches */
+        #quick-color-palette .color-swatch {
+            border: 3px solid rgba(0, 0, 0, 0.6) !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        #quick-color-palette .color-swatch.selected {
+            border: 3px solid var(--accent-blue) !important;
         }
         
         /* Selected stamp highlight */
@@ -326,36 +336,26 @@
             transition: all 0.3s ease;
         }
         
-        .menu-bar button {
+        .menu-bar button,
+        .menu-bar-btn {
             padding-left: 16px !important;
             padding-right: 16px !important;
             padding-top: 8px !important;
             padding-bottom: 8px !important;
             font-size: 14px;
             font-weight: 600;
-            border-radius: 6px;
+            border-radius: 8px;
             transition: all 0.15s ease;
-            border: 1px solid transparent;
+            border: 1.5px solid rgba(0, 0, 0, 0.15);
             color: var(--text-primary);
-            background: transparent;
+            background: var(--bg-secondary);
         }
         
-        .menu-bar button:hover {
-            background: var(--bg-tertiary);
-            border-color: var(--border-primary);
-        }
-        
-        /* Better button visibility in dark mode */
-        body.dark .menu-bar button,
-        body.dark .menu-bar-btn {
-            border-color: var(--border-primary);
-            color: #f1f5f9 !important;
-        }
-        
-        body.dark .menu-bar button:hover,
-        body.dark .menu-bar-btn:hover {
-            background: var(--border-secondary);
-            color: #ffffff !important;
+        .menu-bar button:hover,
+        .menu-bar-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            border-color: rgba(0, 0, 0, 0.25);
+            transform: translateY(-1px);
         }
         
         @media (max-width: 768px) {
@@ -551,22 +551,22 @@
                 <div class="panel rounded-xl shadow-sm p-6">
                     <div class="flex items-center justify-between mb-4">
                         <h2 class="text-xl font-bold text-primary">Stamp Inventory</h2>
-                        <button id="save-template-btn" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1.5 rounded-lg font-semibold text-sm">
-                            Save Stamp
-                        </button>
+                        <div class="flex gap-2">
+                            <button id="import-shapes-btn" class="text-primary hover:text-blue-500 px-2 py-1 rounded-lg text-sm transition-colors border border-gray-400">
+                                Import
+                            </button>
+                            <button id="export-shapes-btn" class="text-primary hover:text-blue-500 px-2 py-1 rounded-lg text-sm transition-colors border border-gray-400">
+                                Export
+                            </button>
+                            <button id="save-template-btn" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1.5 rounded-lg font-semibold text-sm">
+                                Save Stamp
+                            </button>
+                        </div>
                     </div>
                     <div class="grid grid-cols-4 gap-3" id="shape-inventory">
                         <!-- Custom stamps will be generated here -->
                     </div>
                     <div class="flex gap-2 mt-4">
-                        <button id="import-shapes-btn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm">
-                            Import
-                        </button>
-                        <button id="export-shapes-btn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm">
-                            Export
-                        </button>
-                    </div>
-                    <div class="flex gap-2 mt-2">
                         <button id="clear-stamps-btn" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm">
                             Clear All Stamps
                         </button>
@@ -609,6 +609,14 @@
                         <div><span class="font-semibold text-primary">Ctrl+Z</span> - Undo</div>
                         <div><span class="font-semibold text-primary">Ctrl+Y</span> - Redo</div>
                         <div><span class="font-semibold text-primary">D</span> - Toggle dark mode</div>
+                    </div>
+                    <div class="mt-4 flex gap-2">
+                        <a href="https://github.com/amosjerbi/portfolio/blob/master/brickz/Hebrew_Font.zip" target="_blank" rel="noopener noreferrer" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm text-center">
+                            Download Hebrew Font
+                        </a>
+                        <a href="https://github.com/amosjerbi/portfolio/tree/master/brickz" target="_blank" rel="noopener noreferrer" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm text-center">
+                            GitHub Project
+                        </a>
                     </div>
                 </div>
                 
@@ -817,16 +825,42 @@
             quickColorPalette.innerHTML = '';
             // Show most recent 4 colors
             const quickColors = recentColors.slice(0, 4);
-            quickColors.forEach((color) => {
+            quickColors.forEach((color, index) => {
                 const swatch = document.createElement('div');
                 swatch.className = `color-swatch ${color.hex === currentColor.hex ? 'selected' : ''}`;
                 swatch.style.backgroundColor = color.hex;
-                swatch.title = color.name;
+                swatch.title = color.name + ' (double-click to change color)';
                 swatch.onclick = (e) => {
                     // Don't process if clicking on delete button
                     if (!e.target.classList.contains('delete-color')) {
                         selectColor(color);
                     }
+                };
+                
+                // Add double-click to open color picker
+                swatch.ondblclick = (e) => {
+                    e.stopPropagation();
+                    const colorInput = document.createElement('input');
+                    colorInput.type = 'color';
+                    colorInput.value = color.hex;
+                    colorInput.style.display = 'none';
+                    document.body.appendChild(colorInput);
+                    
+                    colorInput.addEventListener('change', (e) => {
+                        const newHex = e.target.value.toUpperCase();
+                        // Update the color in recentColors array
+                        recentColors[index] = { 
+                            name: `Custom ${newHex}`, 
+                            hex: newHex, 
+                            class: '' 
+                        };
+                        saveRecentColors();
+                        renderQuickColorPalette();
+                        renderColorPalette();
+                        document.body.removeChild(colorInput);
+                    });
+                    
+                    colorInput.click();
                 };
                 
                 // Don't add delete button to quick palette
@@ -858,8 +892,8 @@
                 templateSwatch.className = 'shape-swatch stamp-swatch';
                 templateSwatch.title = template.name;
                 templateSwatch.style.position = 'relative';
-                // Always use solid blue background
-                templateSwatch.style.background = '#667eea';
+                // Transparent background with border
+                templateSwatch.style.background = 'transparent';
                 templateSwatch.style.display = 'flex';
                 templateSwatch.style.alignItems = 'center';
                 templateSwatch.style.justifyContent = 'center';
@@ -868,7 +902,7 @@
                 templateSwatch.style.minWidth = '80px';
                 templateSwatch.style.fontSize = '14px';
                 templateSwatch.style.fontWeight = '700';
-                templateSwatch.style.color = 'white';
+                templateSwatch.style.color = 'var(--text-primary)';
                 templateSwatch.style.padding = '12px';
                 templateSwatch.style.textAlign = 'center';
                 templateSwatch.style.overflow = 'hidden';
@@ -876,7 +910,6 @@
                 templateSwatch.style.borderRadius = '12px';
                 templateSwatch.style.textOverflow = 'ellipsis';
                 templateSwatch.style.lineHeight = '1.2';
-                templateSwatch.style.textShadow = '1px 1px 2px rgba(0,0,0,0.5)';
                 templateSwatch.textContent = template.name;
                 
                 // Add selected class if this is the current template
