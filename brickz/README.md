@@ -1,6 +1,6 @@
 # BRICKZ Simulator
 
-![BRICKZ Demo](aleph-brickz.png)
+![BRICKZ Demo](brickz-header.png)
 
 A modern, web-based LEGO DOTS-style brick simulator that lets you create pixel art designs with customizable colored bricks and shapes.
 
