@@ -510,11 +510,14 @@
                     </button>
                 </div>
                 <div class="flex flex-wrap gap-3">
+                    <button id="export-png-btn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-sm">
+                        Export PNG
+                    </button>
                     <button id="export-btn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-sm">
-                        Export
+                        Export JSON
                     </button>
                     <button id="import-btn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-sm">
-                        Import
+                        Import JSON
                     </button>
                 </div>
             </div>
@@ -1573,6 +1576,94 @@
                 console.log(`Filled ${filledCount} empty slots with ${currentColor.name}`);
                 saveState();
             }
+        });
+
+        // Export design as PNG
+        document.getElementById('export-png-btn').addEventListener('click', () => {
+            const brickSize = 32; // Fixed size for export
+            const gap = 1; // Gap between tiles
+            const exportCanvas = document.createElement('canvas');
+            exportCanvas.width = gridWidth * brickSize + (gridWidth - 1) * gap;
+            exportCanvas.height = gridHeight * brickSize + (gridHeight - 1) * gap;
+            const ctx = exportCanvas.getContext('2d');
+            
+            // Get baseplate color or use default
+            const computedStyle = getComputedStyle(document.documentElement);
+            const bgColor = baseplateColor || computedStyle.getPropertyValue('--bg-tertiary').trim();
+            
+            // Fill background with baseplate color
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, exportCanvas.width, exportCanvas.height);
+            
+            // Draw each brick
+            for (let i = 0; i < grid.length; i++) {
+                const cell = grid[i];
+                const row = Math.floor(i / gridWidth);
+                const col = i % gridWidth;
+                const x = col * (brickSize + gap);
+                const y = row * (brickSize + gap);
+                
+                if (cell.color && cell.shape) {
+                    ctx.fillStyle = cell.color.hex;
+                    
+                    // Draw brick with shape (rounded corners based on shape class)
+                    const shapeClass = cell.shape.class;
+                    ctx.beginPath();
+                    
+                    if (shapeClass === 'brick-circle') {
+                        // Draw circle
+                        ctx.arc(x + brickSize / 2, y + brickSize / 2, brickSize / 2, 0, Math.PI * 2);
+                    } else {
+                        // Determine corner radii based on shape
+                        let radii = [3, 3, 3, 3]; // [topLeft, topRight, bottomRight, bottomLeft]
+                        const fullRadius = brickSize * 0.5; // 50% for rounded corners
+                        
+                        if (shapeClass === 'brick-tl') radii = [fullRadius, 3, 3, 3];
+                        else if (shapeClass === 'brick-tr') radii = [3, fullRadius, 3, 3];
+                        else if (shapeClass === 'brick-br') radii = [3, 3, fullRadius, 3];
+                        else if (shapeClass === 'brick-bl') radii = [3, 3, 3, fullRadius];
+                        else if (shapeClass === 'brick-t') radii = [fullRadius, fullRadius, 3, 3];
+                        else if (shapeClass === 'brick-b') radii = [3, 3, fullRadius, fullRadius];
+                        else if (shapeClass === 'brick-l') radii = [fullRadius, 3, 3, fullRadius];
+                        else if (shapeClass === 'brick-r') radii = [3, fullRadius, fullRadius, 3];
+                        
+                        // Draw rounded rectangle
+                        ctx.moveTo(x + radii[0], y);
+                        ctx.lineTo(x + brickSize - radii[1], y);
+                        ctx.quadraticCurveTo(x + brickSize, y, x + brickSize, y + radii[1]);
+                        ctx.lineTo(x + brickSize, y + brickSize - radii[2]);
+                        ctx.quadraticCurveTo(x + brickSize, y + brickSize, x + brickSize - radii[2], y + brickSize);
+                        ctx.lineTo(x + radii[3], y + brickSize);
+                        ctx.quadraticCurveTo(x, y + brickSize, x, y + brickSize - radii[3]);
+                        ctx.lineTo(x, y + radii[0]);
+                        ctx.quadraticCurveTo(x, y, x + radii[0], y);
+                    }
+                    
+                    ctx.closePath();
+                    ctx.fill();
+                } else {
+                    // Draw empty brick with lighter color
+                    const emptyColor = window.emptyBrickColor || lightenColor(bgColor, 30);
+                    ctx.fillStyle = emptyColor;
+                    ctx.fillRect(x, y, brickSize, brickSize);
+                    
+                    // Draw border
+                    const borderColor = window.emptyBrickBorder || lightenColor(bgColor, 20);
+                    ctx.strokeStyle = borderColor;
+                    ctx.lineWidth = 1;
+                    ctx.strokeRect(x, y, brickSize, brickSize);
+                }
+            }
+            
+            // Convert to PNG and download
+            exportCanvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'brickz-design.png';
+                a.click();
+                URL.revokeObjectURL(url);
+            }, 'image/png');
         });
 
         // Export design
