@@ -25,7 +25,7 @@
         body.dark {
             --bg-primary: #0f172a;
             --bg-secondary: #1e293b;
-            --bg-tertiary: #334155;
+            --bg-tertiary: #1e293b;
             --border-primary: #334155;
             --border-secondary: #475569;
             --text-primary: #f1f5f9;
@@ -124,7 +124,7 @@
             background: var(--bg-secondary);
             padding: 24px;
             border-radius: 16px;
-            box-shadow: var(--shadow-sm);
+            /* box-shadow: var(--shadow-sm); */
             border: 1px solid var(--border-primary);
             transition: all 0.3s ease;
         }
@@ -327,9 +327,9 @@
         
         /* Menu Bar Styles */
         .menu-bar {
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
             border-bottom: 1px solid var(--border-primary);
-            box-shadow: var(--shadow-sm);
+            /* box-shadow: var(--shadow-sm); */
             position: sticky;
             top: 0;
             z-index: 50;
@@ -353,7 +353,7 @@
         
         .menu-bar button:hover,
         .menu-bar-btn:hover {
-            background: rgba(255, 255, 255, 1);
+            background: var(--border-primary);
             border-color: rgba(0, 0, 0, 0.25);
             transform: translateY(-1px);
         }
@@ -368,6 +368,21 @@
             }
         }
         
+        /* Footer edge-to-edge styles */
+        footer.edge-to-edge {
+            margin-left: -2rem;
+            margin-right: -2rem;
+            margin-bottom: -2rem;
+        }
+        
+        @media (min-width: 640px) {
+            footer.edge-to-edge {
+                margin-left: -1.5rem;
+                margin-right: -1.5rem;
+                margin-bottom: -1.5rem;
+            }
+        }
+        
         /* Mobile Responsive Styles */
         @media (max-width: 1280px) {
             .grid-cols-xl-2 {
@@ -378,6 +393,12 @@
         @media (max-width: 768px) {
             body {
                 padding: 16px;
+            }
+            
+            footer.edge-to-edge {
+                margin-left: -1rem;
+                margin-right: -1rem;
+                margin-bottom: -1rem;
             }
             
             h1 {
@@ -444,7 +465,7 @@
         <div class="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div class="flex items-center gap-4 flex-wrap">
                 <div class="flex items-center gap-2">
-                    <h1 class="text-xl font-bold text-primary">BRICKZ Simulator</h1>
+                    <h1 class="text-xl font-bold text-primary"></h1>
                 </div>
                 <div class="flex items-center gap-2">
                     <h2 class="text-sm font-bold text-primary whitespace-nowrap"></h2>
@@ -472,7 +493,7 @@
     </div>
 
     <!-- Menu Bar (moved to second position) -->
-    <div class="panel border-b border-t-0" style="border-radius: 0;">
+    <div class="border-t-0" style="border-radius: 0;">
         <div class="w-full max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div class="flex flex-wrap items-center gap-3 justify-between">
                 <div class="flex flex-wrap gap-3">
@@ -541,13 +562,15 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Color Palette -->
                 <div class="panel rounded-xl shadow-sm p-6">
-                    <h2 class="text-xl font-bold text-primary mb-4">Color Palette</h2>
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-bold text-primary">Color Palette</h2>
+                        <button id="add-color-btn" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1.5 rounded-lg font-semibold text-sm">
+                            Add Color
+                        </button>
+                    </div>
                     <div class="grid grid-cols-4 gap-3" id="color-palette">
                         <!-- Colors will be generated here -->
                     </div>
-                    <button id="add-color-btn" class="w-full mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm">
-                        Add Custom Color
-                            </button>
                 </div>
 
                 <!-- Stamp Inventory -->
@@ -555,6 +578,9 @@
                     <div class="flex items-center justify-between mb-4">
                         <h2 class="text-xl font-bold text-primary">Stamp Inventory</h2>
                         <div class="flex gap-2">
+                            <button id="clear-stamps-btn" class="text-primary hover:text-blue-500 px-2 py-1 rounded-lg text-sm transition-colors border border-gray-400">
+                                Clear
+                            </button>
                             <button id="import-shapes-btn" class="text-primary hover:text-blue-500 px-2 py-1 rounded-lg text-sm transition-colors border border-gray-400">
                                 Import
                             </button>
@@ -569,16 +595,16 @@
                     <div class="grid grid-cols-4 gap-3" id="shape-inventory">
                         <!-- Custom stamps will be generated here -->
                     </div>
-                    <div class="flex gap-2 mt-4">
-                        <button id="clear-stamps-btn" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm">
-                            Clear All Stamps
-                        </button>
-                    </div>
                 </div>
 
                 <!-- Grid Size -->
                 <div class="panel rounded-xl shadow-sm p-6">
-                    <h2 class="text-xl font-bold text-primary mb-4">Grid Size</h2>
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-bold text-primary">Grid Size</h2>
+                        <button id="apply-size-btn" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1.5 rounded-lg font-semibold text-sm">
+                            Apply Size
+                        </button>
+                    </div>
                     <div class="space-y-4">
                         <div>
                             <label class="block text-sm font-semibold mb-2 text-primary">Width: <span id="width-value">50</span></label>
@@ -588,62 +614,57 @@
                             <label class="block text-sm font-semibold mb-2 text-primary">Height: <span id="height-value">12</span></label>
                             <input type="range" id="height-slider" min="8" max="90" value="12" class="w-full">
                         </div>
-                        <button id="apply-size-btn" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold">
-                            Apply Size
-                        </button>
                     </div>
                 </div>
 
-            </div>
-        </div>
-
-        <!-- Footer Info -->
-        <div class="mt-8 panel rounded-xl shadow-sm p-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Keyboard Shortcuts -->
-                <div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Keyboard Shortcuts</h3>
-                    <div class="grid grid-cols-1 gap-2 text-sm text-secondary">
-                        <div><span class="font-semibold text-primary">1-9</span> - Select brick shape (Full, Circle, TL, TR, BR, BL, Top, Bottom, Left)</div>
-                        <div><span class="font-semibold text-primary">0</span> - Select Right shape</div>
-                        <div><span class="font-semibold text-primary">P</span> - Place mode</div>
-                        <div><span class="font-semibold text-primary">E</span> - Erase mode</div>
-                        <div><span class="font-semibold text-primary">C</span> - Clear canvas (with confirmation)</div>
-                        <div><span class="font-semibold text-primary">Ctrl+Z</span> - Undo</div>
-                        <div><span class="font-semibold text-primary">Ctrl+Y</span> - Redo</div>
-                        <div><span class="font-semibold text-primary">D</span> - Toggle dark mode</div>
-                    </div>
-                    <div class="mt-4 flex gap-2">
-                        <a href="https://github.com/amosjerbi/portfolio/blob/master/brickz/Hebrew_Font.zip" target="_blank" rel="noopener noreferrer" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm text-center">
-                            Download Hebrew Font
-                        </a>
-                        <a href="https://github.com/amosjerbi/portfolio/tree/master/brickz" target="_blank" rel="noopener noreferrer" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg font-semibold text-sm text-center">
-                            GitHub Project
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Stats -->
-                <div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Stats</h3>
-                    <div class="space-y-2 text-sm text-primary">
-                        <div class="flex justify-between">
-                            <span class="font-semibold">Total Bricks:</span>
-                            <span id="total-bricks">0</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="font-semibold">Placed:</span>
-                            <span id="placed-bricks" class="font-bold" style="color: #22c55e;">0</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="font-semibold">Empty:</span>
-                            <span id="empty-bricks" class="text-secondary">0</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="edge-to-edge" style="background: var(--bg-tertiary); padding: 48px 40px 32px; margin-top: 3rem;">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
+            <!-- Links -->
+            <div>
+                <h3 class="text-sm font-bold text-secondary uppercase tracking-wider mb-4">LINKS</h3>
+                <div class="space-y-3">
+                    <div><a href="https://github.com/amosjerbi/portfolio/blob/master/brickz/Hebrew_Font.zip" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Download brickz font</a></div>
+                    <div><a href="https://github.com/amosjerbi/portfolio/tree/master/brickz/Hebrew_Font/shapes" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Download font shapes</a></div>
+                    <div><a href="https://github.com/amosjerbi/portfolio/tree/master/brickz" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Github</a></div>
+                </div>
+            </div>
+            
+            <!-- Stats -->
+            <div>
+                <h3 class="text-sm font-bold text-secondary uppercase tracking-wider mb-4">STATS</h3>
+                <div class="space-y-3 text-secondary">
+                    <div>Total Bricks: <span id="total-bricks">0</span></div>
+                    <div>Placed: <span id="placed-bricks">0</span></div>
+                    <div>Empty: <span id="empty-bricks">0</span></div>
+                </div>
+            </div>
+            
+            <!-- Keyboard Shortcuts -->
+            <div>
+                <h3 class="text-sm font-bold text-secondary uppercase tracking-wider mb-4">KEYBOARD SHORTCUTS</h3>
+                <div class="space-y-3 text-secondary text-sm">
+                    <div><span class="font-semibold text-primary">1-9</span> - Select brick shape</div>
+                    <div><span class="font-semibold text-primary">0</span> - Select Right shape</div>
+                    <div><span class="font-semibold text-primary">P</span> - Place mode</div>
+                    <div><span class="font-semibold text-primary">E</span> - Erase mode</div>
+                    <div><span class="font-semibold text-primary">C</span> - Clear canvas (with confirmation)</div>
+                    <div><span class="font-semibold text-primary">Ctrl+Z</span> - Undo</div>
+                    <div><span class="font-semibold text-primary">Ctrl+Y</span> - Redo</div>
+                    <div><span class="font-semibold text-primary">D</span> - Toggle dark mode</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="mt-12 pt-6 text-secondary text-sm max-w-7xl mx-auto" style="border-top: 1px solid var(--border-primary);">
+            AMOS JERBI © 2026
+        </div>
+    </footer>
 
     <!-- Hidden file inputs for import -->
     <input type="file" id="file-input" accept=".json" style="display: none;">
