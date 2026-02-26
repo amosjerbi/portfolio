@@ -1,1 +1,10 @@
-ajerbi.com
+Type: CNAME
+Name: www
+Value: ajerbi.com
+
+Type: A
+Name: www
+Value: 185.199.108.153
+Value: 185.199.109.153
+Value: 185.199.110.153
+Value: 185.199.111.153
