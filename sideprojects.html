@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="description" content="passionate product designer with 10 years of experience in UI/UX">
+  <meta property="og:title" content="AmosJerbi" />
+  <meta property="og:type" content="portfolio" />
+  <meta property="og:url" content="https://ajerbi.com" />
+  <meta property="og:image"
+    content="https://raw.githubusercontent.com/amosjerbi/portfolio/master/assets/images/ogimage.png" />
+  <meta property="og:image" content="assets/images/ogimage.png">
+  <meta name="theme-color" content="#fff">
+  <meta name="msapplication-navbutton-color" content="#fff">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#fff">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Amos Jerbi</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <script src="https://kit.fontawesome.com/d8f0c855f9.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,600,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/gallery.css">
+  <link rel="stylesheet" href="assets/css/aos.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
+  <link rel="stylesheet" href="assets/font/socialfont.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core@6.0.0/dist/ionic/ionic.esm.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T22YJTJNH3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-T22YJTJNH3');
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      AOS.init();
+    });
+  </script>
+  <style>
+    main {
+      max-width: none;
+      padding: 0;
+    }
+
+    [data-sideproject-card] {
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    [data-sideproject-card]:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(18, 40, 76, 0.12);
+      border-color: #b8bec9;
+    }
+
+    @media (max-width: 768px) {
+      article[data-sideproject-item] {
+        flex-basis: min(100%, 420px) !important;
+        max-width: min(100%, 420px) !important;
+      }
+    }
+
+    [data-sideprojects-shell] {
+      display: grid;
+      grid-template-columns: minmax(240px, 28vw) minmax(0, 1fr);
+      align-items: start;
+      background: linear-gradient(to right, var(--nav_color) 0, var(--nav_color) 28vw, transparent 28vw, transparent 100%);
+    }
+
+    [data-sideprojects-header] {
+      min-height: calc(100vh - 86px);
+      padding: 56px 40px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    [data-sideprojects-header] h1,
+    [data-sideprojects-header] p {
+      color: var(--primary_dark);
+    }
+
+    [data-sideprojects-header] h1 {
+      text-align: left;
+      margin-bottom: 18px;
+    }
+
+    [data-sideprojects-header] p {
+      margin-bottom: 28px;
+    }
+
+    [data-sideprojects-header] .social {
+      justify-content: flex-start;
+      margin-left: 0;
+    }
+
+    [data-sideprojects-header] .contact-icon {
+      color: #000;
+    }
+
+    [data-sideprojects-header] .contact-icon:hover {
+      color: var(--primary_light);
+    }
+
+    [data-sideprojects-grid] {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 40px 32px;
+      padding: 56px 40px;
+      align-items: stretch;
+    }
+
+    [data-sideprojects-grid] article[data-sideproject-item] {
+      width: auto !important;
+      max-width: none !important;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        padding: 20px;
+      }
+
+      [data-sideprojects-shell] {
+        grid-template-columns: 1fr;
+        background: transparent;
+      }
+
+      [data-sideprojects-header] {
+        min-height: auto;
+        padding: 0;
+        background: transparent;
+      }
+
+      [data-sideprojects-header] h1,
+      [data-sideprojects-header] p,
+      [data-sideprojects-header] .contact-icon {
+        color: inherit;
+      }
+
+      [data-sideprojects-header] h1 {
+        text-align: center;
+      }
+
+      [data-sideprojects-grid] {
+        grid-template-columns: 1fr;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="container-nav">
+      <div class="novile" aria-label="menu" aria-expanded="false">
+        <div class="burger">
+          <div class="burger_line"></div>
+          <div class="burger_line"></div>
+          <div class="burger_line"></div>
+        </div>
+        <div class="global-nav">
+          <ul class="global-nav__list" style="--length: 13">
+            <div class="global-nav-items">
+              <li style="--index: 1;"><a href="bitboarding.html">Onboarding</a></li>
+              <li style="--index: 2;"><a href="biterminal.html">Terminal</a></li>
+              <li style="--index: 3;"><a href="bit_regulation.html">Regulation</a></li>
+              <li style="--index: 4;"><a href="bitcard.html">bitcard</a></li>
+              <li style="--index: 5;"><a href="gallery.html">Illustrations</a></li>
+              <li style="--index: 6;"><a href="sideprojects.html">Side Projects</a></li>
+            </div>
+            <li style="--index: 7; display: inline-flex;"><a href="https://www.youtube.com/amosjerbi" target="_blank"
+                class="novile-items"><ion-icon name="logo-youtube"></ion-icon></a></li>
+            <li style="--index: 8; display: inline-flex;"><a href="https://instagram.com/amosjerbi" target="_blank"
+                rel="noopener" class="novile-items"><ion-icon name="logo-instagram"></ion-icon></a></li>
+            <li style="--index: 9; display: inline-flex;"><a href="https://www.linkedin.com/in/amosjerbi/"
+                target="_blank" rel="noopener" class="novile-items"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+            <li class="nav_line_list" style="--index: 10;"></li>
+            <li class="contact_me" style="--index: 11;">
+              <h5><a href="tel:+972-507205884">+972-507-205-884</a></h5>
+            </li>
+            <li class="contact_me" style="--index: 12;">
+              <h5><a href="mailto:amosjerbi@gmail.com?subject=Hey Amos, let's meet up!">amosjerbi@gmail.com</a></h5>
+            </li>
+            <br>
+            <li>
+              <input type="checkbox" id="switch" name="theme">
+              <label for="switch">
+                <h4>Dark Theme</h4>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="brand">
+        <a href="index.html"><img src="assets/images/amoslogo.svg" alt="logo"></a>
+      </div>
+      <ul class="menu-end">
+        <li>
+          <div class="dropdown is-hoverable">
+            <div class="dropdown-trigger">
+              <button class="menu-item" aria-haspopup="true" aria-controls="dropdown-menu3"> bit <span
+                  class="icon2 is-small">
+                  <ion-icon name="chevron-down-outline"></ion-icon>
+                </span> </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+              <div class="dropdown-content">
+                <a href="bitboarding.html" class="dropdown-item" target="_blank">Onboarding</a>
+                <a href="biterminal.html" class="dropdown-item" target="_blank">Terminal</a>
+                <a href="bit_regulation.html" class="dropdown-item" target="_blank">regulation</a>
+                <a href="bitcard.html" class="dropdown-item" target="_blank">bitcard</a>
+                <hr class="dropdown-divider">
+                <a href="https://bitpay.co.il/" class="dropdown-item" target="_blank">bit Website</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li><a href="design_kit.html" class="menu-item">design_kit</a></li>
+        <li><a href="gallery.html" class="menu-item">Illustrations</a></li>
+        <li><a href="sideprojects.html" class="menu-item">Side Projects</a></li>
+        <li><a href="#about-me-modal" rel="noopener" class="button_prime">About</a></li>
+      </ul>
+      <div class="navbutton"><a href="#about-me-modal" rel="noopener" class="button_prime">About</a></div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section" style="padding: 0;">
+      <div data-sideprojects-shell>
+          <div data-sideprojects-header>
+            <div class="header" style="padding: 0; text-align: left; width: 100%;">
+              <h1 class="is-uppercase" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1200"
+                data-aos-easing="ease-out-quart"><strong>Side Projects</strong></h1>
+              <p data-aos="fade-up" data-aos-delay="1000" data-aos-duration="800" data-aos-easing="ease-out-quart">Playful
+                builds, web experiments, and open source work outside of client projects.</p>
+              <div class="social" style="justify-content: flex-start; text-align: left; padding: 1rem 1rem 1rem 0rem;">
+                <a href="https://www.linkedin.com/in/amosjerbi/" target="_blank" rel="noopener" class="contact-icon"
+                  data-aos="fade-up" data-aos-delay="1700" data-aos-duration="500" data-aos-easing="ease-out-sine"><ion-icon
+                    name="logo-linkedin"></ion-icon></a>
+                <a href="https://instagram.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon"
+                  data-aos="fade-up" data-aos-delay="1900" data-aos-duration="500" data-aos-easing="ease-out-sine"><ion-icon
+                    name="logo-instagram"></ion-icon></a>
+                <a href="https://github.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon"
+                  data-aos="fade-up" data-aos-delay="2100" data-aos-duration="500" data-aos-easing="ease-out-sine"><ion-icon
+                    name="logo-github"></ion-icon></a>
+                <a href="https://www.youtube.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon"
+                  data-aos="fade-up" data-aos-delay="2300" data-aos-duration="500" data-aos-easing="ease-out-sine"><ion-icon
+                    name="logo-youtube"></ion-icon></a>
+              </div>
+            </div>
+          </div>
+
+          <div data-sideprojects-grid>
+          <article data-sideproject-item style="flex: 0 1 320px; width: 100%; max-width: 320px;">
+            <div data-sideproject-card
+              style="background: #fff; border: 1px solid var(--two_color); border-radius: 16px; overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+              <img src="assets/sideprojects/brickz.png" alt="Brickz preview"
+                style="display: block; width: 100%; height: 220px; object-fit: cover;">
+              <div style="padding: 22px; display: flex; flex-direction: column; flex: 1;">
+                <h4 class="is-bold" style="margin-bottom: 10px;">Brickz</h4>
+                <p style="margin-bottom: 18px; flex: 1;">Inspired by LEGO DOTS this simulator allows you to draw
+                  anything, even letters.</p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto;">
+                  <a href="https://github.com/amosjerbi/brickz" target="_blank" rel="noopener"
+                    class="button_prime">GitHub</a>
+                  <a href="https://brickz.ajerbi.com/" target="_blank" rel="noopener" class="button_second">Demo</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article data-sideproject-item style="flex: 0 1 320px; width: 100%; max-width: 320px;">
+            <div data-sideproject-card
+              style="background: #fff; border: 1px solid var(--two_color); border-radius: 16px; overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+              <img src="assets/sideprojects/svg.png" alt="SVG preview"
+                style="display: block; width: 100%; height: 220px; object-fit: cover;">
+              <div style="padding: 22px; display: flex; flex-direction: column; flex: 1;">
+                <h4 class="is-bold" style="margin-bottom: 10px;">Lottie to SVG Animation</h4>
+                <p style="margin-bottom: 18px; flex: 1;">Play Lottie animations and convert them to SVG animation with an ease.</p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto;">
+                  <a href="https://github.com/amosjerbi/svg" target="_blank" rel="noopener"
+                    class="button_prime">GitHub</a>
+                  <a href="https://svg.ajerbi.com/" target="_blank" rel="noopener" class="button_second">Demo</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article data-sideproject-item style="flex: 0 1 320px; width: 100%; max-width: 320px;">
+            <div data-sideproject-card
+              style="background: #fff; border: 1px solid var(--two_color); border-radius: 16px; overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+              <img src="assets/sideprojects/tracer.png" alt="Tracer preview"
+                style="display: block; width: 100%; height: 220px; object-fit: cover;">
+              <div style="padding: 22px; display: flex; flex-direction: column; flex: 1;">
+                <h4 class="is-bold" style="margin-bottom: 10px;">Tracer</h4>
+                <p style="margin-bottom: 18px; flex: 1;">Ever wanted a lineart in vector? No prob, just drop & get an SVG.</p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto;">
+                  <a href="https://github.com/amosjerbi/tracer" target="_blank" rel="noopener"
+                    class="button_prime">GitHub</a>
+                  <a href="https://tracer.ajerbi.com/" target="_blank" rel="noopener" class="button_second">Demo</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article data-sideproject-item style="flex: 0 1 320px; width: 100%; max-width: 320px;">
+            <div data-sideproject-card
+              style="background: #fff; border: 1px solid var(--two_color); border-radius: 16px; overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+              <img src="assets/sideprojects/wiggly.png" alt="Wiggly preview"
+                style="display: block; width: 100%; height: 220px; object-fit: cover;">
+              <div style="padding: 22px; display: flex; flex-direction: column; flex: 1;">
+                <h4 class="is-bold" style="margin-bottom: 10px;">Wiggly</h4>
+                <p style="margin-bottom: 18px; flex: 1;">An illustration tool that was adapted to an iPad.</p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto;">
+                  <a href="https://github.com/amosjerbi/wiggly" target="_blank" rel="noopener"
+                    class="button_prime">GitHub</a>
+                  <a href="https://wiggly.ajerbi.com/" target="_blank" rel="noopener" class="button_second">Demo</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article data-sideproject-item style="flex: 0 1 320px; width: 100%; max-width: 320px;">
+            <div data-sideproject-card
+              style="background: #fff; border: 1px solid var(--two_color); border-radius: 16px; overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+              <img src="assets/sideprojects/wayve.png" alt="Wayve preview"
+                style="display: block; width: 100%; height: 220px; object-fit: cover;">
+              <div style="padding: 22px; display: flex; flex-direction: column; flex: 1;">
+                <h4 class="is-bold" style="margin-bottom: 10px;">Wayve</h4>
+                <p style="margin-bottom: 18px; flex: 1;">An app that uses Shazam to export the playlists to Spotify.</p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto;">
+                  <a href="https://github.com/amosjerbi/wayve" target="_blank" rel="noopener"
+                    class="button_prime">GitHub</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article data-sideproject-item style="flex: 0 1 320px; width: 100%; max-width: 320px;">
+            <div data-sideproject-card
+              style="background: #fff; border: 1px solid var(--two_color); border-radius: 16px; overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+              <img src="assets/sideprojects/romnix.png" alt="Romnix preview"
+                style="display: block; width: 100%; height: 220px; object-fit: cover;">
+              <div style="padding: 22px; display: flex; flex-direction: column; flex: 1;">
+                <h4 class="is-bold" style="margin-bottom: 10px;">Romnix</h4>
+                <p style="margin-bottom: 18px; flex: 1;">An app that transfer files between retro devices.</p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto;">
+                  <a href="https://github.com/amosjerbi/romnix" target="_blank" rel="noopener"
+                    class="button_prime">GitHub</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article data-sideproject-item style="flex: 0 1 320px; width: 100%; max-width: 320px;">
+            <div data-sideproject-card
+              style="background: #fff; border: 1px solid var(--two_color); border-radius: 16px; overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+              <img src="assets/sideprojects/capture.png" alt="Capture preview"
+                style="display: block; width: 100%; height: 220px; object-fit: cover;">
+              <div style="padding: 22px; display: flex; flex-direction: column; flex: 1;">
+                <h4 class="is-bold" style="margin-bottom: 10px;">Capture</h4>
+                <p style="margin-bottom: 18px; flex: 1;">An app for Rocknix to capture screen in Aniamted PNG.</p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto;">
+                  <a href="https://github.com/amosjerbi/capture" target="_blank" rel="noopener"
+                    class="button_prime">GitHub</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article data-sideproject-item style="flex: 0 1 320px; width: 100%; max-width: 320px;">
+            <div data-sideproject-card
+              style="background: #fff; border: 1px solid var(--two_color); border-radius: 16px; overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+              <img src="assets/sideprojects/fetcher.png" alt="Fetcher preview"
+                style="display: block; width: 100%; height: 220px; object-fit: cover;">
+              <div style="padding: 22px; display: flex; flex-direction: column; flex: 1;">
+                <h4 class="is-bold" style="margin-bottom: 10px;">Fetcher</h4>
+                <p style="margin-bottom: 18px; flex: 1;">An app for Rocknix to capture files from web.</p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto;">
+                  <a href="https://github.com/amosjerbi/fetcher" target="_blank" rel="noopener"
+                    class="button_prime">GitHub</a>
+                </div>
+              </div>
+            </div>
+          </article>
+          </div>
+        </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="section has-background-denim">
+    <section>
+      <div class="section">
+        <div class="container">
+          <div class="footer_grid">
+            <div class="footer_links_col1">
+              <div class="footer_logo"><img src="assets/images/amoslogo.svg" alt="logo"></div>
+              <h6> 2026 Amos Jerbi. All rights reserved.</h6>
+            </div>
+            <div class="footer_links_col2">
+              <h5>Bio; TLDR</h5>
+              <p>a passionate product designer with 10 years of experience love tech & embrace new challenges whenever
+                they come</p>
+              <br>
+            </div>
+            <div class="footer_links_col3">
+              <h5>Freebies</h5>
+              <ul>
+                <li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/Amosjerbi_CV.zip"
+                    class="menu-item">Download CV</a></li>
+                <li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/carmelit.zip"
+                    class="menu-item">Carmelit Font</a></li>
+                <li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/noot.zip"
+                    class="menu-item">Noot Font</a></li>
+                <li><a href="https://github.com/amosjerbi/me/raw/master/assets/downloads/ptil.zip"
+                    class="menu-item">Ptil Font</a></li>
+              </ul>
+            </div>
+            <div class="footer_links_col4">
+              <h5>Let's Talk</h5>
+              <div class="footer_social">
+                <a href="https://www.linkedin.com/in/amosjerbi/" target="_blank" rel="noopener" class="contact-icon">
+                  <div class="fa-fa-linkedin"></div>
+                </a>
+                <a href="https://instagram.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon">
+                  <div class="fa-fa-instagram"></div>
+                </a>
+                <a href="https://www.youtube.com/amosjerbi" target="_blank" rel="noopener" class="contact-icon">
+                  <div class="fa-fa-youtube"></div>
+                </a>
+                <a href="tel:+972-507205884" target="_blank" rel="noopener" class="contact-icon">
+                  <div class="fa-phone"></div>
+                </a>
+                <a href="mailto:amosjerbi@gmail.com?subject=Hey Amos, let's meet up!" target="_blank" rel="noopener"
+                  class="contact-icon">
+                  <div class="fa-fa-mail"></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+
+  <div class="modal-container" id="about-me-modal">
+    <div class="modal">
+      <a href="#" class="modal__close demo-close">
+        <svg class="" viewBox="0 0 24 24">
+          <path d="M6.41900105,6.41900105 L17.5809989,17.5809989 M6.41900105,17.5809989 L17.5809989,6.41900105"
+            stroke="#fff" stroke-width="3.60000014" stroke-linecap="round"></path>
+        </svg>
+      </a>
+      <div class="is-center2">
+        <h2>Product Designer</h2>
+        <h5>BASED IN TEL AVIV</h5>
+        <br>
+        <br>
+        <p>Hi, I'm Amos a father of two lovely children, passionate towards tech & embrace new challenges whenever they
+          come.</p>
+        <br>
+        <p>I also have a <a href="https://www.youtube.com/amosjerbi" class="buttonborder">Youtube channel.</a></p>
+        <br>
+        <br> <img src="assets/images/about_dialog.png" class="modal-img">
+      </div>
+    </div>
+    <a href="#" class="modal-bg"></a>
+  </div>
+
+  <script src="assets/css/analytics.js"></script>
+  <script src="assets/css/toggle.js"></script>
+  <script src="assets/css/glide.js"></script>
+  <script src="assets/css/aos.js"></script>
+  <script src="assets/css/main.js"></script>
+</body>
+
+</html>
